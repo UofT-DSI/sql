@@ -1,0 +1,41 @@
+---
+title: |
+  ![](imgs/mrpotatocode_banner.png){width=7in}  
+subtitle: "Introduction to Data Access and Storage"
+author: "Thomas Rosenthal - DSI @ UofT" 
+date: "Module 03"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      seal: false
+---
+
+class: middle, center, inverse
+# Essnetial Techniques:
+
+## Temporary Tables & CTEs
+
+## Windowed Functions
+
+### OVER
+
+### PARTITION BY
+
+### RANK
+
+### NTILE
+
+## Datetime Functions
+---
+
+class: middle, center, inverse
+(blank)
+
+---
+
+
+class: middle, center, inverse
+_Lingering Questions?_

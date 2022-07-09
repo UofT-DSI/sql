@@ -1,0 +1,36 @@
+---
+title: |
+  ![](imgs/mrpotatocode_banner.png){width=7in}  
+subtitle: "Introduction to Data Access and Storage"
+author: "Thomas Rosenthal - DSI @ UofT" 
+date: "Module 06"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      seal: false
+---
+
+class: middle, center, inverse
+# Beyond SQL:
+
+## Broader Data Landscape
+
+## Ethics
+
+## Professional Practice
+
+## Connect python and/or R
+
+---
+
+class: middle, center, inverse
+(blank)
+
+---
+
+
+class: middle, center, inverse
+_Lingering Questions?_

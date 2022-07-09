@@ -1,0 +1,40 @@
+---
+title: |
+  ![](imgs/mrpotatocode_banner.png){width=7in}  
+subtitle: "Introduction to Data Access and Storage"
+author: "Thomas Rosenthal - DSI @ UofT" 
+date: "Module 04"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      seal: false
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: middle, center, inverse
+(blank)
+
+---
+
+
+class: middle, center, inverse
+_Lingering Questions?_
