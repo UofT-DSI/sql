@@ -37,7 +37,7 @@ Day 3: Temporary Tables, CTEs, OVER, RANK, NTILE
 
 Day 4: UNION, INSERT, Datetime Functions
 
-Day 5: Normal Forms, CSVs, JSON
+Day 5: Normal Forms, CSVs, JSON, SQL in the wild, SQL in R & python
 
 Day 6: Broader Data Landscape, Ethics
 
