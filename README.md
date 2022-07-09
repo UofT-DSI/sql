@@ -33,13 +33,13 @@ Day 1: Introduction, SELECT, FROM, and WHERE
 
 Day 2: JOINs, Aggregation Functions, CASE WHEN
 
-Day 3: Temporary Tables, CTEs, OVER, RANK, NTILE
+Day 3: Temporary Tables, CTEs, OVER, PARTITION BY, RANK, NTILE, Datetime Functions
 
-Day 4: UNION, INSERT, Datetime Functions
+Day 4: String Manipulation, ROLLUP, UNION, INSERT, UPDATE, DELETE, CROSS & Self Joins
 
-Day 5: Normal Forms, CSVs, JSON, SQL in the wild, SQL in R & python
+Day 5: Normal Forms, CSVs, JSON, Views
 
-Day 6: Broader Data Landscape, Ethics
+Day 6: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
