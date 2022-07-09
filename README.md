@@ -46,7 +46,7 @@ Below are the folders contained in this repo with a description of what they con
 
 ### 1. *Slides*:
 
-### 2. *SQL Files*:
+### 2. *SQL*:
 
 ### 3. *Data*:
 
@@ -56,5 +56,5 @@ __maybe?__
 ### 5. *Assessment*:
 __maybe?__
 
-### 6. *Exist Surveys*:
+### 6. *Exit*:
 This folder contains the exit surveys for students to complete.
