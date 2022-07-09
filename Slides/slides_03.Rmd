@@ -14,7 +14,7 @@ output:
 ---
 
 class: middle, center, inverse
-# Essnetial Techniques:
+# Essential Techniques:
 
 ## Temporary Tables & CTEs
 
