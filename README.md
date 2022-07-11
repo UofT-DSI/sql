@@ -11,11 +11,11 @@
 8. [Folder Structure](https://github.com/mrpotatocode/DSI_SQL#folder-structure)
 9. [Acknowledgements](https://github.com/mrpotatocode/DSI_SQL#acknowledgements)
 
-## Course Contacts:
-- Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
-
-## Description:
+## Description
 This circuluum was created for the University of Toronto's Data Science Institute. 
+
+## Course Contacts
+- Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
@@ -28,12 +28,12 @@ This circuluum was created for the University of Toronto's Data Science Institut
 The workshop will be held over two weeks, three days a week. Two of the three days will be 2-hours long and the last day will be 3-hours. Being mindful of online fatigue, there will be one break during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.
 
 ## Expectations
-The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](link to book), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
+The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ## Policies
 TBD
 
-## Schedule (subject to change)
+## Schedule
 Day 1: Introduction, SELECT, FROM, and WHERE
 
 Day 2: JOINs, Aggregation Functions, CASE WHEN
