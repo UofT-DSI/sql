@@ -2,12 +2,17 @@
 
 ## Contents:
 1. [Description](https://github.com/mrpotatocode/DSI_SQL#description)
-2. [Learning Outcomes](https://github.com/mrpotatocode/DSI_SQL#learning-outcomes)
-3. [Design](https://github.com/mrpotatocode/DSI_SQL#design)
-4. [Expectations](https://github.com/mrpotatocode/DSI_SQL#expectations)
-5. [Policies](https://github.com/mrpotatocode/DSI_SQL#policies)
-6. [Schedule](https://github.com/mrpotatocode/DSI_SQL#schedule)
-7. [Folder Structure](https://github.com/mrpotatocode/DSI_SQL#folder-structure)
+2. [Course Contacts](http://github.com/mrpotatocode/DSI_SQL#course-contacts)
+3. [Learning Outcomes](https://github.com/mrpotatocode/DSI_SQL#learning-outcomes)
+4. [Design](https://github.com/mrpotatocode/DSI_SQL#design)
+5. [Expectations](https://github.com/mrpotatocode/DSI_SQL#expectations)
+6. [Policies](https://github.com/mrpotatocode/DSI_SQL#policies)
+7. [Schedule](https://github.com/mrpotatocode/DSI_SQL#schedule)
+8. [Folder Structure](https://github.com/mrpotatocode/DSI_SQL#folder-structure)
+9. [Acknowledgements](https://github.com/mrpotatocode/DSI_SQL#acknowledgements
+
+## Course Contacts:
+- Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
 
 ## Description:
 This circuluum was created for the University of Toronto's Data Science Institute. 
@@ -58,3 +63,7 @@ __maybe?__
 
 ### 6. *Exit*:
 This folder contains the exit surveys for students to complete.
+
+## Acknowledgements
+
+Slides were originally developed by [Faria Khandaker](fariak.ca) and [Paul Hodgetts](hodgettsp.com) under the supervision of [Rohan Alexander](rohanalexander.com). Great suggestions were made by [A](github.com/amfz) as always. Slides have been modified by me for 2022.
