@@ -9,7 +9,7 @@
 6. [Policies](https://github.com/mrpotatocode/DSI_SQL#policies)
 7. [Schedule](https://github.com/mrpotatocode/DSI_SQL#schedule)
 8. [Folder Structure](https://github.com/mrpotatocode/DSI_SQL#folder-structure)
-9. [Acknowledgements](https://github.com/mrpotatocode/DSI_SQL#acknowledgements
+9. [Acknowledgements](https://github.com/mrpotatocode/DSI_SQL#acknowledgements)
 
 ## Course Contacts:
 - Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
