@@ -2,7 +2,7 @@
 
 ## Contents:
 1. [Description](https://github.com/mrpotatocode/DSI_SQL#description)
-2. [Course Contacts](http://github.com/mrpotatocode/DSI_SQL#course-contacts)
+2. [Course Contacts](https://github.com/mrpotatocode/DSI_SQL#course-contacts)
 3. [Learning Outcomes](https://github.com/mrpotatocode/DSI_SQL#learning-outcomes)
 4. [Design](https://github.com/mrpotatocode/DSI_SQL#design)
 5. [Expectations](https://github.com/mrpotatocode/DSI_SQL#expectations)
