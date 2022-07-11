@@ -66,4 +66,4 @@ This folder contains the exit surveys for students to complete.
 
 ## Acknowledgements
 
-Slides were originally developed by [Faria Khandaker](fariak.ca) and [Paul Hodgetts](hodgettsp.com) under the supervision of [Rohan Alexander](rohanalexander.com). Great suggestions were made by [A](github.com/amfz) as always. Slides have been modified by me for 2022.
+Slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts]((https://hodgettsp.com) under the supervision of [Rohan Alexander]((https://rohanalexander.com). Great suggestions were made by [A]((https://github.com/amfz) as always. Slides have been modified by me for 2022.
