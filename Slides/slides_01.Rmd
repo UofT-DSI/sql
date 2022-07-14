@@ -6,30 +6,358 @@ author: "Thomas Rosenthal - DSI @ UofT"
 date: "Module 01"
 output:
   xaringan::moon_reader:
+    #css: xaringan-themer.css
     lib_dir: libs
     nature:
-      highlightStyle: github
+      highlightStyle: style_solarized_light
+      highlightLines: true
       countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+      ratio: "16:9"
       seal: false
+editor_options: 
+  chunk_output_type: consolex
+---
+
+```{r xaringan-themer, warning=FALSE, include=FALSE}
+library(xaringanthemer)
+style_solarized_light(
+  inverse_background_color = "#2C2D26",
+  background_color = "#d3d2d9"
+)
+library(showtext)
+```
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## Introduction
+
+## First Three Commands
+
 ---
 
 class: middle, center, inverse
 # Getting Started:
 
+## **Welcome**
+
 ## Introduction
+
+## First Three Commands
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## Course Content
+
+## Quick Technical Check
+
+---
+class: middle, center, inverse
+# Welcome
+
+## **About Me**
+
+## Course Content
+
+## Quick Technical Check
+
+---
+class: left, top, inverse
+# About Me
+.pull-left[
+- Fell into SQL in my first job out of undergraduate in 2013
+- Worked as a Data Analyst in US Healthcare until emigrated to Canada in 2018
+  - Challenging data
+  - Easy to see impact of good queries
+  - I was pretty naive about data, probably lucky I didn't break anything `r structure("\U1F937", class = "emoji")`
+- Worked as a Data Engineer as Plan Canada managing a CRM Data Warehouse backend
+- Went back to UofT to do my Master of Information
+  - Wanted to do less SQL, more R and python
+  - SQL seemed like it was on its way out...NOPE, I was just wrong
+- Currently doing Data Ethics implementation at Thomson Reuters
+- My dog's name is Alto, and she's pretty wonderful
+]
+
+.pull-right[
+![](imgs/professor_alto.png)
+]
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## **Course Content**
+
+## Quick Technical Check
+
+---
+
+class: left, top, inverse
+# Course Content
+
+- Data Modelling
+- Basic SQL Syntax
+- Advanced SQL Syntax
+- Data Structures, Forms, and Basic Data Management
+- Importing and Exporting Data to and from SQL
+- Data Stewardship, Ethics, and SQL in the Wild
+
+(image or more)
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## Course Content
+
+## **Quick Technical Check**
+
+---
+
+class: left, top, inverse
+# Quick Technical Check
+
+(a slide where we make sure everyone has SQLite installed)
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## **Introduction**
+
+## First Three Commands
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## Flavours
+
+## Data Modelling
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## **SQL**
+
+## Flavours
+
+## Data Modelling
+
+---
+
+class: top, left, inverse
+# SQL
+
+### What is SQL?
+
+- SQL: Structured Query Language.
+  - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”.
+- SQL is a _query_ language rather than a programming language
+  - Code is often less reproducible than programming languages because it's domain specific
+  - Querying 
+- Designed to manage data within Relational Database Management Systems (RDBMs), e.g.
+  - MSSQL
+  - Oracle DB
+  - MySQL/MariaDB
+  - PostgreSQL
+
+---
+
+class: top, left, inverse
+# SQL
+
+### SQL Formatting
+
+- Like other programming/query languages, SQL has reserved keywords/commands to perform instructional operations 
+  - Generally, these keywords are written in all caps: `SELECT`
+  - Most modern interpreters no longer require this, but it is the expected standard
+- Similarly, all statements/queries should be ended with a semicolon
+  - A few SQL constructs (like common table expressions, we'll get to these later) require them, otherwise they are optional but considered best practice (I'll almost certainly forget to use them)
+- In SQL, white space does not matter 
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## **Flavours**
+
+## Data Modelling
+
+---
+
+class: top, left, inverse
+# Flavours
+-  RDBMSs differ from one to the next
+  -
+
+
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## Flavours
+
+## **Data Modelling**
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### What are  Relational Database Management Systems?
+-  Relational Database Management Systems (RDBMs) are software designed to:
+  - Store large amounts of data
+  - Utilize a query language to allow easy retrieval to the data
+  - Allow multiple users to access the data simultaneously
+  - Manage permissions for data access
+  - Mitigate data corruption and unauthorized access
+  
+- Generally, data is stored in a _database_
+  - a database is a collection of information
+  - within a database, a collection of objects (e.g. tabluar data "tables") is stored
+
+- RDBMs software allows its users to define interactions between these objects, such as:
+  - Establishing the relationship between objects 
+  - Define procedural scripts to query specific data or trigger an action
+  - Schedule routine work (e.g. procedures to run, maintenance, etc) 
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### What is a Data Model?
+- A data model is a notation for describing data or information. 
+
+- Data models consist of:
+  - Structure of the data
+  - Operations that can be done on the data
+  - Constraints on the data.
+
+- There are 3 types of data models:
+  - Conceptual, high level data models such as Entity Relationship Diagrams (ERDs)
+  - Relational data models, often in a tabular format  
+  - Semi-structured data models such as XML (we won't cover this one)
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## Introduction
+
+## **First Three Commands**
+
+---
+
+class: middle, center, inverse
+# First Three Commands
 
 ## SELECT
 
 ## FROM
 
 ## WHERE
+
 ---
 
 class: middle, center, inverse
-(blank)
+# First Three Commands
+
+## **SELECT**
+
+## FROM
+
+## WHERE
 
 ---
 
+class: top, left, inverse
+# SELECT
+
+---
+
+class: top, left, inverse
+# SELECT
+
+(SELECT live coding)
+---
+
+class: middle, center, inverse
+# First Three Commands
+
+## SELECT
+
+## **FROM**
+
+## WHERE
+
+---
+
+class: top, left, inverse
+# FROM
+
+---
+
+class: top, left, inverse
+# FROM
+
+(FROM live coding)
+---
+
+class: middle, center, inverse
+# First Three Commands
+
+## SELECT
+
+## FROM
+
+## **WHERE**
+
+---
+class: top, left, inverse
+# WHERE
+
+---
+
+class: top, left, inverse
+# WHERE
+
+(WHERE live coding)
+---
 
 class: middle, center, inverse
 _Lingering Questions?_
+

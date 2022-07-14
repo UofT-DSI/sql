@@ -18,7 +18,7 @@ class: middle, center, inverse
 
 ## JOINs
 
-## Aggregation Functions:
+## Aggregation Functions
 
 ### COUNT
 
@@ -31,10 +31,132 @@ class: middle, center, inverse
 ---
 
 class: middle, center, inverse
-(blank)
+# Building Queries:
+
+## **JOINs**
+
+## Aggregation Functions
+
+### COUNT
+
+### SUM
+
+### Arithmetic
+
+## CASE WHEN
+
 
 ---
 
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: middle, center, inverse
+# JOINs
+
+## **INNER JOINs**
+
+## LEFT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# INNER JOINs
+
+---
+
+class: top, left, inverse
+# INNER JOINs
+
+(INNER JOIN live coding)
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## **LEFT (OUTER) JOINs**
+
+## FULL OUTER JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOINs
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOINs
+
+(LEFT JOIN live coding)
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## **FULL OUTER JOINs**
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# FULL OUTER JOINs
+
+---
+
+class: top, left, inverse
+# FULL OUTER JOINs
+
+(FULL OUTER JOIN live coding)
+
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## **Multiple Table JOINs**
+
+---
+
+class: top, left, inverse
+# Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# Multiple Table JOINs
+
+(Multiple Table JOINs live coding)
+---
 
 class: middle, center, inverse
 _Lingering Questions?_

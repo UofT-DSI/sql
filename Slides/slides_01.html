@@ -20,32 +20,312 @@ class: center, middle, inverse, title-slide
 ---
 
 
+
+
 class: middle, center, inverse
 # Getting Started:
 
+## Welcome
+
 ## Introduction
+
+## First Three Commands
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## **Welcome**
+
+## Introduction
+
+## First Three Commands
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## Course Content
+
+## Quick Technical Check
+
+---
+class: middle, center, inverse
+# Welcome
+
+## **About Me**
+
+## Course Content
+
+## Quick Technical Check
+
+---
+class: left, top, inverse
+# About Me
+.pull-left[
+- Fell into SQL in my first job out of undergraduate in 2013
+- Worked as a Data Analyst in US Healthcare until emigrated to Canada in 2018
+  - Challenging data
+  - Easy to see impact of good queries
+  - I was pretty naive about data, probably lucky I didn't break anything 🤷
+- Worked as a Data Engineer as Plan Canada managing a CRM Data Warehouse backend
+- Went back to UofT to do my Master of Information
+  - Wanted to do less SQL, more R and python
+  - SQL seemed like it was on its way out...NOPE, I was just wrong
+- Currently doing Data Ethics implementation at Thomson Reuters
+- My dog's name is Alto, and she's pretty wonderful
+]
+
+.pull-right[
+![](imgs/professor_alto.png)
+]
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## **Course Content**
+
+## Quick Technical Check
+
+---
+
+class: left, top, inverse
+# Course Content
+
+- Data Modelling
+- Basic SQL Syntax
+- Advanced SQL Syntax
+- Data Structures, Forms, and Basic Data Management
+- Importing and Exporting Data to and from SQL
+- Data Stewardship, Ethics, and SQL in the Wild
+
+(image or more)
+
+---
+
+class: middle, center, inverse
+# Welcome
+
+## About Me
+
+## Course Content
+
+## **Quick Technical Check**
+
+---
+
+class: left, top, inverse
+# Quick Technical Check
+
+(a slide where we make sure everyone has SQLite installed)
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## **Introduction**
+
+## First Three Commands
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## Flavours
+
+## Data Modelling
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## **SQL**
+
+## Flavours
+
+## Data Modelling
+
+---
+
+class: top, left, inverse
+# SQL
+
+### What is SQL?
+
+- SQL: Structured Query Language.
+  - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”.
+- SQL is a _query_ language rather than a programming language
+  - Code is often less reproducible than programming languages because it's domain specific
+  - Querying 
+- Designed to manage data within Relational Database Management Systems (RDBMs), e.g.
+  - MSSQL
+  - Oracle DB
+  - MySQL/MariaDB
+  - PostgreSQL
+
+---
+
+class: top, left, inverse
+# SQL
+
+### SQL Formatting
+
+- Like other programming/query languages, SQL has reserved keywords/commands to perform instructional operations 
+  - Generally, these keywords are written in all caps: `SELECT`
+  - Most modern interpreters no longer require this, but it is the expected standard
+- Similarly, all statements/queries should be ended with a semicolon
+  - A few SQL constructs (like common table expressions, we'll get to these later) require them, otherwise they are optional but considered best practice (I'll almost certainly forget to use them)
+- In SQL, white space does not matter 
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## **Flavours**
+
+## Data Modelling
+
+---
+
+class: top, left, inverse
+# Flavours
+-  RDBMSs differ from one to the next
+  -
+
+
+
+---
+
+class: middle, center, inverse
+# Introduction
+
+## SQL
+
+## Flavours
+
+## **Data Modelling**
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### What are  Relational Database Management Systems?
+-  Relational Database Management Systems (RDBMs) are software designed to:
+  - Store large amounts of data
+  - Utilize a query language to allow easy retrieval to the data
+  - Allow multiple users to access the data simultaneously
+  - Manage permissions for data access
+  - Mitigate data corruption and unauthorized access
+
+- Generally, data is stored in a __database__
+  - a database is a collection of information
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## Introduction
+
+## **First Three Commands**
+
+---
+
+class: middle, center, inverse
+# First Three Commands
 
 ## SELECT
 
 ## FROM
 
 ## WHERE
+
 ---
 
 class: middle, center, inverse
-(blank)
+# First Three Commands
+
+## **SELECT**
+
+## FROM
+
+## WHERE
 
 ---
 
+class: top, left, inverse
+# SELECT
+
+---
+
+class: middle, center, inverse
+# First Three Commands
+
+## SELECT
+
+## **FROM**
+
+## WHERE
+
+
+---
+
+class: top, left, inverse
+# FROM
+
+
+---
+
+class: middle, center, inverse
+# First Three Commands
+
+## SELECT
+
+## FROM
+
+## **WHERE**
+
+---
+
+class: top, left, inverse
+# WHERE
+
+
+---
 
 class: middle, center, inverse
 _Lingering Questions?_
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "style_solarized_light",
+"highlightLines": true,
 "countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
 "seal": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -112,7 +392,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
