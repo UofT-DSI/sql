@@ -16,6 +16,7 @@ This circuluum was created for the University of Toronto's Data Science Institut
 
 ## Course Contacts
 - Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
+- TA: Emails to A can be sent to [amhfz@proton.me](mailto:amhfz@proton.me)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
