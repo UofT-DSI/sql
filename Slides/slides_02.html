@@ -20,28 +20,431 @@ class: center, middle, inverse, title-slide
 ---
 
 
+
 class: middle, center, inverse
 # Building Queries:
 
 ## JOINs
 
-## Aggregation Functions:
-
-### COUNT
-
-### SUM
-
-### Arithmetic
+## Aggregation Functions
 
 ## CASE WHEN
 
 ---
 
 class: middle, center, inverse
-(blank)
+# Building Queries:
+
+## **JOINs**
+
+## Aggregation Functions
+
+## CASE WHEN
 
 ---
 
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## RIGHT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# JOINs
+
+- Joins are used to combine data stored in different tables into a single table
+- Joins are the Cartesian product of two tables with conditional selection of specific rows
+  - A Cartesian product combines all possible row values with another 
+    - An easy example is a deck of cards:
+      
+      combining four suits: 
+      {♠, ♥, ♦, ♣} 
+      
+      with thirteen ranks:
+      {A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2}
+      
+      produces 52 cards (4 * 13)
+- Joins require relationships (one exception, we'll get to later) between tables
+- Different joins create different results
+  - Join names specify which conditional selection is desired
+- There are three JOIN types in SQL but different joining criteria can further limit results 
+- The most permitting join is a FULL OUTER JOIN, the least permitting join is an INNER JOIN
+  - Let's explore what this means by looking at each of them
+
+
+---
+
+class: top, left, inverse
+# JOINs
+
+### JOIN Syntax
+
+Syntax for a join is as follows:
+
+```
+SELECT [columns]
+
+FROM [left table]
+	
+JOIN [right table]
+	
+ON [left table.matching column] = [right table.matching column]
+```
+
+A couple of notes:
+
+- You will need to specify which JOIN type is desired:
+  - e.g. INNER JOIN
+- Matching columns do not need to have the same name, just the same value
+  - e.g. `ON table1.LetterGrade = table2.Alphabet` will work because A=A, B=B, C=C, etc
+- You can specify more than one column to be joined
+  - e.g. `ON table1.FirstName = table2.FirstName AND table1.LastName = table2.LastName`
+
+---
+
+
+class: middle, center, inverse
+# JOINs
+
+## **INNER JOINs**
+
+## LEFT (OUTER) JOINs
+
+## RIGHT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# INNER JOINs
+- INNER JOINs filter both tables to rows present in both tables
+- INNER JOINs do not produce `NULL` values
+- INNER JOINs are the "default" JOIN
+  - i.e. queries do not need to specify "INNER", though it's good practice to write INNER 
+
+.center[ 
+![](imgs/inner_join.png)
+
+Only rows for the "right table" and "left table" where
+
+values in the specified fields have matches in both table
+]
+---
+
+class: top, left, inverse
+# INNER JOINs
+
+A quick note on table aliasing:
+- It is very common practice to alias table names 
+  - It makes JOIN criteria much more concise
+  - It simplifies SELECT statements when column names are the same
+- Generally, tables are aliased with the first letter (or first few letters) of the table so they can be easily referenced
+  - `product AS p`
+  - `product_category AS pc`
+  
+
+### (INNER JOIN live coding)
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## **LEFT (OUTER) JOINs**
+
+## RIGHT (OUTER) JOINs
+
+## FULL (OUTER) JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOINs
+- LEFT JOINs filter the "right" table to rows present in the "left" table
+- LEFT JOINs will most often produce `NULL` values
+- The OUTER in LEFT OUTER JOIN is optional
+  - Generally, OUTER seems to be excluded but either are correct
+  - LEFT _is not_ optional, there is no "OUTER JOIN"
+
+.center[ 
+![](imgs/left_join.png)
+
+All rows from the "left table", and only rows from the 
+
+"right table" with matching values in the specified fields
+]
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOINs
+
+### (LEFT JOIN live coding)
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## **RIGHT (OUTER) JOINs**
+
+## FULL (OUTER) JOINs
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# RIGHT (OUTER) JOINs
+- RIGHT JOINs filter the "left" table to rows present in the "right" table
+- RIGHT JOINs will most often produce `NULL` values
+- The OUTER in RIGHT OUTER JOIN is optional
+  - Generally, OUTER seems to be excluded but either are correct
+- RIGHT JOINs are somewhat frowned upon, but sometimes they make sense
+  - Often your query can be reorganized to use a LEFT JOIN instead
+
+.center[ 
+![](imgs/right_join.png)
+
+All rows from the "right table", and only rows from the 
+
+"left table" with matching values in the specified fields
+]
+
+---
+
+class: top, left, inverse
+# RIGHT (OUTER) JOINs
+
+(RIGHT JOIN live coding)
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## RIGHT (OUTER) JOINs
+
+## **FULL (OUTER) JOINs**
+
+## Multiple Table JOINs
+
+---
+
+class: top, left, inverse
+# FULL (OUTER) JOINs
+- FULL OUTER JOINs do not filter either "left" or "right" table
+- Expect `NULL` values to be produced from a FULL OUTER JOIN
+- My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
+
+---
+
+class: top, left, inverse
+# FULL (OUTER) JOINs
+
+(FULL OUTER JOIN live coding)
+
+---
+
+class: middle, center, inverse
+# JOINs
+
+## INNER JOINs
+
+## LEFT (OUTER) JOINs
+
+## RIGHT (OUTER) JOINs
+
+## FULL OUTER JOINs
+
+## **Multiple Table JOINs**
+
+---
+
+class: top, left, inverse
+# Multiple Table JOINs
+- 
+
+- The order and type of JOINs will have significant effect on the final table
+  - Pause to imagine what these scenarios might look like based on your knowledge of different JOIN types
+
+For example, let's combine these three tables:
+
+(Table 1)
+
+| FirstName  | Number |
+|------------|--------|
+| A          | 1      |
+| Thomas     | 2      |
+
+(Table 2)
+
+| LastName  | Number |
+|-----------|--------|
+| Mahfouz   | 1      |
+| Rosenthal | 2      |
+
+(Table 3)
+
+| FirstName  | LastName  | Symbol |
+|------------|-----------|--------|
+| A          | Smith     | !      |
+| Edward     | Rosenthal | ?      |
+
+If the desired outcome table is:
+
+| FirstName | LastName  | Number | Symbol |
+|-----------|-----------|--------|--------|
+| A         | Mahfouz   | 1      | !      |
+| Thomas    | Rosenthal | 2      | ?      |
+
+What are the correct JOIN criteria?
+
+---
+
+class: top, left, inverse
+# Multiple Table JOINs
+
+(Multiple Table JOINs live coding)
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## JOINs
+
+## **Aggregation Functions**
+
+## CASE WHEN
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## GROUP BY
+
+## COUNT
+
+## SUM
+
+## Arithmetic
+
+## HAVING
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## **GROUP BY**
+
+## COUNT
+
+## SUM
+
+## Arithmetic
+
+## HAVING
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## GROUP BY
+
+## **COUNT**
+
+## SUM
+
+## Arithmetic
+
+## HAVING
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## GROUP BY
+
+## COUNT
+
+## **SUM**
+
+## Arithmetic
+
+## HAVING
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## GROUP BY
+
+## COUNT
+
+## SUM
+
+## **Arithmetic**
+
+## HAVING
+
+---
+
+class: middle, center, inverse
+# Aggregation Functions
+
+## GROUP BY
+
+## COUNT
+
+## SUM
+
+## Arithmetic
+
+## **HAVING**
+
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## JOINs
+
+## Aggregation Functions
+
+## **CASE WHEN**
+
+---
+
+class: middle, center, inverse
+# CASE WHEN
+
+---
 
 class: middle, center, inverse
 _Lingering Questions?_
@@ -49,8 +452,11 @@ _Lingering Questions?_
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "style_solarized_light",
+"highlightLines": true,
 "countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
 "seal": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -117,7 +523,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
