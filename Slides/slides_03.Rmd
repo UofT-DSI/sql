@@ -20,22 +20,204 @@ class: middle, center, inverse
 
 ## Windowed Functions
 
-### OVER
-
-### PARTITION BY
-
-### RANK
-
-### NTILE
-
 ## Datetime Functions
 ---
 
 class: middle, center, inverse
-(blank)
+# Essential Techniques:
+
+## **Temporary Tables & CTEs**
+
+## Windowed Functions
+
+## Datetime Functions
 
 ---
 
+class: middle, center, inverse
+# Temporary Tables & CTEs
+
+## **Temporary Tables**
+
+## CTEs
+
+---
+
+class: top, left, inverse
+# Temporary ("temp") Tables
+- Table objects created on the fly
+- Automatically saved to a reserved _temp_ schema 
+- Accessible across SQL queries in the same session
+- They are cleared from memory when SQL is closed (or the server connection is terminated)
+- Temporary tables can be chained in the same query
+  - You can place one temporary table into another
+- Must be dropped (deleted from memory) to recreate them with the same name
+- Some older versions of SQL don't allow temporary tables
+- They are **Fantastic placeholders**
+  - What scenarios can we think of where a temporary table will be particularly useful
+
+---
+
+class: top, left, inverse
+# Temporary Tables
+
+(Temporary Table live coding)
+---
+
+class: middle, center, inverse
+# Temporary Tables & CTEs
+
+## Temporary Tables
+
+## **CTEs**
+
+---
+
+class: top, left, inverse
+# Common Table Expressions "CTEs"
+- Similar to temporary tables
+  - CTEs were developed _before_ temp tables
+- Instantiated query results created on the fly
+  - utilize the WITH command
+  - 
+- Stored in memory
+
+
+- Accessible across SQL queries in the same session
+- They are cleared from memory when SQL is closed (or the server connection is terminated)
+- Temporary tables can be chained in the same query
+  - You can place one temporary table into another
+- Fantastic placeholders
+  - What scenarios can we think of where a temporary table will be particularly useful
+- Must be dropped (deleted from memory) to recreate them with the same name
+
+---
+
+class: middle, center, inverse
+# Essential Techniques:
+
+## Temporary Tables & CTEs
+
+## **Windowed Functions**
+
+## Datetime Functions
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## Purpose
+
+## OVER
+
+## PARTITION BY
+
+## RANK
+
+## NTILE
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## **Purpose**
+
+## OVER
+
+## PARTITION BY
+
+## RANK
+
+## NTILE
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## Purpose
+
+## **OVER**
+
+## PARTITION BY
+
+## RANK
+
+## NTILE
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## Purpose
+
+## OVER
+
+## **PARTITION BY**
+
+## RANK
+
+## NTILE
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## Purpose
+
+## OVER
+
+## PARTITION BY
+
+## **RANK**
+
+## NTILE
+
+---
+
+class: middle, center, inverse
+# Windowed Functions
+
+## Purpose
+
+## OVER
+
+## PARTITION BY
+
+## RANK
+
+## **NTILE**
+
+---
+
+# Essential Techniques:
+
+## Temporary Tables & CTEs
+
+## Windowed Functions
+
+## **Datetime Functions**
+
+---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## Formats
+
+## GETDATE()
+
+## DATEPARTs
+
+## DATEDIFF
+
+## DATEADD
+
+---
 
 class: middle, center, inverse
 _Lingering Questions?_

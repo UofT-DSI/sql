@@ -19,7 +19,7 @@ editor_options:
   chunk_output_type: consolex
 ---
 
-```{r xaringan-themer, warning=FALSE, include=FALSE}
+```{r, warning=FALSE, include=FALSE}
 library(xaringanthemer)
 style_solarized_light(
   inverse_background_color = "#2C2D26",
@@ -27,6 +27,9 @@ style_solarized_light(
 )
 library(showtext)
 ```
+
+
+
 
 class: middle, center, inverse
 # Getting Started:
@@ -87,7 +90,10 @@ class: left, top, inverse
 ]
 
 .pull-right[
-![](imgs/professor_alto.png)
+
+<img src="imgs/professor_alto.png"
+     width="500px" height="500px"
+     style="position:absolute; right:50px; top:130px;">
 ]
 
 ---
@@ -213,10 +219,20 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # Flavours
--  RDBMSs differ from one to the next
-  -
-
-
+-  RDBMs differ from one to the next. This is manifested in many ways:
+    - different keywords 
+      - e.g. return only 10 rows:
+        `SELECT TOP 10...` vs `SELECT ... LIMIT 10`
+    - different syntax
+      - e.g. not equal: 
+      `!=` or `<>` (or both)
+    - other, more nuanced/complex differences
+      - e.g. architecture, data types, etc
+- We are using SQLite:
+  - Super easy to get setup
+  - Requires almost no overhead
+  - Open source, _free_
+  - Similar enough in syntax to learn on
 
 ---
 
@@ -244,7 +260,7 @@ class: top, left, inverse
   
 - Generally, data is stored in a _database_
   - a database is a collection of information
-  - within a database, a collection of objects (e.g. tabluar data "tables") is stored
+  - within a database, a collection of objects (e.g. tabular data "tables") is stored
 
 - RDBMs software allows its users to define interactions between these objects, such as:
   - Establishing the relationship between objects 
@@ -261,13 +277,162 @@ class: top, left, inverse
 
 - Data models consist of:
   - Structure of the data
-  - Operations that can be done on the data
-  - Constraints on the data.
+  - Operations 
+  - Constraints on the data
+  - Relationships
 
-- There are 3 types of data models:
-  - Conceptual, high level data models such as Entity Relationship Diagrams (ERDs)
-  - Relational data models, often in a tabular format  
-  - Semi-structured data models such as XML (we won't cover this one)
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Structure of Data
+
+- SQL compromises of tables
+
+| Breed    | Affectionate With Family | Good With Other Dogs | Shedding Level | Coat Type | Coat Length | Playfulness Level | Energy Level |
+|----------|--------------------------|----------------------|----------------|-----------|-------------|-------------------|--------------|
+| Pugs     | 5                        | 4                    | 4              | Smooth    | Short       | 5                 | 3            |
+| Akitas   | 3                        | 1                    | 3              | Double    | Medium      | 3                 | 4            |
+| Samoyeds | 5                        | 3                    | 3              | Double    | Long        | 5                 | 4            |
+
+- Tables have Attributes and Observations
+  - In SQL we call Attributes "Columns"
+    - e.g. Breed, Coat Type, Coat Length
+  - and Observations "Rows"
+    - e.g. Samoyed, Double, Long
+
+- SQL databases require tables to be named
+  - e.g. We can call this table "breed_traits"
+  
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Structure of Data
+
+- Columns are defined (and restricted) by data types
+- Common ones include:
+  - INT (integers)
+  - FLOAT, DECIMAL<, REAL (decimal)
+  - VARCHAR, NVARCHAR, TEXT (text strings, with a maximum length associated)
+  - DATE, DATETIME, TIME (date and times)
+- These may vary slightly by flavour, (in SQLite they are simpler, and less restricted)
+- Data types are important:
+  - they affect operation speed, storage size, data validity
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Operations
+- 
+
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Constraints
+- Constraints are rules that must be followed 
+
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Relationships: Entity Relationship Diagrams (ERDs)
+- ERDs are diagrams depicting the structure of tables within database
+  - This both _identifies the tables_ and _describes their relationships_ 
+- ERDs are useful for:
+  - database design
+  - debugging
+  - writing logical, consistent, and efficient queries
+- There three levels of details for ERD depictions:
+  - Conceptual model
+  - Logical model
+  - Physical model
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Attributes of an ERD Entity
+- For a given table:
+  - Name
+  - Relationship to another table
+  - Column Names
+  - Column Types
+  - Primary Keys (if present)
+  - Foreign Keys (if present)
+
+### Attributes of a Relationship
+- Defines which columns are related
+- Defines what type of relationship exists:
+  - One-to-One
+  - One-to-Many
+  - Many-to-Many
+
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Conceptual Models
+- Defines the tables (objects/entities) and their relationships
+
+<img src="imgs/farmers_market_cm.png"
+     width="500px" height="500px";>
+     
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Logical Models
+- Adds additional detail to the conceptual model by adding column names for each table
+- Often indicates the type of relationship 
+  - One-to-One: where a given row within a table is associated with only a single row in another table
+    - Table 1: Country — Table 2: Capital City
+  - One-to-Many: where a given row within a table can be referenced by multiple rows in another table
+    - Table 1: Customer — Table 2: Customer Orders
+  - Many-to-Many: where multiple rows within a table can be referenced by multiple rows in another table
+    - Table 1: Employee — Table 2: Employee Type
+    - A is both a professor at DSI _and_ a TA at DSI. This means in a table containing both Employee ID and Employee Type ID, A would be listed twice.
+    - Even more of a many-to-many because A is part of two courses!
+    
+
+![](imgs/farmers_market_lm.png)
+
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Physical Models
+- Adds additional detail to the logical model by adding key type and column data type
+  - Primary Key (PK)
+    - Ensures each value in a column are unique within the table (e.g. an ID field)
+    - One PK per table
+    - Cannot be NULL
+    - Ensures database integrity by restricting record deletion
+  - Foreign Key (FK) 
+    - Creates a linkage between a column in one table with a column in another table
+      - Generally, foreign keys are linked to primary keys
+    - As many FK as needed per table
+    - May be NULL
+    - Record can be deleted
+
+![](imgs/farmers_market_pm.png)
+
 
 ---
 
@@ -289,9 +454,40 @@ class: middle, center, inverse
 
 ## FROM
 
-## WHERE
+## WHERE    
 
 ---
+
+class: top, left, inverse
+# First Three Commands
+- Our first three commands (SELECT, FROM, WHERE) are essential to nearly every SQL query
+- The template for our initial SQL statement is as such:
+
+`SELECT` : _the columns we want to retrieve_
+
+`FROM` : _the table we are querying_
+
+`WHERE` : _filters/conditions, (optional)_
+
+`ORDER BY` : _column sorting: ascending (ASC) or descending (DESC), (optional)_
+
+`LIMIT` : _how many rows we want to return, (optional)_
+
+- They always are specified in this order:
+  - SELECT will come first
+  - FROM will come after SELECT
+    - when we are querying more than one table at a time, each will come after FROM but before WHERE (more on this later)
+  - WHERE will come after FROM 
+  - ORDER BY comes after WHERE clauses
+- We'll sometimes use the LIMIT clause to look at data
+  - This comes at the very end of a query
+  - LIMIT shouldn't be used for analytics unless you have a specific reason
+    - ORDER BY often impacts the usefulness of LIMIT 
+
+- One more thing:
+  - In SQL, we use two dashes (--) to comment out lines, rather than #
+---
+
 
 class: middle, center, inverse
 # First Three Commands
@@ -307,13 +503,23 @@ class: middle, center, inverse
 class: top, left, inverse
 # SELECT
 
+- At its simplest SELECT specifies column names we are retrieving
+  - commas come between each column name
+    - `SELECT student, course, grade ...`
+  - column names with a space need to be enclosed in square brackets
+    - `SELECT [poorly named column], better_column_name, AnotherColumnName`
+- Within SELECT statements we can perform manipulations on columns
+  - e.g. rename a column
+  - combine two text columns
+  - perform math on an numeric column
+  - ...and many more things
+- When SELECTing columns, they need to exist in the table!
+- We can use select to perform math without a FROM statement
+  - `SELECT 1 + 1`
+  - `SELECT 10*5, cos(2), pi()`
+  
 ---
 
-class: top, left, inverse
-# SELECT
-
-(SELECT live coding)
----
 
 class: middle, center, inverse
 # First Three Commands
@@ -329,18 +535,24 @@ class: middle, center, inverse
 class: top, left, inverse
 # FROM
 
+- FROM statements indicate which table the data and where the table is located
+  - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
+    - a fully qualified location of a table would thus be `database.schema.table`
+- `SELECT * FROM table_name` indicates _everything_ in the table
+  - best practice suggests that we should explicitly call each column, even if we want all of them 
+    - why do we think this is the case?
 ---
 
 class: top, left, inverse
 # FROM
 
-(FROM live coding)
+(SELECT & FROM live coding)
 ---
 
 class: middle, center, inverse
 # First Three Commands
 
-## SELECT
+## SELECT 
 
 ## FROM
 
@@ -349,6 +561,47 @@ class: middle, center, inverse
 ---
 class: top, left, inverse
 # WHERE
+
+- WHERE clauses are conditions that the query will follow
+- When we have want to have multiple conditions, we use a single WHERE and then additional logical operations
+  
+  ```
+  SELECT *
+  FROM students
+  WHERE first_name = "Thomas"
+  AND last_name = "Rosenthal"
+  ```
+
+- WHERE clauses always return rows evaluating to TRUE
+  - Follows Boolean rules if more than one condition is present
+- My favourite WHERE statement is `WHERE 1=1`
+  - Any guesses as to why?
+  
+---
+
+class: top, left, inverse
+# WHERE
+
+### Logical Operators
+- AND
+- OR
+- NOT
+- IN
+- equals: `=`
+- does not equal: `<>` `!=`  
+  - (flavour dependent)
+- greater than (equal to): `>` `>=` 
+- less than (equal to)`<` `<=`
+- BETWEEN
+- EXISTS
+  - table specific
+- IS
+  - NULL specific 
+
+### NULL
+- NULL is not a value (it's the absence of a value)
+  - to check null values, we use `IS NULL` or `IS NOT NULL`
+  - `= NULL` will not work
 
 ---
 
@@ -361,3 +614,7 @@ class: top, left, inverse
 class: middle, center, inverse
 _Lingering Questions?_
 
+```{r echo=FALSE}
+#library(renderthis)
+#renderthis::to_pdf("~/Documents/GitHub/DSI_SQL/Slides/slides_01.Rmd")
+```
