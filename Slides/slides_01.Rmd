@@ -597,11 +597,32 @@ class: top, left, inverse
   - table specific
 - IS
   - NULL specific 
+  
+--- 
+
+class: top, left, inverse
+# WHERE
 
 ### NULL
 - NULL is not a value (it's the absence of a value)
   - to check null values, we use `IS NULL` or `IS NOT NULL`
   - `= NULL` will not work
+  
+### LIKE
+- LIKE allows for string wildcards
+- `%` specifies the wildcard placement
+  - `country_name LIKE 'and%'`
+    - Andorra
+  - `country_name LIKE '%and'`
+    - Finland
+    - Iceland ..etc
+  - `country_name LIKE '%and%'`
+    - all of the above _plus_
+    - Antigua and Barbuda
+    - Netherlands
+    - Rwanda ...more!
+  - `country_name LIKE '%an%d%'`
+    - Canada ...surely more!
 
 ---
 

@@ -14,6 +14,11 @@ output:
 ---
 
 class: middle, center, inverse
+
+# Exit Survey: (add a link)
+
+---
+class: middle, center, inverse
 # Beyond SQL:
 
 ## Broader Data Landscape

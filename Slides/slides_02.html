@@ -4,7 +4,7 @@
     <title>slides_02.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # <p><img src="imgs/mrpotatocode_banner.png" style="width:7in" /></p>
+]
+.subtitle[
 ## Introduction to Data Access and Storage
+]
+.author[
 ### Thomas Rosenthal - DSI @ UofT
+]
+.date[
 ### Module 02
+]
 
 ---
 
@@ -23,23 +31,114 @@ class: center, middle, inverse, title-slide
 
 class: middle, center, inverse
 # Building Queries:
+
+## Two More Commands
 
 ## JOINs
 
 ## Aggregation Functions
 
-## CASE WHEN
-
 ---
 
 class: middle, center, inverse
 # Building Queries:
 
+## **Two More Commands**
+
+## JOINs
+
+## Aggregation Functions
+
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## CASE WHEN
+
+## DISTINCT
+
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## **CASE WHEN**
+
+## DISTINCT
+
+---
+
+class: top, left, inverse
+# CASE WHEN
+- CASE statements allow us to introduce conditional logic into our SELECT statements
+- They are generally similar to `if` or `if else` statements in python, R, and other languages
+  - When a condition is introduced, we check whether it evaluates to TRUE
+    - If it is true, we proceed with a desired command, calculation, value, etc
+      - If it is not true, we move to the next condition
+        - If it is true, we proceed with another desired command, calculation, value, etc
+          - ...all the way until we run out of conditions
+  - For all FALSE conditions, we can use an ELSE statement if we want to
+- The results of a CASE statement will be a new column
+- Best practice names the new column using `AS new_column_name`
+
+```
+CASE 
+  WHEN [something is true]
+    THEN [value or calculation]
+  WHEN [something else is true]
+    THEN [value or calcuation]
+  ELSE [value or calcuation]
+END 
+```  
+
+---
+
+class: top, left, inverse
+# CASE WHEN
+
+### (CASE WHEN live coding)
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## CASE WHEN
+
+## **DISTINCT**
+
+---
+
+class: top, left, inverse
+# DISTINCT
+- Not all query results will result in unique rows (i.e. duplicates are present)
+  - Can we think of why this is?
+
+- DISTINCT has two possible spots within a query:
+  - One comes immediately after SELECT, before column names are specified
+    - `e.g. SELECT DISTINCT songs, albums, artists...`
+    - This DISTINCT will govern the entire query
+  - The other comes within aggregation
+    - e.g. `COUNT(DISTINCT products)`
+    - This DISTINCT will only affect this specific aggregation
+
+---
+
+class: top, left, inverse
+# DISTINCT
+
+### (DISTINCT live coding)
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## Two More Commands
+
 ## **JOINs**
 
 ## Aggregation Functions
 
-## CASE WHEN
 
 ---
 
@@ -150,6 +249,8 @@ A quick note on table aliasing:
 - It is very common practice to alias table names 
   - It makes JOIN criteria much more concise
   - It simplifies SELECT statements when column names are the same
+    - This is a common error, _"ambiguous column name"_
+      - SQL requires you to specify _which_ table you are returning the result from
 - Generally, tables are aliased with the first letter (or first few letters) of the table so they can be easily referenced
   - `product AS p`
   - `product_category AS pc`
@@ -231,12 +332,6 @@ All rows from the "right table", and only rows from the
 
 ---
 
-class: top, left, inverse
-# RIGHT (OUTER) JOINs
-
-(RIGHT JOIN live coding)
----
-
 class: middle, center, inverse
 # JOINs
 
@@ -257,6 +352,20 @@ class: top, left, inverse
 - FULL OUTER JOINs do not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a FULL OUTER JOIN
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
+- Annoyingly, SQLite does not support FULL OUTER JOINS (yet), but there is a work around
+
+### Filtering a FULL (OUTER) JOIN
+- All OUTER JOINs can be filtered to exclude the _matching_ criteria
+  - Often called an ANTI JOIN, i.e. what's _not_ in the other table
+
+```
+SELECT *
+FROM table_1
+{LEFT | RIGHT | FULL} OUTER JOIN table_2
+ON table_1.key = table_2.key
+WHERE {table_1.key IS NULL | table_2.key IS NULL | 
+       table_1.key IS NULL OR table_2.key IS NULL}
+```
 
 ---
 
@@ -284,8 +393,7 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # Multiple Table JOINs
-- 
-
+- More than one table can be JOINed at a time
 - The order and type of JOINs will have significant effect on the final table
   - Pause to imagine what these scenarios might look like based on your knowledge of different JOIN types
 
@@ -332,11 +440,11 @@ class: top, left, inverse
 class: middle, center, inverse
 # Building Queries:
 
+## Two More Commands
+
 ## JOINs
 
 ## **Aggregation Functions**
-
-## CASE WHEN
 
 ---
 
@@ -370,6 +478,26 @@ class: middle, center, inverse
 
 ---
 
+class: top, left, inverse
+# GROUP BY
+- Aggregations generally require a **group**
+- GROUP BY is a mandatory any time a column aside from the one being aggregated is present
+
+For example, a query, wanting to know the number of days in each month:
+
+```
+SELECT
+COUNT(days)
+,months
+
+FROM calendar
+GROUP by months
+```
+
+- GROUP BY comes after a WHERE clause
+
+---
+
 class: middle, center, inverse
 # Aggregation Functions
 
@@ -382,6 +510,11 @@ class: middle, center, inverse
 ## Arithmetic
 
 ## HAVING
+
+---
+
+class: top, left, inverse
+# COUNT
 
 ---
 
@@ -430,20 +563,23 @@ class: middle, center, inverse
 
 ---
 
-class: middle, center, inverse
-# Building Queries:
-
-## JOINs
-
-## Aggregation Functions
-
-## **CASE WHEN**
+class: top, left, inverse
+# HAVING
+- WHERE clauses filter rows _before_ an aggregation occurs
+  
+  ...so HAVING clauses allow us to filter rows _after_ an aggregation is calculated
+  
+- HAVING clauses come after GROUP BY, but before ORDER BY
+- HAVING clauses only filter aggregated calculations
+  - you can have both WHERE and HAVING
+  - they are not interchangeable 
 
 ---
 
-class: middle, center, inverse
-# CASE WHEN
+class: top, left, inverse
+# HAVING
 
+(HAVING live coding)
 ---
 
 class: middle, center, inverse
@@ -498,6 +634,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

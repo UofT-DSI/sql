@@ -13,6 +13,15 @@ output:
       seal: false
 ---
 
+```{r, warning=FALSE, include=FALSE}
+library(xaringanthemer)
+style_solarized_light(
+  inverse_background_color = "#2C2D26",
+  background_color = "#d3d2d9"
+)
+library(showtext)
+```
+
 class: middle, center, inverse
 # Advanced Techniques:
 
@@ -26,15 +35,284 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
+## INTERSECT
+
 ## INSERT, UPDATE, DELETE
 
 ---
 
 class: middle, center, inverse
-(blank)
+# Advanced Techniques:
+
+## **String Manipulation**
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## INTERSECT
+
+## INSERT, UPDATE, DELETE
 
 ---
 
+class: top, left, inverse
+# String Manipulation
+
+## LENGTH
+
+## REPLACE
+
+## UPPER/LOWER
+
+## Concatentation
+
+## SUBSTR()
+
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## **ROLLUP & CUBE**
+
+## CROSS JOIN
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## INTERSECT
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## **CROSS JOIN**
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## INTERSECT
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## **Self Joins**
+
+## UNION & UNION ALL
+
+## INTERSECT
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## Self Joins
+
+## **UNION & UNION ALL**
+
+## INTERSECT
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: top, left, inverse
+# UNION & UNION ALL
+
+- UNION and UNION ALL combine the results of two or more queries vertically (rowwise)
+- UNION ALL keeps duplicate values, whereas UNION removes them
+  - the difference between the two is one of the most common interview questions!
+- UNION and UNION ALL require all both queries to have the same number of columns 
+  - You can UNION unrelated columns if you had a specific use-case for it
+    - Column names will come from the first query
+  - In situations where you don't have exactly the same columns, but still need to UNION, you can pass a NULL column
+    - Similarly, you can pass a string character to keep which data is associated to which query
+  
+
+```
+select number_of_tacos, NULL as number_of_burritos, 'lunch' as meal
+from lunch
+UNION
+select  number_of_tacos, number_of_burritos, 'dinner' as meal
+from dinner
+```
+
+class: top, left, inverse
+# UNION & UNION ALL
+
+- If we recall back to SQLite's lack of support for FULL OUTER JOINS, UNION ALL will allow us to emulate one:
+
+```
+SELECT s1.quantity, s1.costume, s2.quantity
+FROM store1 s1
+LEFT JOIN store2 s2 ON s1.costume = s2.costume
+UNION ALL
+SELECT s1.quantity, s2.costume, s2.quantity
+FROM store2 s2
+LEFT JOIN store1 s1 ON s2.costume = s1.costume
+WHERE s1.quantity IS NULL
+```
+
+---
+
+class: top, left, inverse
+# UNION & UNION ALL
+
+(UNION & UNION ALL live coding)
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## **INTERSECT**
+
+## INSERT, UPDATE, DELETE
+
+---
+
+class: top, left, inverse
+# INTERSECT
+
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## String Manipulation
+
+## ROLLUP & CUBE
+
+## CROSS JOIN
+
+## Self Joins
+
+## UNION & UNION ALL
+
+## INTERSECT
+
+## **INSERT, UPDATE, DELETE**
+
+---
+
+class: top, left, inverse
+# INSERT, UPDATE, DELETE
+
+Prior to this, we've focused solely on retrieving values from tables:
+
+- Tables can also be manipulated with INSERT, UPDATE, and/or DELETE
+- _A word of warning...these commands are PERMANENT_ `r structure("\U1F631", class = "emoji")`
+  - Generally, follow a policy that avoids altering data 
+  - Make backups to tables before you run a query
+  - Never hurts to test on a temporary table first!
+  
+- But they are useful, and sometimes the correct solution!
+- There is no SELECT statement for these types of queries
+
+---
+
+class: top, left, inverse
+# INSERT, UPDATE, DELETE
+
+### INSERT
+- INSERT allows you to add a record
+- Specify where you want to add:
+  - `INSERT INTO [some_table_name]`
+- ...and what you to add:
+  - `VALUES(column_one_value, column_two_value)`
+
+- VALUES come in the order of the columns within the tables
+- VALUES must respect table constraints
+  e.g. NULLs, UNIQUE, data types, etc
+  
+- INSERT can help you create small helper tables
+  - Can you think of any scenarios?
+
+---
+
+### INSERT
+- INSERT allows you to change a record
+- Specify where you are making your change:
+  - `UPDATE [some_table_name]`
+- ...and what you to change:
+  - `SET column_one = value1, column_one = value2`
+- __SPECIFY A WHERE CONDITION__
+  - `WHERE condition`
+
+- You can change a single column, a few columns, all the columns, etc
+  - (Respecting table constraints)
+
+- What happens if you don't specify a WHERE condition?
+
+---
+
+### DELETE
+- DELETE allows you to remove a record
+- Specify where you want to delete:
+  - `DELETE FROM [some_table_name]`
+- __SPECIFY A WHERE CONDITION__
+  - `WHERE condition`
+
+- **What happens if you don't specify a WHERE condition?!?**
+
+- DELETE doesn't _remove_ a table from a database
+---
+
+class: top, left, inverse
+# INSERT, UPDATE, DELETE
+
+(INSERT, UPDATE, DELETE live coding with a TEMP TABLE)
+
+---
 
 class: middle, center, inverse
 _Lingering Questions?_
+
+
+<sub><sub><sub><sub><sub><sub>What happens if you don't specify a WHERE condition</sub></sub></sub></sub></sub></sub>

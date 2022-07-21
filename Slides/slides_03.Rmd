@@ -134,6 +134,12 @@ class: middle, center, inverse
 
 ---
 
+class: top, left, inverse
+# Purpose
+- Windowed Functions allow us to create groupings within groupings ("partitions")
+
+---
+
 class: middle, center, inverse
 # Windowed Functions
 
