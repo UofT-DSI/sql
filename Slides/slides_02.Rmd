@@ -6,7 +6,7 @@ author: "Thomas Rosenthal - DSI @ UofT"
 date: "Module 02"
 output:
   xaringan::moon_reader:
-    #css: xaringan-themer.css
+    css: [xaringan-themer.css, custom.css]
     lib_dir: libs
     nature:
       highlightStyle: style_solarized_light
@@ -18,12 +18,24 @@ output:
 editor_options: 
   chunk_output_type: consolex
 ---
-```{r xaringan-themer, warning=FALSE, include=FALSE}
+```{r, warning=FALSE, include=FALSE}
 library(xaringanthemer)
 style_solarized_light(
-  inverse_background_color = "#2C2D26",
-  background_color = "#d3d2d9"
-)
+  
+  #colours
+  inverse_background_color = "#000000",
+  background_color = "#d3d2d9",
+  table_row_even_background_color = "#000000",
+  code_highlight_color = "#268bd2",
+
+  # fonts
+  header_font_google = google_font("Martel", "300", "400"),
+  text_font_google = google_font("Lato"),
+  code_font_google = google_font("Fira Mono"),
+  base_font_size = "18px"
+  )
+
+
 library(showtext)
 ```
 
@@ -52,7 +64,7 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Two More Commands
 
-## CASE WHEN
+## CASE
 
 ## DISTINCT
 
@@ -61,47 +73,53 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Two More Commands
 
-## **CASE WHEN**
+## **CASE**
 
 ## DISTINCT
 
 ---
 
 class: top, left, inverse
-# CASE WHEN
-- CASE statements allow us to introduce conditional logic into our SELECT statements
+# CASE
+- `CASE` statements allow us to introduce conditional logic into our `SELECT` statements
+
+--
+
 - They are generally similar to `if` or `if else` statements in python, R, and other languages
   - When a condition is introduced, we check whether it evaluates to TRUE
     - If it is true, we proceed with a desired command, calculation, value, etc
       - If it is not true, we move to the next condition
         - If it is true, we proceed with another desired command, calculation, value, etc
           - ...all the way until we run out of conditions
-  - For all FALSE conditions, we can use an ELSE statement if we want to
-- The results of a CASE statement will be a new column
+  - For all FALSE conditions, we can use an `ELSE` statement if we want to
+
+--
+
+- The results of a `CASE` statement will be a new column
 - Best practice names the new column using `AS new_column_name`
 
 ```
-CASE 
-  WHEN [something is true]
-    THEN [value or calculation]
-  WHEN [something else is true]
-    THEN [value or calcuation]
-  ELSE [value or calcuation]
-END 
+    CASE 
+      WHEN [something is true]
+        THEN [value or calculation]
+      WHEN [something else is true]
+        THEN [value or calcuation]
+      ELSE [value or calcuation]
+    END 
 ```  
 
 ---
 
 class: top, left, inverse
-# CASE WHEN
+# CASE
 
-### (CASE WHEN live coding)
+(`CASE` live coding)
 ---
 
 class: middle, center, inverse
 # Two More Commands
 
-## CASE WHEN
+## CASE
 
 ## **DISTINCT**
 
@@ -110,22 +128,27 @@ class: middle, center, inverse
 class: top, left, inverse
 # DISTINCT
 - Not all query results will result in unique rows (i.e. duplicates are present)
-  - Can we think of why this is?
+  - **Can we think of why this is?**
 
-- DISTINCT has two possible spots within a query:
-  - One comes immediately after SELECT, before column names are specified
-    - `e.g. SELECT DISTINCT songs, albums, artists...`
-    - This DISTINCT will govern the entire query
+--
+
+- `DISTINCT` has two possible spots within a query:
+  - One comes immediately after `SELECT`, before column names are specified
+    - e.g. `SELECT DISTINCT songs, albums, artists...`
+    - This `DISTINCT` will govern the entire query
+
+--
+
   - The other comes within aggregation
     - e.g. `COUNT(DISTINCT products)`
-    - This DISTINCT will only affect this specific aggregation
+    - This `DISTINCT` will only affect this specific aggregation
 
 ---
 
 class: top, left, inverse
 # DISTINCT
 
-### (DISTINCT live coding)
+(`DISTINCT` live coding)
 ---
 
 class: middle, center, inverse
@@ -159,6 +182,9 @@ class: top, left, inverse
 # JOINs
 
 - Joins are used to combine data stored in different tables into a single table
+
+--
+
 - Joins are the Cartesian product of two tables with conditional selection of specific rows
   - A Cartesian product combines all possible row values with another 
     - An easy example is a deck of cards:
@@ -170,11 +196,17 @@ class: top, left, inverse
       {A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2}
       
       produces 52 cards (4 * 13)
+
+--
+
 - Joins require relationships (one exception, we'll get to later) between tables
 - Different joins create different results
   - Join names specify which conditional selection is desired
-- There are three JOIN types in SQL but different joining criteria can further limit results 
-- The most permitting join is a FULL OUTER JOIN, the least permitting join is an INNER JOIN
+
+--
+
+- There are three join types in SQL but different joining criteria can further limit results 
+- The most permitting join is a `FULL OUTER JOIN`, and the least permitting is an `INNER JOIN`
   - Let's explore what this means by looking at each of them
 
 
@@ -197,10 +229,12 @@ JOIN [right table]
 ON [left table.matching column] = [right table.matching column]
 ```
 
+--
+
 A couple of notes:
 
-- You will need to specify which JOIN type is desired:
-  - e.g. INNER JOIN
+- You will need to specify which join type is desired:
+  - e.g. `INNER JOIN`
 - Matching columns do not need to have the same name, just the same value
   - e.g. `ON table1.LetterGrade = table2.Alphabet` will work because A=A, B=B, C=C, etc
 - You can specify more than one column to be joined
@@ -226,17 +260,16 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # INNER JOINs
-- INNER JOINs filter both tables to rows present in both tables
-- INNER JOINs do not produce `NULL` values
-- INNER JOINs are the "default" JOIN
+- `INNER JOIN` filters both tables to rows present in both tables
+- `INNER JOIN` does not produce `NULL` values
+- `INNER JOIN` is the "default" join
   - i.e. queries do not need to specify "INNER", though it's good practice to write INNER 
 
 .center[ 
-![](imgs/inner_join.png)
-
-Only rows for the "right table" and "left table" where
-
-values in the specified fields have matches in both table
+<img src="imgs/inner_join.png"
+     height="300px";>
+     
+<sup><sup> Image: Teate, Chapter 5 </sup></sup>
 ]
 ---
 
@@ -245,8 +278,8 @@ class: top, left, inverse
 
 A quick note on table aliasing:
 - It is very common practice to alias table names 
-  - It makes JOIN criteria much more concise
-  - It simplifies SELECT statements when column names are the same
+  - It makes join criteria much more concise
+  - It simplifies `SELECT` statements when column names are the same
     - This is a common error, _"ambiguous column name"_
       - SQL requires you to specify _which_ table you are returning the result from
 - Generally, tables are aliased with the first letter (or first few letters) of the table so they can be easily referenced
@@ -254,7 +287,7 @@ A quick note on table aliasing:
   - `product_category AS pc`
   
 
-### (INNER JOIN live coding)
+(`INNER JOIN` live coding)
 ---
 
 class: middle, center, inverse
@@ -274,18 +307,17 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # LEFT (OUTER) JOINs
-- LEFT JOINs filter the "right" table to rows present in the "left" table
-- LEFT JOINs will most often produce `NULL` values
-- The OUTER in LEFT OUTER JOIN is optional
+- `LEFT JOIN` filters the "right" table to rows present in the "left" table
+- `LEFT JOIN` will most often produce `NULL` values
+- The "OUTER" in `LEFT OUTER JOIN` is optional
   - Generally, OUTER seems to be excluded but either are correct
   - LEFT _is not_ optional, there is no "OUTER JOIN"
 
 .center[ 
-![](imgs/left_join.png)
-
-All rows from the "left table", and only rows from the 
-
-"right table" with matching values in the specified fields
+<img src="imgs/left_join.png"
+     height="300px";>
+     
+<sup><sup> Image: Teate, Chapter 5 </sup></sup>
 ]
 
 ---
@@ -293,7 +325,7 @@ All rows from the "left table", and only rows from the
 class: top, left, inverse
 # LEFT (OUTER) JOINs
 
-### (LEFT JOIN live coding)
+(`LEFT JOIN` live coding)
 ---
 
 class: middle, center, inverse
@@ -313,19 +345,19 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # RIGHT (OUTER) JOINs
-- RIGHT JOINs filter the "left" table to rows present in the "right" table
-- RIGHT JOINs will most often produce `NULL` values
-- The OUTER in RIGHT OUTER JOIN is optional
+- `RIGHT JOIN` filters the "left" table to rows present in the "right" table
+- `RIGHT JOIN` will most often produce `NULL` values
+- The "OUTER" in `RIGHT OUTER JOIN` is optional
   - Generally, OUTER seems to be excluded but either are correct
-- RIGHT JOINs are somewhat frowned upon, but sometimes they make sense
-  - Often your query can be reorganized to use a LEFT JOIN instead
+- `RIGHT JOIN` are somewhat frowned upon, but sometimes they make sense
+  - Often your query can be reorganized to use a `LEFT JOIN` instead
+    - SQLite does not currently support `RIGHT JOIN`
 
 .center[ 
-![](imgs/right_join.png)
-
-All rows from the "right table", and only rows from the 
-
-"left table" with matching values in the specified fields
+<img src="imgs/right_join.png"
+     height="300px";>
+     
+<sup><sup> Image: Teate, Chapter 5 </sup></sup>
 ]
 
 ---
@@ -347,22 +379,25 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # FULL (OUTER) JOINs
-- FULL OUTER JOINs do not filter either "left" or "right" table
-- Expect `NULL` values to be produced from a FULL OUTER JOIN
+- `FULL OUTER JOIN` does not filter either "left" or "right" table
+- Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support FULL OUTER JOINS (yet), but there is a work around
+- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a work around to produce the results
+  - We'll do it in Module 4
 
-### Filtering a FULL (OUTER) JOIN
+--
+
+# Filtering a FULL (OUTER) JOIN
 - All OUTER JOINs can be filtered to exclude the _matching_ criteria
   - Often called an ANTI JOIN, i.e. what's _not_ in the other table
 
 ```
-SELECT *
-FROM table_1
-{LEFT | RIGHT | FULL} OUTER JOIN table_2
-ON table_1.key = table_2.key
-WHERE {table_1.key IS NULL | table_2.key IS NULL | 
-       table_1.key IS NULL OR table_2.key IS NULL}
+    SELECT *
+    FROM table_1
+    {LEFT | RIGHT | FULL} OUTER JOIN table_2
+    ON table_1.key = table_2.key
+    WHERE {table_1.key IS NULL | table_2.key IS NULL | 
+           table_1.key IS NULL OR table_2.key IS NULL}
 ```
 
 ---
@@ -384,33 +419,43 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # Multiple Table JOINs
-- More than one table can be JOINed at a time
-- The order and type of JOINs will have significant effect on the final table
-  - Pause to imagine what these scenarios might look like based on your knowledge of different JOIN types
+- More than one table can be joined at a time
+- The order and type of joins will have significant effect on the final table
+  - **Pause to imagine what these scenarios might look like based on your knowledge of different `JOIN` types**
+
+
+---
+
+class: top, left, inverse
+# Multiple Table JOINs
+
 
 For example, let's combine these three tables:
 
-(Table 1)
+.pull-left[
 
 | FirstName  | Number |
 |------------|--------|
 | A          | 1      |
 | Thomas     | 2      |
-
-(Table 2)
+.center[(_Table 1_)]
 
 | LastName  | Number |
 |-----------|--------|
 | Mahfouz   | 1      |
 | Rosenthal | 2      |
-
-(Table 3)
+.center[(_Table 2_)]
 
 | FirstName  | LastName  | Symbol |
 |------------|-----------|--------|
 | A          | Smith     | !      |
 | Edward     | Rosenthal | ?      |
+.center[(_Table 3_)]
+]
 
+--
+
+.pull-right[
 If the desired outcome table is:
 
 | FirstName | LastName  | Number | Symbol |
@@ -418,8 +463,8 @@ If the desired outcome table is:
 | A         | Mahfouz   | 1      | !      |
 | Thomas    | Rosenthal | 2      | ?      |
 
-What are the correct JOIN criteria?
-
+**What are the correct `JOIN` criteria?**
+]
 ---
 
 class: top, left, inverse
@@ -446,9 +491,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## SUM/AVG
+## SUM & AVG
 
-## MIN/MAX
+## MIN & MAX
 
 ## Arithmetic
 
@@ -463,9 +508,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## SUM/AVG
+## SUM & AVG
 
-## MIN/MAX
+## MIN & MAX
 
 ## Arithmetic
 
@@ -475,21 +520,24 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # GROUP BY
-- Aggregations generally require a **group**
-- GROUP BY is a mandatory any time a column aside from the one being aggregated is present
+- Aggregations generally require a *group*
+- `GROUP BY` is a mandatory any time a column aside from the one being aggregated is present
+
+--
 
 For example, a query, wanting to know the number of days in each month:
 
 ```
-SELECT
-COUNT(days)
-,months
+    SELECT
+    COUNT(days)
+    ,months
 
-FROM calendar
-GROUP by months
+    FROM calendar
+    GROUP by months
 ```
+--
 
-- GROUP BY comes after a WHERE clause
+- `GROUP BY` comes after a `WHERE` clause
 - Remember: with all aggregation functions, values will be calculated _per group_
 
 ---
@@ -501,9 +549,9 @@ class: middle, center, inverse
 
 ## **COUNT**
 
-## SUM/AVG
+## SUM & AVG
 
-## MIN/MAX
+## MIN & MAX
 
 ## Arithmetic
 
@@ -513,29 +561,36 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # COUNT
-- COUNT performs counts of any given column or sets of columns
-- COUNT(*) provides a count of rows in a given table
-  - no GROUP BY is required here
+- `COUNT` performs counts of any given column or sets of columns
+
+--
+
+- `COUNT(*)` provides a count of rows in a given table
+  - no `GROUP BY` is required here
+
+--
+
 - Multiple counts are treated as separate columns
   - e.g. counting the number of days and months in a year
 ```
-SELECT
-COUNT(days)
-,COUNT(months)
-,years
+    SELECT
+    COUNT(days)
+    ,COUNT(months)
+    ,years
 
-FROM calendar
-GROUP by years
+    FROM calendar
+    GROUP by years
 ```
+--
 
-- When COUNT is combined with DISTINCT, only unique values are counted
+- When `COUNT` is combined with `DISTINCT`, only unique values are counted
 
 ---
 
 class: top, left, inverse
 # COUNT
 
-(COUNT live coding)
+(`COUNT` live coding)
 ---
 
 class: middle, center, inverse
@@ -545,9 +600,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## **SUM/AVG**
+## **SUM & AVG**
 
-## MIN/MAX
+## MIN & MAX
 
 ## Arithmetic
 
@@ -556,27 +611,35 @@ class: middle, center, inverse
 ---
 
 class: top, left, inverse
-# SUM/AVG
+# SUM & AVG
 
 ### SUM
-- SUM performs the sum total of any numeric column
+- `SUM` performs the sum total of any numeric column
   - Be weary, SQLite may be more permissive for columns with numbers, it's best practice to coerce these values into numbers before summing to be certain of their validity
+
+--
+
 - SUM can accommodate multiple columns using the plus `+` operator
-  - e.g. SUM(column1 + column2)
-- Thinking about SUM and COUNT combined (i.e. a rolling total)? We'll get to how to do that in the next session!
+  - e.g. `SUM(column1 + column2)`
+
+--
+
+- Thinking about `SUM` and `COUNT` combined (i.e. a rolling total)? We'll get to how to do that in the next session!
+
+--
 
 ### AVG
-- AVG performs the average of any numeric column
-- Like SUM, it can accommodate multiple columns
-  - we can also use other mathematical operations for SUM and AVG, like `-`,`*`,`/`, `%` (i.e. modulo, not percent), etc
+- `AVG` performs the average of any numeric column
+- Like `SUM`, it can accommodate multiple columns
+  - we can also use other mathematical operations for `SUM` and `AVG`, like `-`,`*`,`/`, `%` (i.e. modulo, not percent), etc
   
 
 ---
 
 class: top, left, inverse
-# SUM/AVG
+# SUM & AVG
 
-(SUM/AVG live coding)
+(`SUM` & `AVG` live coding)
 ---
 
 class: middle, center, inverse
@@ -586,9 +649,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## SUM/AVG
+## SUM & AVG
 
-## **MIN/MAX**
+## **MIN & MAX**
 
 ## Arithmetic
 
@@ -597,18 +660,18 @@ class: middle, center, inverse
 ---
 
 class: top, left, inverse
-# MIN/MAX
+# MIN & MAX
 
-- MIN takes the single minimum value of a given column; MAX takes the maximum
-- Be weary of combining columns like SUM or AVG
-- What do you think happens when MIN performed an a character columns? Error? Something else? What about MAX?
+- `MIN` takes the single minimum value of a given column; `MAX` takes the maximum
+- Be weary of combining `MIN` & `MAX` with other aggregating functions like `SUM` or `AVG`
+- **What do you think happens when `MIN` performed an a character columns? Error? Something else? What about `MAX`?**
   
 ---
 
 class: top, left, inverse
-# MIN/MAX
+# MIN & MAX
 
-(MIN/MAX live coding)
+(`MIN` & `MAX` live coding)
 ---
 
 class: middle, center, inverse
@@ -618,9 +681,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## SUM/AVG
+## SUM & AVG
 
-## MIN/MAX
+## MIN & MAX
 
 ## **Arithmetic**
 
@@ -634,12 +697,16 @@ class: top, left, inverse
 - SQL can perform many basic (and some complex) calculations
   - Addition, subtraction, multiplication, division, power, etc
   - geometric/trigonometric functions sin, cos, tan, degrees, radians, etc
-  
+
+--
+
 - These calculations can also be combined inside aggregation functions
   - e.g. multiplication inside a SUM  `...SUM(quantity * cost)` would create a column like total_spent per group
-  
+
+--
+
 - SQL is similar to other programming languages in its ability to handle floating point values
-- Because columns are type specific, how would we perform integer division on two numbers?
+- **Because columns are type specific, how would we perform integer division on two numbers?**
 
 
 ---
@@ -657,9 +724,9 @@ class: middle, center, inverse
 
 ## COUNT
 
-## SUM/AVG
+## SUM & AVG
 
-## MIN/MAX
+## MIN & MAX
 
 ## Arithmetic
 
@@ -669,13 +736,15 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # HAVING
-- WHERE clauses filter rows _before_ an aggregation occurs
+- `WHERE` clauses filter rows _before_ an aggregation occurs
   
-  ...so HAVING clauses allow us to filter rows _after_ an aggregation is calculated
+  ...so `HAVING` clauses allow us to filter rows _after_ an aggregation is calculated
+
+--
   
-- HAVING clauses come after GROUP BY, but before ORDER BY
-- HAVING clauses only filter aggregated calculations
-  - you can have both WHERE and HAVING
+- `HAVING` clauses come after `GROUP BY`, but before `ORDER BY`
+- `HAVING` clauses only filter aggregated calculations
+  - you can have both `WHERE` and `HAVING`
   - they are not interchangeable 
 
 ---
@@ -683,7 +752,7 @@ class: top, left, inverse
 class: top, left, inverse
 # HAVING
 
-(HAVING live coding)
+(`HAVING` live coding)
 ---
 
 class: middle, center, inverse

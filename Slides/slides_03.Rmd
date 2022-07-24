@@ -6,31 +6,114 @@ author: "Thomas Rosenthal - DSI @ UofT"
 date: "Module 03"
 output:
   xaringan::moon_reader:
+    css: [xaringan-themer.css, custom.css]
     lib_dir: libs
     nature:
-      highlightStyle: github
+      highlightStyle: style_solarized_light
+      highlightLines: true
       countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+      ratio: "16:9"
       seal: false
+editor_options: 
+  chunk_output_type: consolex
 ---
+
+```{r, warning=FALSE, include=FALSE}
+library(xaringanthemer)
+style_solarized_light(
+  
+  #colours
+  inverse_background_color = "#000000",
+  background_color = "#d3d2d9",
+  table_row_even_background_color = "#000000",
+  code_highlight_color = "#268bd2",
+
+  # fonts
+  header_font_google = google_font("Martel", "300", "400"),
+  text_font_google = google_font("Lato"),
+  code_font_google = google_font("Fira Mono"),
+  base_font_size = "18px"
+  )
+
+
+library(showtext)
+```
 
 class: middle, center, inverse
 # Essential Techniques:
+
+## Subqueries
 
 ## Temporary Tables & CTEs
 
 ## Windowed Functions
 
 ## Datetime Functions
+
+## ISNULL
 ---
 
 class: middle, center, inverse
 # Essential Techniques:
+
+## **Subqueries**
+
+## Temporary Tables & CTEs
+
+## Windowed Functions
+
+## Datetime Functions
+
+## ISNULL
+---
+
+class: top, left, inverse
+# Subqueries
+
+- SQL allows us to query the results of another query
+  - We call this a subquery
+
+--
+
+- Subqueries can be used in both `JOIN` and `WHERE` clauses
+  - In the case of a `JOIN`:
+    - you want the subquery to add columns to your output
+    - you are using a subquery because you are joining complex criteria that requires manipulation
+      - it is often the case that you are joining two or more tables within a subquery to another table
+
+--
+
+  - In the case of a `WHERE`:
+    - you want to filter results 
+    - you are using a subquery because it is simpler than joining and filtering the columns otherwise
+    - it's important to note: **you can only return a single column** in your subquery
+
+--
+
+- In a subquery, all columns need to be uniquely named
+- Subqueries can usually be run for testing purposes by highlighting them, IDE dependent
+
+---
+
+class: top, left, inverse
+# Subqueries
+
+(Subqueries live coding)
+---
+
+class: middle, center, inverse
+# Essential Techniques:
+
+## Subqueries
 
 ## **Temporary Tables & CTEs**
 
 ## Windowed Functions
 
 ## Datetime Functions
+
+## ISNULL
 
 ---
 
@@ -46,15 +129,24 @@ class: middle, center, inverse
 class: top, left, inverse
 # Temporary ("temp") Tables
 - Table objects created on the fly
-- Automatically saved to a reserved _temp_ schema 
+- Automatically saved to a reserved `temp` schema 
+
+--
+
 - Accessible across SQL queries in the same session
 - They are cleared from memory when SQL is closed (or the server connection is terminated)
+
+--
+
 - Temporary tables can be chained in the same query
   - You can place one temporary table into another
 - Must be dropped (deleted from memory) to recreate them with the same name
+
+--
+
 - Some older versions of SQL don't allow temporary tables
-- They are **Fantastic placeholders**
-  - What scenarios can we think of where a temporary table will be particularly useful
+- They are *Fantastic placeholders*
+  - **What scenarios can we think of where a temporary table will be particularly useful?**
 
 ---
 
@@ -77,30 +169,44 @@ class: top, left, inverse
 # Common Table Expressions "CTEs"
 - Similar to temporary tables
   - CTEs were developed _before_ temp tables
+    - some SQL versions/flavours might not support (especially much older ones) temp tables, so CTEs are very important
 - Instantiated query results created on the fly
-  - utilize the WITH command
-  - 
+  - utilize the `WITH` command
+    - many RDBMs require a semicolon terminating the `WITH` clause
+    - multiple CTEs don't use more than one `WITH` clause, but rather follow one another with a comma
+  - need to be written _before_ the final `SELECT` statement
+  
+  
+--
+
+- Sometimes easier than a subquery
+  - if subqueries become overly complex, they can be harder to read
+
+--
+
 - Stored in memory
+- Limited to your current query window only
 
+---
 
-- Accessible across SQL queries in the same session
-- They are cleared from memory when SQL is closed (or the server connection is terminated)
-- Temporary tables can be chained in the same query
-  - You can place one temporary table into another
-- Fantastic placeholders
-  - What scenarios can we think of where a temporary table will be particularly useful
-- Must be dropped (deleted from memory) to recreate them with the same name
+class: top, left, inverse
+# Common Table Expressions "CTEs" 
 
+(CTEs live coding)
 ---
 
 class: middle, center, inverse
 # Essential Techniques:
+
+## Subqueries
 
 ## Temporary Tables & CTEs
 
 ## **Windowed Functions**
 
 ## Datetime Functions
+
+## ISNULL
 
 ---
 
@@ -113,9 +219,9 @@ class: middle, center, inverse
 
 ## PARTITION BY
 
-## RANK
+## ROW_NUMBER()
 
-## NTILE
+## Other Windowed Functions
 
 ---
 
@@ -128,15 +234,29 @@ class: middle, center, inverse
 
 ## PARTITION BY
 
-## RANK
+## ROW_NUMBER()
 
-## NTILE
+## Other Windowed Functions
 
 ---
 
 class: top, left, inverse
 # Purpose
 - Windowed Functions allow us to create groupings within groupings ("partitions")
+- Allow for greater complexity than simple SQL 
+  - In Module 2, we mentioned briefly a rolling total, e.g. a SUM and a COUNT, windowed functions allow us to return these types of results
+- Often used with a subquery
+  - One of the most common techniques is creating a row number (ROW_NUMBER()) per group
+    - when combined with ORDER BY, the associated row number will be the _highest_ or _lowest_ per grouping
+    - this allows you to select the min or max by setting the row number = 1 in the "outer" (i.e. not the "inner" subquery) query
+
+.center[ 
+<img src="imgs/subquery_rownumber.png"
+     height="250px";>
+     
+<sup><sup> Image: Teate, Chapter 7 </sup></sup>
+]
+
 
 ---
 
@@ -149,9 +269,21 @@ class: middle, center, inverse
 
 ## PARTITION BY
 
-## RANK
+## ROW_NUMBER()
 
-## NTILE
+## Other Windowed Functions
+
+---
+
+class: top, left, inverse
+# OVER
+
+- Syntax for windowed function always requires the `OVER` clause
+  - `{desired_windowed_function} OVER (ORDER BY [a column])`
+- The `ORDER BY` clause is required
+- Think of the `OVER` clause as applying the function of your choice
+  - e.g. Create row numbers based on the ordering of this column
+  - e.g. Rank these values from highest to lowest
 
 ---
 
@@ -164,9 +296,31 @@ class: middle, center, inverse
 
 ## **PARTITION BY**
 
-## RANK
+## ROW_NUMBER()
 
-## NTILE
+## Other Windowed Functions
+
+---
+
+class: top, left, inverse
+# PARTITION BY
+
+- Within an `OVER` clause, we can optionally use `PARTITION BY` to create groupings for the function to be applied to
+  - `{desired_windowed_function} OVER (PARTITION BY [a column] ORDER BY [a column])`
+- Now, the function is being applied to different groups 
+  - e.g. Rank these values from highest to lowest within these groups
+    - the ranking will restart for each group
+    - think of this like the Olympics: the top three competitors for each event get gold, silver, and bronze — the `PARTITION BY` is the event, the `ORDER BY` is the time `ASC` or points `DESC` that determine the outcome of the event
+- Both the `PARTITION BY` and `ORDER BY` arguments can take more than one column
+  - e.g. life expectancy by country by continent 
+
+
+.center[ 
+<img src="imgs/wf_partitionby.png"
+     height="200px";>
+     
+<sup><sup> Image: SQLiteTutorial.net </sup></sup>
+]
 
 ---
 
@@ -179,9 +333,23 @@ class: middle, center, inverse
 
 ## PARTITION BY
 
-## **RANK**
+## **ROW_NUMBER()**
 
-## NTILE
+## Other Windowed Functions
+
+---
+
+class: top, left, inverse
+# ROW_NUMBER()
+
+- `ROW_NUMBER()` is the simplest windowed function, but also one of the most useful
+  - There are no mathematical function being applied, just an incremental value by group
+  - Determining the "top" (or bottom) per group is often done through `ROW_NUMBER()`
+
+--
+
+- `ROW_NUMBER()` might feel a bit like ranking `RANK()`...but it's not quite
+  - **What is the difference between `ROW_NUMBER()` and `RANK()`?**
 
 ---
 
@@ -194,19 +362,50 @@ class: middle, center, inverse
 
 ## PARTITION BY
 
-## RANK
+## ROW_NUMBER
 
-## **NTILE**
+## **Other Windowed Functions**
 
 ---
 
+class: top, left, inverse
+# Other Windowed Functions
+- SQL supports quite a few other windowed functions
+- `NTILE` for example will assign rows to buckets (4: quartile, 5: quintile, 10: decile, etc)
+  - As such, the `NTILE` function requires an argument passed
+    `NTILE(4) OVER (PARTITON BY...ORDER BY...)`
+- `LAG` and `LEAD` allow us to create an offset of another column
+  - e.g. show a previous_year_total next to a current_year_total for easy comparison
+- Knowing how and why to use these can make queries a lot easier
+
+.center[ 
+<img src="imgs/wf_types.png"
+     height="300px";>
+     
+<sup><sup> Image: SQLiteTutorial.net </sup></sup>
+]
+
+---
+class: left, upper, inverse
+
+# Windowed Functions
+
+(Windowed Functions live coding)
+
+---
+
+class: middle, center, inverse
 # Essential Techniques:
+
+## Subqueries
 
 ## Temporary Tables & CTEs
 
 ## Windowed Functions
 
 ## **Datetime Functions**
+
+## ISNULL
 
 ---
 
@@ -215,15 +414,194 @@ class: middle, center, inverse
 
 ## Formats
 
-## GETDATE()
+## NOW()
 
-## DATEPARTs
+## STRFTIME
 
-## DATEDIFF
+## Adding Dates
 
-## DATEADD
+## Difference between Dates
 
 ---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## **Formats**
+
+## NOW()
+
+## STRFTIME
+
+## Adding Dates
+
+## Difference between Dates
+
+---
+
+class: left, upper, inverse
+# Formats
+- Date formats vary widely in SQL databases
+  - A general rule of thumb when working with multiple date fields is to force them all into a similar format 
+    - This may seem obvious, but different source systems may write dates different in SQL DBs
+- It is not uncommon to store dates values as integers YYYMMDD to increase optimization and decrease storage size
+- Manipulating dates varies by flavour
+- SQLite is _less_ flexible with dates, requiring all dates to either be:   
+  - "YYYY-MM-DD" strings
+  - Julian Day fractions
+  - Seconds from Unix Time integers
+
+---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## Formats
+
+## **NOW()**
+
+## STRFTIME
+
+## Adding Dates
+
+## Difference between Dates
+
+---
+
+class: left, upper, inverse
+
+# NOW() (or GETDATE() or DATE, flavour depending)
+- These functions (there are actually more of them) get the current date and time
+  - Some will return UTC time if requested (this can be useful) e.g. `GETUTCDATE()`
+- When combined with other Datetime functions, this can serve as a dynamic value
+  - e.g. "yesterday", "last year", and so on
+- SQLite uses `DATE()` and `DATETIME()` (without any arguments) _or_ `DATE('now')` _or_ simply `'now'`
+  - SQLite's flexibility with single vs double quotes is important here:
+    - "now" is the word now
+    - 'now' is July 23, 2022
+
+---
+class: left, upper, inverse
+
+# NOW()
+
+(NOW() live coding)
+
+---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## Formats
+
+## NOW()
+
+## **STRFTIME**
+
+## Adding Dates
+
+## Difference between Dates
+
+---
+
+class: left, upper, inverse
+
+# STRFTIME
+- STRFTIME converts DATE and DATETIME values into different formats
+
+- Some flavours have built in convenience "date parts", like YEAR, MONTH, etc that make extracting values a bit easier
+
+---
+class: left, upper, inverse
+
+# STRFTIME
+
+(`STRFTIME` live coding)
+
+---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## Formats
+
+## NOW()
+
+## STRFTIME
+
+## **Adding Dates**
+
+## Difference between Dates
+
+---
+
+class: left, upper, inverse
+# Adding Dates (sometimes DATEADD or DATE_ADD flavour dependent)
+- It's commonplace to add
+
+---
+
+class: middle, center, inverse
+# Datetime Functions
+
+## Formats
+
+## NOW()
+
+## STRFTIME
+
+## Adding Dates
+
+## **Difference between Dates**
+
+---
+
+class: left, upper, inverse
+# Difference between Dates (an extension of STRFTIME or DATEDIFF flavour dependent)
+- Similar to date addition, 
+
+---
+
+class: middle, center, inverse
+# Essential Techniques:
+
+## Subqueries
+
+## Temporary Tables & CTEs
+
+## Windowed Functions
+
+## Datetime Functions
+
+## **ISNULL**
+
+---
+
+class: left, upper, inverse
+
+# ISNULL (and/or COALESCE, flavour depending)
+- `ISNULL` allows us to return a replacement value for NULLs
+  - Replacement values can be another column, a calculated vale, or static
+    - e.g. when col1 is NULL, it is replaced with values from col2
+      - values from col2 are only present if col1 is NULL
+      - if col2 is NULL, then NULL will be returned
+      
+- `COALESCE` does this as well, but behaves slightly differently
+  - COALESCE allows you to replace NULLs from replacement values themselves
+      - e.g. when col1 is NULL, it's replaced with col2; when col2 is NULL, it's replaced with col3, etc
+  - `ISNULL` has to be wrapped around `ISNULL` functions in order to mimic this behaviour
+
+- Both are acceptable, `ISNULL` may be faster in some cases, though this isn't totally clear
+  - `ISNULL` is also less flexible for mixed data types 
+---
+
+class: left, upper, inverse
+
+# ISNULL (and/or COALESCE, flavour depending)
+
+(`ISNULL` & `COALESCE` live coding)
+---
+
 
 class: middle, center, inverse
 _Lingering Questions?_

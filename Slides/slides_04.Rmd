@@ -35,7 +35,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -54,7 +54,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -71,9 +71,46 @@ class: top, left, inverse
 
 ## Concatentation
 
-## SUBSTR()
+## SUBSTR
 
+## REGEXP
 
+---
+
+class: top, left, inverse
+# String Manipulation
+
+## LENGTH
+
+## REPLACE
+
+## UPPER/LOWER
+
+## Concatentation
+
+## SUBSTR
+
+## **REGEXP**
+
+---
+
+class: upper, left, inverse
+# REGEXP (flavour dependent)
+- REGEXP allows for string filtering based on regular expressions (regex)
+- Situated within a WHERE clause, very similar to LIKE
+- Can use either SQL's or regex's Boolean operators
+  - e.g. `WHERE book_title REGEXP '(tion|ice)$'`
+  - or   `WHERE book_title REGEXP 'tion$' OR book_title REGEXP 'ice$'`
+
+---
+
+class: upper, left, inverse
+# REGEXP (flavour dependent)
+
+(Quick REGEXP live coding)
+
+> Some people, when confronted with a problem think: "I know, I'll use regular expressions." 
+> Now they have two problems - Jamie Zawinski (probably)
 ---
 
 class: middle, center, inverse
@@ -89,7 +126,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -108,7 +145,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -127,7 +164,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -146,7 +183,7 @@ class: middle, center, inverse
 
 ## **UNION & UNION ALL**
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## INSERT, UPDATE, DELETE
 
@@ -211,14 +248,22 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## **INTERSECT**
+## **INTERSECT & EXCEPT**
 
 ## INSERT, UPDATE, DELETE
 
 ---
 
 class: top, left, inverse
-# INTERSECT
+# INTERSECT & EXCEPT
+
+### INTERSECT
+- INTERSECT returns the 
+
+- What's the difference between INTERSECT and INNER JOIN? 
+
+### EXCEPT
+- EXCEPT returns the 
 
 ---
 
@@ -235,7 +280,7 @@ class: middle, center, inverse
 
 ## UNION & UNION ALL
 
-## INTERSECT
+## INTERSECT & EXCEPT
 
 ## **INSERT, UPDATE, DELETE**
 

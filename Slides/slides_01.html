@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
     <script src="libs/header-attrs-2.14/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -79,11 +79,11 @@ class: left, top, inverse
 # About Me
 .pull-left[
 - Fell into SQL in my first job out of undergraduate in 2013
-- Worked as a Data Analyst in US Healthcare until emigrated to Canada in 2018
+- Worked as a Data Analyst in US healthcare until moving to Canada in 2018
   - Challenging data
   - Easy to see impact of good queries
   - I was pretty naive about data, probably lucky I didn't break anything 🤷
-- Worked as a Data Engineer as Plan Canada managing a CRM Data Warehouse backend
+- Worked as a Data Engineer at Plan Canada managing a CRM Data Warehouse backend
 - Went back to UofT to do my Master of Information
   - Wanted to do less SQL, more R and python
   - SQL seemed like it was on its way out...NOPE, I was just wrong
@@ -96,6 +96,7 @@ class: left, top, inverse
 &lt;img src="imgs/professor_alto.png"
      width="500px" height="500px"
      style="position:absolute; right:50px; top:130px;"&gt;
+
 ]
 
 ---
@@ -114,6 +115,7 @@ class: middle, center, inverse
 class: left, top, inverse
 # Course Content
 
+.pull-left[
 - Data Modelling
 - Basic SQL Syntax
 - Advanced SQL Syntax
@@ -121,7 +123,27 @@ class: left, top, inverse
 - Importing and Exporting Data to and from SQL
 - Data Stewardship, Ethics, and SQL in the Wild
 
-(image or more)
+- This course is an _Introduction_ to SQL
+- At the end of the course, I hope you will:
+  - Feel comfortable with SQL
+  - Know how to search for the right thing on Stack Overflow
+  - Read documentation
+
+- We won't cover advanced topics like:
+  - Stored Procedures, Triggers, Jobs
+  - DBA work (monitoring, server setup, etc)
+  - Complex ETL or tooling
+
+]
+
+.pull-right[
+
+&lt;img src="imgs/sql.png"
+     height="500px"
+     style="position:absolute; right:50px; top:130px;"&gt;
+
+
+]
 
 ---
 
@@ -139,7 +161,9 @@ class: middle, center, inverse
 class: left, top, inverse
 # Quick Technical Check
 
-(a slide where we make sure everyone has SQLite installed)
+(a slide where we make sure everyone has DB Browser for SQLite installed)
+
+If not, please download it here: [sqlitebrowser.org/dl/](sqlitebrowser.org/dl/)
 
 ---
 
@@ -181,11 +205,17 @@ class: top, left, inverse
 
 ### What is SQL?
 
-- SQL: Structured Query Language.
-  - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”.
+- SQL: Structured Query Language
+  - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”
+
+--
+
 - SQL is a _query_ language rather than a programming language
   - Code is often less reproducible than programming languages because it's domain specific
   - Querying 
+
+--
+
 - Designed to manage data within Relational Database Management Systems (RDBMs), e.g.
   - MSSQL
   - Oracle DB
@@ -202,8 +232,16 @@ class: top, left, inverse
 - Like other programming/query languages, SQL has reserved keywords/commands to perform instructional operations 
   - Generally, these keywords are written in all caps: `SELECT`
   - Most modern interpreters no longer require this, but it is the expected standard
-- Similarly, all statements/queries should be ended with a semicolon
-  - A few SQL constructs (like common table expressions, we'll get to these later) require them, otherwise they are optional but considered best practice (I'll almost certainly forget to use them)
+  
+--
+
+- All statements/queries should be ended with a semicolon
+  - A few SQL constructs (like common table expressions, we'll get to these later) require them, otherwise they are optional 
+      - I'll almost certainly forget to use them
+      - There's some debate on whether or not it's best practice
+
+--
+
 - In SQL, white space does not matter 
 
 ---
@@ -230,6 +268,9 @@ class: top, left, inverse
       `!=` or `&lt;&gt;` (or both)
     - other, more nuanced/complex differences
       - e.g. architecture, data types, etc
+
+--
+
 - We are using SQLite:
   - Super easy to get setup
   - Requires almost no overhead
@@ -255,17 +296,21 @@ class: top, left, inverse
 ### What are  Relational Database Management Systems?
 -  Relational Database Management Systems (RDBMs) are software designed to:
   - Store large amounts of data
-  - Utilize a query language to allow easy retrieval to the data
+  - Utilize a query language to allow easy retrieval of the data
   - Allow multiple users to access the data simultaneously
   - Manage permissions for data access
   - Mitigate data corruption and unauthorized access
-  
+
+--
+
 - Generally, data is stored in a _database_
   - a database is a collection of information
   - within a database, a collection of objects (e.g. tabular data "tables") is stored
 
-- RDBMs software allows its users to define interactions between these objects, such as:
-  - Establishing the relationship between objects 
+--
+
+- RDBMs allow users to define interactions between these objects, such as:
+  - Establish the relationship between objects 
   - Define procedural scripts to query specific data or trigger an action
   - Schedule routine work (e.g. procedures to run, maintenance, etc) 
 
@@ -275,7 +320,7 @@ class: top, left, inverse
 # Data Modelling
 
 ### What is a Data Model?
-- A data model is a notation for describing data or information. 
+- A data model is a notation for describing data or information
 
 - Data models consist of:
   - Structure of the data
@@ -290,19 +335,23 @@ class: top, left, inverse
 
 ### Structure of Data
 
-- SQL compromises of tables
+- SQL is comprised of tables
 
-| Breed    | Affectionate With Family | Good With Other Dogs | Shedding Level | Coat Type | Coat Length | Playfulness Level | Energy Level |
+| Breed    | Affectionate w/ Family | Good w/ Other Dogs | Shedding | Coat Type | Coat Length | Playfulness | Energy |
 |----------|--------------------------|----------------------|----------------|-----------|-------------|-------------------|--------------|
 | Pugs     | 5                        | 4                    | 4              | Smooth    | Short       | 5                 | 3            |
 | Akitas   | 3                        | 1                    | 3              | Double    | Medium      | 3                 | 4            |
 | Samoyeds | 5                        | 3                    | 3              | Double    | Long        | 5                 | 4            |
 
+--
+
 - Tables have Attributes and Observations
   - In SQL we call Attributes "Columns"
-    - e.g. Breed, Coat Type, Coat Length
+      - e.g. Breed, Coat Type, Coat Length
   - and Observations "Rows"
-    - e.g. Samoyed, Double, Long
+      - e.g. Samoyed, Double, Long
+
+--
 
 - SQL databases require tables to be named
   - e.g. We can call this table "breed_traits"
@@ -314,13 +363,13 @@ class: top, left, inverse
 
 ### Structure of Data
 
-- Columns are defined (and restricted) by data types
+- Columns are defined (and restricted, i.e. constrainted) by data types
 - Common ones include:
-  - INT (integers)
-  - FLOAT, DECIMAL&lt;, REAL (decimal)
-  - VARCHAR, NVARCHAR, TEXT (text strings, with a maximum length associated)
-  - DATE, DATETIME, TIME (date and times)
-- These may vary slightly by flavour, (in SQLite they are simpler, and less restricted)
+  - `INT` (integers)
+  - `FLOAT`, `DECIMAL`, `REAL` (decimal)
+  - `VARCHAR`, `NVARCHAR`, `TEXT` (text strings, with a maximum length associated)
+  - `DATE`, `DATETIME`, `TIME` (dates and times)
+- These may vary slightly by flavour (in SQLite they are simpler and less restricted)
 - Data types are important:
   - they affect operation speed, storage size, data validity
 
@@ -329,17 +378,14 @@ class: top, left, inverse
 class: top, left, inverse
 # Data Modelling
 
-### Operations
-- 
-
-
----
-
-class: top, left, inverse
-# Data Modelling
-
 ### Constraints
-- Constraints are rules that must be followed 
+- Data Models also specify constraints
+- Constraints are rules that must be followed:
+  - Referential-Integrity constraints
+      - Ensure that values in one table have corresponding values in another table
+  - Attribute Constraints
+      - Ensure that certain types of values are always consistent within columns
+      - May also ensure whether values are unique, not missing, etc
 
 
 ---
@@ -350,10 +396,16 @@ class: top, left, inverse
 ### Relationships: Entity Relationship Diagrams (ERDs)
 - ERDs are diagrams depicting the structure of tables within database
   - This both _identifies the tables_ and _describes their relationships_ 
+
+--
+
 - ERDs are useful for:
   - database design
   - debugging
   - writing logical, consistent, and efficient queries
+
+--
+  
 - There three levels of details for ERD depictions:
   - Conceptual model
   - Logical model
@@ -372,6 +424,8 @@ class: top, left, inverse
   - Column Types
   - Primary Keys (if present)
   - Foreign Keys (if present)
+  
+--
 
 ### Attributes of a Relationship
 - Defines which columns are related
@@ -387,11 +441,15 @@ class: top, left, inverse
 # Data Modelling
 
 ### Conceptual Models
+.pull-left.w35[
 - Defines the tables (objects/entities) and their relationships
+]
 
+.pull-right[
 &lt;img src="imgs/farmers_market_cm.png"
-     width="500px" height="500px";&gt;
-     
+     height="400px";
+     style="position:absolute; right:50px; top:250px;"&gt;
+]     
 
 ---
 
@@ -399,19 +457,25 @@ class: top, left, inverse
 # Data Modelling
 
 ### Logical Models
+.pull-left.w60[
 - Adds additional detail to the conceptual model by adding column names for each table
 - Often indicates the type of relationship 
-  - One-to-One: where a given row within a table is associated with only a single row in another table
-    - Table 1: Country — Table 2: Capital City
-  - One-to-Many: where a given row within a table can be referenced by multiple rows in another table
-    - Table 1: Customer — Table 2: Customer Orders
-  - Many-to-Many: where multiple rows within a table can be referenced by multiple rows in another table
-    - Table 1: Employee — Table 2: Employee Type
-    - A is both a professor at DSI _and_ a TA at DSI. This means in a table containing both Employee ID and Employee Type ID, A would be listed twice.
-    - Even more of a many-to-many because A is part of two courses!
-    
+  - **One-to-One**: where a given row within a table is associated with only a single row in another table
+      - Table 1: Country — Table 2: Capital City
+  - **One-to-Many**: where a given row within a table can be referenced by multiple rows in another table
+      - Table 1: Customer — Table 2: Customer Orders
+  - **Many-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
+      - Table 1: Employee — Table 2: Employee Type
+      - A is a professor at DSI _and_ a TA at DSI. If a table contained Employee ID and Employee Type ID, A would be listed twice.
+      - Even more of a many-to-many because A is part of two courses!
+      
+]
 
-![](imgs/farmers_market_lm.png)
+.pull-right.w35[
+&lt;img src="imgs/farmers_market_lm.png"
+     height="300px";
+     style="position:absolute; right:50px; top:250px;"&gt;
+]
 
 
 ---
@@ -420,21 +484,25 @@ class: top, left, inverse
 # Data Modelling
 
 ### Physical Models
+.pull-left[
 - Adds additional detail to the logical model by adding key type and column data type
-  - Primary Key (PK)
-    - Ensures each value in a column are unique within the table (e.g. an ID field)
-    - One PK per table
-    - Cannot be NULL
-    - Ensures database integrity by restricting record deletion
-  - Foreign Key (FK) 
-    - Creates a linkage between a column in one table with a column in another table
-      - Generally, foreign keys are linked to primary keys
-    - As many FK as needed per table
-    - May be NULL
-    - Record can be deleted
-
-![](imgs/farmers_market_pm.png)
-
+  - **Primary Key (PK)**
+      - Ensures each value in a column is unique within the table (e.g. an ID field)
+      - One PK per table
+      - Cannot be NULL
+      - Ensures database integrity by restricting record deletion
+  - **Foreign Key (FK)**
+      - Creates a linkage between a column in one table and a column in another table
+          - Generally, foreign keys are linked to primary keys
+      - As many FKs as needed per table
+      - May be NULL
+      - Record can be deleted
+]
+.pull-right[
+&lt;img src="imgs/farmers_market_pm.png"
+     height="200px";
+     style="position:absolute; right:50px; top:250px;"&gt;
+]
 
 ---
 
@@ -462,32 +530,44 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # First Three Commands
-- Our first three commands (SELECT, FROM, WHERE) are essential to nearly every SQL query
+- Our first three commands (`SELECT`, `FROM`, `WHERE`) are essential to nearly every SQL query
+
+--
+
 - The template for our initial SQL statement is as such:
 
-`SELECT` : _the columns we want to retrieve_
+    `SELECT` : _the columns we want to retrieve_
 
-`FROM` : _the table we are querying_
+    `FROM` : _the table we are querying_
 
-`WHERE` : _filters/conditions, (optional)_
+    `WHERE` : _filters/conditions (optional)_
 
-`ORDER BY` : _column sorting: ascending (ASC) or descending (DESC), (optional)_
+    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC`_ (optional)_
 
-`LIMIT` : _how many rows we want to return, (optional)_
+    `LIMIT` : _how many rows we want to return (optional)_
 
-- They always are specified in this order:
-  - SELECT will come first
-  - FROM will come after SELECT
-    - when we are querying more than one table at a time, each will come after FROM but before WHERE (more on this later)
-  - WHERE will come after FROM 
-  - ORDER BY comes after WHERE clauses
-- We'll sometimes use the LIMIT clause to look at data
+---
+
+class: top, left, inverse
+# First Three Commands
+- Always  specified in this order:
+  - `SELECT` will come first
+  - `FROM` will come after `SELECT`
+      - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
+  - `WHERE` will come after `FROM` 
+  - `ORDER BY` will come after `WHERE` clauses
+
+--
+
+- We'll sometimes use the `LIMIT` clause to look at data
   - This comes at the very end of a query
-  - LIMIT shouldn't be used for analytics unless you have a specific reason
-    - ORDER BY often impacts the usefulness of LIMIT 
+  - `LIMIT` shouldn't be used for analytics unless you have a specific reason
+    - `ORDER BY` often impacts the usefulness of `LIMIT` 
+
+--
 
 - One more thing:
-  - In SQL, we use two dashes (--) to comment out lines, rather than #
+  - In SQL, we use two dashes `--` to comment out lines, rather than `#`
 ---
 
 
@@ -505,20 +585,31 @@ class: middle, center, inverse
 class: top, left, inverse
 # SELECT
 
-- At its simplest SELECT specifies column names we are retrieving
+- At its simplest `SELECT` specifies column names we are retrieving
   - commas come between each column name
-    - `SELECT student, course, grade ...`
+      - `SELECT student, course, grade ...`
   - column names with a space need to be enclosed in square brackets
-    - `SELECT [poorly named column], better_column_name, AnotherColumnName`
-- Within SELECT statements we can perform manipulations on columns
+      - `SELECT [poorly named column], better_column_name, AnotherColumnName`
+
+--
+
+- Within `SELECT` statements we can perform manipulations on columns
   - e.g. rename a column
+      - `SELECT [poorly named column] AS better_col`
   - combine two text columns
-  - perform math on an numeric column
+  - perform math on a numeric column
   - ...and many more things
-- When SELECTing columns, they need to exist in the table!
+
+--
+
 - We can use select to perform math without a FROM statement
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
+
+--
+
+- When selecting columns, they need to exist in the table!
+
   
 ---
 
@@ -537,18 +628,21 @@ class: middle, center, inverse
 class: top, left, inverse
 # FROM
 
-- FROM statements indicate which table the data and where the table is located
+- `FROM` statements indicate which table the data and where the table is located
   - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
     - a fully qualified location of a table would thus be `database.schema.table`
 - `SELECT * FROM table_name` indicates _everything_ in the table
-  - best practice suggests that we should explicitly call each column, even if we want all of them 
-    - why do we think this is the case?
+
+--
+
+- Best practice suggests that we should explicitly call each column, even if we want all of them
+ - **Why do we think this is the case?**
 ---
 
 class: top, left, inverse
 # FROM
 
-(SELECT &amp; FROM live coding)
+(`SELECT` &amp; `FROM` live coding)
 ---
 
 class: middle, center, inverse
@@ -564,20 +658,28 @@ class: middle, center, inverse
 class: top, left, inverse
 # WHERE
 
-- WHERE clauses are conditions that the query will follow
-- When we have want to have multiple conditions, we use a single WHERE and then additional logical operations
-  
-  ```
-  SELECT *
-  FROM students
-  WHERE first_name = "Thomas"
-  AND last_name = "Rosenthal"
-  ```
+- `WHERE` clauses are conditions that the query will follow
+- When we want to have multiple conditions, we use a single `WHERE` and then additional logical operations
 
-- WHERE clauses always return rows evaluating to TRUE
+```
+    SELECT *
+    FROM students
+    WHERE first_name = 'Thomas'
+    AND last_name = 'Rosenthal'
+```
+
+- **Notice we put string values in single quotes**
+  - SQLite also allows double quotes, with a few minor caveats
+
+--
+
+- `WHERE` clauses always return rows evaluating to `TRUE`
   - Follows Boolean rules if more than one condition is present
+
+--
+
 - My favourite WHERE statement is `WHERE 1=1`
-  - Any guesses as to why?
+  - **Any guesses as to why?**
   
 ---
 
@@ -585,36 +687,56 @@ class: top, left, inverse
 # WHERE
 
 ### Logical Operators
-- AND
-- OR
-- NOT
-- IN
+- `AND`
+- `OR`
+- `NOT`
+- `NOT IN`
 - equals: `=`
 - does not equal: `&lt;&gt;` `!=`  
   - (flavour dependent)
 - greater than (equal to): `&gt;` `&gt;=` 
 - less than (equal to)`&lt;` `&lt;=`
-- BETWEEN
-- EXISTS
+- `BETWEEN`
+- `EXISTS`
   - table specific
-- IS
-  - NULL specific 
+- `IS`
+  - `NULL` specific 
+  
+---
+
+class: top, left, inverse
+# WHERE
 
 ### NULL
-- NULL is not a value (it's the absence of a value)
+- `NULL` is not a value (it's the absence of a value)
   - to check null values, we use `IS NULL` or `IS NOT NULL`
   - `= NULL` will not work
+
+--
+
+### LIKE
+- `LIKE` allows for string wildcards
+- `%` specifies the wildcard placement
+  - `country_name LIKE 'and%'`
+      - Andorra
+  - `country_name LIKE '%and'`
+      - Finland, Iceland ...more
+  - `country_name LIKE '%and%'`
+      - all of the above, _plus_ Antigua and Barbuda, Netherlands, Rwanda ...more!
+  - `country_name LIKE '%an%d%'`
+      - Canada ...surely more!
 
 ---
 
 class: top, left, inverse
 # WHERE
 
-(WHERE live coding)
+(`WHERE` live coding)
 ---
 
 class: middle, center, inverse
-_Lingering Questions?_
+**Lingering Questions?**
+
 
 
     </textarea>
