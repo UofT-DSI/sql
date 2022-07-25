@@ -175,6 +175,19 @@ class: left, top, inverse
 
 If not, please download it here: [sqlitebrowser.org/dl/](sqlitebrowser.org/dl/)
 
+--
+<br><br><br>
+
+For live coding:
+- Please download/fork the FarmersMarket.db from my GH:
+  - [github.com/mrpotatocode/DSI_SQL/tree/main/SQL](github.com/mrpotatocode/DSI_SQL/tree/main/SQL)
+- Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
+
+--
+
+<br><br><br>
+**Good to go?**
+
 ---
 
 class: middle, center, inverse
