@@ -31,7 +31,9 @@ The workshop will be held over two weeks, three days a week. Two of the three da
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
-**Technology Requirements**
+### Technology Requirements
+- A computer with internet access is required to attend sessions and participate in live-coding.
+- Download DB Browser for SQLite here: https://sqlitebrowser.org/dl/
 
 
 ## Policies
