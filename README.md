@@ -31,8 +31,14 @@ The workshop will be held over two weeks, three days a week. Two of the three da
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
+**Technology Requirements**
+
+
 ## Policies
-TBD
+- Accessiblity: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
+- Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
+- Camera:: Keeping your camera on is optional.
+- Microphone: Please keep microphones muted unless you need to speak.
 
 ## Schedule
 Day 1: Introduction, SELECT, FROM, WHERE
@@ -50,14 +56,20 @@ Day 6: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, S
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
 
-### 1. *Slides*:
+### 1. *Slides*: 
+Slides were built in R with `xaringan`. Output files are HTML.
 
-### 2. *SQL*:
+### 2. *PDF Slides: 
+PDF version of slides, using `renderme`. Some minor differences may exist.
 
-### 3. *Data*:
+### 3. *SQL*: 
+FarmersMarket.db, in-class SQL codes.
 
-### 4. *Exit*:
-This folder contains the exit surveys for students to complete.
+### 4. *Data*: 
+Csvs we'll use for importing.
+
+### 5. *Exit*:
+Exit surveys for students to complete.
 
 ## Acknowledgements
 
