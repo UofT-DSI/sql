@@ -35,15 +35,15 @@ The course is designed for both live-coding and corresponding slides. Students s
 TBD
 
 ## Schedule
-Day 1: Introduction, SELECT, FROM, and WHERE
+Day 1: Introduction, SELECT, FROM, WHERE
 
-Day 2: JOINs, Aggregation Functions, CASE WHEN
+Day 2: CASE, DISTINCT, JOINs, Aggregation Functions
 
-Day 3: Temporary Tables, CTEs, OVER, PARTITION BY, RANK, NTILE, Datetime Functions
+Day 3: Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions, ISNULL
 
-Day 4: String Manipulation, ROLLUP, UNION, INSERT, UPDATE, DELETE, CROSS & Self Joins
+Day 4: String Manipulation, ROLLUP, CROSS & Self Joins UNION, INTERSECT & EXCEPT INSERT, UPDATE, DELETE, 
 
-Day 5: Normal Forms, CSVs, JSON, Views
+Day 5: Importing & Exporting Data, Normal Forms, Views
 
 Day 6: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
 
@@ -56,13 +56,7 @@ Below are the folders contained in this repo with a description of what they con
 
 ### 3. *Data*:
 
-### 4. *Homework*:
-__maybe?__
-
-### 5. *Assessment*:
-__maybe?__
-
-### 6. *Exit*:
+### 4. *Exit*:
 This folder contains the exit surveys for students to complete.
 
 ## Acknowledgements
