@@ -61,7 +61,7 @@ Below are the folders contained in this repo with a description of what they con
 ### 1. *Slides*: 
 Slides were built in R with `xaringan`. Output files are HTML.
 
-### 2. *PDF Slides: 
+### 2. *PDFs*:
 PDF version of slides, using `renderme`. Some minor differences may exist.
 
 ### 3. *SQL*: 
