@@ -68,7 +68,7 @@ PDF version of slides, using `renderme`. Some minor differences may exist.
 FarmersMarket.db, in-class SQL codes.
 
 ### 4. *Data*: 
-Csvs we'll use for importing.
+Data (csv, json, etc) we'll use for importing.
 
 ### 5. *Exit*:
 Exit surveys for students to complete.
