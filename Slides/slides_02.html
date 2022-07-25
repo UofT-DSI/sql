@@ -34,7 +34,7 @@ class: middle, center, inverse
 
 ## Two More Commands
 
-## JOINs
+## JOIN
 
 ## Aggregation Functions
 
@@ -45,7 +45,7 @@ class: middle, center, inverse
 
 ## **Two More Commands**
 
-## JOINs
+## JOIN
 
 ## Aggregation Functions
 
@@ -77,16 +77,16 @@ class: top, left, inverse
 
 - They are generally similar to `if` or `if else` statements in python, R, and other languages
   - When a condition is introduced, we check whether it evaluates to TRUE
-    - If it is true, we proceed with a desired command, calculation, value, etc
+      - If it is true, we proceed with a desired command, calculation, value, etc
       - If it is not true, we move to the next condition
-        - If it is true, we proceed with another desired command, calculation, value, etc
-          - ...all the way until we run out of conditions
+          - If it is true, we proceed with another desired command, calculation, value, etc
+              - ...all the way until we run out of conditions
   - For all FALSE conditions, we can use an `ELSE` statement if we want to
 
 --
 
 - The results of a `CASE` statement will be a new column
-- Best practice names the new column using `AS new_column_name`
+- Best practice is to name the new column using `AS new_column_name`
 
 ```
     CASE 
@@ -124,14 +124,12 @@ class: top, left, inverse
 
 - `DISTINCT` has two possible spots within a query:
   - One comes immediately after `SELECT`, before column names are specified
-    - e.g. `SELECT DISTINCT songs, albums, artists...`
-    - This `DISTINCT` will govern the entire query
-
---
-
+      - e.g. `SELECT DISTINCT songs, albums, artists...`
+      - This `DISTINCT` will govern the entire query
+      
   - The other comes within aggregation
-    - e.g. `COUNT(DISTINCT products)`
-    - This `DISTINCT` will only affect this specific aggregation
+      - e.g. `COUNT(DISTINCT products)`
+      - This `DISTINCT` will only affect this specific aggregation
 
 ---
 
@@ -146,7 +144,7 @@ class: middle, center, inverse
 
 ## Two More Commands
 
-## **JOINs**
+## **JOIN**
 
 ## Aggregation Functions
 
@@ -154,22 +152,22 @@ class: middle, center, inverse
 ---
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## INNER JOINs
+## INNER JOIN
 
-## LEFT (OUTER) JOINs
+## LEFT (OUTER) JOIN
 
-## RIGHT (OUTER) JOINs
+## RIGHT (OUTER) JOIN
 
-## FULL OUTER JOINs
+## FULL OUTER JOIN
 
-## Multiple Table JOINs
+## Multiple Table Joins
 
 ---
 
 class: top, left, inverse
-# JOINs
+# JOIN
 
 - Joins are used to combine data stored in different tables into a single table
 
@@ -196,14 +194,14 @@ class: top, left, inverse
 --
 
 - There are three join types in SQL but different joining criteria can further limit results 
-- The most permitting join is a `FULL OUTER JOIN`, and the least permitting is an `INNER JOIN`
+- The most permitting join is a `FULL OUTER JOIN` and the least permitting is an `INNER JOIN`
   - Let's explore what this means by looking at each of them
 
 
 ---
 
 class: top, left, inverse
-# JOINs
+# JOIN
 
 ### JOIN Syntax
 
@@ -234,22 +232,22 @@ A couple of notes:
 
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## **INNER JOINs**
+## **INNER JOIN**
 
-## LEFT (OUTER) JOINs
+## LEFT (OUTER) JOIN
 
-## RIGHT (OUTER) JOINs
+## RIGHT (OUTER) JOIN
 
-## FULL OUTER JOINs
+## FULL OUTER JOIN
 
-## Multiple Table JOINs
+## Multiple Table Joins
 
 ---
 
 class: top, left, inverse
-# INNER JOINs
+# INNER JOIN
 - `INNER JOIN` filters both tables to rows present in both tables
 - `INNER JOIN` does not produce `NULL` values
 - `INNER JOIN` is the "default" join
@@ -259,87 +257,91 @@ class: top, left, inverse
 &lt;img src="imgs/inner_join.png"
      height="300px";&gt;
      
-&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;
+&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
 ]
 ---
 
 class: top, left, inverse
-# INNER JOINs
+# INNER JOIN
 
 A quick note on table aliasing:
 - It is very common practice to alias table names 
   - It makes join criteria much more concise
   - It simplifies `SELECT` statements when column names are the same
-    - This is a common error, _"ambiguous column name"_
+    - This is a common error: _"ambiguous column name"_
       - SQL requires you to specify _which_ table you are returning the result from
 - Generally, tables are aliased with the first letter (or first few letters) of the table so they can be easily referenced
   - `product AS p`
   - `product_category AS pc`
   
+---
+
+class: top, left, inverse
+# INNER JOIN
 
 (`INNER JOIN` live coding)
 ---
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## INNER JOINs
+## INNER JOIN
 
-## **LEFT (OUTER) JOINs**
+## **LEFT (OUTER) JOIN**
 
-## RIGHT (OUTER) JOINs
+## RIGHT (OUTER) JOIN
 
-## FULL (OUTER) JOINs
+## FULL (OUTER) JOIN
 
-## Multiple Table JOINs
+## Multiple Table Joins
 
 ---
 
 class: top, left, inverse
-# LEFT (OUTER) JOINs
+# LEFT (OUTER) JOIN
 - `LEFT JOIN` filters the "right" table to rows present in the "left" table
 - `LEFT JOIN` will most often produce `NULL` values
 - The "OUTER" in `LEFT OUTER JOIN` is optional
-  - Generally, OUTER seems to be excluded but either are correct
-  - LEFT _is not_ optional, there is no "OUTER JOIN"
+  - Generally, OUTER seems to be excluded but both are correct
+- LEFT _is not_ optional, there is no "OUTER JOIN"
 
 .center[ 
 &lt;img src="imgs/left_join.png"
      height="300px";&gt;
      
-&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;
+&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
 ]
 
 ---
 
 class: top, left, inverse
-# LEFT (OUTER) JOINs
+# LEFT (OUTER) JOIN
 
 (`LEFT JOIN` live coding)
 ---
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## INNER JOINs
+## INNER JOIN
 
-## LEFT (OUTER) JOINs
+## LEFT (OUTER) JOIN
 
-## **RIGHT (OUTER) JOINs**
+## **RIGHT (OUTER) JOIN**
 
-## FULL (OUTER) JOINs
+## FULL (OUTER) JOIN
 
-## Multiple Table JOINs
+## Multiple Table Joins
 
 ---
 
 class: top, left, inverse
-# RIGHT (OUTER) JOINs
+# RIGHT (OUTER) JOIN
 - `RIGHT JOIN` filters the "left" table to rows present in the "right" table
 - `RIGHT JOIN` will most often produce `NULL` values
 - The "OUTER" in `RIGHT OUTER JOIN` is optional
-  - Generally, OUTER seems to be excluded but either are correct
-- `RIGHT JOIN` are somewhat frowned upon, but sometimes they make sense
+  - Generally, OUTER seems to be excluded but both are correct
+- `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
   - Often your query can be reorganized to use a `LEFT JOIN` instead
     - SQLite does not currently support `RIGHT JOIN`
 
@@ -353,32 +355,31 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## INNER JOINs
+## INNER JOIN
 
-## LEFT (OUTER) JOINs
+## LEFT (OUTER) JOIN
 
-## RIGHT (OUTER) JOINs
+## RIGHT (OUTER) JOIN
 
-## **FULL (OUTER) JOINs**
+## **FULL (OUTER) JOIN**
 
-## Multiple Table JOINs
+## Multiple Table Joins
 
 ---
 
 class: top, left, inverse
-# FULL (OUTER) JOINs
+# FULL (OUTER) JOIN
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a work around to produce the results
-  - We'll do it in Module 4
+- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a work around to produce the results (we'll do it in Module 4)
 
 --
 
 # Filtering a FULL (OUTER) JOIN
-- All OUTER JOINs can be filtered to exclude the _matching_ criteria
+- All OUTER JOIN syntax can be filtered to exclude the _matching_ criteria
   - Often called an ANTI JOIN, i.e. what's _not_ in the other table
 
 ```
@@ -393,22 +394,22 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOINs
+# JOIN
 
-## INNER JOINs
+## INNER JOIN
 
-## LEFT (OUTER) JOINs
+## LEFT (OUTER) JOIN
 
-## RIGHT (OUTER) JOINs
+## RIGHT (OUTER) JOIN
 
-## FULL OUTER JOINs
+## FULL OUTER JOIN
 
-## **Multiple Table JOINs**
+## **Multiple Table Joins**
 
 ---
 
 class: top, left, inverse
-# Multiple Table JOINs
+# Multiple Table Joins
 - More than one table can be joined at a time
 - The order and type of joins will have significant effect on the final table
   - **Pause to imagine what these scenarios might look like based on your knowledge of different `JOIN` types**
@@ -417,7 +418,7 @@ class: top, left, inverse
 ---
 
 class: top, left, inverse
-# Multiple Table JOINs
+# Multiple Table Joins
 
 
 For example, let's combine these three tables:
@@ -428,19 +429,19 @@ For example, let's combine these three tables:
 |------------|--------|
 | A          | 1      |
 | Thomas     | 2      |
-.center[(_Table 1_)]
+.center[&lt;sup&gt;&lt;sup&gt;(_Table 1_)&lt;/sup&gt;&lt;/sup&gt;]
 
 | LastName  | Number |
 |-----------|--------|
 | Mahfouz   | 1      |
 | Rosenthal | 2      |
-.center[(_Table 2_)]
+.center[&lt;sup&gt;&lt;sup&gt;(_Table 2_)&lt;/sup&gt;&lt;/sup&gt;]
 
 | FirstName  | LastName  | Symbol |
 |------------|-----------|--------|
 | A          | Smith     | !      |
 | Edward     | Rosenthal | ?      |
-.center[(_Table 3_)]
+.center[&lt;sup&gt;&lt;sup&gt;(_Table 3_)&lt;/sup&gt;&lt;/sup&gt;]
 ]
 
 --
@@ -458,9 +459,9 @@ If the desired outcome table is:
 ---
 
 class: top, left, inverse
-# Multiple Table JOINs
+# Multiple Table Joins
 
-(Multiple Table JOINs live coding)
+(Multiple Table Joins live coding)
 ---
 
 class: middle, center, inverse
@@ -468,7 +469,7 @@ class: middle, center, inverse
 
 ## Two More Commands
 
-## JOINs
+## JOIN
 
 ## **Aggregation Functions**
 
@@ -511,11 +512,11 @@ class: middle, center, inverse
 class: top, left, inverse
 # GROUP BY
 - Aggregations generally require a *group*
-- `GROUP BY` is a mandatory any time a column aside from the one being aggregated is present
+- `GROUP BY` is mandatory any time a column aside from the one being aggregated is present
 
 --
 
-For example, a query, wanting to know the number of days in each month:
+For example, a query wanting to know the number of days in each month:
 
 ```
     SELECT
@@ -551,7 +552,7 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # COUNT
-- `COUNT` performs counts of any given column or sets of columns
+- `COUNT` performs counts of any given column or set of columns
 
 --
 
@@ -584,6 +585,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
+
 # Aggregation Functions
 
 ## GROUP BY
@@ -605,8 +607,9 @@ class: top, left, inverse
 
 ### SUM
 - `SUM` performs the sum total of any numeric column
-  - Be weary, SQLite may be more permissive for columns with numbers, it's best practice to coerce these values into numbers before summing to be certain of their validity
-
+  - Be wary, SQLite may be more permissive for columns with numbers; it's best practice to coerce (`CAST`) these values into numbers before summing to be certain of their validity
+    - e.g. `CAST(SUM(column1) AS INTEGER) AS column1`
+    
 --
 
 - SUM can accommodate multiple columns using the plus `+` operator
@@ -614,7 +617,7 @@ class: top, left, inverse
 
 --
 
-- Thinking about `SUM` and `COUNT` combined (i.e. a rolling total)? We'll get to how to do that in the next session!
+- Thinking about `SUM` and `COUNT` combined (i.e. a rolling total)? We'll get to that in the next session!
 
 --
 
@@ -653,8 +656,8 @@ class: top, left, inverse
 # MIN &amp; MAX
 
 - `MIN` takes the single minimum value of a given column; `MAX` takes the maximum
-- Be weary of combining `MIN` &amp; `MAX` with other aggregating functions like `SUM` or `AVG`
-- **What do you think happens when `MIN` performed an a character columns? Error? Something else? What about `MAX`?**
+- Be wary of combining `MIN` &amp; `MAX` with other aggregating functions like `SUM` or `AVG`
+- **What do you think happens when `MIN` is performed on a string? Error? Something else? What about `MAX`?**
   
 ---
 
@@ -685,7 +688,7 @@ class: top, left, inverse
 # Arithmetic
 
 - SQL can perform many basic (and some complex) calculations
-  - Addition, subtraction, multiplication, division, power, etc
+  - addition, subtraction, multiplication, division, power, etc
   - geometric/trigonometric functions sin, cos, tan, degrees, radians, etc
 
 --
@@ -746,7 +749,9 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-_Lingering Questions?_
+**Lingering Questions?**
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
