@@ -49,9 +49,9 @@ Day 2: CASE, DISTINCT, JOINs, Aggregation Functions
 
 Day 3: Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions, ISNULL
 
-Day 4: String Manipulation, ROLLUP, CROSS & Self Joins UNION, INTERSECT & EXCEPT INSERT, UPDATE, DELETE, 
+Day 4: String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
 
-Day 5: Importing & Exporting Data, Normal Forms, Views
+Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
 
 Day 6: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
 
