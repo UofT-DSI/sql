@@ -44,8 +44,6 @@ class: middle, center, inverse
 
 ## INTERSECT &amp; EXCEPT
 
-## INSERT, UPDATE, DELETE
-
 ---
 
 class: middle, center, inverse
@@ -60,8 +58,6 @@ class: middle, center, inverse
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
-
-## INSERT, UPDATE, DELETE
 
 ---
 
@@ -105,24 +101,25 @@ class: top, center, inverse
 
 ## Concatenation
 
+## (...)
+
 ---
 
 class: upper, left, inverse
 # LTRIM &amp; RTRIM
 
-# LTRIM &amp; RTRIM
 - `LTRIM` and `RTRIM` serve two purposes in SQLite:
   - Their main function is to remove leading or trailing white spaces from strings
-    - This is surprisingly common — many SQL DBs are populated by human input, and this is a frequently overlooked input error
-    - e.g. '    Thomas Rosenthal    '
+      - This is surprisingly common — many SQL databases are populated by human input, and this is a frequently overlooked input error
+      - e.g. '    Thomas Rosenthal    '
   - Alternatively, they act similarly to `REPLACE` (coming up next), but within their specific context:
-    - `LTRIM` removes any specified set of characters from the _left_
-    - `RTRIM` removes any specified set of characters from the _right_
-      - The usefulness of this is going to be very case specific:
-        - e.g. wanting to remove a prefix/suffix of an ID: 
-          - `LTRIM("A189A", 'A')` would result in '189A'
-          - `RTRIM("A189A", 'A')` would result in 'A189'
-          - `REPLACE` would remove both A's: '189'
+      - `LTRIM` removes any specified set of characters from the _left_
+      - `RTRIM` removes any specified set of characters from the _right_
+          - The usefulness of this is going to be very case specific:
+              - e.g. wanting to remove a prefix/suffix of an ID: 
+                  - `LTRIM("A189A", 'A')` would result in '189A'
+                  - `RTRIM("A189A", 'A')` would result in 'A189'
+                  - `REPLACE` would remove both A's: '189'
 ---
 
 class: top, left, inverse
@@ -143,21 +140,23 @@ class: top, center, inverse
 
 ## Concatenation
 
+## (...)
+
 ---
 
 class: upper, left, inverse
 # REPLACE
 - `REPLACE` is likely going to be one of your most commonly used string manipulations
 - It substitutes a character or set of characters with another
-  - We specify which string (or set of strings within a column in many cases), what we want to replace, and the replacement value'
-    - e.g. `REPLACE('A is an excellent instructor','instructor','TA')` results in 'A is an excellent TA'
-  - You can also replace a character with nothing, using an empty string ''
-    - e.g. `REPLACE('flour','u','')` results in 'flow'
+  - We specify which string (or set of strings within a column), what we want to replace, and the replacement value
+      - e.g. `REPLACE('A is an excellent instructor','instructor','TA')` results in 'A is an excellent TA'
+  - You can also replace a character with nothing, using an empty string: `''`
+      - e.g. `REPLACE('colour','u','')` results in 'color'
 
 --
 
 - `REPLACE` statements can be strung together — the innermost function will be executed first
-  - e.g. `REPLACE(REPLACE(REPLACE(REPLACE('A?lot-of,punctuation.','.',''),',',''),'-',''),'?','')` results in 'A lot of punctuation'
+  - e.g. `REPLACE(REPLACE(REPLACE(REPLACE('A?lot-of,punctuation.','.',' '),',',' '),'-',' '),'?',' ')` results in 'A lot of punctuation'
 
 
 ---
@@ -180,15 +179,17 @@ class: top, center, inverse
 
 ## Concatenation
 
+## (...)
+
 ---
 
 class: upper, left, inverse
 # UPPER &amp; LOWER
 - `UPPER` forces all string characters to be uppercase
-- `LOWER` does the opposite
+- `LOWER` forces all string characters to be lowercase
 - Both `UPPER` and `LOWER` are essential for filtering tables based on strings
-  - It always best to assume that there is some string variety
-  - Sometimes a `%LIKE` statement will not be an option
+  - It's always best to assume that there is some string variety
+  - Sometimes a `LIKE` statement will not be an option
 
 .pull-left.w15[ 
 | annoying_string_column |
@@ -203,7 +204,7 @@ class: upper, left, inverse
 
 --
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 - We can always use `UPPER` or `LOWER` in a `WHERE` clause, even without using the commands in the `SELECT` statement
 
 ```
@@ -233,19 +234,21 @@ class: top, center, inverse
 
 ## **Concatenation**
 
+## (...)
+
 ---
 
 class: upper, left, inverse
 # Concatenation (sometimes CONCAT, flavour dependent )
 
-- String concatenation combines two or more columns into another
+- String concatenation combines two or more columns into a single column
 - Concatenation can handle non-column values too
   - e.g. `first_name || ' ' || last_name as full_name` 
-  - or  `last_name || ', ' first_name AS full_name`
-- In SQLite, `CONCAT` is replaced by two vertical bar characters `||`
+  - or  `last_name || ', ' || first_name AS full_name`
+- In SQLite, `CONCAT` is replaced by two vertical bar characters: `||`
   - most other flavours use `CONCAT`
 - By default, spaces are not included between columns 
-  - i.e., you need to add a blank space between quotes
+  - i.e. you need to add a blank space between quotes
 
 ---
 
@@ -279,9 +282,9 @@ class: upper, left, inverse
 --
 
 - `SUBSTR` replaces flavour specific functions like `LEFT` or `RIGHT`
-  - by default `SUBSTR` counts to the left
+  - by default `SUBSTR` counts from the left
       - e.g. `substr('a long string', 3, 4)` will return "long"
-  - to count from the right, specify a negative number for start
+  - to count from the right, specify a negative number to start
       - e.g. `substr('a long string', -6, 6)` will return "string"
 
 
@@ -323,10 +326,11 @@ class: upper, left, inverse
 
 
 
-- `LENGTH` is perhaps less of a string manipulation in of itself, but is useful in debugging 
-  - Combined with `MAX`, `LENGTH` can be a useful, especially when adding string length constraints to a column
+- `LENGTH` is perhaps less of a string manipulation in and of itself, but is useful in debugging 
+  - Combined with `MAX`, `LENGTH` can be useful, especially when adding string length constraints to a column
   - Combined with `SUBSTR`, `LENGTH` can cut strings within a column by a dynamic value
-  - e.g. **What happens when we apply `SELECT SUBSTR(CanadianMusicians, 0, LENGTH(CanadianMusicians)-6)` to the table below?**
+
+- **What happens when we apply `SELECT SUBSTR(CanadianMusicians, 0, LENGTH(CanadianMusicians)-6)` to the table below?**
 
 .pull-left.w15[ 
 &lt;table&gt;
@@ -409,26 +413,30 @@ class: upper, left, inverse
 
 ### CHAR
 - When provided an ASCII value, `CHAR` will return the appropriate character from the [ASCII table](https://www.asciitable.com/)
-  - e.g. `CHAR(97)` will result in a
-  - pronunciation is split on "char": 
+  - e.g. `CHAR(98)` will result in 'b'
+- Pronunciation is split on "char": 
     - "char" as in "_char_-broiled"
     - "char" as in "_car_" 
-    - "char as in "_char_acter"
+    - "char" as in "*char*acter"
     - "char" as in "_care_"
 
 --
 
-- `CHAR` is hugely useful with replace
-  - occasionally, line breaks affect SQL column validity, `REPLACE(br_column,CHAR(10),'')` and/or `REPLACE(cr_column,CHAR(13),'')` will be hugely useful
-- `CHAR` can help with structure and control on strings as they flow into columns
+- `CHAR` is hugely useful with `REPLACE`
+  - occasionally, line breaks affect SQL column validity, so `REPLACE(lf_column,CHAR(10),'')` and/or `REPLACE(cr_column,CHAR(13),'')` will be hugely useful
+      - where `CHAR(10)` is a linefeed "lf" and `CHAR(13)` is a carriage return "cr"
+- `CHAR` can help with structure and control of strings as they flow into columns
 
---
+---
+
+class: upper, left, inverse
+# CHAR &amp; UNICODE
 
 ### UNICODE (ASCII in some flavours)
 - `UNICODE` provides the ASCII value of any given character
   - i.e. the opposite of `CHAR`
 - The usage? I'm a bit unsure! Maybe faster than looking it up online?
-  - `UNICODE('a')` 
+  - e.g. `UNICODE('b')` will result in '98'
 
 ---
 
@@ -456,9 +464,68 @@ class: upper, left, inverse
 # REGEXP (flavour dependent)
 - `REGEXP` allows for string filtering based on regular expressions (regex)
 - Situated within a `WHERE` clause, very similar to `LIKE`
+
+--
+
+
 - Can use either SQL's or regex's Boolean operators
-  - e.g. `WHERE book_title REGEXP '(tion|ice)$'`
-  - or   `WHERE book_title REGEXP 'tion$' OR book_title REGEXP 'ice$'`
+  - e.g. `WHERE austen_books REGEXP '(sion|ice)$'`
+  - or   `WHERE austen_books REGEXP 'sion$' OR book_title REGEXP 'ice$'`
+
+
+.pull-left.w15[ 
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; austen_books &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sense &amp;amp; Sensibility &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pride &amp;amp; Prejudice &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mansfield Park &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Emma &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Persuasion &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Northanger Abbey &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+]
+
+--
+
+.pull-right[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; austen_books &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pride &amp;amp; Prejudice &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Persuasion &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+]
 
 ---
 
@@ -468,24 +535,9 @@ class: upper, left, inverse
 (Quick `REGEXP` live coding)
 
 &gt; Some people, when confronted with a problem think: "I know, I'll use regular expressions." 
-&gt; Now they have two problems - Jamie Zawinski (probably)
----
+&gt; Now they have two problems. 
 
-class: middle, center, inverse
-# Advanced Techniques:
-
-## String Manipulation
-
-## CROSS JOIN
-
-## Self Joins
-
-## UNION &amp; UNION ALL
-
-## INTERSECT &amp; EXCEPT
-
-## INSERT, UPDATE, DELETE
-
+&gt; Jamie Zawinski (probably)
 ---
 
 class: middle, center, inverse
@@ -501,8 +553,6 @@ class: middle, center, inverse
 
 ## INTERSECT &amp; EXCEPT
 
-## INSERT, UPDATE, DELETE
-
 ---
 
 class: upper, left, inverse
@@ -517,11 +567,11 @@ class: upper, left, inverse
     FROM suits
     CROSS JOIN ranks
 ```  
-  - Because tables suits and ranks contain no common columns, we would have no other means to join
+  - Because tables 'suits' and 'ranks' contain no common columns, we would have no other means to join
 
 --
 
-- I love CROSS JOINs!
+- I love to `CROSS JOIN`!
 - They can be super useful when used correctly 
   - **What are some good examples that could be useful?**
 
@@ -535,7 +585,9 @@ class: top, left, inverse
 (`CROSS JOIN` live coding)
 
 
-&gt; No complex query is complete without at least one `CROSS JOIN` (me, jokingly)
+&gt; No complex query is complete without at least one `CROSS JOIN` 
+
+&gt; (me, jokingly)
 
 ---
 
@@ -552,21 +604,19 @@ class: middle, center, inverse
 
 ## INTERSECT &amp; EXCEPT
 
-## INSERT, UPDATE, DELETE
-
 ---
 
 class: upper, left, inverse
 # Self Joins
 
-- Self Joins are somewhat uncommon, but are the last type of possible joins
+- Self Joins are somewhat uncommon, but are the last type of possible join
 
 - They are useful for comparison:
-  - Determine Maximum to-date 
-  - generating pairings 
+  - Determine maximum to-date 
+  - Generating pairings 
   
--They can help with hierarchy
-  - Child to Parent relationships 
+- They can help with hierarchy
+  - Child-to-Parent relationships 
   
 --
 
@@ -596,21 +646,22 @@ class: middle, center, inverse
 
 ## INTERSECT &amp; EXCEPT
 
-## INSERT, UPDATE, DELETE
-
 ---
 
 class: top, left, inverse
 # UNION &amp; UNION ALL
 
-- `UNION` and `UNION ALL` combine the results of two or more queries vertically (rowwise)
+- `UNION` and `UNION ALL` combine the results of two or more queries vertically (i.e. row-wise)
 - `UNION ALL` keeps duplicate values, whereas `UNION` removes them
   - the difference between the two is one of the most common interview questions!
+
+--
+
 - `UNION` and `UNION ALL` require both/all queries to have the same number of columns 
-  - You can `UNION` unrelated columns if you had a specific use-case for it
+  - You could `UNION` unrelated columns if you had a specific use-case for it
       - Column names will come from the first query
-  - In situations where you don't have exactly the same columns, but still need to `UNION`, you can pass a NULL (or zero, or blank) column
-      - Similarly, you can pass a string character to keep which data is associated to which query
+  - In situations where you don't have exactly the same columns, but still need to `UNION`, you can pass a `NULL` (or zero, or blank) column
+      - Similarly, you can pass a string character to keep track of which data is associated to which query
   
 
 ```
@@ -628,7 +679,7 @@ class: top, left, inverse
 class: top, left, inverse
 # UNION &amp; UNION ALL
 
-- If we recall back to SQLite's lack of support for `FULL OUTER JOINS`, `UNION ALL` will allow us to emulate one:
+- If we recall SQLite's lack of support for `FULL OUTER JOINS`, `UNION ALL` will allow us to emulate one:
 
 ```
   SELECT s1.quantity, s1.costume, s2.quantity
@@ -666,25 +717,23 @@ class: middle, center, inverse
 
 ## **INTERSECT &amp; EXCEPT**
 
-## INSERT, UPDATE, DELETE
-
 ---
 
 class: top, left, inverse
 # INTERSECT &amp; EXCEPT
 
-- Both `INTERSECT` &amp; `EXCEPT` function require all queries to have the same number of columns 
+- Both `INTERSECT` and `EXCEPT` require both/all queries to have the same number of columns 
 
 ### INTERSECT
-- `INTERSECT` returns data in common to both `SELECT` statements
+- `INTERSECT` returns data in common with both/all `SELECT` statements
 - Values returned will be distinct
 - **What's the difference between `INTERSECT` and `INNER JOIN`?**
 
 --
 
 ### EXCEPT
-- `EXCEPT` returns the opposite of an `INTERSECT`:
-  - for whatever is returned by first `SELECT` statement, `EXCEPT` will return what is _not_ returned by the second `SELECT` statement
+- `EXCEPT` returns the opposite of an `INTERSECT`
+  - for whatever rows are returned by the first `SELECT` statement, `EXCEPT` will return rows that were _not_ returned by the second `SELECT` statement
 - The "direction" of `EXCEPT` matters a lot
   - `EXCEPT` is relative the the first `SELECT` statement, so changing which comes first will always change the results of the query
 
@@ -735,7 +784,7 @@ Resulting in product_id's 1 &amp; 4
 
 .pull-right[
 
-`EXCEPT` will find all products will find all products _without_ work orders
+`EXCEPT` will find all products _without_ work orders
 
 ```
 SELECT product_id FROM product
@@ -767,105 +816,8 @@ class: top, left, inverse
 
 ---
 
-
 class: middle, center, inverse
-# Advanced Techniques:
-
-## String Manipulation
-
-## CROSS JOIN
-
-## Self Joins
-
-## UNION &amp; UNION ALL
-
-## INTERSECT &amp; EXCEPT
-
-## **INSERT, UPDATE, DELETE**
-
----
-
-class: top, left, inverse
-# INSERT, UPDATE, DELETE
-
-Prior to this, we've focused solely on retrieving values from tables:
-- Tables can also be manipulated with `INSERT`, `UPDATE`, and/or `DELETE`
-- _A word of warning...these commands are PERMANENT_ 😱
-  - Generally, follow a policy that avoids altering data 
-  - Make backups to tables before you run a query
-  - Never hurts to test on a temporary table first!
-  
-- But they are useful, and sometimes the correct solution!
-- There is no `SELECT` statement for these types of queries
-
----
-
-class: top, left, inverse
-# INSERT, UPDATE, DELETE
-
-### INSERT
-- `INSERT` allows you to add a record
-- Specify where you want to add:
-  - `INSERT INTO [some_table_name]`
-- ...and what you to add:
-  - `VALUES(column_one_value, column_two_value)`
-
-- `VALUES` come in the order of the columns within the tables
-- `VALUES` must respect table constraints
-  - e.g. NULLs, UNIQUE, data types, etc
-  
-- `INSERT` can help you create small helper tables
-  - **Can you think of any scenarios?**
-
----
-
-class: top, left, inverse
-# INSERT, UPDATE, DELETE
-
-### UPDATE
-- `UPDATE` allows you to change a record
-- Specify where you are making your change:
-  - `UPDATE [some_table_name]`
-- ...and what you to change:
-  - `SET column_one = value1, column_one = value2`
-- _SPECIFY A `WHERE` CONDITION_
-  - `WHERE condition`
-
-- You can change a single column, a few columns, all the columns, etc
-  - (Respecting table constraints)
-
-- **What happens if you don't specify a WHERE condition?**
-
----
-
-class: top, left, inverse
-# INSERT, UPDATE, DELETE
-
-### DELETE
-- `DELETE` allows you to remove a record
-- Specify where you want to delete:
-  - `DELETE FROM [some_table_name]`
-- _SPECIFY A `WHERE` CONDITION_
-  - `WHERE condition`
-
-- **What happens if you don't specify a WHERE condition?!?**
-
-- `DELETE` doesn't _remove_ a table from a database
-
----
-
-class: top, left, inverse
-# INSERT, UPDATE, DELETE
-
-(`INSERT`, `UPDATE`, `DELETE` live coding with a TEMP TABLE)
-
----
-
-class: middle, center, inverse
-_Lingering Questions?_
-
-
-&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;What happens if you don't specify a `WHERE` condition&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;
+**Lingering Questions?**
 
 
     </textarea>
