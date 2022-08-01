@@ -1911,6 +1911,10 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().</p>
 <li>
 <p>Using a COUNT() window function, include a value along with each row of the customer_purchases table that indicates how many different times that customer has purchased that product_id.</p>
 </li>
+<li>
+<p>(we&apos;ll do this one together)<br/>
+Using <code class="inline-code">SUM(COUNT(*)) OVER(...)</code> create two running totals: one for each cutomer for each product, and one for each customer. Use the previous query as a baseline.</p>
+</li>
 </ol>
 <h1 id="date">Date</h1>
 <p>(don&apos;t do these yet, we didn&apos;t finish this section)</p>
