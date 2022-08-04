@@ -1898,6 +1898,8 @@ hue-6-2: #c18401
 <li>Insert the original vendor table into a temp.new_vendor and then add a 10th vendor: Thomass Superfood Store, a Fresh Focused store, owned by Thomas Rosenthal<br/>
 HINT: This is two total queries -- first create the table from the original, then insert the new 10th vendor. When inserting the new vendor, you need to appropriately align the columns to be inserted (there are five columns to be inserted, I&apos;ve given you the details, but not the syntax)</li>
 </ol>
+<p>To insert the new row use VALUES, specifying the value you want for each column:<br/>
+<code class="inline-code">VALUES(col1,col2,col3,col4,col5)</code></p>
 <h1 id="windowed-functions">Windowed Functions</h1>
 <ol>
 <li>Write a query that selects from the customer_purchases table and numbers each customer&rsquo;s visits to the farmer&rsquo;s market (labeling each market date with a different number). Each customer&rsquo;s first visit is labeled 1, second visit is labeled 2, etc.</li>

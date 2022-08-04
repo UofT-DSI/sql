@@ -330,7 +330,7 @@ write.CSV(db_df, file = "database-R.CSV")
 class: top, left, inverse
 #CSV
 
-(CSV live coding)
+(CSV live importing/exporting)
 
 ---
 
@@ -366,7 +366,7 @@ class: top, left, inverse
   - Web browsers
   - Simple text editors (e.g. notepad++, sublime)
   - Programming languages (e.g. python, R)
-
+- SQLite also provides support for JSON value query and manipulation
 
 ---
 
@@ -383,19 +383,9 @@ DB Browser for SQLite natively supports JSON exporting for tables:
 ---
 
 class: top, left, inverse
-# JSON
-
-- SQLite also provides support for JSON value query and manipulation
-  - This can be useful — many APIs produce JSON values, but do not parse them into tables
-
-(json section....)
-
----
-
-class: top, left, inverse
 #JSON
 
-(JSON live coding)
+(JSON live exporting)
 
 ---
 
