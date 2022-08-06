@@ -144,6 +144,17 @@ class: left, top, inverse
 
 ---
 
+class: middle, center, inverse
+# Ethics
+
+## A Personal Story
+
+## **Pakistani Computerized National ID Card**
+
+## It's All People
+
+---
+
 class: left, top, inverse
 # Pakistani Computerized National ID Card
 
@@ -173,6 +184,17 @@ class: left, top, inverse
       - These systems often claim to address bias and inequity, but are better at disguising it
       - Allow us to escape the difficulties of making decision about actual people
   - What gets counted? Who gets counted?
+
+---
+
+class: middle, center, inverse
+# Ethics
+
+## A Personal Story
+
+## Pakistani Computerized National ID Card
+
+## **It's All People**
 
 ---
 
