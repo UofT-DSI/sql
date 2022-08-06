@@ -70,8 +70,8 @@ FarmersMarket.db, in-class SQL codes.
 ### 4. *Data*: 
 Data (csv, json, etc) we'll use for importing.
 
-### 5. *Exit*:
-Exit surveys for students to complete.
+### 5. *Code*:
+In-class R and python codes.
 
 ## Acknowledgements
 
