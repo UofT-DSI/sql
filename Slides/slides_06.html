@@ -4,51 +4,239 @@
     <title>slides_06.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # <p><img src="imgs/mrpotatocode_banner.png" style="width:7in" /></p>
+]
+.subtitle[
 ## Introduction to Data Access and Storage
+]
+.author[
 ### Thomas Rosenthal - DSI @ UofT
+]
+.date[
 ### Module 06
+]
 
 ---
 
+
+
+
+class: middle, center, inverse
+
+# Exit Survey: (add a link)
+
+---
+class: middle, center, inverse
+# Beyond SQL:
+
+## Ethics
+
+## SQL in the Wild
+
+---
 
 class: middle, center, inverse
 # Beyond SQL:
 
-## Broader Data Landscape
+## **Ethics**
+
+## SQL in the Wild
+
+---
+
+class: left, top, inverse
+# Ethics
+
+Data Ethics issues have seen a huge increase in papers on the subject and are more and more newsworthy.
+
+Many of these issues involve SQL databases, but not explicitly. SQL is rarely the culprit, but instead part of a system affected by _other_ issues: a database full of credit cards is leaked, personal data is sold to a third party without consent, records are destroyed either intentionally or by accident.
+
+But Data Ethics are still an important part of any well-rounded SQL course. We will consider:
+- privacy and privacy policies
+- security and appropriate access to data
+- how database design affects our perception 
+- labour rights for data entry
+- bias in data entry
+
+---
+
+class: middle, center, inverse
+# Ethics
+
+## A Personal Story
+
+## Pakistani Computerized National ID Card
+
+## It's All People
+
+---
+
+class: middle, center, inverse
+# Ethics
+
+## **A Personal Story**
+
+## Pakistani Computerized National ID Card
+
+## It's All People
+
+---
+
+class: left, top, inverse
+# A Personal Story
+
+- In my first job, our most Senior Business Intelligence Analyst was involved in a motorcycle accident
+- All of us were terribly concerned:
+  - We had very little details of his status, other than he was in the ER and later ICU
+  - We knew his 8-year old son had been involved
+  - Motorcycle accidents are usually _bad_
+- We were all working for the state of Colorado's largest healthcare provider, and he ended up at one of our hospitals
+  - Being the organization's team of data analysts we had access to every patient's medical record
+
+---
+
+class: left, top, inverse
+# Ethics
+
+### A Personal Story
+
+- **What are the ethical issues important to this story?**
+
+
+--
+
+***
+
+- Privacy: we were legally and morally required to respect his privacy
+  - Even if our thoughts well-intentions, we did not have his consent to these details
+- Policies: his data was protected under HIPAA (PHIPA in Canada)
+- Security: the organization protected his data from as many people as possible
+  - We still had our job functions, requiring some access
+      - The organization had logging functions in place to ensure none of us looked
+  - Systems were designed to rigourously protect all patient data, including his
+
+--
+
+***
+
+- He lived, with a long road to recovery
+- His son had very few injuries and recovered quickly
+- None of us looked at any of his records
+
+---
+
+class: left, top, inverse
+# Pakistani Computerized National ID Card
+
+- Read: Qadri, R. (2021, November 11). _When Databases Get to Define Family._  Wired. &lt;br&gt;
+    https://www.wired.com/story/pakistan-digital-database-family-design/
+
+
+---
+
+class: left, top, inverse
+# Ethics
+
+### Pakistani Computerized National ID Card
+
+- **What values systems are embeddedd in databases and data systems you encounter in your day-to-day life?**
+
+--
+
+*** 
+
+- Fairness: Our expectations of what is "normal" can inform software and database design 
+  - Many studies show that lack of diversity in tech creates a narrow viewpoint
+      - Design choices can reinforce harmful stereotypes, be exclusionary, further marginalize people
+      - Shifting norms...?
+- Inequality: Data and data systems are representation of history, but influence the present and the future 
+  - This effect is compounded when we add automation to these data systems
+      - These systems often claim to address bias and inequity, but are better at disguising it
+      - Allow us to escape the difficulties of making decision about actual people
+  - What gets counted? Who gets counted?
+
+---
+
+class: left, top, inverse
+# It's All People
+
+- Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way down._ Normcore Tech. &lt;br&gt;
+    https://vicki.substack.com/p/neural-nets-are-just-people-all-the
+
+
+---
+
+class: left, top, inverse
+# Ethics
+
+### It's All People
+
+- **What are the ethical issues important to this story?**
+
+--
+***
+- Labour: like Machine Learning, SQL databases are built on a foundation human labour
+  - Much of this labour is invisible
+      - I was aware that much of the health data I used was produced by "coders", but generally only thought about these people when there were mistakes
+- Bias: Humans make choices, labels, determinations before a neural network ever exists
+  - Humans can create bias and are subject to certain pre-conceptions (i.e. purposes for labelling) that will create different outcomes
+      - Biases have to be addressed/moderated...more human labour!
+
+
+---
+
+class: middle, center, inverse
+# Beyond SQL:
 
 ## Ethics
 
-## Professional Practice
+## **SQL in the Wild**
 
-## SQL in the wild
+---
 
-## Connect python and/or R
+class: left, top, inverse
+# SQL in the Wild
+
+**Where can we find SQLite databases now that we know where to look?**
+
+--
+***
+For me personally, I love using Firefox's built in SQLite DB "places"
+1. Navigate to `about:profiles` in Firefox
+2. Open your root director profile using the Show in Finder/Explorer window (e.g. /Users/thomas/Library/Application Support/Firefox/Profiles...)
+3. Make a copy of `places.sqlite` (I usually just save to desktop)
+4. Open the copy in DB Browser for SQLite
+
+--
+***
+- Which website do you visit most often (`moz_history`)?
+- What do you type most often into the search bar (`moz_inputhistory`)
+
 
 ---
 
 class: middle, center, inverse
-(blank)
-
----
+**Lingering Questions?**
 
 
-class: middle, center, inverse
-_Lingering Questions?_
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "style_solarized_light",
+"highlightLines": true,
 "countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
 "seal": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -90,6 +278,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
@@ -115,7 +316,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
