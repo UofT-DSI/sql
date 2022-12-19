@@ -1,15 +1,15 @@
 # DSI Workshop for Data Storage and Access
 
 ## Contents:
-1. [Description](https://github.com/mrpotatocode/DSI_SQL#description)
-2. [Course Contacts](https://github.com/mrpotatocode/DSI_SQL#course-contacts)
-3. [Learning Outcomes](https://github.com/mrpotatocode/DSI_SQL#learning-outcomes)
-4. [Design](https://github.com/mrpotatocode/DSI_SQL#design)
-5. [Expectations](https://github.com/mrpotatocode/DSI_SQL#expectations)
-6. [Policies](https://github.com/mrpotatocode/DSI_SQL#policies)
-7. [Schedule](https://github.com/mrpotatocode/DSI_SQL#schedule)
-8. [Folder Structure](https://github.com/mrpotatocode/DSI_SQL#folder-structure)
-9. [Acknowledgements](https://github.com/mrpotatocode/DSI_SQL#acknowledgements)
+1. [Description](https://github.com/UofT-DSI/02-intro_sql#description)
+2. [Course Contacts](https://github.com/UofT-DSI/02-intro_sql#course-contacts)
+3. [Learning Outcomes](https://github.com/UofT-DSI/02-intro_sql#learning-outcomes)
+4. [Design](https://github.com/UofT-DSI/02-intro_sql#design)
+5. [Expectations](https://github.com/UofT-DSI/02-intro_sql#expectations)
+6. [Policies](https://github.com/UofT-DSI/02-intro_sql#policies)
+7. [Schedule](https://github.com/UofT-DSI/02-intro_sql#schedule)
+8. [Folder Structure](https://github.com/UofT-DSI/02-intro_sql#folder-structure)
+9. [Acknowledgements](https://github.com/UofT-DSI/02-intro_sql#acknowledgements)
 
 ## Description
 This circuluum was created for the University of Toronto's Data Science Institute. 
@@ -26,7 +26,7 @@ This circuluum was created for the University of Toronto's Data Science Institut
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 
 ## Design
-The workshop will be held over two weeks, three days a week. Two of the three days will be 2-hours long and the last day will be 3-hours. Being mindful of online fatigue, there will be one break during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.
+The workshop will be held over three weeks, three days a week. Two of the three days will be 2-hours long and the last day will be 3-hours. Being mindful of online fatigue, there will be one break during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
@@ -39,7 +39,7 @@ The course is designed for both live-coding and corresponding slides. Students s
 ## Policies
 - Accessiblity: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
 - Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
-- Camera:: Keeping your camera on is optional.
+- Camera: Keeping your camera on is optional.
 - Microphone: Please keep microphones muted unless you need to speak.
 
 ## Schedule
