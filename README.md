@@ -15,8 +15,8 @@
 This circuluum was created for the University of Toronto's Data Science Institute. 
 
 ## Course Contacts
-- Instructor: Emails to me can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
-- TA: Emails to A can be sent to [amhfz@proton.me](mailto:amhfz@proton.me)
+- Instructor: Emails to Thomas can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
+- TA: Emails to Salaar can be sent to [s.liaqat@mail.utoronto.ca](mailto:s.liaqat@mail.utoronto.ca)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
@@ -75,4 +75,4 @@ In-class R and python codes.
 
 ## Acknowledgements
 
-Slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A](https://github.com/amfz) as always. Slides have been modified by me for 2022.
+Slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A](https://github.com/amfz) as always. Slides have been modified by me for 2023.
