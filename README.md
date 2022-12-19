@@ -15,8 +15,8 @@
 This circuluum was created for the University of Toronto's Data Science Institute. 
 
 ## Course Contacts
-- Instructor: Emails to Thomas can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
-- TA: Emails to Salaar can be sent to [s.liaqat@mail.utoronto.ca](mailto:s.liaqat@mail.utoronto.ca)
+- Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
+- TA: Emails to Salaar (he/him) can be sent to [s.liaqat@mail.utoronto.ca](mailto:s.liaqat@mail.utoronto.ca)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
@@ -39,11 +39,12 @@ The course is designed for both live-coding and corresponding slides. Students s
 ## Policies
 - Accessiblity: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
 - Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
-- Camera: Keeping your camera on is optional.
-- Microphone: Please keep microphones muted unless you need to speak.
+- Camera: Keeping your camera on is welcomed, but optional.
+- Microphone: Please keep microphones muted unless you need to speak. Questions are highly encouraged.
+- Assessment: Each class there will be reccomended homework which is not graded. There will be three assignments which are graded.  
 
-## Schedule
-Day 1: Introduction, SELECT, FROM, WHERE
+## Schedule (subject to change)
+Day 1: Introduction, Schema Design, SELECT, FROM, WHERE
 
 Day 2: CASE, DISTINCT, JOINs, Aggregation Functions
 
@@ -51,9 +52,15 @@ Day 3: Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions
 
 Day 4: String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
 
-Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
+Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, 
 
-Day 6: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
+Day 6: Normal Forms, Views
+
+Day 7: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
+
+Day 8: Professional Skills - Industry Case Study
+
+Day 9: TBD
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
