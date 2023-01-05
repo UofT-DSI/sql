@@ -44,23 +44,23 @@ The course is designed for both live-coding and corresponding slides. Students s
 - Assessment: Each class there will be reccomended homework which is not graded. There will be three assignments which are graded.  
 
 ## Schedule (subject to change)
-Day 1: Introduction, Schema Design, SELECT, FROM, WHERE
+Day 1: Introduction, Data Modelling, Schema Design, Data Structures
 
-Day 2: CASE, DISTINCT, JOINs, Aggregation Functions
+Day 2: Introducing SQL: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs
 
-Day 3: Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions, ISNULL
+Day 3: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions
 
-Day 4: String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
+Day 4: ISNULL, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
 
-Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, 
+Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
 
-Day 6: Normal Forms, Views
+Day 6: SQL and the Machine Learning pipeline, SQL in R & python
 
-Day 7: Broader Data Landscape, Ethics, Professional Practice, SQL in the wild, SQL in R & python
+Day 7: Broader Data Landscape, Reproducibility, Ethics, SQL in the wild
 
 Day 8: Professional Skills - Industry Case Study
 
-Day 9: TBD
+Day 9: Review and Practice, TBD
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
