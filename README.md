@@ -12,7 +12,14 @@
 9. [Acknowledgements](https://github.com/UofT-DSI/02-intro_sql#acknowledgements)
 
 ## Description
-This circuluum was created for the University of Toronto's Data Science Institute. 
+This curriculum was created for the University of Toronto's Data Science Institute. It is designed for learners who have a degree in something other than Computer Science/Statistics and are looking to enhance their data science skills for their career.
+
+SQL is used across the machine learning pipeline, and a fundamental skill for data scientists to master. This course will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, it will examine common data management concerns, data access management, and data privacy adherence.
+
+Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the course is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire course, students will learn how to problem solve through live coding. 
+
+Additionally, the course will explore SQL databases in everyday life, and how R and Python interact with SQL databases when performing statistical analysis or machine learning tasks. Learners will be introduced to principles around reproducibility, sharing data, and data ethics (for example, respecting those whose data we use). This course will also cover professional skills such as communication (with a variety of stakeholders) and documentation. 
+
 
 ## Course Contacts
 - Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
@@ -26,7 +33,9 @@ This circuluum was created for the University of Toronto's Data Science Institut
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 
 ## Design
-The workshop will be held over three weeks, three days a week. Two of the three days will be 2-hours long and the last day will be 3-hours. Being mindful of online fatigue, there will be one break during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.
+The course runs synchronously over Zoom. It consists of three classes a week for three weeks (nine classes total). Classes are 6 PM - 8 PM EDT on Mondays and Thursdays, and 9 AM - 12 PM EDT on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
+
+Tutorial sessions with a TA will also be offered over Zoom. These will take place from 5 PM - 6 PM EDT on Mondays and Thursdays, and 8:30 AM - 9 AM EDT and 12 PM - 12:30 PM EDT on Saturdays.  
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
