@@ -93,7 +93,7 @@ In-class R and python codes.
 Homework to be done after each module.
 
 ### 7. *Assignments*:
-Rubrics and assignment details
+Rubrics and assignment details.
 
 ## Acknowledgements
 
