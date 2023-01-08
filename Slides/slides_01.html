@@ -4,7 +4,7 @@
     <title>slides_01.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
@@ -30,17 +30,14 @@ class: center, middle, inverse, title-slide
 
 
 
-
-
-
 class: middle, center, inverse
 # Getting Started:
 
 ## Welcome
 
-## Introduction
+## What is SQL?
 
-## First Three Commands
+## Data Modelling
 
 ---
 
@@ -49,9 +46,9 @@ class: middle, center, inverse
 
 ## **Welcome**
 
-## Introduction
+## What is SQL?
 
-## First Three Commands
+## Data Modelling
 
 ---
 
@@ -87,8 +84,9 @@ class: left, top, inverse
 - Went back to UofT to do my Master of Information
   - Wanted to do less SQL, more R and python
   - SQL seemed like it was on its way out...NOPE, I was just wrong
-- Currently doing Data Ethics implementation at Thomson Reuters
-- My dog's name is Alto, and she's pretty wonderful
+- Reluctant Data Scientist (*do we even need this model?*) 
+  - Currently doing Data Governance and Ethics implementation at Thomson Reuters
+- This is Alto 👉
 ]
 
 .pull-right[
@@ -115,14 +113,32 @@ class: middle, center, inverse
 class: left, top, inverse
 # Course Content
 
-.pull-left[
 - Data Modelling
+- Data Structures, Schemas, Basic Data Management, Normal Forms
 - Basic SQL Syntax
 - Advanced SQL Syntax
-- Data Structures, Forms, and Basic Data Management
 - Importing and Exporting Data to and from SQL
+- SQL's relationship to the Machine Learning Pipeline
 - Data Stewardship, Ethics, and SQL in the Wild
+- Industry Case Study with Zia Barbar
 
+### Github Repo
+
+[https://github.com/UofT-DSI/02-intro_sql](https://github.com/UofT-DSI/02-intro_sql)
+
+- Schedule
+- These slides (HTML &amp; PDF)
+- Our database for living coding
+- All in class code
+- Homework (and answers, posted afterwards)
+- Assignment details and rubrics
+
+---
+
+class: left, top, inverse
+# Course Content
+
+.pull-left.w60[
 - This course is an _Introduction_ to SQL
 - At the end of the course, I hope you will:
   - Feel comfortable with SQL
@@ -144,6 +160,40 @@ class: left, top, inverse
 
 
 ]
+
+---
+
+class: left, top, inverse
+# Course Content
+
+### Homework (ungraded, but worth doing)
+- At the end of each SQL module, I will provide you with 3-10 queries to write
+  - Covers the topics of the modules
+- Review answers in Tutorials with Salaar
+  - I may go over one or two queries at the start of class if desired
+- Designed to be relatively easy
+  - Reaffirms what we wrote together
+  - Doing work on your own helps reinforce the learning
+
+---
+
+class: left, top, inverse
+# Course Content
+
+### Grading (specific rubrics tbd)
+- Three Assignments
+  1. Data Model Design, due at the end of week 2, start in week 1: 40%
+  2. SQL Skills, due at the end of week 3, start in week 2: 40%
+  3. Class Participation (reflection), due at the end of week 3, work on any time: 10%
+
+- Class Attendance: 10%
+  - Let Salaar or myself know if you are unable to attend a lesson
+  - Code along!! Best way to learn.
+
+---
+
+class: middle, center, inverse
+**Questions about the course?**
 
 ---
 
@@ -169,14 +219,16 @@ If not, please download it here: [sqlitebrowser.org/dl/](sqlitebrowser.org/dl/)
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 For live coding:
-- Please download/fork the FarmersMarket.db from my GH:
-  - [github.com/mrpotatocode/DSI_SQL/tree/main/SQL](github.com/mrpotatocode/DSI_SQL/tree/main/SQL)
+- Please download/fork the FarmersMarket.db from our GH repo:
+  - [https://github.com/UofT-DSI/02-intro_sql/tree/main/SQL](https://github.com/UofT-DSI/02-intro_sql/tree/main/SQL)
 - Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
 
 --
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 **Good to go?**
+
+**If not, please message Salaar**
 
 ---
 
@@ -185,38 +237,38 @@ class: middle, center, inverse
 
 ## Welcome
 
-## **Introduction**
+## **What is SQL?**
 
-## First Three Commands
+## Data Modelling
 
 ---
 
 class: middle, center, inverse
-# Introduction
+# What is SQL?
 
 ## SQL
 
 ## Flavours
 
-## Data Modelling
+## Environments for SQL
 
 ---
 
 class: middle, center, inverse
-# Introduction
+# What is SQL?
 
 ## **SQL**
 
 ## Flavours
 
-## Data Modelling
+## Environments for SQL
 
 ---
 
 class: top, left, inverse
 # SQL
 
-### What is SQL?
+### SQL Fundamentals
 
 - SQL: Structured Query Language
   - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”
@@ -224,8 +276,10 @@ class: top, left, inverse
 --
 
 - SQL is a _query_ language rather than a programming language
-  - Code is often less reproducible than programming languages because it's domain specific
-  - Querying 
+  - Querying is closer to telling a computer *what you want*, rather than *what is has to do*
+  - SQL code is often less reproducible than other programming languages because it's domain specific
+      - Some SQL code, especially more advanced procedural code, is reproducible within the same flavour
+  - SQL's domain is databases and is based on set theory
 
 --
 
@@ -253,20 +307,42 @@ class: top, left, inverse
       - I'll almost certainly forget to use them
       - There's some debate on whether or not it's best practice
 
+---
+
+class: top, left, inverse
+# SQL
+
+### SQL Formatting
+
+- In SQL, white space and/or line breaks do not matter 
+  - Readability is important
+    - Try to keep SQL statements to a reasonable screen width
+    - Use sensible line breaks
+    - Offset subqueries with indents
+
 --
 
-- In SQL, white space does not matter 
+- Code is commented in/out with `--` rather than `#`
+- Code blocks can be commented out with `/* */`
+  
+```
+/* 
+
+somecode spanning
+multiple lines
+```
+`*/`
 
 ---
 
 class: middle, center, inverse
-# Introduction
+# What is SQL?
 
 ## SQL
 
 ## **Flavours**
 
-## Data Modelling
+## Environments for SQL
 
 ---
 
@@ -289,24 +365,177 @@ class: top, left, inverse
   - Requires almost no overhead
   - Open source, _free_
   - Similar enough in syntax to learn on
+  - Used all over the world and in many applications  
+      - e.g. Firefox uses a SQLite backend to write a user's history locally
+
+---
+
+class: top, left, inverse
+# Flavours
+
+- Broad observations about Open Source:
+  - Excellent at what they are designed for
+  - Varying data types (SQLite has some unique ones!)
+  - Not every command exists, but workarounds are usually possible
+  - Some utilize RDBMs that feel extremely outdated
+
+--
+
+- Broad observations about enterprise systems:
+  - Powerful and designed to handle edge cases
+  - Feel a bit more refined
+      - Can be version dependent
+  - Tend to "lock in" business/organizations
+      - Migration is costly, sometimes outrageously so
+  - Newer players (Snowflake, Databricks, etc) and cloud providers (Azure, AWS, Google, etc) offer a lot more functionality than just database querying
+
 
 ---
 
 class: middle, center, inverse
-# Introduction
+# What is SQL?
 
 ## SQL
 
 ## Flavours
 
+## **Environments for SQL**
+
+---
+
+class: top, left, inverse
+# Environments for SQL
+
+### Databases
+
+- Relational databases are a collection of tables, views, procedural code, and other SQL-assisting artefacts
+  - Generally the data stored in a database will related to a real-world concept
+  - Backends to data-collecting systems are often databases
+      - e.g. CRMs, EMR software, ERPs, web-based applications
+  - Usually not connected to other databases unless deemed necessary
+  - Often transactional, meaning data is actively being written to by frontend systems
+  - Tables are normalized (we'll get into Normalization Forms later in the course)
+
+--
+
+- There are also non-relational databases, often referred to as NoSQL
+  - We won't cover these
+  - Common tools include: Amazon DynamoDB, Azure CosmosDB, MongoDB, Google Cloud Datastore
+
+
+---
+
+class: top, left, inverse
+# Environments for SQL
+
+### Data Warehouses and Data Marts
+
+- Data Warehouses are highly structured collections of (usually tabular) data
+  - Data has been processed for a specific purpose, e.g. analytics
+  - Data has been centralized
+      - Often with the assistance of ETL (Extract, Transform, Load) tools
+  - Have a lot of overhead, require governance, and strict rigidity
+  - Tables are denormalized
+  - Very common for enterprises, but losing traction in many industries
+
+--
+
+- Data Marts are created from Data Warehouses to focus on a single subject 
+  - Designed to make Data Warehouses easier to use
+  - Data is structured, but flexibility is driven by the purpose of the Data Mart
+  - Some denormalized tables may be normalized or even undergo even greater normalization
+      - _The subject/purpose of the Data Mart might drive these types of decisions_
+  - Common for enterprises that have Data Warehouses
+
+---
+
+class: top, left, inverse
+# Environments for SQL
+
+### Data Lakes and Data Swamps
+
+- Data Lakes allow on-demand access to raw, semi-structured, structured, and unstructured data
+  - Not defined by a specific purpose
+  - Highly scalable
+  - Can be transactional, if systems are designed to produce outputs into data lakes
+  - Commonly data sources for machine learning pipelines live in data lakes
+  - Inexpensive compared to Data Warehouses
+  - Increasingly common for enterprises to shift towards Data Lakes, especially with support from newer tools like Snowflake, Databricks, etc which can maximize the analytical value of a Data Lake
+
+--
+
+- Data Swamps...are poorly governed Data Lakes
+  - Lack of documentation, lack of governance, poorly designed Data Lakes become Swamps
+  - Avoid building these
+
+
+---
+
+class: middle, center, inverse
+**Questions?**
+
+---
+
+class: middle, center, inverse
+# Getting Started:
+
+## Welcome
+
+## What is SQL?
+
 ## **Data Modelling**
+
+---
+
+class: middle, center, inverse
+# Data Modelling
+
+## Relational Database Management Systems
+
+## Data Models
+
+## Structure of Data
+
+## Constraints
+
+## (...)
+
+---
+
+class: middle, center, inverse
+# Data Modelling (continued)
+
+## Entity Relationship Diagrams
+
+## Attributes of an ERD: Entities &amp; Relationships
+
+## Relationship Examples
+
+## Conceptual, Logical, Physical Models
+
+## Assignment 1: Design a Logical Model
+
+---
+
+class: middle, center, inverse
+# Data Modelling
+
+## **Relational Database Management Systems**
+
+## Data Models
+
+## Structure of Data
+
+## Constraints
+
+## (...)
 
 ---
 
 class: top, left, inverse
 # Data Modelling
 
-### What are  Relational Database Management Systems?
+### Relational Database Management Systems
 -  Relational Database Management Systems (RDBMs) are software designed to:
   - Store large amounts of data
   - Utilize a query language to allow easy retrieval of the data
@@ -329,10 +558,25 @@ class: top, left, inverse
 
 ---
 
+class: middle, center, inverse
+# Data Modelling
+
+## Relational Database Management Systems
+
+## **Data Models**
+
+## Structure of Data
+
+## Constraints
+
+## (...)
+
+---
+
 class: top, left, inverse
 # Data Modelling
 
-### What is a Data Model?
+### Data Models
 - A data model is a notation for describing data or information
 
 - Data models consist of:
@@ -340,6 +584,21 @@ class: top, left, inverse
   - Operations 
   - Constraints on the data
   - Relationships
+
+---
+
+class: middle, center, inverse
+# Data Modelling
+
+## Relational Database Management Systems
+
+## Data Models
+
+## **Structure of Data**
+
+## Constraints
+
+## (...)
 
 ---
 
@@ -376,17 +635,39 @@ class: top, left, inverse
 
 ### Structure of Data
 
-- Columns are defined (and restricted, i.e. constrainted) by data types
+- Columns are defined (and restricted, i.e. constrained) by data types
 - Common ones include:
-  - `INT` (integers)
-  - `FLOAT`, `DECIMAL`, `REAL` (decimal)
-  - `VARCHAR`, `NVARCHAR`, `TEXT` (text strings, with a maximum length associated)
-  - `DATE`, `DATETIME`, `TIME` (dates and times)
+  - `INT` (integers: 1,2,3,-1,-2,-3)
+      - most systems conserve storage space specifying their range 
+  - `FLOAT`, `DECIMAL`, `REAL` (decimal: 5.5, 3.333333)
+  - `VARCHAR`, `NVARCHAR`, `TEXT` (text strings, with a maximum length associated: 'abc')
+  - `DATE`, `DATETIME`, `TIME` (dates and times: '2023-01-09','11:11:11.000')
 - These may vary slightly by flavour (in SQLite they are simpler and less restricted)
+
+--
+
 - Data types are important:
-  - they affect operation speed, storage size, data validity
+  - They affect operation speed, storage size, data validity
+      - Speed: it's much computationally less expensive to compute smaller values
+      - Storage: small is usually better, but the wrong size will affect systems, for example Psy's Gangnam Style exceed 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 64-bit (~9.2b if signed)
+      - Validity: ensures columns contain the right type of data for operations, e.g. avoiding 5 + 'ten' = ??
+---
+
+class: middle, center, inverse
+# Data Modelling
+
+## Relational Database Management Systems
+
+## Data Models
+
+## Structure of Data
+
+## **Constraints**
+
+## (...)
 
 ---
+
 
 class: top, left, inverse
 # Data Modelling
@@ -399,15 +680,53 @@ class: top, left, inverse
   - Attribute Constraints
       - Ensure that certain types of values are always consistent within columns
       - May also ensure whether values are unique, not missing, etc
-
-
 ---
 
 class: top, left, inverse
 # Data Modelling
 
-### Relationships: Entity Relationship Diagrams (ERDs)
-- ERDs are diagrams depicting the structure of tables within database
+### Constraints
+- **NULL** and **NOT NULL**
+  - if a value can be missing or not
+- **UNIQUE**
+  - all values are different
+- **PRIMARY KEY (PK)**
+    - Ensures each value in a column is unique within the table (e.g. an ID field)
+    - One PK per table
+    - Cannot be NULL
+    - Ensures database integrity by restricting record deletion
+- **FOREIGN KEY (FK)**
+    - Creates a linkage between a column in one table and a column in another table
+        - Generally, foreign keys are linked to primary keys
+        - Sometimes share the same name as the linked column, but this isn't required
+        - Linkage requires data types to be the same
+    - As many FKs as needed per table
+    - May be NULL
+    - Record can be deleted
+
+---
+
+class: middle, center, inverse
+# Data Modelling (continued)
+
+## **Entity Relationship Diagrams**
+
+## Attributes of an ERD: Entities &amp; Relationships
+
+## Relationship Examples
+
+## Conceptual, Logical, Physical Models
+
+## Assignment 1: Design a Logical Model
+
+---
+
+
+class: top, left, inverse
+# Data Modelling
+
+### Entity Relationship Diagrams
+- Entity Relationship Diagrams (ERDs) are diagrams depicting the structure of tables within database
   - This both _identifies the tables_ and _describes their relationships_ 
 
 --
@@ -426,6 +745,21 @@ class: top, left, inverse
 
 ---
 
+class: middle, center, inverse
+# Data Modelling (continued)
+
+## Entity Relationship Diagrams
+
+## **Attributes of an ERD: Entities &amp; Relationships**
+
+## Relationship Examples
+
+## Conceptual, Logical, Physical Models
+
+## Assignment 1: Design a Logical Model
+
+---
+
 class: top, left, inverse
 # Data Modelling
 
@@ -437,18 +771,143 @@ class: top, left, inverse
   - Column Types
   - Primary Keys (if present)
   - Foreign Keys (if present)
-  
+
 --
 
 ### Attributes of a Relationship
 - Defines which columns are related
 - Defines what type of relationship exists:
-  - One-to-One
+  - One-to-One:
   - One-to-Many
   - Many-to-Many
 
+---
+
+class: middle, center, inverse
+# Data Modelling (continued)
+
+## Entity Relationship Diagrams (ERDs)
+
+## Attributes of an ERD: Entities &amp; Relationships
+
+## **Relationship Examples**
+
+## Conceptual, Logical, Physical Models
+
+## Assignment 1: Design a Logical Model
 
 ---
+
+class: top, left, inverse
+# Data Modelling
+
+### Relationship Examples
+
+**One-to-One**: where a given row within a table is associated with only a single row in another table
+
+Table 1: Country — Table 2: Capital City
+
+.pull-left.w30[ 
+
+| Table 1:Country |     | Table 2:Capital |
+|-----------------|-----|-----------------|
+| Canada          | 1:1 | Ottawa          |
+| USA             | 1:1 | Washington DC   |
+| Mexico          | 1:1 | Mexico City     |
+
+]
+
+---
+class: top, left, inverse
+# Data Modelling
+
+### Relationship Examples
+
+**One-to-Many**: where a given row within a table can be referenced by multiple rows in another table
+
+Table 1: Country — Table 2: States 
+
+.pull-left.w32[ 
+
+| Table 1:Country |     | Table 2:States    |
+|-----------------|-----|-------------------|
+| Canada          | 1:∞ | Alberta           |
+| Canada          | 1:∞ | British Columbia  |
+| Canada          | 1:∞ | ...(11 more rows) |
+| USA             | 1:∞ | Alabama           |
+| USA             | 1:∞ | Alaska            |
+| USA             | 1:∞ | ...(48 more rows) |
+| Mexico          | 1:∞ | Aguascalientes    |
+| Mexico          | 1:∞ | Baja California   |
+| Mexico          | 1:∞ | ...(30 more rows) |
+
+]
+
+---
+class: top, left, inverse
+# Data Modelling
+
+### Relationship Examples
+
+**One-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
+
+Table 1: Employee — Table 2: Employee Type
+
+For this example, imagine the following:
+
+Previously, A was an instructor at DSI (python) _and_ a TA at DSI (SQL). Thomas remains the instructor for SQL. Salaar is now the TA. If a table contained Employee ID and Employee Type ID, A would be listed twice.
+
+
+
+.pull-left.w20[
+
+| Employee | Employee ID |
+|----------|-------------|
+| Thomas   | 001         |
+| A        | 002         |
+| Salaar   | 003         |
+
+]
+
+.pull-left.w20[
+
+| Type       | Type ID |
+|------------|---------|
+| Instructor | 10      |
+| TA         | 11      |
+
+]
+
+.pull-right.w40[
+
+| Employee ID |     | Type ID |
+|-------------|-----|---------|
+| 001         | ∞:∞ | 10      |
+| 002         | ∞:∞ | 10      |
+| 002         | ∞:∞ | 11      |
+| 003         | ∞:∞ | 11      |
+
+]
+
+We'd create additional Many-to-Many relationships if we created a course table, because A and Salaar are involved in multiple courses!
+
+---
+
+class: middle, center, inverse
+# Data Modelling (continued)
+
+## Entity Relationship Diagrams
+
+## Attributes of an ERD: Entities &amp; Relationships
+
+## Relationship Examples
+
+## **Conceptual, Logical, Physical Models**
+
+## Assignment 1: Design a Logical Model
+
+---
+
 
 class: top, left, inverse
 # Data Modelling
@@ -456,6 +915,21 @@ class: top, left, inverse
 ### Conceptual Models
 .pull-left.w35[
 - Defines the tables (objects/entities) and their relationships
+
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-left.w40[
+- Our Farmers Market database: 
+  - Ten tables
+  - Relationships between these tables
+      - e.g. product and product_category: what type of thing a product is
+      - product and customer_purchases: what product a customer has bought
+      - product and vendor_inventory: what products each vendor has on available
+  - Not all tables share a relationship to one another, but all tables have at least one relationship
 ]
 
 .pull-right[
@@ -473,15 +947,22 @@ class: top, left, inverse
 .pull-left.w60[
 - Adds additional detail to the conceptual model by adding column names for each table
 - Often indicates the type of relationship 
-  - **One-to-One**: where a given row within a table is associated with only a single row in another table
-      - Table 1: Country — Table 2: Capital City
-  - **One-to-Many**: where a given row within a table can be referenced by multiple rows in another table
-      - Table 1: Customer — Table 2: Customer Orders
-  - **Many-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
-      - Table 1: Employee — Table 2: Employee Type
-      - A is a professor at DSI _and_ a TA at DSI. If a table contained Employee ID and Employee Type ID, A would be listed twice.
-      - Even more of a many-to-many because A is part of two courses!
-      
+  - One-to-One
+  - One-to-Many
+  - Many-to-Many
+
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-left.w60[
+
+- Our (partial) Farmers Market database: 
+  - product shares a One-to-Many relationship with vendor_inventory on product_id
+  - product_category shares a One-to-Many relationship with product on product_category_id
+  - `_______` shares a `_______` relationship with `_______` on vendor_id
 ]
 
 .pull-right.w35[
@@ -499,18 +980,23 @@ class: top, left, inverse
 ### Physical Models
 .pull-left[
 - Adds additional detail to the logical model by adding key type and column data type
-  - **Primary Key (PK)**
-      - Ensures each value in a column is unique within the table (e.g. an ID field)
-      - One PK per table
-      - Cannot be NULL
-      - Ensures database integrity by restricting record deletion
-  - **Foreign Key (FK)**
-      - Creates a linkage between a column in one table and a column in another table
-          - Generally, foreign keys are linked to primary keys
-      - As many FKs as needed per table
-      - May be NULL
-      - Record can be deleted
+
 ]
+
+--
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-left.w40[
+
+- Our (partial) Farmers Market database: 
+  - vendor_id is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
+  - product_id is a FK for vendor_inventory (_so elsewhere in this diagram, we'd connect this to a PK of another table_)
+  - market_date is the PK for vendor_inventory
+      - **why?**
+
+]
+
 .pull-right[
 &lt;img src="imgs/farmers_market_pm.png"
      height="200px";
@@ -520,231 +1006,48 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# Getting Started:
-
-## Welcome
-
-## Introduction
-
-## **First Three Commands**
+**Data Modelling Questions?**
 
 ---
 
 class: middle, center, inverse
-# First Three Commands
+# Data Modelling (continued)
 
-## SELECT
+## Entity Relationship Diagrams
 
-## FROM
+## Attributes of an ERD: Entities &amp; Relationships
 
-## WHERE    
+## Relationship Examples
 
----
+## Conceptual, Logical, Physical Models
 
-class: top, left, inverse
-# First Three Commands
-- Our first three commands (`SELECT`, `FROM`, `WHERE`) are essential to nearly every SQL query
-
---
-
-- The template for our initial SQL statement is as such:
-
-    `SELECT` : _the columns we want to retrieve_
-
-    `FROM` : _the table we are querying_
-
-    `WHERE` : _filters/conditions (optional)_
-
-    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC`_ (optional)_
-
-    `LIMIT` : _how many rows we want to return (optional)_
+## **Assignment 1: Design a Logical Model**
 
 ---
 
 class: top, left, inverse
-# First Three Commands
-- Always  specified in this order:
-  - `SELECT` will come first
-  - `FROM` will come after `SELECT`
-      - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
-  - `WHERE` will come after `FROM` 
-  - `ORDER BY` will come after `WHERE` clauses
+# Data Modelling
 
---
+### Assignment 1: Design a Logical Model
 
-- We'll sometimes use the `LIMIT` clause to look at data
-  - This comes at the very end of a query
-  - `LIMIT` shouldn't be used for analytics unless you have a specific reason
-    - `ORDER BY` often impacts the usefulness of `LIMIT` 
+**Q1)**
+Create an example logical model for a small bookstore. 📚
 
---
+At the minimum it should have employee, order, sale, customer, and book entities. Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. 
 
-- One more thing:
-  - In SQL, we use two dashes `--` to comment out lines, rather than `#`
----
+**Q2)**
+We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
+**Q3)**
+The store wants to keep customer addresses. Propose two architectures for the CUSTOMERS_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? *Hint, search type 1 vs type 2.*
 
-class: middle, center, inverse
-# First Three Commands
+**Q4)**
+Review the AdventureWorks ERD here: [link](https://i.stack.imgur.com/LMu4W.gif)
 
-## **SELECT**
-
-## FROM
-
-## WHERE
-
----
-
-class: top, left, inverse
-# SELECT
-
-- At its simplest `SELECT` specifies column names we are retrieving
-  - commas come between each column name
-      - `SELECT student, course, grade ...`
-  - column names with a space need to be enclosed in square brackets
-      - `SELECT [poorly named column], better_column_name, AnotherColumnName`
-
---
-
-- Within `SELECT` statements we can perform manipulations on columns
-  - e.g. rename a column
-      - `SELECT [poorly named column] AS better_col`
-  - combine two text columns
-  - perform math on a numeric column
-  - ...and many more things
-
---
-
-- We can use select to perform math without a FROM statement
-  - `SELECT 1 + 1`
-  - `SELECT 10*5, cos(2), pi()`
-
---
-
-- When selecting columns, they need to exist in the table!
-
-  
----
+Highlight at least two differences between it and your ERD. Would you change anything in yours?
 
 
-class: middle, center, inverse
-# First Three Commands
 
-## SELECT
-
-## **FROM**
-
-## WHERE
-
----
-
-class: top, left, inverse
-# FROM
-
-- `FROM` statements indicate which table the data and where the table is located
-  - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
-    - a fully qualified location of a table would thus be `database.schema.table`
-- `SELECT * FROM table_name` indicates _everything_ in the table
-
---
-
-- Best practice suggests that we should explicitly call each column, even if we want all of them
- - **Why do we think this is the case?**
----
-
-class: top, left, inverse
-# FROM
-
-(`SELECT` &amp; `FROM` live coding)
----
-
-class: middle, center, inverse
-# First Three Commands
-
-## SELECT 
-
-## FROM
-
-## **WHERE**
-
----
-class: top, left, inverse
-# WHERE
-
-- `WHERE` clauses are conditions that the query will follow
-- When we want to have multiple conditions, we use a single `WHERE` and then additional logical operations
-
-```
-    SELECT *
-    FROM students
-    WHERE first_name = 'Thomas'
-    AND last_name = 'Rosenthal'
-```
-
-- **Notice we put string values in single quotes**
-  - SQLite also allows double quotes, with a few minor caveats
-
---
-
-- `WHERE` clauses always return rows evaluating to `TRUE`
-  - Follows Boolean rules if more than one condition is present
-
---
-
-- My favourite WHERE statement is `WHERE 1=1`
-  - **Any guesses as to why?**
-  
----
-
-class: top, left, inverse
-# WHERE
-
-### Logical Operators
-- `AND`
-- `OR`
-- `NOT`
-- `NOT IN`
-- equals: `=`
-- does not equal: `&lt;&gt;` `!=`  
-  - (flavour dependent)
-- greater than (equal to): `&gt;` `&gt;=` 
-- less than (equal to)`&lt;` `&lt;=`
-- `BETWEEN`
-- `EXISTS`
-  - table specific
-- `IS`
-  - `NULL` specific 
-  
----
-
-class: top, left, inverse
-# WHERE
-
-### NULL
-- `NULL` is not a value (it's the absence of a value)
-  - to check null values, we use `IS NULL` or `IS NOT NULL`
-  - `= NULL` will not work
-
---
-
-### LIKE
-- `LIKE` allows for string wildcards
-- `%` specifies the wildcard placement
-  - `country_name LIKE 'and%'`
-      - Andorra
-  - `country_name LIKE '%and'`
-      - Finland, Iceland ...more
-  - `country_name LIKE '%and%'`
-      - all of the above, _plus_ Antigua and Barbuda, Netherlands, Rwanda ...more!
-  - `country_name LIKE '%an%d%'`
-      - Canada ...surely more!
-
----
-
-class: top, left, inverse
-# WHERE
-
-(`WHERE` live coding)
 ---
 
 class: middle, center, inverse
