@@ -85,7 +85,7 @@ class: middle, center, inverse
 class: left, top, inverse
 # About Me
 .pull-left[
-- Fell into SQL in my first job out of undergraduate in 2013
+- Fell into SQL in my first job out of undergraduate
 - Worked as a Data Analyst in US healthcare until moving to Canada in 2018
   - Challenging data
   - Easy to see impact of good queries
@@ -138,8 +138,8 @@ class: left, top, inverse
 
 - Schedule
 - These slides (HTML & PDF)
-- Our database for living coding
-- All in class code
+- Our database for live coding
+- All in-class code
 - Homework (and answers, posted afterwards)
 - Assignment details and rubrics
 
@@ -177,7 +177,7 @@ class: left, top, inverse
 # Course Content
 
 ### Homework (ungraded, but worth doing)
-- At the end of each SQL module, I will provide you with 3-10 queries to write
+- At the end of each SQL module, I will provide you with 3-10 queries to write on your own
   - Covers the topics of the modules
 - Review answers in Tutorials with Salaar
   - I may go over one or two queries at the start of class if desired
@@ -283,6 +283,7 @@ class: top, left, inverse
 - SQL: Structured Query Language
   - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”
 
+<br>
 --
 
 - SQL is a _query_ language rather than a programming language
@@ -291,6 +292,7 @@ class: top, left, inverse
       - Some SQL code, especially more advanced procedural code, is reproducible within the same flavour
   - SQL's domain is databases and is based on set theory
 
+<br>
 --
 
 - Designed to manage data within Relational Database Management Systems (RDBMs), e.g.
@@ -309,13 +311,14 @@ class: top, left, inverse
 - Like other programming/query languages, SQL has reserved keywords/commands to perform instructional operations 
   - Generally, these keywords are written in all caps: `SELECT`
   - Most modern interpreters no longer require this, but it is the expected standard
-  
+
+<br>
 --
 
-- All statements/queries should be ended with a semicolon
+- All statements/queries should end with a semicolon
   - A few SQL constructs (like common table expressions, we'll get to these later) require them, otherwise they are optional 
       - I'll almost certainly forget to use them
-      - There's some debate on whether or not it's best practice
+      - There's some debate over whether or not it's best practice
 
 ---
 
@@ -358,7 +361,7 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # Flavours
--  RDBMs differ from one to the next. This is manifested in many ways:
+-  RDBMs differ from one to the next:
     - different keywords 
       - e.g. return only 10 rows:
         `SELECT TOP 10...` vs `SELECT ... LIMIT 10`
@@ -383,19 +386,20 @@ class: top, left, inverse
 class: top, left, inverse
 # Flavours
 
-- Broad observations about Open Source:
+- Broad observations about Open Source systems:
   - Excellent at what they are designed for
   - Varying data types (SQLite has some unique ones!)
   - Not every command exists, but workarounds are usually possible
   - Some utilize RDBMs that feel extremely outdated
 
+<br>
 --
 
 - Broad observations about enterprise systems:
   - Powerful and designed to handle edge cases
   - Feel a bit more refined
       - Can be version dependent
-  - Tend to "lock in" business/organizations
+  - Tend to "lock in" businesses/organizations
       - Migration is costly, sometimes outrageously so
   - Newer players (Snowflake, Databricks, etc) and cloud providers (Azure, AWS, Google, etc) offer a lot more functionality than just database querying
 
@@ -419,13 +423,14 @@ class: top, left, inverse
 ### Databases
 
 - Relational databases are a collection of tables, views, procedural code, and other SQL-assisting artefacts
-  - Generally the data stored in a database will related to a real-world concept
+  - Generally the data stored in a database will be related to a real-world concept
   - Backends to data-collecting systems are often databases
       - e.g. CRMs, EMR software, ERPs, web-based applications
   - Usually not connected to other databases unless deemed necessary
   - Often transactional, meaning data is actively being written to by frontend systems
   - Tables are normalized (we'll get into Normalization Forms later in the course)
 
+<br>
 --
 
 - There are also non-relational databases, often referred to as NoSQL
@@ -448,12 +453,13 @@ class: top, left, inverse
   - Tables are denormalized
   - Very common for enterprises, but losing traction in many industries
 
+<br>
 --
 
 - Data Marts are created from Data Warehouses to focus on a single subject 
   - Designed to make Data Warehouses easier to use
   - Data is structured, but flexibility is driven by the purpose of the Data Mart
-  - Some denormalized tables may be normalized or even undergo even greater normalization
+  - Some denormalized tables may be normalized or undergo even greater normalization
       - _The subject/purpose of the Data Mart might drive these types of decisions_
   - Common for enterprises that have Data Warehouses
 
@@ -467,11 +473,12 @@ class: top, left, inverse
 - Data Lakes allow on-demand access to raw, semi-structured, structured, and unstructured data
   - Not defined by a specific purpose
   - Highly scalable
-  - Can be transactional, if systems are designed to produce outputs into data lakes
-  - Commonly data sources for machine learning pipelines live in data lakes
+  - Can be transactional, if systems are designed to produce outputs into Data Lakes
+  - Often data sources for machine learning pipelines live in Data Lakes
   - Inexpensive compared to Data Warehouses
-  - Increasingly common for enterprises to shift towards Data Lakes, especially with support from newer tools like Snowflake, Databricks, etc which can maximize the analytical value of a Data Lake
+  - Increasingly common for enterprises to shift towards Data Lakes, especially with support from newer tools like Snowflake, Databricks, etc, which can maximize the analytical value of a Data Lake
 
+<br>
 --
 
 - Data Swamps...are poorly governed Data Lakes
@@ -553,12 +560,14 @@ class: top, left, inverse
   - Manage permissions for data access
   - Mitigate data corruption and unauthorized access
 
+<br>
 --
 
 - Generally, data is stored in a _database_
-  - a database is a collection of information
-  - within a database, a collection of objects (e.g. tabular data "tables") is stored
+  - A database is a collection of information
+  - Within a database, a collection of objects (e.g. tabular data "tables") is stored
 
+<br>
 --
 
 - RDBMs allow users to define interactions between these objects, such as:
@@ -651,15 +660,16 @@ class: top, left, inverse
       - most systems conserve storage space specifying their range 
   - `FLOAT`, `DECIMAL`, `REAL` (decimal: 5.5, 3.333333)
   - `VARCHAR`, `NVARCHAR`, `TEXT` (text strings, with a maximum length associated: 'abc')
-  - `DATE`, `DATETIME`, `TIME` (dates and times: '2023-01-09','11:11:11.000')
+  - `DATE`, `DATETIME`, `TIME` (dates and times: '2023-01-09', '11:11:11.000')
 - These may vary slightly by flavour (in SQLite they are simpler and less restricted)
 
+<br>
 --
 
 - Data types are important:
   - They affect operation speed, storage size, data validity
-      - Speed: it's much computationally less expensive to compute smaller values
-      - Storage: small is usually better, but the wrong size will affect systems, for example Psy's Gangnam Style exceed 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 64-bit (~9.2b if signed)
+      - Speed: it's computationally less expensive to compute smaller values
+      - Storage: small is usually better, but the wrong size will affect systems; e.g. Psy's Gangnam Style exceeded 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 64-bit (~9.2b if signed)
       - Validity: ensures columns contain the right type of data for operations, e.g. avoiding 5 + 'ten' = ??
 ---
 
@@ -697,9 +707,9 @@ class: top, left, inverse
 
 ### Constraints
 - **NULL** and **NOT NULL**
-  - if a value can be missing or not
+  - If a value can be missing or not
 - **UNIQUE**
-  - all values are different
+  - All values are different
 - **PRIMARY KEY (PK)**
     - Ensures each value in a column is unique within the table (e.g. an ID field)
     - One PK per table
@@ -736,19 +746,21 @@ class: top, left, inverse
 # Data Modelling
 
 ### Entity Relationship Diagrams
-- Entity Relationship Diagrams (ERDs) are diagrams depicting the structure of tables within database
+- Entity Relationship Diagrams (ERDs) are diagrams depicting the structure of tables within a database
   - This both _identifies the tables_ and _describes their relationships_ 
 
+<br>
 --
 
 - ERDs are useful for:
-  - database design
-  - debugging
-  - writing logical, consistent, and efficient queries
+  - Database design
+  - Debugging
+  - Writing logical, consistent, and efficient queries
 
+<br>
 --
   
-- There three levels of details for ERD depictions:
+- There are three levels of detail for ERD depictions:
   - Conceptual model
   - Logical model
   - Physical model
@@ -784,10 +796,10 @@ class: top, left, inverse
 
 --
 
-### Attributes of a Relationship
+### Attributes of an ERD Relationship
 - Defines which columns are related
 - Defines what type of relationship exists:
-  - One-to-One:
+  - One-to-One
   - One-to-Many
   - Many-to-Many
 
@@ -859,7 +871,7 @@ class: top, left, inverse
 
 ### Relationship Examples
 
-**One-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
+**Many-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
 
 Table 1: Employee — Table 2: Employee Type
 
@@ -924,7 +936,7 @@ class: top, left, inverse
 
 ### Conceptual Models
 .pull-left.w35[
-- Defines the tables (objects/entities) and their relationships
+- Define the tables (objects/entities) and their relationships
 
 ]
 
@@ -934,11 +946,11 @@ class: top, left, inverse
 
 .pull-left.w40[
 - Our Farmers Market database: 
-  - Ten tables
+  - 10 tables
   - Relationships between these tables
       - e.g. product and product_category: *what type of thing a product is*
-      - product and customer_purchases: *what product a customer has bought*
-      - product and vendor_inventory: *what products each vendor has on available*
+      - product and customer_purchases: *what products a customer has bought*
+      - product and vendor_inventory: *what products each vendor has available*
   - Not all tables share a relationship to one another, but all tables have at least one relationship
 ]
 
@@ -955,8 +967,8 @@ class: top, left, inverse
 
 ### Logical Models
 .pull-left.w60[
-- Adds additional detail to the conceptual model by adding column names for each table
-- Often indicates the type of relationship 
+- Add additional detail to the conceptual model by adding column names for each table
+- Often indicate the type of relationship 
   - One-to-One
   - One-to-Many
   - Many-to-Many
@@ -970,8 +982,8 @@ class: top, left, inverse
 .pull-left.w60[
 
 - Our (partial) Farmers Market database: 
-  - product shares a One-to-Many relationship with vendor_inventory on product_id
-  - product_category shares a One-to-Many relationship with product on product_category_id
+  - product (5 columns) shares a One-to-Many relationship with vendor_inventory (5 columns) on product_id
+  - product_category (2 columns) shares a One-to-Many relationship with product (5 columns) on product_category_id
   - `_______` shares a `_______` relationship with `_______` on vendor_id
 ]
 
@@ -989,7 +1001,7 @@ class: top, left, inverse
 
 ### Physical Models
 .pull-left[
-- Adds additional detail to the logical model by adding key type and column data type
+- Add additional detail to the logical model by adding key type and column data type
 
 ]
 
@@ -1000,9 +1012,9 @@ class: top, left, inverse
 .pull-left.w40[
 
 - Our (partial) Farmers Market database: 
-  - vendor_id is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
-  - product_id is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
-  - market_date is the PK for vendor_inventory
+  - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
+  - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
+  - market_date (date) is the PK for vendor_inventory
       - **why?**
 
 ]
@@ -1041,15 +1053,17 @@ class: top, left, inverse
 ### Assignment 1: Design a Logical Model
 
 **Q1)**
-Create an example logical model for a small bookstore. `r structure("\U1F4DA", class = "emoji")`
+Create a logical model for a small bookstore. `r structure("\U1F4DA", class = "emoji")`
 
-At the minimum it should have employee, order, sale, customer, and book entities. Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can do this, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/).
+At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/).
 
 **Q2)**
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
 **Q3)**
-The store wants to keep customer addresses. Propose two architectures for the CUSTOMERS_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? *Hint, search type 1 vs type 2 slowly changing dimensions*
+The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? *Hint, search type 1 vs type 2 slowly changing dimensions*. 
+
+Bonus: Are there privacy implications to this, why or why not?
 
 **Q4)**
 Review the AdventureWorks ERD here: [link](https://i.stack.imgur.com/LMu4W.gif)
