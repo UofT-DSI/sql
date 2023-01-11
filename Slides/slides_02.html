@@ -4,7 +4,7 @@
     <title>slides_02.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
@@ -29,25 +29,276 @@ class: center, middle, inverse, title-slide
 
 
 
+
 class: middle, center, inverse
 # Building Queries:
 
+## Fundamental Three Commands
+
 ## Two More Commands
 
-## JOIN
-
-## Aggregation Functions
+## Putting Things Together with JOIN
 
 ---
 
 class: middle, center, inverse
 # Building Queries:
 
+## **Fundamental Three Commands**
+
+## Two More Commands
+
+## Putting Things Together with JOIN
+
+---
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT
+
+## FROM
+
+## WHERE    
+
+---
+
+class: top, left, inverse
+# Fundamental Three Commands
+- Our first three commands (`SELECT`, `FROM`, `WHERE`) are essential to nearly every SQL query
+
+--
+
+- The template for our initial SQL statement is as such:
+
+    `SELECT` : _the columns we want to retrieve_
+
+    `FROM` : _the table we are querying_
+
+    `WHERE` : _filters/conditions (optional)_
+
+    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC`_ (optional)_
+
+    `LIMIT` : _how many rows we want to return (optional)_
+
+---
+
+class: top, left, inverse
+# Fundamental Three Commands
+- Always  specified in this order:
+  - `SELECT` will come first
+  - `FROM` will come after `SELECT`
+      - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
+  - `WHERE` will come after `FROM` 
+  - `ORDER BY` will come after `WHERE` clauses
+
+&lt;br&gt;
+--
+
+- We'll sometimes use the `LIMIT` clause to look at data
+  - This comes at the very end of a query
+  - `LIMIT` shouldn't be used for analytics unless you have a specific reason
+    - `ORDER BY` often impacts the usefulness of `LIMIT` 
+
+&lt;br&gt;
+--
+
+- Remember:
+  - In SQL, we use two dashes `--` to comment out lines, rather than `#`
+---
+
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## **SELECT**
+
+## FROM
+
+## WHERE
+
+---
+
+class: top, left, inverse
+# SELECT
+
+- At its simplest `SELECT` specifies column names we are retrieving
+  - commas come between each column name
+      - `SELECT student, course, grade ...`
+  - column names with a space need to be enclosed in square brackets
+      - `SELECT [poorly named column], better_column_name, AnotherColumnName`
+
+&lt;br&gt;
+--
+
+- Within `SELECT` statements we can perform manipulations on columns
+  - e.g. rename a column
+      - `SELECT [poorly named column] AS better_col`
+  - combine two text columns
+  - perform math on a numeric column
+  - ...and many more things
+
+
+---
+
+class: top, left, inverse
+# SELECT
+
+- We can use `SELECT` to perform math without a `FROM` statement
+  - `SELECT 1 + 1`
+  - `SELECT 10*5, cos(2), pi()`
+
+&lt;br&gt;
+--
+
+- And we can use `SELECT` to specify constant values
+  - `SELECT 2023 AS this_year, 'January' AS this_month`
+
+&lt;br&gt;
+--
+
+- When selecting columns, they need to exist in the table!
+  
+---
+
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT
+
+## **FROM**
+
+## WHERE
+
+---
+
+class: top, left, inverse
+# FROM
+
+- `FROM` statements indicate which table the data and where the table is located
+  - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
+    - a fully qualified location of a table would thus be `database.schema.table`
+- `SELECT * FROM table_name` indicates _everything_ in the table
+
+&lt;br&gt;
+--
+
+- Best practice suggests that we should explicitly call each column, even if we want all of them
+ - **Why do we think this is the case?**
+ 
+---
+
+class: top, left, inverse
+# FROM
+
+(`SELECT` &amp; `FROM` live coding)
+---
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT 
+
+## FROM
+
+## **WHERE**
+
+---
+class: top, left, inverse
+# WHERE
+
+- `WHERE` clauses are conditions that the query will follow
+- When we want to have multiple conditions, we use a single `WHERE` and then additional logical operations
+
+```
+    SELECT *
+    FROM students
+    WHERE first_name = 'Thomas'
+    AND last_name = 'Rosenthal'
+```
+
+- **Notice we put string values in single quotes**
+  - SQLite also allows double quotes, with a few minor caveats
+
+&lt;br&gt;
+--
+
+- `WHERE` clauses always return rows evaluating to `TRUE`
+  - Follows Boolean rules if more than one condition is present
+
+&lt;br&gt;
+--
+
+- My favourite WHERE statement is `WHERE 1=1`
+  - **Any guesses as to why?**
+  
+---
+
+class: top, left, inverse
+# WHERE
+
+### Logical Operators
+- `AND`
+- `OR`
+- `NOT`
+- `NOT IN`
+- equals: `=`
+- does not equal: `&lt;&gt;` `!=`  
+  - (flavour dependent)
+- greater than (equal to): `&gt;` `&gt;=` 
+- less than (equal to)`&lt;` `&lt;=`
+- `BETWEEN`
+- `EXISTS`
+  - table specific
+- `IS`
+  - `NULL` specific 
+  
+---
+
+class: top, left, inverse
+# WHERE
+
+### NULL
+- `NULL` is not a value (it's the absence of a value)
+  - to check null values, we use `IS NULL` or `IS NOT NULL`
+  - `= NULL` will not work
+
+--
+
+### LIKE
+- `LIKE` allows for string wildcards
+- `%` specifies the wildcard placement
+  - `country_name LIKE 'and%'`
+      - Andorra
+  - `country_name LIKE '%and'`
+      - Finland, Iceland ...more
+  - `country_name LIKE '%and%'`
+      - all of the above, _plus_ Antigua and Barbuda, Netherlands, Rwanda ...more!
+  - `country_name LIKE '%an%d%'`
+      - Canada ...surely more!
+
+---
+
+class: top, left, inverse
+# WHERE
+
+(`WHERE` live coding)
+---
+
+class: middle, center, inverse
+**Fundamental Questions?**
+
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## Fundamental Three Commands
+
 ## **Two More Commands**
 
-## JOIN
-
-## Aggregation Functions
+## Putting Things Together with JOIN
 
 ---
 
@@ -120,6 +371,7 @@ class: top, left, inverse
 - Not all query results will result in unique rows (i.e. duplicates are present)
   - **Can we think of why this is?**
 
+&lt;br&gt;
 --
 
 - `DISTINCT` has two possible spots within a query:
@@ -140,19 +392,23 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# Building Queries:
-
-## Two More Commands
-
-## **JOIN**
-
-## Aggregation Functions
-
+**Questions?**
 
 ---
 
 class: middle, center, inverse
-# JOIN
+# Building Queries:
+
+## Fundamental Three Commands
+
+## Two More Commands
+
+## **Putting Things Together with JOIN**
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
 
 ## INNER JOIN
 
@@ -167,7 +423,7 @@ class: middle, center, inverse
 ---
 
 class: top, left, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 - Joins are used to combine data stored in different tables into a single table
 
@@ -185,12 +441,15 @@ class: top, left, inverse
       
       produces 52 cards (4 * 13)
 
---
+---
+class: top, left, inverse
+# Putting Things Together with JOIN
 
 - Joins require relationships (one exception, we'll get to later) between tables
 - Different joins create different results
   - Join names specify which conditional selection is desired
 
+&lt;br&gt;
 --
 
 - There are three join types in SQL but different joining criteria can further limit results 
@@ -201,7 +460,7 @@ class: top, left, inverse
 ---
 
 class: top, left, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ### JOIN Syntax
 
@@ -232,7 +491,7 @@ A couple of notes:
 
 
 class: middle, center, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ## **INNER JOIN**
 
@@ -283,7 +542,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ## INNER JOIN
 
@@ -321,7 +580,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ## INNER JOIN
 
@@ -355,7 +614,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ## INNER JOIN
 
@@ -394,7 +653,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-# JOIN
+# Putting Things Together with JOIN
 
 ## INNER JOIN
 
@@ -464,289 +723,7 @@ class: top, left, inverse
 (Multiple Table Joins live coding)
 ---
 
-class: middle, center, inverse
-# Building Queries:
 
-## Two More Commands
-
-## JOIN
-
-## **Aggregation Functions**
-
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## GROUP BY
-
-## COUNT
-
-## SUM &amp; AVG
-
-## MIN &amp; MAX
-
-## Arithmetic
-
-## HAVING
-
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## **GROUP BY**
-
-## COUNT
-
-## SUM &amp; AVG
-
-## MIN &amp; MAX
-
-## Arithmetic
-
-## HAVING
-
----
-
-class: top, left, inverse
-# GROUP BY
-- Aggregations generally require a *group*
-- `GROUP BY` is mandatory any time a column aside from the one being aggregated is present
-
---
-
-For example, a query wanting to know the number of days in each month:
-
-```
-    SELECT
-    COUNT(days)
-    ,months
-
-    FROM calendar
-    GROUP by months
-```
---
-
-- `GROUP BY` comes after a `WHERE` clause
-- Remember: with all aggregation functions, values will be calculated _per group_
-
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## GROUP BY
-
-## **COUNT**
-
-## SUM &amp; AVG
-
-## MIN &amp; MAX
-
-## Arithmetic
-
-## HAVING
-
----
-
-class: top, left, inverse
-# COUNT
-- `COUNT` performs counts of any given column or set of columns
-
---
-
-- `COUNT(*)` provides a count of rows in a given table
-  - no `GROUP BY` is required here
-
---
-
-- Multiple counts are treated as separate columns
-  - e.g. counting the number of days and months in a year
-```
-    SELECT
-    COUNT(days)
-    ,COUNT(months)
-    ,years
-
-    FROM calendar
-    GROUP by years
-```
---
-
-- When `COUNT` is combined with `DISTINCT`, only unique values are counted
-
----
-
-class: top, left, inverse
-# COUNT
-
-(`COUNT` live coding)
----
-
-class: middle, center, inverse
-
-# Aggregation Functions
-
-## GROUP BY
-
-## COUNT
-
-## **SUM &amp; AVG**
-
-## MIN &amp; MAX
-
-## Arithmetic
-
-## HAVING
-
----
-
-class: top, left, inverse
-# SUM &amp; AVG
-
-### SUM
-- `SUM` performs the sum total of any numeric column
-  - Be wary, SQLite may be more permissive for columns with numbers; it's best practice to coerce (`CAST`) these values into numbers before summing to be certain of their validity
-    - e.g. `CAST(SUM(column1) AS INTEGER) AS column1`
-    
---
-
-- SUM can accommodate multiple columns using the plus `+` operator
-  - e.g. `SUM(column1 + column2)`
-
---
-
-- Thinking about `SUM` and `COUNT` combined (i.e. a rolling total)? We'll get to that in the next session!
-
---
-
-### AVG
-- `AVG` performs the average of any numeric column
-- Like `SUM`, it can accommodate multiple columns
-  - we can also use other mathematical operations for `SUM` and `AVG`, like `-`,`*`,`/`, `%` (i.e. modulo, not percent), etc
-  
-
----
-
-class: top, left, inverse
-# SUM &amp; AVG
-
-(`SUM` &amp; `AVG` live coding)
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## GROUP BY
-
-## COUNT
-
-## SUM &amp; AVG
-
-## **MIN &amp; MAX**
-
-## Arithmetic
-
-## HAVING
-
----
-
-class: top, left, inverse
-# MIN &amp; MAX
-
-- `MIN` takes the single minimum value of a given column; `MAX` takes the maximum
-- Be wary of combining `MIN` &amp; `MAX` with other aggregating functions like `SUM` or `AVG`
-- **What do we think happens when `MIN` is performed on a string? Error? Something else? What about `MAX`?**
-  
----
-
-class: top, left, inverse
-# MIN &amp; MAX
-
-(`MIN` &amp; `MAX` live coding)
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## GROUP BY
-
-## COUNT
-
-## SUM &amp; AVG
-
-## MIN &amp; MAX
-
-## **Arithmetic**
-
-## HAVING
-
----
-
-class: top, left, inverse
-# Arithmetic
-
-- SQL can perform many basic (and some complex) calculations
-  - addition, subtraction, multiplication, division, power, etc
-  - geometric/trigonometric functions sin, cos, tan, degrees, radians, etc
-
---
-
-- These calculations can also be combined inside aggregation functions
-  - e.g. multiplication inside a SUM  `...SUM(quantity * cost)` would create a column like total_spent per group
-
---
-
-- SQL is similar to other programming languages in its ability to handle floating point values
-- **Because columns are type specific, how would we perform integer division on two numbers?**
-
-
----
-
-class: top, left, inverse
-# Arithmetic
-
-(Arithmetic live coding)
----
-
-class: middle, center, inverse
-# Aggregation Functions
-
-## GROUP BY
-
-## COUNT
-
-## SUM &amp; AVG
-
-## MIN &amp; MAX
-
-## Arithmetic
-
-## **HAVING**
-
----
-
-class: top, left, inverse
-# HAVING
-- `WHERE` clauses filter rows _before_ an aggregation occurs
-  
-  ...so `HAVING` clauses allow us to filter rows _after_ an aggregation is calculated
-
---
-  
-- `HAVING` clauses come after `GROUP BY`, but before `ORDER BY`
-- `HAVING` clauses only filter aggregated calculations
-  - you can have both `WHERE` and `HAVING`
-  - they are not interchangeable 
-
----
-
-class: top, left, inverse
-# HAVING
-
-(`HAVING` live coding)
----
 
 class: middle, center, inverse
 **Lingering Questions?**
