@@ -33,9 +33,9 @@ Additionally, the course will explore SQL databases in everyday life, and how R 
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 
 ## Design
-The course runs synchronously over Zoom. It consists of three classes a week for three weeks (nine classes total). Classes are 6 PM - 8 PM EDT on Mondays and Thursdays, and 9 AM - 12 PM EDT on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
+The course runs synchronously over Zoom. It consists of three classes a week for three weeks (nine classes total). Classes are 6 PM - 8 PM EST on Mondays and Thursdays, and 9 AM - 12 PM EST on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
 
-Tutorial sessions with a TA will also be offered over Zoom. These will take place from 5 PM - 6 PM EDT on Mondays and Thursdays, and 8:30 AM - 9 AM EDT and 12 PM - 12:30 PM EDT on Saturdays.  
+Tutorial sessions with a TA will also be offered over Zoom. These will take place from 5 PM - 6 PM EST on Mondays and Thursdays, and 8:30 AM - 9 AM EST and 12 PM - 12:30 PM EST on Saturdays.  
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
