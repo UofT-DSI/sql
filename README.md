@@ -55,13 +55,13 @@ The course is designed for both live-coding and corresponding slides. Students s
 ## Schedule (subject to change)
 Day 1: Introduction, Data Modelling, Schema Design, Data Structures
 
-Day 2: Introducing SQL: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs
+Day 2: Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs
 
-Day 3: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Windowed Function, Datetime Functions
+Day 3: Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL
 
-Day 4: ISNULL, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
+Day 4: Advanced Techniques: Windowed Functions, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
 
-Day 5: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
+Day 5: Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
 
 Day 6: SQL and the Machine Learning pipeline, SQL in R & python
 
