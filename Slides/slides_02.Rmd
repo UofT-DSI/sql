@@ -186,7 +186,7 @@ class: middle, center, inverse
 class: top, left, inverse
 # FROM
 
-- `FROM` statements indicate which table the data and where the table is located
+- `FROM` statements indicate which table the data is from and where the table is located
   - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
     - a fully qualified location of a table would thus be `database.schema.table`
 - `SELECT * FROM table_name` indicates _everything_ in the table
@@ -257,7 +257,7 @@ class: top, left, inverse
 - does not equal: `<>` `!=`  
   - (flavour dependent)
 - greater than (equal to): `>` `>=` 
-- less than (equal to)`<` `<=`
+- less than (equal to): `<` `<=`
 - `BETWEEN`
 - `EXISTS`
   - table specific
@@ -378,7 +378,7 @@ class: middle, center, inverse
 
 class: top, left, inverse
 # DISTINCT
-- Not all query results will result in unique rows (i.e. duplicates are present)
+- Not all queries will result in unique rows (i.e. duplicates are present)
   - **Can we think of why this is?**
 
 <br>
@@ -389,7 +389,7 @@ class: top, left, inverse
       - e.g. `SELECT DISTINCT songs, albums, artists...`
       - This `DISTINCT` will govern the entire query
       
-  - The other comes within aggregation
+  - The other comes within aggregation (we'll get to this later)
       - e.g. `COUNT(DISTINCT products)`
       - This `DISTINCT` will only affect this specific aggregation
 
@@ -571,8 +571,8 @@ class: top, left, inverse
 - `LEFT JOIN` filters the "right" table to rows present in the "left" table
 - `LEFT JOIN` will most often produce `NULL` values
 - The "OUTER" in `LEFT OUTER JOIN` is optional
-  - Generally, OUTER seems to be excluded but both are correct
-- LEFT _is not_ optional, there is no "OUTER JOIN"
+  - Generally, OUTER seems to be excluded, but both are correct
+- LEFT _is not_ optional; there is no "OUTER JOIN"
 
 .center[ 
 <img src="imgs/left_join.png"
@@ -609,7 +609,7 @@ class: top, left, inverse
 - `RIGHT JOIN` filters the "left" table to rows present in the "right" table
 - `RIGHT JOIN` will most often produce `NULL` values
 - The "OUTER" in `RIGHT OUTER JOIN` is optional
-  - Generally, OUTER seems to be excluded but both are correct
+  - Generally, OUTER seems to be excluded, but both are correct
 - `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
   - Often your query can be reorganized to use a `LEFT JOIN` instead
     - SQLite does not currently support `RIGHT JOIN`
@@ -643,11 +643,11 @@ class: top, left, inverse
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a work around to produce the results (we'll do it in Module 4)
+- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results (we'll do it in a later module)
 
 --
 
-# Filtering a FULL (OUTER) JOIN
+### Filtering a FULL (OUTER) JOIN
 - All OUTER JOIN syntax can be filtered to exclude the _matching_ criteria
   - Often called an ANTI JOIN, i.e. what's _not_ in the other table
 
@@ -694,17 +694,22 @@ For example, let's combine these three tables:
 
 .pull-left[
 
+.left-column[
+
 | FirstName  | Number |
 |------------|--------|
 | A          | 1      |
 | Thomas     | 2      |
 .center[<sup><sup>(_Table 1_)</sup></sup>]
 
+
+
 | LastName  | Number |
 |-----------|--------|
 | Mahfouz   | 1      |
 | Rosenthal | 2      |
 .center[<sup><sup>(_Table 2_)</sup></sup>]
+
 
 | FirstName  | LastName  | Symbol |
 |------------|-----------|--------|
@@ -713,17 +718,25 @@ For example, let's combine these three tables:
 .center[<sup><sup>(_Table 3_)</sup></sup>]
 ]
 
+]
+
 --
 
 .pull-right[
 If the desired outcome table is:
+
+.left-column[
 
 | FirstName | LastName  | Number | Symbol |
 |-----------|-----------|--------|--------|
 | A         | Mahfouz   | 1      | !      |
 | Thomas    | Rosenthal | 2      | ?      |
 
+]
+<br><br><br><br><br>
+
 **What are the correct `JOIN` criteria?**
+
 ]
 ---
 
