@@ -203,6 +203,7 @@ class: top, left, inverse
 # FROM
 
 (`SELECT` & `FROM` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -294,6 +295,7 @@ class: top, left, inverse
 # WHERE
 
 (`WHERE` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -365,6 +367,7 @@ class: top, left, inverse
 # CASE
 
 (`CASE` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -399,6 +402,7 @@ class: top, left, inverse
 # DISTINCT
 
 (`DISTINCT` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -528,6 +532,7 @@ class: top, left, inverse
      
 <sup><sup> Image: Teate, Chapter 5 </sup></sup>
 ]
+
 ---
 
 class: top, left, inverse
@@ -549,6 +554,7 @@ class: top, left, inverse
 # INNER JOIN
 
 (`INNER JOIN` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -587,6 +593,7 @@ class: top, left, inverse
 # LEFT (OUTER) JOIN
 
 (`LEFT JOIN` live coding)
+
 ---
 
 class: middle, center, inverse
@@ -738,18 +745,19 @@ If the desired outcome table is:
 **What are the correct `JOIN` criteria?**
 
 ]
+
 ---
 
 class: top, left, inverse
 # Multiple Table Joins
 
 (Multiple Table Joins live coding)
+
 ---
-
-
 
 class: middle, center, inverse
 **Lingering Questions?**
+
 
 ```{r echo=FALSE}
 #library(renderthis)
