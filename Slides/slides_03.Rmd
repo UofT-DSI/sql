@@ -845,7 +845,7 @@ class: left, upper, inverse
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-    - e.g., months until summer `r structure("\U1F3D6", class = "emoji")` `SELECT STRFTIME('%m','2023-06-21') - STRFTIME('%m','NOW')` 
+      - e.g., months until summer `r structure("\U1F3D6", class = "emoji")` `SELECT STRFTIME('%m','2023-06-21') - STRFTIME('%m','NOW')` 
 
 --
 
