@@ -210,7 +210,7 @@ class: top, left, inverse
 
 | vendor_id | count_of_products |
 |-----------|-------------------|
-| 1         | 8                 |
+| 1         | 7                 |
 
 ]
 
