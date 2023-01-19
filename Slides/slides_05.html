@@ -4,7 +4,7 @@
     <title>slides_05.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
@@ -41,7 +41,6 @@ class: middle, center, inverse
 
 ## Views
 
-## Run SQLite in python and/or R
 ---
 
 class: middle, center, inverse
@@ -54,8 +53,6 @@ class: middle, center, inverse
 ## Normal Forms
 
 ## Views
-
-## Run SQLite in python and/or R
 
 ---
 
@@ -136,6 +133,14 @@ class: top, left, inverse
 
 ---
 
+class: middle, center, inverse
+**Any Questions?**
+
+&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;What happens if you don't specify a `WHERE` condition&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;
+
+
+---
+
 
 class: middle, center, inverse
 # Expanding your Database:
@@ -148,7 +153,6 @@ class: middle, center, inverse
 
 ## Views
 
-## Run SQLite in python and/or R
 ---
 
 class: middle, center, inverse
@@ -159,6 +163,7 @@ class: middle, center, inverse
 ## CSV
 
 ## JSON
+
 ---
 
 class: middle, center, inverse
@@ -169,6 +174,7 @@ class: middle, center, inverse
 ## CSV
 
 ## JSON
+
 ---
 
 class: top, left, inverse
@@ -198,6 +204,7 @@ class: middle, center, inverse
 ## **CSV**
 
 ## JSON
+
 ---
 
 class: top, left, inverse
@@ -227,6 +234,8 @@ DB Browser for SQLite natively supports CSV importing and exporting for tables:
 &lt;img src="imgs/import_export_menu.png"
      height="300px";&gt;
 ]
+
+You can also export queries if they are stored in Temporary Tables
 
 ---
 
@@ -260,60 +269,6 @@ VALUES ('1', 'Habanero Peppers - Organic', 'medium', '1', 'lbs', 'Fresh Fruits &
 ```
 - Finally, export the table to CSV
 
----
-class: top, left, inverse
-# CSV
-
-We can also extract a query result to CSV with python:
-
-```
-import pandas as pd
-import sqlite3
-
-#set your location, slash direction will change for windows and mac
-DB = '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db' 
-
-#establish your connection
-conn = sqlite3.connect(DB, isolation_level=None,
-                       detect_types=sqlite3.PARSE_COLNAMES)
-                       
-#run your query, use "\" to allow line breaks
-db_df = pd.read_sql_query("SELECT p.*,pc.product_category_name \
-                          FROM product p \
-                          JOIN product_category pc \
-                             ON p.product_category_id = pc.product_category_id"
-                          ,conn)
-
-#save
-db_df.to_CSV('database-py.CSV', index=False)
-```
-
----
-
-class: top, left, inverse
-# CSV
-
-...or extract with R instead:
-
-```
-library(DBI)
-library(RSQLite)
-
-#set your location, slash direction will change for windows and mac
-DB = '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db'
-
-#establish your connection
-conn &lt;- dbConnect(SQLite(), DB) 
-
-#run your query
-db_df &lt;- dbGetQuery(conn, "SELECT p.*,pc.product_category_name
-                          FROM product p
-                          JOIN product_category pc
-                            ON p.product_category_id = pc.product_category_id")
-
-#save
-write.CSV(db_df, file = "database-R.CSV")
-```
 
 ---
 
@@ -332,6 +287,7 @@ class: middle, center, inverse
 ## CSV
 
 ## **JSON**
+
 ---
 
 class: top, left, inverse
@@ -359,6 +315,73 @@ class: top, left, inverse
 - SQLite also provides support for JSON value query and manipulation
 
 ---
+class: top, left, inverse
+# JSON
+
+DB Browser for SQLite supports a lot of JSON functions:
+  - Some are helper functions:
+    - `JSON` and `JSON_VALID`, which confirm whether or not a string is JSON and/or in a valid JSON format
+    - `JSON_TYPE`
+      - When using extracting, type will help to inform column types that SQL will assume, based on the JSON
+
+--
+
+  - Other functions can be used for manipulation or extraction:
+  - `JSON_EXTRACT` will allow you to return the values of a well-formed JSON string into desired parts
+    - Importing JSON into SQL will use either `JSON_EXTRACT` or `JSON_EACH`
+    - SQLite gives the following (fairly comprehensive) example set:
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$')` → '{"a":2,"c":[4,5,{"f":7}]}'
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c')` → '[4,5,{"f":7}]'
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c[2]')` → '{"f":7}'
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c[2].f')` → 7
+        - `json_extract('{"a":2,"c":[4,5],"f":7}','$.c','$.a')` → '[[4,5],2]'
+        - `json_extract('{"a":2,"c":[4,5],"f":7}','$.c[#-1]')` → 5
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.x')` → NULL
+        - `json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.x', '$.a')` → '[null,2]'
+        - `json_extract('{"a":"xyz"}', '$.a')` → 'xyz'
+        - `json_extract('{"a":null}', '$.a')` → NULL
+---
+
+class: top, left, inverse
+# JSON
+
+Importing a JSON array (table) into SQL with DB Browser for SQLite requires a bit more of nuanced approach:
+- First copy and paste your JSON table array into SQLite, and put it in a temp table:
+
+```
+CREATE TEMP TABLE IF NOT EXISTS temp.[new_json]
+(col BLOB);
+
+INSERT INTO temp.[new_json](col)
+VALUES('[{"a": 7, "b": "string"}]
+```
+
+--
+
+- Second, use the `JSON_EACH` function as a table-valued function
+
+```
+SELECT key,value
+FROM new_json,JSON_EACH(new_json.col, '$' )
+```
+
+--
+
+- Third, use this previous query as a subquery and combine with `JSON_EXTRACT`, using the value column `JSON_EACH` generated
+
+```
+SELECT * ,
+JSON_EXTRACT(value, '$.a') AS a,
+JSON_EXTRACT(value, '$.b') AS b
+
+FROM (...{subquery goes here}...)
+```
+
+--
+
+- You now have a normal SQL table from a JSON array!
+
+---
 
 class: top, left, inverse
 # JSON
@@ -370,6 +393,10 @@ DB Browser for SQLite natively supports JSON exporting for tables:
      height="300px";&gt;
 ]
 
+--
+
+This also works for Temporary Tables, so queries can be exported as well
+
 ---
 
 class: top, left, inverse
@@ -378,6 +405,12 @@ class: top, left, inverse
 (JSON live exporting)
 
 ---
+
+class: middle, center, inverse
+**Import/Export Questions?**
+
+---
+
 
 class: middle, center, inverse
 # Expanding your Database:
@@ -390,7 +423,6 @@ class: middle, center, inverse
 
 ## Views
 
-## Run SQLite in python and/or R
 ---
 
 class: middle, center, inverse
@@ -403,6 +435,7 @@ class: middle, center, inverse
 ## Second Normal Form
 
 ## Third Normal Form
+
 ---
 
 class: middle, center, inverse
@@ -415,6 +448,7 @@ class: middle, center, inverse
 ## Second Normal Form
 
 ## Third Normal Form
+
 ---
 
 class: top, left, inverse
@@ -424,6 +458,7 @@ class: top, left, inverse
   - When a table is normalized, it splits complex data stored in single columns and stores them instead in many smaller tables 
   - Our farmersmarket.db is normalized
 
+&lt;br&gt;
 --
 
 - When a collection of databases is normalized we call this a data warehouse 
@@ -444,6 +479,7 @@ class: middle, center, inverse
 ## Second Normal Form
 
 ## Third Normal Form
+
 ---
 
 class: top, left, inverse
@@ -475,6 +511,19 @@ We can shift it into 1NF by unpivoting the software column:
 | Thomas | mac | RStudio  | Rohan Alexander |
 
 (SQLite doesn't support `UNPIVOT`, so we'll use `SUBSTR` and `UNION` to create this)
+
+---
+
+class: middle, center, inverse
+# Normal Forms
+
+## Purpose
+
+## First Normal Form
+
+## **Second Normal Form**
+
+## Third Normal Form
 
 ---
 
@@ -537,6 +586,20 @@ We introduce a PK id and supervisor_id becomes our FK, replacing supervisor:
 
 
 ---
+
+class: middle, center, inverse
+# Normal Forms
+
+## Purpose
+
+## First Normal Form
+
+## Second Normal Form
+
+## **Third Normal Form**
+
+---
+
 class: top, left, inverse
 #Third Normal Form
 
@@ -554,6 +617,7 @@ Our table is currently 2NF, which is required for 3NF:
 
 
 ---
+
 class: top, left, inverse
 #Third Normal Form
 
@@ -577,6 +641,7 @@ OS must become its own table:
 | 5           | Spyder   | FALSE    |
 
 ---
+
 class: top, left, inverse
 #Third Normal Form
 
@@ -608,6 +673,11 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
+**Pause for Questions about Normalization**
+
+---
+
+class: middle, center, inverse
 # Expanding your Database:
 
 ## INSERT, UPDATE, DELETE
@@ -618,7 +688,6 @@ class: middle, center, inverse
 
 ## **Views**
 
-## Run SQLite in python and/or R
 ---
 class: left, top, inverse
 # Views
@@ -626,6 +695,7 @@ class: left, top, inverse
 - Views instantiate a query result permanently
 - They are particularly useful in highly normalized databases, where reproducing a query is tiresome or prone to query errors
 
+&lt;br&gt;
 --
 
 - In databases that have live data flowing in:
@@ -634,6 +704,7 @@ class: left, top, inverse
       - Or the chance of a "dirty read" (where a table is read before the data is fully updated)
   - Views, on the other hand, will always show the most up-to-date values!
 
+&lt;br&gt;
 --
 
 - Views are created just like tables:
@@ -648,129 +719,11 @@ class: left, top, inverse
 
 (Views live coding)
 
-
----
-class: middle, center, inverse
-# Expanding your Database:
-
-## INSERT, UPDATE, DELETE
-
-## Importing and Exporting Data
-
-## Normal Forms
-
-## Views
-
-## **Run SQLite in python and/or R**
----
-
-class: left, top, inverse
-# Run SQLite in python and/or R
-
-- This module has already shown how to connect a SQLite database to python and/or R and interact with tables
-- **...but did you know you can also run SQLite queries on python and/or R dataframe objects?**
-- Both languages offer good support 
-    - Often there is corresponding python and/or R syntax to achieve similar results
-        - As always with data, there is no prescribed way of doing something!
-        
----
-class: left, top, inverse
-# Run SQLite in python and/or R
-
-### Python Example
-
-
-
-```python
-import pandas as pd
-import pandasql as sql #this allows us to run SQLite queries!
-
-p = "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv"
-penguins = pd.read_csv(p) #create a dataframe
-yrly_penguins = sql.sqldf('''SELECT DISTINCT year, COUNT(*) AS count, 
-                          SUM(COUNT(*)) OVER (ORDER BY year) AS running_total
-                          FROM penguins
-                          GROUP BY year''') #run a SQLite query with sqldf()
-```
-
-.pull-left.w15[
-| year | count | running_total |
-|------|-------|---------------|
-| 2007 | 110   | 110           |
-| 2008 | 114   | 224           |
-| 2009 | 120   | 344           |
-]
----
-class: left, top, inverse
-# Run SQLite in python and/or R
-
-### R Example
-
-
-```r
-library(palmerpenguins) #load some data
-library(sqldf) #this allows us to run SQLite queries!
-
-penguins &lt;- penguins #create a dataframe
-avg_mass &lt;- sqldf('SELECT DISTINCT species, sex, AVG(body_mass_g) as avg_mass
-      FROM penguins
-      WHERE sex &lt;&gt; "NA"
-      GROUP BY species, sex') #run a SQLite query with sqldf()
-```
-
-.pull-left.w15[
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; avg_mass &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Adelie &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3368.836 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Adelie &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4043.493 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chinstrap &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3527.206 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chinstrap &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3938.971 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gentoo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4679.741 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gentoo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5484.836 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-]
-
-
 ---
 
 class: middle, center, inverse
 **Lingering Questions?**
 
-&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;&lt;sub&gt;What happens if you don't specify a `WHERE` condition&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/sub&gt;
 
 
     </textarea>
