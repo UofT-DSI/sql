@@ -363,7 +363,7 @@ CREATE TEMP TABLE IF NOT EXISTS temp.[new_json]
 (col BLOB);
 
 INSERT INTO temp.[new_json](col)
-VALUES('[{"a": 7, "b": "string"}]
+VALUES('[{"a": 7, "b": "string"}]')
 ```
 
 --
