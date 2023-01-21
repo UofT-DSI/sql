@@ -1,7 +1,7 @@
 library(DBI)
 library(RSQLite)
 #set your location, slash direction will change for windows and mac
-DB = '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db'
+DB <- '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db'
 #establish your connection
 conn <- dbConnect(SQLite(), DB) 
 #run your query

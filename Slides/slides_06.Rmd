@@ -492,7 +492,7 @@ library(DBI)
 library(RSQLite)
 
 #set your location, slash direction will change for windows and mac
-DB = '/Users/thomas/Documents/GitHub/02-intro_SQL/SQL/FarmersMarket.db'
+DB <- '/Users/thomas/Documents/GitHub/02-intro_SQL/SQL/FarmersMarket.db'
 
 #establish your connection
 conn <- dbConnect(SQLite(), DB) 
@@ -750,7 +750,7 @@ class: top, left, inverse
   library(DBI)
   library(RSQLite)
   #set your location, slash direction will change for windows and mac
-  DB = '/Users/thomas/Documents/GitHub/02-intro_SQL/SQL/FarmersMarket.db'
+  DB <- '/Users/thomas/Documents/GitHub/02-intro_SQL/SQL/FarmersMarket.db'
   #establish your connection
   conn <- dbConnect(SQLite(), DB)
 ```

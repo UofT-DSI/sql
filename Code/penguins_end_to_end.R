@@ -7,7 +7,7 @@ library(plumber)
 
 ### DATA EXTRACT ###
 #set your location, slash direction will change for windows and mac
-DB = '/Users/thomas/Documents/GitHub/02-intro_sql/SQL/FarmersMarket.db'
+DB <- '/Users/thomas/Documents/GitHub/02-intro_sql/SQL/FarmersMarket.db'
 
 #establish your connection
 conn <- dbConnect(SQLite(), DB) 
