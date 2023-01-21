@@ -986,14 +986,15 @@ class: top, left, inverse
 --
 
 - Most algorithms are poor at explaining how they arrived at a prediction
-  - Some models are "white-box" by nature (like decision trees), while others are "black-box" (like deep-learning-based neural nets)
+  - Some models are "white-box" by nature (like decision trees), while others are "black-box" (like deep-learning neural nets)
+  - The inherent explainability of white-box models makes them easier to evaluate over time
 
 <br>
 --
 
 - When models change over time, we call this *model drift*
 - There are two types of drift:
-  - **Concept Drift**: the way the model 'understood' things to relate to each-other has changed, in a way the model doesn't know, so the model is no longer helpful 
+  - **Concept Drift**: the way the model 'understood' things to relate to each other has changed, in a way the model doesn't know, so the model is no longer helpful 
   - **Data Drift**: information that the model has to deal with now is too different from the information the model has previously seen, so the model is no longer helpful
 
 ---
@@ -1010,7 +1011,7 @@ class: top, left, inverse
 --
 
 - One type of new data we can collect is called "ground truth"
-- Suppose we have an algorithm predicting whether or not a credit card charge is fraudulent:
+- Suppose we have an algorithm predicting whether or not a credit card transaction is fraudulent:
   - Each time the algorithm flags a transaction as fraudulent, a customer service representative calls the credit card holder
   - For instances where fraud occurred, the representative can mark the algorithm as correct
   - For instances where the transaction was legitimate, the representative can mark the algorithm as incorrect
@@ -1031,16 +1032,15 @@ class: top, left, inverse
 ### Model Monitoring
 
 - We claimed our penguin model performed with 93% accuracy
-- Because this class can't go and collect more penguin data, it'd be challenging to evaluate the model's accuracy over time
+- Because this class can't go and collect more penguin data, it'd be challenging to evaluate the model's accuracy over time `r structure("\U1F976", class = "emoji")`
 - However, we can emulate this process, and make the most of our SQL skills!
 
 <br>
 --
 
 - Using the `vetiver` and `plumber` packages, and following fantastic instructions from [Julia Silge's  blog](https://juliasilge.com/blog/), we'll create a live connection to our model
-- Well then export a subset of penguins data (or make up our own? sure!) as JSON, and watch our model predict!
+- We'll then export a subset of penguins data (or make up our own? sure!) as JSON and watch our model predict!
 
-<br>
 ---
 
 class: top, left, inverse
@@ -1084,11 +1084,10 @@ class: top, left, inverse
 
 ---
 
-
 class: middle, center, inverse
 **Lingering Questions?**
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/DSI_SQL/Slides/slides_06.Rmd")
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/Slides/slides_06.Rmd")
 ```
