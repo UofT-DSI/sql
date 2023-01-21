@@ -97,4 +97,4 @@ Rubrics and assignment details.
 
 ## Acknowledgements
 
-Slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A](https://github.com/amfz) as always. Slides have been modified by [Thomas](https://github.com/mrpotatocode) for 2023.
+Slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A Mahfouz](https://github.com/amfz) and [Lorena Almaraz](https://github.com/lalmaraz). Slides have been modified by [Thomas](https://github.com/mrpotatocode) for 2023.
