@@ -73,25 +73,24 @@ class: top, left, inverse
 
 - Machine Learning (ML) uses *data* to discover *patterns* by the use of *statistics*
 - ML is everywhere:
-  - Predictive Models estimate the outcome based on the relationships of the model's inputs
+  - **Predictive Models** estimate the outcome based on the relationships of the model's inputs
       - Economic/Financial Studies
       - Health Studies
-  - Classification Models highlight anomalies, determine how things can be sorted into predefined categories 
+  - **Classification Models** highlight anomalies, determine how things can be sorted into predefined categories 
       - Image classification ("select the pictures of stairs")
       - Fraudulent credit card transactions
-  - Clustering Models create groupings based on similarities
-      - Market Basket Analysis
+  - **Clustering Models** create groupings based on similarities
       - Customer Groupings
       - News Topics
-  - Recommender Models suggest what to watch, click, serve, display, etc
+  - **Recommender Models** suggest what to watch, click, serve, display, etc
       - News Feeds (social media)
       - What to Watch (Netflix, etc)
       - Personalized Ads
-  - Language Models analyze human speech 
+  - **Language Models** analyze human speech 
       - Chatbots on websites
       - ChatGPT / GPT3
       - Text Summarization tools
-  - Generative Models can even creates "art?"
+  - **Generative Models** can even create "art"?
       - DALL-E
 
 ---
@@ -115,7 +114,7 @@ class: top, left, inverse
 &lt;br&gt;
 --
 
-- Unsupervised: we don't provide the algorithms with explicit labels, requiring the machine to creating groupings based on other mathematical properties
+- Unsupervised: we don't provide the algorithms with explicit values/labels, requiring the machine to create groupings based on other mathematical properties
 - Unsupervised can be split into several tasks:
   - Clustering
   - Association
@@ -139,7 +138,7 @@ class: top, left, inverse
 # Supervised Learning
 
 - Regression predicts numerical values
-  - How much will this should this insurance policy cost?
+  - How much should this insurance policy cost?
       - Input: driver's experience, maximum financial damages possible, car characteristics, etc
       - Output: predicted premium value
 
@@ -159,16 +158,16 @@ class: top, left, inverse
 - Regression Algorithms:
   - Linear regression, predicting values along a linear line
   - Regularized (i.e. Ridge, LASSO) regression, predicting values by penalizing coefficients to reduce model complexity
-  - Supper Vector Machines (SVM) regression, predicting values within a hyper dimensional space
+  - Support Vector Machines (SVM) regression, predicting values within a hyperdimensional space
   - ...and many more
 
 &lt;br&gt;
 --
 
 - Classification Algorithms:
-  - Logistic regression (despite it's name!), predicting labels along a sigmoid (binomial: either 0 or 1 )
+  - Logistic regression (despite its name!), predicting labels along a sigmoid (binomial: either 0 or 1 )
   - Decision Tree classification, predicting labels based on information gained by splitting nodes 
-  - Supper Vector Machines (SVM) classification, predicting labels within a hyper dimensional space
+  - Support Vector Machines (SVM) classification, predicting labels within a hyperdimensional space
   - ...and many more
 
 ---
@@ -188,8 +187,8 @@ class: middle, center, inverse
 class: top, left, inverse
 # Unsupervised Learning
 
-- Clustering groups objects/concepts (data points) that are most similar to one another
-  - Using behavioural data, which customers are similar to one another
+- Clustering objects/concepts (data points) that are most similar to one another
+  - Using behavioural data, which customers are similar to one another?
       - Input: behavioural data, other features deemed relevant
       - Output: customer X belongs to group 1, customer Y belongs to group 2, etc
   
@@ -197,7 +196,7 @@ class: top, left, inverse
 --
 
 - Association
-  - Using purchase history, what things are often bought together
+  - Using purchase history, what things are often bought together?
       - Input: purchases, other features deemed relevant 
       - Output: "fathers, while you're buying diapers, do you also want to buy beer?"
 
@@ -205,9 +204,9 @@ class: top, left, inverse
 --
 
 - Decomposition
-  - What combination of features describe the value of a real estate asset (e.g. house, condo, etc)
-      - Input: interior details, exterior details, geographic features, neighbourhood amenities, nearness to transit...many many more
-      - Output: Nearness to transit and fewer bedrooms vs quality of schools and parking spaces available (etc, many more)
+  - What combination of features describes the value of a real estate asset (e.g. house, condo, etc)?
+      - Input: interior details, exterior details, geographic features, neighbourhood amenities, nearness to transit...many, many more
+      - Output: nearness to transit and fewer bedrooms vs quality of schools and parking spaces available (etc, many more)
 
 
 ---
@@ -216,9 +215,9 @@ class: top, left, inverse
 # Unsupervised Learning
 
 - Clustering algorithms:
-  - K-means, discovery of groupings based on a given points nearness (by use of a distance metric, e.g. Euclidean) to a cluster's center
+  - K-means, discovery of groupings based on a given point's nearness (by use of a distance metric, e.g. Euclidean) to a cluster's center
   - Hierarchical clustering, discovery of groupings based on hierarchy creation (either agglomerative or divisive)
-  - ..and a few more
+  - ...and a few more
   
 
 &lt;br&gt;
@@ -301,9 +300,9 @@ class: middle, center, inverse
 class: top, left, inverse
 # SQL's Role
 
-- SQL isn't designed to run ML algorithms, but can help serve as the foundation for good ML pipelines
+- SQL isn't designed to run ML algorithms, but it can help serve as the foundation for good ML pipelines
   - Dataset reliability will lend itself to higher quality models over time
-  - Observing changes in data require good data architecture (one of SQL's strengths!)
+  - Observing changes in data requires good data architecture (one of SQL's strengths!)
       - We'll revisit this as "Model Monitoring"
 
 &lt;br&gt;
@@ -312,7 +311,7 @@ class: top, left, inverse
 - SQL DBs can be connected to python/R fairly easily
   - Preprocessing can be performed in SQL beforehand, in python/R after extraction, or both
   - Instantiating simple preprocessing actions in a permanent table can reduce the need to rerun calculations that would be stored in memory for python/R
-      - e.g. if you write several window functions and save these to a table, these values are available for current and future ML pipelines without the need to run calculations again in a seperate python script (or if models were rerun)
+      - e.g. if you write several window functions and save these to a table, these values are available for current and future ML pipelines without the need to run calculations again in a seperate python/R script (or if models were rerun)
 
 &lt;br&gt;
 --
@@ -369,8 +368,8 @@ class: top, left, inverse
 - ML is relatively mature in both:
   - Python: SKLearn serves as a great foundation for the most common algorithms
       - The cutting edge for ML is generally in python: PyTorch, TensorFlow, other Deep Learning algorithms
-  - R: a bit more of a cobbled together history (caret, clustering packages, etc), but now well served by TidyModels
-      - R is designed for statistics...building customized modelling approaches may be easier for statiticians with less programming overhead required by python
+  - R: a bit more of a cobbled together history (caret, clustering packages, etc), but now well served by tidymodels
+      - R is designed for statistics...building customized modelling approaches may be easier for statisticians than python (less programming overhead)
 
 &lt;br&gt;
 --
@@ -384,16 +383,16 @@ class: top, left, inverse
 class: top, left, inverse
 # Why python and/or R?
 
-- Python/R also can be instrumental in data engineering
+- Python/R can also be instrumental in data engineering
 - Previously, it was more challenging to move data between SQL systems
-    - We'd use ETL tools like SQL Server Integration Services (SSIS), establish our connections to each SQL system, perform whatever transformations we needed to be done (e.g. normalization), and load the result sets into the appropriate corresponding tables
+    - We'd use ETL tools like SQL Server Integration Services (SSIS), establish our connections to each SQL system, perform whatever transformations needed to be done (e.g. normalization), and load the result sets into the appropriate corresponding tables
     - The overhead was challenging to maintain
     - The tools often weren't free
 
 &lt;br&gt;
 --
     
-- Now, we can perform many of the same transformations using libraries pandas (python) or tidyverse (R) 
+- Now, we can perform many of the same transformations using libraries like pandas (python) or tidyverse (R) 
   - The overhead is still challenging to maintain, but modularization, reproducibility, and sensible pipeline design can make it easier
   - Automating these tasks can be easier
   - The tools for automating tasks can be free too
@@ -460,13 +459,13 @@ db_df = pd.read_sql_query("SELECT p.*,pc.product_category_name \
 
 --
 
-`db_df` is now available as dataframe (a specialized type of array in python) for any pandas command
+`db_df` is now available as a dataframe (a specialized type of array in python) for any pandas command
 
-Like extracting a query result to CSV:
+Like extracting a query result to csv:
 
 ```
 #save
-db_df.to_CSV('database-py.CSV', index=False)
+db_df.to_csv('database-py.csv', index=False)
 ```
 
 ---
@@ -496,7 +495,7 @@ class: top, left, inverse
 
 ### R Example
 
-And similary produce a CSV, or any other R command we might want to do on the dataframe:
+And similarly produce a csv, or any other R command we might want to perform on the dataframe:
 
 ```
 #run your query
@@ -506,7 +505,7 @@ db_df &lt;- dbGetQuery(conn, "SELECT p.*,pc.product_category_name
                             ON p.product_category_id = pc.product_category_id")
 
 #save
-write.CSV(db_df, file = "database-R.CSV")
+write.csv(db_df, file = "database-R.csv")
 ```
 
 ---
@@ -706,11 +705,11 @@ The purpose of this section is to introduce you to an ML example, starting in SQ
 
 --
 
-We'll use the [Palmers Penguins Dataset](https://github.com/allisonhorst/palmerpenguins), developed by Allison Horst. The full history of this dataset and it's purpose are available here: [link](https://journal.r-project.org/articles/RJ-2022-020/)
+We'll use the [Palmer Penguins Dataset](https://github.com/allisonhorst/palmerpenguins), developed by Allison Horst. The full history of this dataset and its purpose are available here: [link](https://journal.r-project.org/articles/RJ-2022-020/)
 
 --
 
-The objective will be to predict which species of Palmer Penguin are penguin is, based on bill length, bill depth, flipper length, body mass, sex, and island (i.e. where the penguin was when the data was collected).
+The objective will be to predict which species of Palmer Penguin a penguin is, based on bill length, bill depth, flipper length, body mass, sex, and island (i.e. where the penguin was when the data was collected).
 
 --
 
@@ -732,16 +731,16 @@ class: top, left, inverse
 ### End-to-End Machine Learning
 
 - Using SQL, load our dataset (penguins) as a csv
-- Update the column types so that `bill_length_mm`,`bell_depth_mm`,`flipper_length_mm` are `NUMERIC`, `rowid`,`body_mass_g`,`year` are `INTEGER`, and `species`,`island`,`sex` are `TEXT`
+- Update the column types so that `bill_length_mm`, `bell_depth_mm`, `flipper_length_mm` are `NUMERIC`, `rowid`, `body_mass_g`, `year` are `INTEGER`, and `species`, `island`, `sex` are `TEXT`
 - Connect to our SQLite DB in either python or R (we'll use R in our example)
   - Build a query to extract the data from SQL
 - Build a Decision Tree classification model to predict `species`
   - Use tidymodels in R
-  - Use sklearn in python
+  - Use SKLearn in python
 - Test the model's performance
   - Confusion matrix
 - Provide our model new data
-  - In our example, we'll create a live API connection in R to our model, and provide it with JSON formatted data exported from SQLite 
+  - In our example, we'll create a live API connection in R to our model and provide it with JSON formatted data exported from SQLite 
       - This will be our "monitoring" concept
 
 ---
@@ -812,12 +811,11 @@ class: top, left, inverse
 
 ### Data Manipulation
 
-- Write a query (this both data extract and manipulation, if you make any changes)
+- Write a query:
   - python:
   
   ```
-  db_df = pd.read_sql_query("SELECT ... FROM penguins ..."
-                          ,conn)
+  db_df = pd.read_sql_query("SELECT ... FROM penguins ...",conn)
   ```
   
   - R:
@@ -828,7 +826,7 @@ class: top, left, inverse
 
 --
 
-- For our example, only select `species`,`island`,`bill_length_mm`,`bill_depth_mm`,`flipper_length_mm`,`body_mass_g`,`sex`
+- For our example, only select `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`
 
 - And filter out missing values for the variable `sex`
   - `WHERE sex IS NOT NULL`
@@ -859,10 +857,10 @@ class: top, left, inverse
 - Decision Trees in Machine Learning are like Decision Trees in real life!
 - Start with a set of rules to evaluate the results:
   - Does the animal breathe air? 
-      - Yes: Does the animal lay eggs?
-          - Yes: Bird
-          - No: Mammal
-      - No: Fish
+      - Yes -&gt; Does the animal lay eggs?
+          - Yes -&gt; Bird
+          - No -&gt; Mammal
+      - No -&gt; Fish
 - [Metal or Normal?](https://www.youtube.com/watch?v=WPUZ_JaO-go)
 
 &lt;br&gt;
@@ -872,7 +870,7 @@ class: top, left, inverse
 - Decision Trees are useful because they are:
   - Explainable: *humans can understand how the data yielded the result*
   - Flexible: *will ignore irrelevant features, can perform both regression and classification, allows missing data, allows categorical data*
-  - Fast: *computational cheap (usually), especially compared to other ML algorithms*
+  - Fast: *computationally cheap (usually), especially compared to other ML algorithms*
 
 ---
 
@@ -929,16 +927,16 @@ Some rows in penguins having missing sex:
 We can estimate sex based on the following ruleset:
 
 - body_mass_g &lt; 3717
-  -  Yes: bill_length_mm &lt; 48
-      - Yes: female (88% meeting this criteria were female)
-      - No: male (62% female)
-  - No: bill_length_mm &lt; 49
-      - Yes: species either Chinstrap or Gentoo
-          - Yes: body_mass_g &lt; 4988
-              - Yes: female (96% female)
-              - No: male (79% male)
-          - No: male (88% male)
-      - No: male (97% male)
+  -  Yes -&gt; bill_length_mm &lt; 48
+      - Yes -&gt; female (88% meeting this criteria were female)
+      - No -&gt; male (62% male)
+  - No -&gt; bill_length_mm &lt; 49
+      - Yes -&gt; species either Chinstrap or Gentoo
+          - Yes -&gt; body_mass_g &lt; 4988
+              - Yes -&gt; female (96% female)
+              - No -&gt; male (79% male)
+          - No -&gt; male (88% male)
+      - No -&gt; male (97% male)
 ]
 
 ---
@@ -1012,10 +1010,104 @@ class: middle, center, inverse
 class: top, left, inverse
 # Connecting the Dots
 
+### Model Monitoring
 
+- Model predictions are based on **historical data**
+  - There is no certainty that future data will appear the same as historical data
+  - Models won't adjust to changes in the data
+
+&lt;br&gt;
+--
+
+- Most algorithms are poor at explaining how they arrived at a prediction
+  - Some models are "white-box" by nature (like decision trees), while others are "black-box" (like deep-learning-based neural nets)
+
+&lt;br&gt;
+--
+
+- When models change over time, we call this *model drift*
+- There are two types of drift:
+  - **Concept Drift**: the way the model 'understood' things to relate to each-other has changed, in a way the model doesn't know, so the model is no longer helpful 
+  - **Data Drift**: information that the model has to deal with now is too different from the information the model has previously seen, so the model is no longer helpful
+
+---
+
+class: top, left, inverse
+# Connecting the Dots
 
 ### Model Monitoring
 
+- To observe model drift, we need to gather new data and compare how the model is performing
+- If metrics (like accuracy, but there are others too) are changing over time, we are observing drift
+
+&lt;br&gt;
+--
+
+- One type of new data we can collect is called "ground truth"
+- Suppose we have an algorithm predicting whether or not a credit card charge is fraudulent:
+  - Each time the algorithm flags a transaction as fraudulent, a customer service representative calls the credit card holder
+  - For instances where fraud occurred, the representative can mark the algorithm as correct
+  - For instances where the transaction was legitimate, the representative can mark the algorithm as incorrect
+  - **What's missing from this?**
+  
+&lt;br&gt;
+--
+
+- Ground truth, even in cases where it may be difficult to obtain, can greatly improve a model's usefulness and its longevity 
+- SQL is a perfect place to store ground truth data!
+  - e.g. the customer service representative might have access to a frontend UI that allows them to mark fraudulent/non-fraudulent transactions, which are then stored in a SQL backend
+  
+---
+
+class: top, left, inverse
+# Connecting the Dots
+
+### Model Monitoring
+
+- We claimed our penguin model performed with 93% accuracy
+- Because this class can't go and collect more penguin data, it'd be challenging to evaluate the model's accuracy over time
+- However, we can emulate this process, and make the most of our SQL skills!
+
+&lt;br&gt;
+--
+
+- Using the `vetiver` and `plumber` packages, and following fantastic instructions from [Julia Silge's  blog](https://juliasilge.com/blog/), we'll create a live connection to our model
+- Well then export a subset of penguins data (or make up our own? sure!) as JSON, and watch our model predict!
+
+&lt;br&gt;
+---
+
+class: top, left, inverse
+# Connecting the Dots
+
+### Model Monitoring
+
+The API produces predictions as JSON, so we can input these predicted values and compare to actual values
+  
+```
+DROP TABLE IF EXISTS temp.[predicted_penguins];
+
+CREATE TABLE IF NOT EXISTS temp.[predicted_penguins]
+(predictions BLOB);
+
+
+INSERT INTO temp.[predicted_penguins](predictions)
+VALUES('[{".pred_class": "Adelie"}]');
+	
+
+SELECT pen.*, JSON_EXTRACT(value, '$.pred_class') AS prediction
+
+FROM (SELECT *
+	    FROM predicted_penguins,JSON_EACH(predicted_penguins.predictions,'$')) x
+
+-- we need to generate a row number to keep track of which prediction was which
+JOIN penguins_json_export pen ON key = row_number  
+
+```
+
+--
+
+We've now gone end-to-end: from SQL to ML and back to SQL again!
 
 ---
 
