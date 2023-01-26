@@ -96,7 +96,7 @@ v <- penguin_final %>%
   extract_workflow() %>%
   vetiver_model("penguins")
 
-augment(v, slice_sample(penguin_test, n = 25))
+#augment(v, slice_sample(penguin_test, n = 25))
 
 # use a built in API to test the model in real-time!
 pr() %>% 
