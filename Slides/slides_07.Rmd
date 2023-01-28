@@ -41,7 +41,6 @@ library(showtext)
 ```
 
 
----
 class: middle, center, inverse
 # Beyond SQL:
 
