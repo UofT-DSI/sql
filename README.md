@@ -1,4 +1,4 @@
-# DSI Workshop for Data Storage and Access
+# Data Storage and Access
 
 ## Contents:
 1. [Description](https://github.com/UofT-DSI/02-intro_sql#description)
@@ -12,7 +12,6 @@
 9. [Acknowledgements](https://github.com/UofT-DSI/02-intro_sql#acknowledgements)
 
 ## Description
-This curriculum was created for the University of Toronto's Data Science Institute. It is designed for learners who have a degree in something other than Computer Science/Statistics and are looking to enhance their data science skills for their career.
 
 SQL is used across the machine learning pipeline, and a fundamental skill for data scientists to master. This course will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, it will examine common data management concerns, data access management, and data privacy adherence.
 
@@ -38,7 +37,7 @@ The course runs synchronously over Zoom. It consists of three classes a week for
 Tutorial sessions with a TA will also be offered over Zoom. These will take place from 5 PM - 6 PM EST on Mondays and Thursdays, and 8:30 AM - 9 AM EST and 12 PM - 12:30 PM EST on Saturdays.  
 
 ## Expectations
-The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study marterial [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
+The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ### Technology Requirements
 - A computer with internet access is required to attend sessions and participate in live-coding.
@@ -46,11 +45,11 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 
 ## Policies
-- Accessiblity: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
+- Accessibility: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
 - Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
 - Camera: Keeping your camera on is welcomed, but optional.
 - Microphone: Please keep microphones muted unless you need to speak. Questions are highly encouraged.
-- Assessment: Each class there will be reccomended homework which is not graded. There will be three assignments which are graded.  
+- Assessment: Each class there will be recommended homework which is not graded. There will be three assignments which are graded.  
 
 ## Schedule (subject to change)
 Day 1: Introduction, Data Modelling, Schema Design, Data Structures
