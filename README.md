@@ -21,8 +21,8 @@ Additionally, the course will explore SQL databases in everyday life, and how R 
 
 
 ## Course Contacts
-- Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@pm.me)
-- TA: Emails to Salaar (he/him) can be sent to [s.liaqat@mail.utoronto.ca](mailto:s.liaqat@mail.utoronto.ca)
+- Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@proton.me)
+- TA: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
@@ -32,9 +32,9 @@ Additionally, the course will explore SQL databases in everyday life, and how R 
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 
 ## Design
-The course runs synchronously over Zoom. It consists of three classes a week for three weeks (nine classes total). Classes are 6 PM - 8 PM EST on Mondays and Thursdays, and 9 AM - 12 PM EST on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
+The course runs synchronously over Zoom. It consists of four classes. Classes are 6 PM - 830 PM EST on weekdays (Wednesday - Friday), and 9 AM - 1130 AM EST on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
 
-Tutorial sessions with a TA will also be offered over Zoom. These will take place from 5 PM - 6 PM EST on Mondays and Thursdays, and 8:30 AM - 9 AM EST and 12 PM - 12:30 PM EST on Saturdays.  
+Tutorial sessions with a TA will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
@@ -42,7 +42,7 @@ The course is designed for both live-coding and corresponding slides. Students s
 ### Technology Requirements
 - A computer with internet access is required to attend sessions and participate in live-coding.
 - Download DB Browser for SQLite here: https://sqlitebrowser.org/dl/
-
+- Downloading R and/or Python is not required but encouraged, please see the respective DSI repositories for instructions on installing these languagues and your preferred IDE.
 
 ## Policies
 - Accessibility: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
@@ -58,17 +58,7 @@ Day 2: Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs
 
 Day 3: Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL
 
-Day 4: Advanced Techniques: Windowed Functions, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT
-
-Day 5: Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views
-
-Day 6: SQL and the Machine Learning pipeline, SQL in R & python
-
-Day 7: Broader Data Landscape, Reproducibility, Ethics, SQL in the wild
-
-Day 8: Professional Skills - Industry Case Study
-
-Day 9: Review and Practice, TBD
+Day 4: Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
