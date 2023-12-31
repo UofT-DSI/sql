@@ -1,5 +1,7 @@
 # Data Storage and Access
 
+Welcome! The course was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
+
 ## Contents:
 1. [Description](https://github.com/UofT-DSI/02-intro_sql#description)
 2. [Course Contacts](https://github.com/UofT-DSI/02-intro_sql#course-contacts)
@@ -32,6 +34,7 @@ Additionally, the course will explore SQL databases in everyday life, and how R 
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 
 ## Design
+
 The course runs synchronously over Zoom. It consists of four classes. Classes are 6 PM - 830 PM EST on weekdays (Wednesday - Friday), and 9 AM - 1130 AM EST on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
 
 Tutorial sessions with a TA will also be offered over Zoom. These will take place 30 minutes before and after each session.  
@@ -52,13 +55,28 @@ The course is designed for both live-coding and corresponding slides. Students s
 - Assessment: Each class there will be recommended homework which is not graded. There will be three assignments which are graded.  
 
 ## Schedule (subject to change)
-Day 1: Introduction, Data Modelling, Schema Design, Data Structures
 
-Day 2: Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs
+The January sessions are an accelerated and abridged.
 
-Day 3: Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL
+| Lecture | Date | Topic | Slides |
+| --- | --- | --- | --- |
+| 0 | Before First Lecture | Install & Pre-Class | ¯\\\_(ツ)_/¯ |
+| 1 | Wednesday, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | [0- Introduction](./Lessons-PDF/00-introduction_deck.pdf) <br> [1- Hello World](./Lessons-PDF/01-hello-world_deck.pdf) <br> [2- Work Practices](./Lessons-PDF/02-work-practices_deck.pdf)|
+| 2 | Thursday, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [3- Data in R](./Lessons-PDF/03-data-in-r_deck.pdf)|
+| 3 | Friday, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL |[4-Manipulating](./Lessons-PDF/04-manipulation_deck.pdf)|
+| 4 | Saturday January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | [5-Wrangling](./Lessons-PDF/05-wrangling_deck.pdf)  |
 
-Day 4: Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data
+## Assignments
+
+Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks.
+
+| Assessment	|  Due Date | 
+| --- | --- |
+| [Assignment 1]| Wednesday, January 17, by 11:59 PM EST 
+| [Homework 1] | Thursday, January 11 11:59 PM EST 
+| [Homework 2] | Friday, January 12 11:59 PM EST
+| [Homework 3] | Saturday, January 13 11:59 PM EST 
+| [Homework 4] | Wednesday, January 17 11:59 PM EST
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
