@@ -61,10 +61,10 @@ The January sessions are an accelerated and abridged.
 | Lecture | Date | Topic | Slides |
 | --- | --- | --- | --- |
 | 0 | Before First Lecture | Install & Pre-Class | ¯\\\_(ツ)_/¯ |
-| 1 | Wednesday, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | [0- Introduction](./Lessons-PDF/00-introduction_deck.pdf) <br> [1- Hello World](./Lessons-PDF/01-hello-world_deck.pdf) <br> [2- Work Practices](./Lessons-PDF/02-work-practices_deck.pdf)|
-| 2 | Thursday, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [3- Data in R](./Lessons-PDF/03-data-in-r_deck.pdf)|
-| 3 | Friday, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL |[4-Manipulating](./Lessons-PDF/04-manipulation_deck.pdf)|
-| 4 | Saturday January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | [5-Wrangling](./Lessons-PDF/05-wrangling_deck.pdf)  |
+| 1 | Wednesday, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | |
+| 2 | Thursday, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | |
+| 3 | Friday, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL ||
+| 4 | Saturday January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | |
 
 ## Assignments
 
