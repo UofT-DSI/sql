@@ -1,0 +1,74 @@
+[
+    {
+        "booth_description": "First booth to the left as you enter the center door",
+        "booth_number": 1,
+        "booth_price_level": "A",
+        "booth_type": "Standard"
+    },
+    {
+        "booth_description": "Second booth to the left as you enter the center door",
+        "booth_number": 2,
+        "booth_price_level": "A",
+        "booth_type": "Standard"
+    },
+    {
+        "booth_description": "Third booth to the left as you enter the center door - Small square table size",
+        "booth_number": 3,
+        "booth_price_level": "B",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "First booth on left end of building - Small square table size",
+        "booth_number": 4,
+        "booth_price_level": "C",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "Second booth on left end of building  - Small square table size",
+        "booth_number": 5,
+        "booth_price_level": "C",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "Third booth on left end of building  - Small square table size",
+        "booth_number": 6,
+        "booth_price_level": "C",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "First booth to the right as you enter the center door",
+        "booth_number": 7,
+        "booth_price_level": "A",
+        "booth_type": "Standard"
+    },
+    {
+        "booth_description": "First booth on right end of building  - Small square table size",
+        "booth_number": 8,
+        "booth_price_level": "C",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "First booth on right end of building  - Small square table size",
+        "booth_number": 9,
+        "booth_price_level": "C",
+        "booth_type": "Small"
+    },
+    {
+        "booth_description": "Back right booth  - Large rectangular table size",
+        "booth_number": 10,
+        "booth_price_level": "B",
+        "booth_type": "Large"
+    },
+    {
+        "booth_description": "Back center booth  - Large rectangular table size",
+        "booth_number": 11,
+        "booth_price_level": "B",
+        "booth_type": "Large"
+    },
+    {
+        "booth_description": "Back left booth  - Large rectangular table size",
+        "booth_number": 12,
+        "booth_price_level": "B",
+        "booth_type": "Large"
+    }
+]

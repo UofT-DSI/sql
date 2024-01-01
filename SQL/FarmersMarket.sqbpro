@@ -1,19 +1,1041 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="173"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3642"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="85"/><column index="2" value="101"/><column index="3" value="300"/><column index="4" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="73"/><column index="2" value="118"/><column index="3" value="116"/><column index="4" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="65"/><column index="2" value="61"/><column index="3" value="74"/><column index="4" value="73"/><column index="5" value="51"/><column index="6" value="147"/><column index="7" value="96"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="market_date_info" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="69"/><column index="3" value="78"/><column index="4" value="73"/><column index="5" value="104"/><column index="6" value="99"/><column index="7" value="79"/><column index="8" value="98"/><column index="9" value="103"/><column index="10" value="105"/><column index="11" value="97"/><column index="12" value="104"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="4" mode="0"/></sort><column_widths><column index="1" value="65"/><column index="2" value="198"/><column index="3" value="80"/><column index="4" value="115"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product_category" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="115"/><column index="2" value="151"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="61"/><column index="2" value="162"/><column index="3" value="151"/><column index="4" value="144"/><column index="5" value="142"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_booth_assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="61"/><column index="2" value="85"/><column index="3" value="74"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_inventory" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="51"/><column index="3" value="61"/><column index="4" value="65"/><column index="5" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="zip_data" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="68"/><column index="2" value="150"/><column index="3" value="120"/><column index="4" value="103"/><column index="5" value="96"/><column index="6" value="113"/><column index="7" value="48"/><column index="8" value="58"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 6">
-SELECT *
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/thomas/Documents/GitHub/02-intro_sql/SQL/FarmersMarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="4977"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainpenguins"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="110"/><column index="2" value="132"/><column index="3" value="300"/><column index="4" value="86"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="penguins" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="sjon" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">drop table if exists temp.[sjon];
 
-FROM customer_purchases
+create temp table if not exists temp.[sjon]
+(
+col BLOB
+);
 
-WHERE product_id =  2
-AND customer_id = 12
-AND (quantity BETWEEN 1.5 and 3.0
-     OR quantity BETWEEN 3.5 and 50.0)
+insert into temp.[sjon](col)
+values('[{&quot;country&quot;: &quot;Afghanistan&quot;,&quot;city&quot;: &quot;Kabul&quot;},{&quot;country&quot;: &quot;Albania&quot;, &quot;city&quot;: &quot;Tirana&quot;}]');
 
-ORDER BY quantity ASC
 
-LIMIT 100;</sql><sql name="SQL 7">SELECT *
+select * ,
+json_extract(value, '$.country') as country,
+json_extract(value, '$.city') as city,
 
-FROM customer
+json_valid(value),
+json_type(value)
 
-WHERE customer_last_name LIKE '%ing%'
+from (
 
-</sql><current_tab id="1"/></tab_sql></sqlb_project>
+select key,value
+  from  sjon,json_each(sjon.col, '$' )
+  
+  )
+
+ 
+ 
+
+</sql><sql name="JSON_example.sql">drop table if exists temp.[sjon];
+
+create temp table if not exists temp.[sjon]
+(
+col BLOB
+);
+
+insert into temp.[sjon](col)
+values('[
+    {
+        &quot;country&quot;: &quot;Afghanistan&quot;,
+        &quot;city&quot;: &quot;Kabul&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Albania&quot;,
+        &quot;city&quot;: &quot;Tirana&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Algeria&quot;,
+        &quot;city&quot;: &quot;Alger&quot;
+    },
+    {
+        &quot;country&quot;: &quot;American Samoa&quot;,
+        &quot;city&quot;: &quot;Fagatogo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Andorra&quot;,
+        &quot;city&quot;: &quot;Andorra la Vella&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Angola&quot;,
+        &quot;city&quot;: &quot;Luanda&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Anguilla&quot;,
+        &quot;city&quot;: &quot;The Valley&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Antarctica&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Antigua and Barbuda&quot;,
+        &quot;city&quot;: &quot;Saint Johns&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Argentina&quot;,
+        &quot;city&quot;: &quot;Buenos Aires&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Armenia&quot;,
+        &quot;city&quot;: &quot;Yerevan&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Aruba&quot;,
+        &quot;city&quot;: &quot;Oranjestad&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Australia&quot;,
+        &quot;city&quot;: &quot;Canberra&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Austria&quot;,
+        &quot;city&quot;: &quot;Wien&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Azerbaijan&quot;,
+        &quot;city&quot;: &quot;Baku&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bahamas&quot;,
+        &quot;city&quot;: &quot;Nassau&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bahrain&quot;,
+        &quot;city&quot;: &quot;al-Manama&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bangladesh&quot;,
+        &quot;city&quot;: &quot;Dhaka&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Barbados&quot;,
+        &quot;city&quot;: &quot;Bridgetown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Belarus&quot;,
+        &quot;city&quot;: &quot;Minsk&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Belgium&quot;,
+        &quot;city&quot;: &quot;Bruxelles [Brussel]&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Belize&quot;,
+        &quot;city&quot;: &quot;Belmopan&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Benin&quot;,
+        &quot;city&quot;: &quot;Porto-Novo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bermuda&quot;,
+        &quot;city&quot;: &quot;Hamilton&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bhutan&quot;,
+        &quot;city&quot;: &quot;Thimphu&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bolivia&quot;,
+        &quot;city&quot;: &quot;La Paz&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bosnia and Herzegovina&quot;,
+        &quot;city&quot;: &quot;Sarajevo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Botswana&quot;,
+        &quot;city&quot;: &quot;Gaborone&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bouvet Island&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Brazil&quot;,
+        &quot;city&quot;: &quot;Brasília&quot;
+    },
+    {
+        &quot;country&quot;: &quot;British Indian Ocean Territory&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Brunei&quot;,
+        &quot;city&quot;: &quot;Bandar Seri Begawan&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Bulgaria&quot;,
+        &quot;city&quot;: &quot;Sofia&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Burkina Faso&quot;,
+        &quot;city&quot;: &quot;Ouagadougou&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Burundi&quot;,
+        &quot;city&quot;: &quot;Bujumbura&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cambodia&quot;,
+        &quot;city&quot;: &quot;Phnom Penh&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cameroon&quot;,
+        &quot;city&quot;: &quot;Yaound&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Canada&quot;,
+        &quot;city&quot;: &quot;Ottawa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cape Verde&quot;,
+        &quot;city&quot;: &quot;Praia&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cayman Islands&quot;,
+        &quot;city&quot;: &quot;George Town&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Central African Republic&quot;,
+        &quot;city&quot;: &quot;Bangui&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Chad&quot;,
+        &quot;city&quot;: &quot;NDjam&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Chile&quot;,
+        &quot;city&quot;: &quot;Santiago de Chile&quot;
+    },
+    {
+        &quot;country&quot;: &quot;China&quot;,
+        &quot;city&quot;: &quot;Peking&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Christmas Island&quot;,
+        &quot;city&quot;: &quot;Flying Fish Cove&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cocos (Keeling) Islands&quot;,
+        &quot;city&quot;: &quot;West Island&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Colombia&quot;,
+        &quot;city&quot;: &quot;Santaf&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Comoros&quot;,
+        &quot;city&quot;: &quot;Moroni&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Congo&quot;,
+        &quot;city&quot;: &quot;Brazzaville&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cook Islands&quot;,
+        &quot;city&quot;: &quot;Avarua&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Costa Rica&quot;,
+        &quot;city&quot;: &quot;San José&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Croatia&quot;,
+        &quot;city&quot;: &quot;Zagreb&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cuba&quot;,
+        &quot;city&quot;: &quot;La Habana&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Cyprus&quot;,
+        &quot;city&quot;: &quot;Nicosia&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Czech Republic&quot;,
+        &quot;city&quot;: &quot;Praha&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Denmark&quot;,
+        &quot;city&quot;: &quot;Copenhagen&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Djibouti&quot;,
+        &quot;city&quot;: &quot;Djibouti&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Dominica&quot;,
+        &quot;city&quot;: &quot;Roseau&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Dominican Republic&quot;,
+        &quot;city&quot;: &quot;Santo Domingo de Guzm&quot;
+    },
+    {
+        &quot;country&quot;: &quot;East Timor&quot;,
+        &quot;city&quot;: &quot;Dili&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ecuador&quot;,
+        &quot;city&quot;: &quot;Quito&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Egypt&quot;,
+        &quot;city&quot;: &quot;Cairo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;El Salvador&quot;,
+        &quot;city&quot;: &quot;San Salvador&quot;
+    },
+    {
+        &quot;country&quot;: &quot;England&quot;,
+        &quot;city&quot;: &quot;London&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Equatorial Guinea&quot;,
+        &quot;city&quot;: &quot;Malabo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Eritrea&quot;,
+        &quot;city&quot;: &quot;Asmara&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Estonia&quot;,
+        &quot;city&quot;: &quot;Tallinn&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ethiopia&quot;,
+        &quot;city&quot;: &quot;Addis Abeba&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Falkland Islands&quot;,
+        &quot;city&quot;: &quot;Stanley&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Faroe Islands&quot;,
+        &quot;city&quot;: &quot;Tórshavn&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Fiji Islands&quot;,
+        &quot;city&quot;: &quot;Suva&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Finland&quot;,
+        &quot;city&quot;: &quot;Helsinki [Helsingfors]&quot;
+    },
+    {
+        &quot;country&quot;: &quot;France&quot;,
+        &quot;city&quot;: &quot;Paris&quot;
+    },
+    {
+        &quot;country&quot;: &quot;French Guiana&quot;,
+        &quot;city&quot;: &quot;Cayenne&quot;
+    },
+    {
+        &quot;country&quot;: &quot;French Polynesia&quot;,
+        &quot;city&quot;: &quot;Papeete&quot;
+    },
+    {
+        &quot;country&quot;: &quot;French Southern territories&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Gabon&quot;,
+        &quot;city&quot;: &quot;Libreville&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Gambia&quot;,
+        &quot;city&quot;: &quot;Banjul&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Georgia&quot;,
+        &quot;city&quot;: &quot;Tbilisi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Germany&quot;,
+        &quot;city&quot;: &quot;Berlin&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ghana&quot;,
+        &quot;city&quot;: &quot;Accra&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Gibraltar&quot;,
+        &quot;city&quot;: &quot;Gibraltar&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Greece&quot;,
+        &quot;city&quot;: &quot;Athenai&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Greenland&quot;,
+        &quot;city&quot;: &quot;Nuuk&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Grenada&quot;,
+        &quot;city&quot;: &quot;Saint Georges&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guadeloupe&quot;,
+        &quot;city&quot;: &quot;Basse-Terre&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guam&quot;,
+        &quot;city&quot;: &quot;Aga&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guatemala&quot;,
+        &quot;city&quot;: &quot;Ciudad de Guatemala&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guinea&quot;,
+        &quot;city&quot;: &quot;Conakry&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guinea-Bissau&quot;,
+        &quot;city&quot;: &quot;Bissau&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Guyana&quot;,
+        &quot;city&quot;: &quot;Georgetown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Haiti&quot;,
+        &quot;city&quot;: &quot;Port-au-Prince&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Heard Island and McDonald Islands&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Holy See (Vatican City State)&quot;,
+        &quot;city&quot;: &quot;Citt&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Honduras&quot;,
+        &quot;city&quot;: &quot;Tegucigalpa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Hong Kong&quot;,
+        &quot;city&quot;: &quot;Victoria&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Hungary&quot;,
+        &quot;city&quot;: &quot;Budapest&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Iceland&quot;,
+        &quot;city&quot;: &quot;Reykjavík&quot;
+    },
+    {
+        &quot;country&quot;: &quot;India&quot;,
+        &quot;city&quot;: &quot;New Delhi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Indonesia&quot;,
+        &quot;city&quot;: &quot;Jakarta&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Iran&quot;,
+        &quot;city&quot;: &quot;Tehran&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Iraq&quot;,
+        &quot;city&quot;: &quot;Baghdad&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ireland&quot;,
+        &quot;city&quot;: &quot;Dublin&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Israel&quot;,
+        &quot;city&quot;: &quot;Jerusalem&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Italy&quot;,
+        &quot;city&quot;: &quot;Roma&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ivory Coast&quot;,
+        &quot;city&quot;: &quot;Yamoussoukro&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Jamaica&quot;,
+        &quot;city&quot;: &quot;Kingston&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Japan&quot;,
+        &quot;city&quot;: &quot;Tokyo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Jordan&quot;,
+        &quot;city&quot;: &quot;Amman&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Kazakhstan&quot;,
+        &quot;city&quot;: &quot;Astana&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Kenya&quot;,
+        &quot;city&quot;: &quot;Nairobi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Kiribati&quot;,
+        &quot;city&quot;: &quot;Bairiki&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Kuwait&quot;,
+        &quot;city&quot;: &quot;Kuwait&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Kyrgyzstan&quot;,
+        &quot;city&quot;: &quot;Bishkek&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Laos&quot;,
+        &quot;city&quot;: &quot;Vientiane&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Latvia&quot;,
+        &quot;city&quot;: &quot;Riga&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Lebanon&quot;,
+        &quot;city&quot;: &quot;Beirut&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Lesotho&quot;,
+        &quot;city&quot;: &quot;Maseru&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Liberia&quot;,
+        &quot;city&quot;: &quot;Monrovia&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Libyan Arab Jamahiriya&quot;,
+        &quot;city&quot;: &quot;Tripoli&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Liechtenstein&quot;,
+        &quot;city&quot;: &quot;Vaduz&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Lithuania&quot;,
+        &quot;city&quot;: &quot;Vilnius&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Luxembourg&quot;,
+        &quot;city&quot;: &quot;Luxembourg [Luxemburg/L&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Macao&quot;,
+        &quot;city&quot;: &quot;Macao&quot;
+    },
+    {
+        &quot;country&quot;: &quot;North Macedonia&quot;,
+        &quot;city&quot;: &quot;Skopje&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Madagascar&quot;,
+        &quot;city&quot;: &quot;Antananarivo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Malawi&quot;,
+        &quot;city&quot;: &quot;Lilongwe&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Malaysia&quot;,
+        &quot;city&quot;: &quot;Kuala Lumpur&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Maldives&quot;,
+        &quot;city&quot;: &quot;Male&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mali&quot;,
+        &quot;city&quot;: &quot;Bamako&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Malta&quot;,
+        &quot;city&quot;: &quot;Valletta&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Marshall Islands&quot;,
+        &quot;city&quot;: &quot;Dalap-Uliga-Darrit&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Martinique&quot;,
+        &quot;city&quot;: &quot;Fort-de-France&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mauritania&quot;,
+        &quot;city&quot;: &quot;Nouakchott&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mauritius&quot;,
+        &quot;city&quot;: &quot;Port-Louis&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mayotte&quot;,
+        &quot;city&quot;: &quot;Mamoutzou&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mexico&quot;,
+        &quot;city&quot;: &quot;Ciudad de M&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Micronesia, Federated States of&quot;,
+        &quot;city&quot;: &quot;Palikir&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Moldova&quot;,
+        &quot;city&quot;: &quot;Chisinau&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Monaco&quot;,
+        &quot;city&quot;: &quot;Monaco-Ville&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mongolia&quot;,
+        &quot;city&quot;: &quot;Ulan Bator&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Montenegro&quot;,
+        &quot;city&quot;: &quot;Podgorica&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Montserrat&quot;,
+        &quot;city&quot;: &quot;Plymouth&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Morocco&quot;,
+        &quot;city&quot;: &quot;Rabat&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Mozambique&quot;,
+        &quot;city&quot;: &quot;Maputo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Myanmar&quot;,
+        &quot;city&quot;: &quot;Rangoon (Yangon)&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Namibia&quot;,
+        &quot;city&quot;: &quot;Windhoek&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Nauru&quot;,
+        &quot;city&quot;: &quot;Yaren&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Nepal&quot;,
+        &quot;city&quot;: &quot;Kathmandu&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Netherlands&quot;,
+        &quot;city&quot;: &quot;Amsterdam&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Netherlands Antilles&quot;,
+        &quot;city&quot;: &quot;Willemstad&quot;
+    },
+    {
+        &quot;country&quot;: &quot;New Caledonia&quot;,
+        &quot;city&quot;: &quot;Noum&quot;
+    },
+    {
+        &quot;country&quot;: &quot;New Zealand&quot;,
+        &quot;city&quot;: &quot;Wellington&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Nicaragua&quot;,
+        &quot;city&quot;: &quot;Managua&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Niger&quot;,
+        &quot;city&quot;: &quot;Niamey&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Nigeria&quot;,
+        &quot;city&quot;: &quot;Abuja&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Niue&quot;,
+        &quot;city&quot;: &quot;Alofi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Norfolk Island&quot;,
+        &quot;city&quot;: &quot;Kingston&quot;
+    },
+    {
+        &quot;country&quot;: &quot;North Korea&quot;,
+        &quot;city&quot;: &quot;Pyongyang&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Northern Ireland&quot;,
+        &quot;city&quot;: &quot;Belfast&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Northern Mariana Islands&quot;,
+        &quot;city&quot;: &quot;Garapan&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Norway&quot;,
+        &quot;city&quot;: &quot;Oslo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Oman&quot;,
+        &quot;city&quot;: &quot;Masqat&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Pakistan&quot;,
+        &quot;city&quot;: &quot;Islamabad&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Palau&quot;,
+        &quot;city&quot;: &quot;Koror&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Palestine&quot;,
+        &quot;city&quot;: &quot;Gaza&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Panama&quot;,
+        &quot;city&quot;: &quot;Ciudad de Panamá&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Papua New Guinea&quot;,
+        &quot;city&quot;: &quot;Port Moresby&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Paraguay&quot;,
+        &quot;city&quot;: &quot;Asunción&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Peru&quot;,
+        &quot;city&quot;: &quot;Lima&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Philippines&quot;,
+        &quot;city&quot;: &quot;Manila&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Pitcairn&quot;,
+        &quot;city&quot;: &quot;Adamstown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Poland&quot;,
+        &quot;city&quot;: &quot;Warszawa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Portugal&quot;,
+        &quot;city&quot;: &quot;Lisboa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Puerto Rico&quot;,
+        &quot;city&quot;: &quot;San Juan&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Qatar&quot;,
+        &quot;city&quot;: &quot;Doha&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Reunion&quot;,
+        &quot;city&quot;: &quot;Saint-Denis&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Romania&quot;,
+        &quot;city&quot;: &quot;Bucuresti&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Russian Federation&quot;,
+        &quot;city&quot;: &quot;Moscow&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Rwanda&quot;,
+        &quot;city&quot;: &quot;Kigali&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saint Helena&quot;,
+        &quot;city&quot;: &quot;Jamestown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saint Kitts and Nevis&quot;,
+        &quot;city&quot;: &quot;Basseterre&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saint Lucia&quot;,
+        &quot;city&quot;: &quot;Castries&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saint Pierre and Miquelon&quot;,
+        &quot;city&quot;: &quot;Saint-Pierre&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saint Vincent and the Grenadines&quot;,
+        &quot;city&quot;: &quot;Kingstown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Samoa&quot;,
+        &quot;city&quot;: &quot;Apia&quot;
+    },
+    {
+        &quot;country&quot;: &quot;San Marino&quot;,
+        &quot;city&quot;: &quot;San Marino&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Sao Tome and Principe&quot;,
+        &quot;city&quot;: &quot;São Tomé&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Saudi Arabia&quot;,
+        &quot;city&quot;: &quot;Riyadh&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Scotland&quot;,
+        &quot;city&quot;: &quot;Edinburgh&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Senegal&quot;,
+        &quot;city&quot;: &quot;Dakar&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Serbia&quot;,
+        &quot;city&quot;: &quot;Belgrade&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Seychelles&quot;,
+        &quot;city&quot;: &quot;Victoria&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Sierra Leone&quot;,
+        &quot;city&quot;: &quot;Freetown&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Singapore&quot;,
+        &quot;city&quot;: &quot;Singapore&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Slovakia&quot;,
+        &quot;city&quot;: &quot;Bratislava&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Slovenia&quot;,
+        &quot;city&quot;: &quot;Ljubljana&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Solomon Islands&quot;,
+        &quot;city&quot;: &quot;Honiara&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Somalia&quot;,
+        &quot;city&quot;: &quot;Mogadishu&quot;
+    },
+    {
+        &quot;country&quot;: &quot;South Africa&quot;,
+        &quot;city&quot;: &quot;Pretoria&quot;
+    },
+    {
+        &quot;country&quot;: &quot;South Georgia and the South Sandwich Islands&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;South Korea&quot;,
+        &quot;city&quot;: &quot;Seoul&quot;
+    },
+    {
+        &quot;country&quot;: &quot;South Sudan&quot;,
+        &quot;city&quot;: &quot;Juba&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Spain&quot;,
+        &quot;city&quot;: &quot;Madrid&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Sri Lanka&quot;,
+        &quot;city&quot;: &quot;Colombo, Sri Jayawardenepura Kotte&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Sudan&quot;,
+        &quot;city&quot;: &quot;Khartum&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Suriname&quot;,
+        &quot;city&quot;: &quot;Paramaribo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Svalbard and Jan Mayen&quot;,
+        &quot;city&quot;: &quot;Longyearbyen&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Swaziland&quot;,
+        &quot;city&quot;: &quot;Mbabane&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Sweden&quot;,
+        &quot;city&quot;: &quot;Stockholm&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Switzerland&quot;,
+        &quot;city&quot;: &quot;Bern&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Syria&quot;,
+        &quot;city&quot;: &quot;Damascus&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tajikistan&quot;,
+        &quot;city&quot;: &quot;Dushanbe&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tanzania&quot;,
+        &quot;city&quot;: &quot;Dodoma&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Thailand&quot;,
+        &quot;city&quot;: &quot;Bangkok&quot;
+    },
+    {
+        &quot;country&quot;: &quot;The Democratic Republic of Congo&quot;,
+        &quot;city&quot;: &quot;Kinshasa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Togo&quot;,
+        &quot;city&quot;: &quot;Lomé&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tokelau&quot;,
+        &quot;city&quot;: &quot;Fakaofo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tonga&quot;,
+        &quot;city&quot;: &quot;Nukualofa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Trinidad and Tobago&quot;,
+        &quot;city&quot;: &quot;Port-of-Spain&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tunisia&quot;,
+        &quot;city&quot;: &quot;Tunis&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Turkey&quot;,
+        &quot;city&quot;: &quot;Ankara&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Turkmenistan&quot;,
+        &quot;city&quot;: &quot;Ashgabat&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Turks and Caicos Islands&quot;,
+        &quot;city&quot;: &quot;Cockburn Town&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Tuvalu&quot;,
+        &quot;city&quot;: &quot;Funafuti&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Uganda&quot;,
+        &quot;city&quot;: &quot;Kampala&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Ukraine&quot;,
+        &quot;city&quot;: &quot;Kyiv&quot;
+    },
+    {
+        &quot;country&quot;: &quot;United Arab Emirates&quot;,
+        &quot;city&quot;: &quot;Abu Dhabi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;United Kingdom&quot;,
+        &quot;city&quot;: &quot;London&quot;
+    },
+    {
+        &quot;country&quot;: &quot;United States&quot;,
+        &quot;city&quot;: &quot;Washington&quot;
+    },
+    {
+        &quot;country&quot;: &quot;United States Minor Outlying Islands&quot;,
+        &quot;city&quot;: null
+    },
+    {
+        &quot;country&quot;: &quot;Uruguay&quot;,
+        &quot;city&quot;: &quot;Montevideo&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Uzbekistan&quot;,
+        &quot;city&quot;: &quot;Toskent&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Vanuatu&quot;,
+        &quot;city&quot;: &quot;Port-Vila&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Venezuela&quot;,
+        &quot;city&quot;: &quot;Caracas&quot;
+    },
+       {
+        &quot;country&quot;: &quot;Vetican City&quot;,
+        &quot;city&quot;: &quot;Vetican City&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Vietnam&quot;,
+        &quot;city&quot;: &quot;Hanoi&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Virgin Islands, British&quot;,
+        &quot;city&quot;: &quot;Road Town&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Virgin Islands, U.S.&quot;,
+        &quot;city&quot;: &quot;Charlotte Amalie&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Wales&quot;,
+        &quot;city&quot;: &quot;Cardiff&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Wallis and Futuna&quot;,
+        &quot;city&quot;: &quot;Mata-Utu&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Western Sahara&quot;,
+        &quot;city&quot;: &quot;El-Aai&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Yemen&quot;,
+        &quot;city&quot;: &quot;Sanaa&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Zambia&quot;,
+        &quot;city&quot;: &quot;Lusaka&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Zimbabwe&quot;,
+        &quot;city&quot;: &quot;Harare&quot;
+    }
+]');
+
+
+ 
+
+select * ,
+json_extract(value, '$.country') as country,
+json_extract(value, '$.city') as city,
+
+json_valid(value),
+json_type(value)
+
+from (
+
+select json_type(col), key,value
+  from  sjon,json_each(sjon.col, '$' )
+  CROSS JOIN (SELECT json_type(col) FROM sjon)
+  
+  )
+
+ 
+ 
+
+</sql><sql name="SQL 3">SELECT '{&quot;a&quot;:2,&quot;c&quot;:[4,5,{&quot;f&quot;:7}]}' -&gt; '$'</sql><current_tab id="1"/></tab_sql></sqlb_project>
