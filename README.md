@@ -19,9 +19,6 @@ SQL is used across the machine learning pipeline, and a fundamental skill for da
 
 Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the course is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire course, students will learn how to problem solve through live coding. 
 
-Additionally, the course will explore SQL databases in everyday life, and how R and Python interact with SQL databases when performing statistical analysis or machine learning tasks. Learners will be introduced to principles around reproducibility, sharing data, and data ethics (for example, respecting those whose data we use). This course will also cover professional skills such as communication (with a variety of stakeholders) and documentation. 
-
-
 ## Course Contacts
 - Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@proton.me)
 - TA: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
@@ -56,7 +53,7 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 ## Schedule (subject to change)
 
-The January sessions are an accelerated and abridged.
+The January session of SQL is accelerated and therefore only the most critical concepts have been selected.
 
 | Lecture | Date | Topic | Slides |
 | --- | --- | --- | --- |
@@ -64,19 +61,19 @@ The January sessions are an accelerated and abridged.
 | 1 | Wednesday, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | |
 | 2 | Thursday, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | |
 | 3 | Friday, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL ||
-| 4 | Saturday January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | |
+| 4 | Saturday, January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | |
 
 ## Assignments
 
-Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks.
+Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks. Homework questions and answers will be shared with the learners within the Homework folder. 
 
 | Assessment	|  Due Date | 
 | --- | --- |
 | [Assignment 1]| Wednesday, January 17, by 11:59 PM EST 
-| [Homework 1] | Thursday, January 11 11:59 PM EST 
-| [Homework 2] | Friday, January 12 11:59 PM EST
-| [Homework 3] | Saturday, January 13 11:59 PM EST 
-| [Homework 4] | Wednesday, January 17 11:59 PM EST
+| [Homework 1] | Thursday, January 11, by 11:59 PM EST 
+| [Homework 2] | Friday, January 12, by 11:59 PM EST
+| [Homework 3] | Saturday, January 13, by 11:59 PM EST 
+| [Homework 4] | Wednesday, January 17, by 11:59 PM EST
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
