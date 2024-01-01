@@ -58,10 +58,10 @@ The January session of SQL is accelerated and therefore only the most critical c
 | Lecture | Date | Topic | Slides |
 | --- | --- | --- | --- |
 | 0 | Before First Lecture | Install & Pre-Class | ¯\\\_(ツ)_/¯ |
-| 1 | Wednesday, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | |
-| 2 | Thursday, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | |
-| 3 | Friday, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL ||
-| 4 | Saturday, January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | |
+| 1 | Wed, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_01.pdf) |
+| 2 | Thurs, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
+| 3 | Fri, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
+| 4 | Sat, January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
 
 ## Assignments
 
@@ -69,11 +69,11 @@ Grading is pass/fail. Due to the shortened schedule for this term, there is only
 
 | Assessment	|  Due Date | 
 | --- | --- |
-| [Assignment 1]| Wednesday, January 17, by 11:59 PM EST 
-| [Homework 1] | Thursday, January 11, by 11:59 PM EST 
-| [Homework 2] | Friday, January 12, by 11:59 PM EST
-| [Homework 3] | Saturday, January 13, by 11:59 PM EST 
-| [Homework 4] | Wednesday, January 17, by 11:59 PM EST
+| [Assignment 1]| Wed, January 17, by 11:59 PM EST 
+| [Homework 1]() | Thurs, January 11, by 11:59 PM EST 
+| [Homework 2] | Fri, January 12, by 11:59 PM EST
+| [Homework 3] | Sat, January 13, by 11:59 PM EST 
+| [Homework 4] | Wed, January 17, by 11:59 PM EST
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
