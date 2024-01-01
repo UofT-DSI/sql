@@ -161,7 +161,6 @@ class: top, left, inverse
   
 ---
 
-
 class: middle, center, inverse
 # Fundamental Three Commands
 
@@ -197,6 +196,10 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
+**Quick Mentimeter**
+---
+
+class: middle, center, inverse
 # Fundamental Three Commands
 
 ## SELECT 
@@ -227,12 +230,6 @@ class: top, left, inverse
 
 - `WHERE` clauses always return rows evaluating to `TRUE`
   - Follows Boolean rules if more than one condition is present
-
-&lt;br&gt;
---
-
-- My favourite WHERE statement is `WHERE 1=1`
-  - **Any guesses as to why?**
   
 ---
 
@@ -289,7 +286,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Fundamental Questions?**
+**What questions do you have about SELECT, FROM, WHERE?**
 
 ---
 
@@ -396,7 +393,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Questions?**
+**What questions do you have about CASE, DISTINCT?**
 
 ---
 
@@ -418,8 +415,6 @@ class: middle, center, inverse
 
 ## LEFT (OUTER) JOIN
 
-## RIGHT (OUTER) JOIN
-
 ## FULL OUTER JOIN
 
 ## Multiple Table Joins
@@ -433,7 +428,7 @@ class: top, left, inverse
 
 --
 
-- Joins are the Cartesian product of two tables with conditional selection of specific rows
+- Joins are the "Cartesian product" of two tables with _conditional selection(s)_ of specific rows
   - A Cartesian product combines all possible row values with another 
     - An easy example is a deck of cards:
       
@@ -444,12 +439,14 @@ class: top, left, inverse
       {A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2}
       
       produces 52 cards (4 * 13)
+      
+  - To create a Cartesian Product in SQL we use `CROSS JOIN` (rare, but not unheard of)
 
 ---
 class: top, left, inverse
 # Putting Things Together with JOIN
 
-- Joins require relationships (one exception, we'll get to later) between tables
+- Joins require relationships (with one exception, `CROSS JOIN`) between tables
 - Different joins create different results
   - Join names specify which conditional selection is desired
 
@@ -500,8 +497,6 @@ class: middle, center, inverse
 ## **INNER JOIN**
 
 ## LEFT (OUTER) JOIN
-
-## RIGHT (OUTER) JOIN
 
 ## FULL OUTER JOIN
 
@@ -554,8 +549,6 @@ class: middle, center, inverse
 
 ## **LEFT (OUTER) JOIN**
 
-## RIGHT (OUTER) JOIN
-
 ## FULL (OUTER) JOIN
 
 ## Multiple Table Joins
@@ -593,30 +586,9 @@ class: middle, center, inverse
 
 ## LEFT (OUTER) JOIN
 
-## **RIGHT (OUTER) JOIN**
-
 ## FULL (OUTER) JOIN
 
 ## Multiple Table Joins
-
----
-
-class: top, left, inverse
-# RIGHT (OUTER) JOIN
-- `RIGHT JOIN` filters the "left" table to rows present in the "right" table
-- `RIGHT JOIN` will most often produce `NULL` values
-- The "OUTER" in `RIGHT OUTER JOIN` is optional
-  - Generally, OUTER seems to be excluded, but both are correct
-- `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
-  - Often your query can be reorganized to use a `LEFT JOIN` instead
-    - SQLite does not currently support `RIGHT JOIN`
-
-.center[ 
-&lt;img src="imgs/right_join.png"
-     height="300px";&gt;
-     
-&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
-]
 
 ---
 
@@ -626,8 +598,6 @@ class: middle, center, inverse
 ## INNER JOIN
 
 ## LEFT (OUTER) JOIN
-
-## RIGHT (OUTER) JOIN
 
 ## **FULL (OUTER) JOIN**
 
@@ -640,7 +610,7 @@ class: top, left, inverse
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results (we'll do it in a later module)
+- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
 
 --
 
@@ -660,13 +630,16 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
+**Quick Mentimeter**
+
+---
+
+class: middle, center, inverse
 # Putting Things Together with JOIN
 
 ## INNER JOIN
 
 ## LEFT (OUTER) JOIN
-
-## RIGHT (OUTER) JOIN
 
 ## FULL OUTER JOIN
 
@@ -677,65 +650,28 @@ class: middle, center, inverse
 class: top, left, inverse
 # Multiple Table Joins
 - More than one table can be joined at a time
-- The order and type of joins will have significant effect on the final table
-  - **Pause to imagine what these scenarios might look like based on your knowledge of different `JOIN` types**
 
+```
+    SELECT *
+    FROM table_1
+    {INNER | LEFT | FULL JOIN table_2
+      ON table_1.key = table_2.key
+    {INNER | LEFT | FULL JOIN table_3
+      ON {table_1 | table_2}.key = table_3.key
+    {INNER | LEFT | FULL JOIN table_n
+      ON {table_1 | table_2 | table_3}.key = table_n.key
 
----
-
-class: top, left, inverse
-# Multiple Table Joins
-
-
-For example, let's combine these three tables:
-
-.pull-left[
-
-.left-column[
-
-| FirstName  | Number |
-|------------|--------|
-| A          | 1      |
-| Thomas     | 2      |
-.center[&lt;sup&gt;&lt;sup&gt;(_Table 1_)&lt;/sup&gt;&lt;/sup&gt;]
-
-
-
-| LastName  | Number |
-|-----------|--------|
-| Mahfouz   | 1      |
-| Rosenthal | 2      |
-.center[&lt;sup&gt;&lt;sup&gt;(_Table 2_)&lt;/sup&gt;&lt;/sup&gt;]
-
-
-| FirstName  | LastName  | Symbol |
-|------------|-----------|--------|
-| A          | Smith     | !      |
-| Edward     | Rosenthal | ?      |
-.center[&lt;sup&gt;&lt;sup&gt;(_Table 3_)&lt;/sup&gt;&lt;/sup&gt;]
-]
-
-]
+```
 
 --
 
-.pull-right[
-If the desired outcome table is:
+- The order and type of joins will have significant effect on the final table
+- It's important to determine which table should be the `FROM` table
 
-.left-column[
+&lt;br&gt;
 
-| FirstName | LastName  | Number | Symbol |
-|-----------|-----------|--------|--------|
-| A         | Mahfouz   | 1      | !      |
-| Thomas    | Rosenthal | 2      | ?      |
-
-]
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-**What are the correct `JOIN` criteria?**
-
-]
-
+- Sometimes you have to experiment a bit to get things right
+- **Can you imagine scenarios based on your knowledge of different `JOIN` types that result in significantly different outputs?**
 ---
 
 class: top, left, inverse
@@ -746,7 +682,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Lingering Questions?**
+**What questions do you have about anything from today?**
 
 
 
