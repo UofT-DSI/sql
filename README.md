@@ -70,7 +70,7 @@ Grading is pass/fail. Due to the shortened schedule for this term, there is only
 | Assessment	|  Due Date | 
 | --- | --- |
 | [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) <br> [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf)| Wed, January 17, by 11:59 PM EST 
-| [Homework 1]() | Thurs, January 11, by 11:59 PM EST 
+| [Homework 1](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST 
 | [Homework 2] | Fri, January 12, by 11:59 PM EST
 | [Homework 3] | Sat, January 13, by 11:59 PM EST 
 | [Homework 4] | Wed, January 17, by 11:59 PM EST
