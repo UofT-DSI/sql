@@ -90,13 +90,10 @@ FarmersMarket.db, in-class SQL codes.
 ### 4. *Data*: 
 Data (csv, json, etc) we'll use for importing.
 
-### 5. *Code*:
-In-class R and python codes.
-
-### 6. *Homework*:
+### 5. *Homework*:
 Homework to be done after each module.
 
-### 7. *Assignments*:
+### 6. *Assignments*:
 Rubrics and assignment details.
 
 ## Acknowledgements
