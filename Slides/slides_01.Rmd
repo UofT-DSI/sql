@@ -41,7 +41,7 @@ library(showtext)
 ```
 
 class: middle, center, inverse
-# Getting Started:
+# Introduction:
 
 ## Welcome
 
@@ -96,14 +96,14 @@ class: left, top, inverse
   - SQL seemed like it was on its way out...NOPE, I was just wrong
 - Reluctant Data Scientist (*do we even need this model?*) 
   - Currently doing Data Governance and Ethics implementation at Thomson Reuters
-- This is Alto `r structure("\U1F449", class = "emoji")`
+- Have a 2 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
 ]
 
 .pull-right[
 
-<img src="imgs/professor_alto.png"
-     width="500px" height="500px"
-     style="position:absolute; right:50px; top:130px;">
+<img src="imgs/dorky_alto.png"
+     height="500px"
+     style="position:absolute; right:100px; top:130px;">
 
 ]
 
@@ -123,14 +123,13 @@ class: middle, center, inverse
 class: left, top, inverse
 # Course Content
 
-- Data Modelling
-- Data Structures, Schemas, Basic Data Management, Normal Forms
+This is the shortest version of this course I've taught. We will try and cover a lot but also focus on the key components of SQL querying.
+
+
+- Data Modelling, Schema Design, Data Structures
 - Basic SQL Syntax
-- Advanced SQL Syntax
-- Importing and Exporting Data to and from SQL
-- SQL's relationship to the Machine Learning Pipeline
-- Data Stewardship, Ethics, and SQL in the Wild
-- Industry Case Study with Zia Barbar
+- Essential SQL Syntax
+- Advanced Techniques, including importing and Exporting Data to and from SQL
 
 ### Github Repo
 
@@ -142,6 +141,11 @@ class: left, top, inverse
 - All in-class code
 - Homework (and answers, posted afterwards)
 - Assignment details and rubrics
+- Policies, due dates, etc
+
+--
+
+**It is crucial you visit the repo throughout the course, as I may make minor changes and push new content.**
 
 ---
 
@@ -176,34 +180,38 @@ class: left, top, inverse
 class: left, top, inverse
 # Course Content
 
-### Homework (ungraded, but worth doing)
+### Homework (required)
+- Four homeworks total
 - At the end of each SQL module, I will provide you with 3-10 queries to write on your own
   - Covers the topics of the modules
-- Review answers in Tutorials with Salaar
+- Review answers in Tutorials with Ananya
   - I may go over one or two queries at the start of class if desired
 - Designed to be relatively easy
   - Reaffirms what we wrote together
   - Doing work on your own helps reinforce the learning
+- ChatGPT probably won't help you much
 
 ---
 
 class: left, top, inverse
 # Course Content
 
-### Grading (specific rubrics tbd)
-- Three Assignments
-  1. Data Model Design, due at the end of week 2, start in week 1: 40%
-  2. SQL Skills, due at the end of week 3, start in week 2: 40%
-  3. Class Participation (reflection), due at the end of week 3, work on any time: 10%
+### Grading 
+
+- Pass/Fail. Do the work, pass the course :) 
+
+- One Assignment: Data Model Design, 50%, due one week from today (Jan 17)
+
+- Homework: 40% (10% each), due the day after each module
 
 - Class Attendance: 10%
-  - Let Salaar or myself know if you are unable to attend a lesson
+  - Let Ananya or myself know if you are unable to attend a lesson
   - Code along!! Best way to learn.
 
 ---
 
 class: middle, center, inverse
-**Questions about the course?**
+**What questions do you have about the course?**
 
 ---
 
@@ -238,7 +246,7 @@ For live coding:
 <br><br><br>
 **Good to go?**
 
-**If not, please message Salaar**
+**If not, please message Ananya**
 
 ---
 
@@ -380,7 +388,7 @@ class: top, left, inverse
   - Similar enough in syntax to learn on
   - Used all over the world and in many applications  
       - e.g. Firefox uses a SQLite backend to write a user's history locally
-
+      
 ---
 
 class: top, left, inverse
@@ -401,7 +409,8 @@ class: top, left, inverse
       - Can be version dependent
   - Tend to "lock in" businesses/organizations
       - Migration is costly, sometimes outrageously so
-  - Newer players (Snowflake, Databricks, etc) and cloud providers (Azure, AWS, Google, etc) offer a lot more functionality than just database querying
+  - Newer players (Snowflake, Databricks, etc) and cloud providers (Azure, AWS, GCP, etc) offer a lot more functionality than just database querying
+      - Sometimes use different terminology to describe SQL tasks 
 
 
 ---
@@ -428,7 +437,7 @@ class: top, left, inverse
       - e.g. CRMs, EMR software, ERPs, web-based applications
   - Usually not connected to other databases unless deemed necessary
   - Often transactional, meaning data is actively being written to by frontend systems
-  - Tables are normalized (we'll get into Normalization Forms later in the course)
+  - Tables are normalized
 
 <br>
 --
@@ -489,7 +498,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Questions?**
+**What questions do you have?**
 
 ---
 
@@ -671,6 +680,11 @@ class: top, left, inverse
       - Speed: it's computationally less expensive to compute smaller values
       - Storage: small is usually better, but the wrong size will affect systems; e.g. Psy's Gangnam Style exceeded 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 64-bit (~9.2b if signed)
       - Validity: ensures columns contain the right type of data for operations, e.g. avoiding 5 + 'ten' = ??
+      
+---
+
+class: middle, center, inverse
+**Quick Mentimeter**
 ---
 
 class: middle, center, inverse
@@ -877,7 +891,7 @@ Table 1: Employee — Table 2: Employee Type
 
 For this example, imagine the following:
 
-Previously, A was an instructor at DSI (python) _and_ a TA at DSI (SQL). Thomas remains the instructor for SQL. Salaar is now the TA. If a table contained Employee ID and Employee Type ID, A would be listed twice.
+Previously, A was an instructor at DSI (python) _and_ a TA at DSI (SQL). Thomas remains the instructor for SQL. Ananya is now the TA. If a table contained Employee ID and Employee Type ID, A would be listed twice.
 
 
 
@@ -887,7 +901,7 @@ Previously, A was an instructor at DSI (python) _and_ a TA at DSI (SQL). Thomas 
 |----------|-------------|
 | Thomas   | 001         |
 | A        | 002         |
-| Salaar   | 003         |
+| Ananya   | 003         |
 
 ]
 
@@ -911,8 +925,12 @@ Previously, A was an instructor at DSI (python) _and_ a TA at DSI (SQL). Thomas 
 
 ]
 
-We'd create additional Many-to-Many relationships if we created a course table, because A and Salaar are involved in multiple courses!
+We'd create additional Many-to-Many relationships if we created a course table, because A and Ananya are involved in multiple courses!
 
+---
+
+class: middle, center, inverse
+**Quick Mentimeter**
 ---
 
 class: middle, center, inverse
@@ -1028,7 +1046,7 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Data Modelling Questions?**
+**What questions do you have about Data Modelling?**
 
 ---
 
@@ -1075,7 +1093,7 @@ Highlight at least two differences between it and your ERD. Would you change any
 ---
 
 class: middle, center, inverse
-**Lingering Questions?**
+**What questions do you have about anything from today?**
 
 
 ```{r echo=FALSE}
