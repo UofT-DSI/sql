@@ -108,6 +108,33 @@ class: left, top, inverse
 ]
 
 ---
+class: left, top, inverse
+# About Me
+.pull-left[
+
+- Recently graduated from UofT with majors in Computer Science and Statistics, Minor in Mathematics
+  - Held co-op positions at different banks
+      - Citi (Software Development)
+      - Bank of Montreal(Business Analytics) 
+- Now working full-time at RBC Capital Markets in their Quant and Tech Services division
+  - Currently a Business Systems Analyst (position is a cross between SDE and BA) 
+  -  Working with salesforce CRM backend data in SQL server
+  - Moving to a more technical role in a new team (Supervisory and Regulatory controls) next week (for my next rotation)
+- Outside of work, strongly believe in advocating for the representation of women in tech 
+  - Was the president of Women in Computer Science at UofT for 2 years
+  - Now getting involved with Toronto Wxmen in Data Science and RWomen (RBC's women in tech ERG)
+
+]
+
+.pull-right[
+
+<img src="imgs/DSC00461.png"
+     height="500px"
+     style="position:absolute; right:100px; top:130px;">
+
+]
+
+---
 
 class: middle, center, inverse
 # Welcome
