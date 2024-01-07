@@ -68,12 +68,12 @@ The January session of SQL is accelerated and therefore only the most critical c
 Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks. Homework questions and answers will be shared with the learners within the Homework folder. 
 
 | Assessment	|  Due Date | SQL |
-| --- | --- |
+| --- | --- | --- |
 | [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | Wed, January 17, by 11:59 PM EST | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) |
 | [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ |
-| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql)
-| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql)
-| [Homework 4 PDF]() | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL]()
+| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) |
+| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) |
+| [Homework 4 PDF]() | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL]() |
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
