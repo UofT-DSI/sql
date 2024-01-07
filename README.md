@@ -20,7 +20,7 @@ SQL is used across the machine learning pipeline, and a fundamental skill for da
 Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the course is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire course, students will learn how to problem solve through live coding. 
 
 ## Course Contacts
-- Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@proton.me)
+- Instructor: Emails to Thomas (he/him) can be sent to [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 - TA: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
 
 ## Learning Outcomes
