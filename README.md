@@ -20,7 +20,7 @@ SQL is used across the machine learning pipeline, and a fundamental skill for da
 Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the course is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire course, students will learn how to problem solve through live coding. 
 
 ## Course Contacts
-- Instructor: Emails to Thomas (he/him) can be sent to [twillrose@proton.me](mailto:twillrose@proton.me)
+- Instructor: Emails to Thomas (he/him) can be sent to [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 - TA: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
 
 ## Learning Outcomes
@@ -36,13 +36,15 @@ The course runs synchronously over Zoom. It consists of four classes. Classes ar
 
 Tutorial sessions with a TA will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
+This course will use a dedicated Etherboard for student collaboration. The link will be provided in the first class. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
+
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ### Technology Requirements
 - A computer with internet access is required to attend sessions and participate in live-coding.
 - Download DB Browser for SQLite here: https://sqlitebrowser.org/dl/
-- Downloading R and/or Python is not required but encouraged, please see the respective DSI repositories for instructions on installing these languagues and your preferred IDE.
+- Downloading R and/or Python is not required but encouraged, please see the respective DSI repositories for instructions on installing these languages and your preferred IDE.
 
 ## Policies
 - Accessibility: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
