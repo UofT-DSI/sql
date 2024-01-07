@@ -75,7 +75,7 @@ Grading is pass/fail. Due to the shortened schedule for this term, there is only
 | [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ |
 | [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) |
 | [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) |
-| [Homework 4 PDF]() | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL]() |
+| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) |
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
