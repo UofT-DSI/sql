@@ -7,8 +7,6 @@
 sorted by customer_last_name, then customer_first_ name. */
 
 
-/* 3. Write a query that lists all customer IDs and first names in the customer table, sorted by first_name. */
-
 
 
 --WHERE
@@ -42,17 +40,3 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 --JOIN
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
-
-
-/* 2. Since SQLite doesn't have RIGHT JOIN, rewrite this query with a LEFT JOIN:
-
-SELECT *
-FROM customer AS c
-RIGHT JOIN customer_purchases AS cp
-    ON c.customer_id = cp.customer_id
-    
-*/
-
-
-/* 3. Write a query that shows a customer's name  (customer_first_name, customer_last_name) 
-who has bought a cherry pie. Include the column that shows the Cherry Pie product name. */
