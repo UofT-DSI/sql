@@ -258,7 +258,7 @@ class: left, top, inverse
 
 (a slide where we make sure everyone has DB Browser for SQLite installed)
 
-If not, please download it here: [sqlitebrowser.org/dl/](sqlitebrowser.org/dl/)
+If not, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/)
 
 --
 <br><br><br>
