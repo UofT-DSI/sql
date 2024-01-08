@@ -67,7 +67,7 @@ The January session of SQL is accelerated and therefore only the most critical c
 
 ## Assignments
 
-Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks. Homework questions and answers will be shared with the learners within the Homework folder. 
+Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks. Homework questions and answers will be shared with the learners within the Homework folder. Class Participation is 10% of the final grade.
 
 | Assessment	|  Due Date | SQL | Weight | Submission Link |
 | --- | --- | --- | --- | --- |
