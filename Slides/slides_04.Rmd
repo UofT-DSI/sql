@@ -49,13 +49,11 @@ class: middle, center, inverse
 
 ## String Manipulation
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION & UNION ALL
 
 ## INTERSECT & EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
@@ -66,13 +64,11 @@ class: middle, center, inverse
 
 ## String Manipulation
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION & UNION ALL
 
 ## INTERSECT & EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
