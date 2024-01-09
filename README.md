@@ -51,7 +51,6 @@ The course is designed for both live-coding and corresponding slides. Students s
 - Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
 - Camera: Keeping your camera on is welcomed, but optional.
 - Microphone: Please keep microphones muted unless you need to speak. Questions are highly encouraged.
-- Assessment: Each class there will be recommended homework which is not graded. There will be three assignments which are graded.  
 
 ## Schedule (subject to change)
 
