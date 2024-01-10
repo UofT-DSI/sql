@@ -1060,7 +1060,7 @@ class: top, left, inverse
   - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
   - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
   - market_date (date) is the PK for vendor_inventory
-      - **why?**
+      - **why? Think, Pair, Share**
 
 ]
 
