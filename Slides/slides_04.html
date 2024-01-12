@@ -38,13 +38,11 @@ class: middle, center, inverse
 
 ## String Manipulation
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
@@ -55,13 +53,11 @@ class: middle, center, inverse
 
 ## String Manipulation
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
@@ -262,7 +258,7 @@ class: left, upper, inverse
 ---
 
 class: middle, center, inverse
-**Windowed functions are hard! Questions about them?**
+**Windowed functions are hard! What questions do you have about them?**
 
 ---
 
@@ -273,13 +269,11 @@ class: middle, center, inverse
 
 ## **String Manipulation**
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
@@ -827,7 +821,7 @@ class: upper, left, inverse
 ---
 
 class: middle, center, inverse
-**LOWER(qUeStIoNs?)**
+**LOWER(wHaT qUeStIoNs dO yOu hAvE?)**
 
 ---
 
@@ -835,123 +829,12 @@ class: middle, center, inverse
 # Advanced Techniques:
 
 ## String Manipulation
-
-## **CROSS JOIN**
-
-## Self Joins
-
-## UNION &amp; UNION ALL
-
-## INTERSECT &amp; EXCEPT
-
----
-
-class: upper, left, inverse
-# CROSS JOIN
-
-- `CROSS JOIN` creates an unfiltered Cartesian Product
-- They are not joined on any columns
-
-
-- Recall our deck of cards example in Module 2:
-
-```
-    SELECT suit, rank
-    FROM suits
-    CROSS JOIN ranks
-```  
-  - Because tables 'suits' and 'ranks' contain no common columns, we would have no other means to join
-
---
-
-- I love to `CROSS JOIN`!
-- They can be super useful when used correctly 
-  - **What are some good examples that could be useful?**
-
-
-
----
-
-class: top, left, inverse
-# CROSS JOIN
-
-(`CROSS JOIN` live coding)
-
-
-&gt; No complex query is complete without at least one `CROSS JOIN` 
-
-&gt; (me, jokingly)
-
----
-
-
-class: middle, center, inverse
-**CROSS JOIN Questions?**
-
----
-
-
-class: middle, center, inverse
-# Advanced Techniques:
-
-## String Manipulation
-
-## CROSS JOIN
-
-## **Self Joins**
-
-## UNION &amp; UNION ALL
-
-## INTERSECT &amp; EXCEPT
-
----
-
-class: upper, left, inverse
-# Self Joins
-
-- Self Joins are somewhat uncommon, but are the last type of possible join
-
-- They are useful for comparison:
-  - Determine maximum to-date 
-  - Generating pairings 
-  
-- They can help with hierarchy
-  - Child-to-Parent relationships 
-  
---
-
-- The syntax is as we might expect:
-
-```
-    SELECT
-    e.name as employee_name,
-    m.name as manager_name
-    
-    FROM people e
-    LEFT JOIN people m ON e.manager_id = m.id
-```    
-
----
-
-class: middle, center, inverse
-**FROM Questions? JOIN Questions?**
-
----
-
-
-
-class: middle, center, inverse
-# Advanced Techniques:
-
-## String Manipulation
-
-## CROSS JOIN
-
-## Self Joins
 
 ## **UNION &amp; UNION ALL**
 
 ## INTERSECT &amp; EXCEPT
+
+## Importing and Exporting Data
 
 ---
 
@@ -1013,9 +896,13 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Any**
+**What**
 
-**Questions?**
+**Questions**
+
+**Do You Have**
+
+**?**
 
 ---
 
@@ -1024,13 +911,11 @@ class: middle, center, inverse
 
 ## String Manipulation
 
-## CROSS JOIN
-
-## Self Joins
-
 ## UNION &amp; UNION ALL
 
 ## **INTERSECT &amp; EXCEPT**
+
+## Importing and Exporting Data
 
 ---
 
@@ -1132,66 +1017,134 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
-**Any Questions?**
+**Mentimeter: SPEED edition!**
+---
+
+class: middle, center, inverse
+**What questions do you have?**
+
+---
+
+class: middle, center, inverse
+# Importing and Exporting Data
+
+## Import &amp; Export
+
+## CSV
+
+
+---
+
+class: middle, center, inverse
+# Importing and Exporting Data
+
+## **Import &amp; Export**
+
+## CSV
 
 ---
 
 class: top, left, inverse
-# Assignment 2: Analytic or Machine Learning Model
+# Import &amp; Export
+- RDBMs allow data to flow into and out of them
+  - Some processes are easy:
+      - e.g. exporting a table as a CSV file
+  - ...while others are complex
+      - e.g. writing a CRM to a normalized data warehouse on a nightly basis
 
-**Q1)**
-Create an analytic or machine learning model using our farmersmarket.db as the source of data.
+--
 
-For either, start with a question you want to answer. These are examples to get you thinking:
+- In DB Browser for SQLite, we can make use of the following:
+  - Import and export CSV files
+  - Manipulate and export JSON files
+- SQLite more broadly can:
+  - Produce CSVs from queries (using the command line, which we won't do)
+  - Connect to other programming languages
 
-- Have sales for a vendor increased/decreased over time?
-- Do some products sell better on rainy/snowy days?
-- Will a customer who has purchased from a vendor return to that vendor and purchase again in the next 30 days?
+---
 
+class: middle, center, inverse
+# Importing and Exporting Data
 
-**Q2)**
-Produce some sort of graphic from your SQL dataset.
+## Import &amp; Export
 
-If you have no experience making graphics, keep it simple (e.g. count by a variable). SQLite can support this using the **Plot** window.
-
-If you feel more adventurous, use a tool like ggplot (R), seaborn (python), etc. If you have access to Excel or Tableau or another BI platform, export a csv from SQL and build there.
-
-Describe why you picked this graphic. What does it tell us about your dataset?
-
-**Q3)**
-Reflect: How can knowing SQL help you in your day-to-day work/life? Highlight a couple of different ways. This doesn't have to be strictly professional -- feel free to think about SQL in your personal life, if applicable.
+## **CSV**
 
 ---
 
 class: top, left, inverse
-# Assignment 2: Analytic or Machine Learning Model
+# CSV
+- CSV stands for "Comma Separated Values"
+- CSVs are file formats well designed to store SQL tables
+  - The values of each row are separated by commas
+      - Sometimes it makes more sense to use a "|" (pipe), if there is complex text data stored, which might be more sensitive to the presence of commas and/or line breaks
 
-If you choose to make an analytic model, imagine that I have just taken over the administration of the farmers market but don't know any SQL. What do I need to know to be a good administrator?
-Focus on the following:
+--
 
-- Clean your data: e.g. if you have nulls, they should probably be coalesced.
-- Include at least two tables (I'm not sure how you'd manage with fewer anyways). No one wants to remember IDs, so you should replace them.
-- Include a performance metric associated with various time periods (e.g. years, quarters, etc).
-- Discuss: Is the data model sufficient? Do we need other tables? Could we collect other data that might be helpful? If so, how would we gather this, and how would we store it (i.e. describe new tables in a logical or physical model)?
-- Describe: How does your analytic model help me run the market? What insights can I gather from it?
+- They are a common file format for transporting structured data 
+- CSVs can be opened by:
+  - Excel
+  - Simple text editors (e.g. notepad++, sublime)
+  - Programming languages (e.g. python, R)
+
 
 ---
 
 class: top, left, inverse
-# Assignment 2: Analytic or Machine Learning Model
+# CSV
 
-If you choose to make an ML model, pick a simple algorithm. This assumes you have some comfort in R or python. There is no expectation that you produce a statistically significant or highly accurate model.
-Focus on the following:
+DB Browser for SQLite natively supports CSV importing and exporting for tables:
 
-- Make at least one "feature" in SQL that serves your question (e.g. CASE statement, windowed function, etc).
-- Include at least two tables in the query (I'm not sure how you'd manage with fewer anyways). IDs don't make for good features, so you should replace them.
-- Report the accuracy or significance of your model.
-- Discuss: How would you monitor this data? Can you collect "ground truth" data for your model? If yes, how would it flow back into SQL, and where would we store it (i.e. describe new tables in a logical or physical model)?
-- Describe: Is your model supervised? Unsupervised? What type of output variable are you trying to solve for? Why did you pick this algorithm and why was it appropriate for the problem you were trying to describe?
+.center[ 
+&lt;img src="imgs/import_export_menu.png"
+     height="300px";&gt;
+]
+
+You can also export queries if they are stored in Temporary Tables
+
+---
+
+class: top, left, inverse
+# CSV
+DB Browser for SQLite allows us to extract a query result in a somewhat roundabout method:
+- First, write a query
+```
+    SELECT * FROM product p
+    JOIN product_category pc ON p.product_category_id = pc.product_category_id
+```
+--
+
+- Second, right click the results, and select "Copy as SQL"
+
+--
+
+- Third, instantiate a table with `CREATE`
+```
+CREATE TABLE "example" ("product_id", "product_name", "product_size", 
+"product_category_id", "product_qty_type", "product_category_name") ;
+```
+--
+
+- Fourth, paste the results from your clipboard
+```
+INSERT INTO "example" ("product_id", "product_name", "product_size", 
+"product_category_id", "product_qty_type", "product_category_name") 
+VALUES ('1', 'Habanero Peppers - Organic', 'medium', '1', 'lbs', 'Fresh Fruits &amp; Vegetables');
+...etc for each row
+```
+- Finally, export the table to CSV
+
+
+---
+
+class: top, left, inverse
+#CSV
+
+(CSV live importing/exporting)
 
 ---
 class: middle, center, inverse
-**Lingering Questions?**
+**What questions do you have about anything from today?**
 
 
     </textarea>
