@@ -457,6 +457,10 @@ class: top, left, inverse
 ---
 
 class: middle, center, inverse
+**Quick Mentimeter**
+---
+
+class: middle, center, inverse
 **What questions do you have about Aggregations?**
 
 ---
@@ -626,6 +630,10 @@ class: top, left, inverse
 
 (CTEs live coding)
 
+---
+
+class: middle, center, inverse
+**Quick Mentimeter**
 ---
 
 class: middle, center, inverse
