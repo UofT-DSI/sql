@@ -556,7 +556,7 @@ class: upper, left, inverse
 
 - `INSTR` provides the starting position or location of a specified string
 - `INSTR('The instructor is named Thomas','Thomas')` will result in 25, because "Thomas" is the 25th through 30th character in our string
-  - `INSTR('ihe Instructor is named Thomas','Th')` will result in 1 because "Th" arises in "The" before "Thomas"
+  - `INSTR('The Instructor is named Thomas','Th')` will result in 1 because "Th" arises in "The" before "Thomas"
 
 <br>
 --
