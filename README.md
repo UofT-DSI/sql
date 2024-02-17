@@ -61,20 +61,22 @@ The course is designed for both live-coding and corresponding slides. Students s
 | 2 | Wed, February 21 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
 | 3 | Tues, February 27 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
 | 4 | Wed, February 28 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
-| 5 | Tues, March 4 <br> 9 - 11:30 AM EST | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views | [Expanding your Database]() |
-| 6 | Wed, March 5 <br> 9 - 11:30 AM EST | Beyond SQL: SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
+| 5 | Tues, March 5 <br> 9 - 11:30 AM EST | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views | [Expanding your Database]() |
+| 6 | Wed, March 6 <br> 9 - 11:30 AM EST | Beyond SQL: SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
 
 ## Assignments
 
-Grading is pass/fail. There is only one assignment and four short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive.
+Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive.
 
 | Assessment	|  Due Date | SQL | Weight |
 | --- | --- | --- | --- |
-| [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | Wed, January 17, by 11:59 PM EST | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) | 50% |
-| [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ | 8% |
-| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 10% |
-| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 10% |
-| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 10% |
+| [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | Sat, March 23, by 11:59 PM EST | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) | 40% |
+| [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, February 22, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ | 8% |
+| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Sat, February 24, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 8% |
+| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Thurs, February 29, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 8% |
+| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Sat, March 2, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 8% |
+| [Homework 5 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.pdf) | Thurs, March 7, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.sql) | 8% |
+| [Homework 6 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_/Homework%206.pdf) | Sat, March 9, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_6/Homework%206.sql) | 8% |
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
