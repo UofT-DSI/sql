@@ -34,9 +34,9 @@ Learners are first introduced to data modelling and how to think about the struc
 
 The course runs synchronously over Zoom. It consists of six classes. Classes are 6 PM - 830 PM EST on Tuesday and Wednesday for select dates. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
 
-Tutorial sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
+**Tutorials**: sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
-This course will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
+**Pedagogy**: This course will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the instructor before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
@@ -48,9 +48,10 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 ## Policies
 - Accessibility: We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
-- Course communications: Communications take place over email. Please include "DSI-SQL" or similar in the subject line.
+- Course communications: Essential communications take place over email. Please include "DSI-SQL" or similar in the subject line.
 - Camera: Keeping your camera on is welcomed, but optional.
 - Microphone: Please keep microphones muted unless you need to speak. Questions are highly encouraged.
+- Slack: Use the DSI Slack to keep up to date and ask and answer questions. Please be respectful and follow the code of conduct while communicating on Slack.
 
 ## Schedule (subject to change)
 
