@@ -21,7 +21,7 @@ Learners are first introduced to data modelling and how to think about the struc
 
 ## Course Contacts
 - Instructor: Emails to Thomas (he/him) can be sent to [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
-- TA: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
+- TAs: Emails to Ananya (she/her) can be sent to [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca). Additional support, Vishnou Vinayagame (he/him) [vishnouvina@cs.toronto.edu](mailto:vishnouvina@cs.toronto.edu)
 
 ## Learning Outcomes
 1. Develop a better understanding of the structure of databases.
@@ -32,11 +32,11 @@ Learners are first introduced to data modelling and how to think about the struc
 
 ## Design
 
-The course runs synchronously over Zoom. It consists of four classes. Classes are 6 PM - 830 PM EST on weekdays (Wednesday - Friday), and 9 AM - 1130 AM EST on Saturdays. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
+The course runs synchronously over Zoom. It consists of six classes. Classes are 6 PM - 830 PM EST on Tuesday and Wednesday for select dates. Being mindful of online fatigue, there will be one or two breaks during each class where students are encouraged to stretch, grab a drink and snacks, or ask any additional questions.  
 
-Tutorial sessions with a TA will also be offered over Zoom. These will take place 30 minutes before and after each session.  
+Tutorial sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
-This course will use a dedicated Etherboard for student collaboration. The link will be provided in the first class. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
+This course will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
@@ -54,27 +54,27 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 ## Schedule (subject to change)
 
-The January session of SQL is accelerated and therefore only the most critical concepts have been selected.
-
 | Lecture | Date | Topic | Slides |
 | --- | --- | --- | --- |
 | 0 | Before First Lecture | Install & Pre-Class | [Setup](https://github.com/UofT-DSI/02-sql/blob/main/SQL/SQLite%20Setup.pdf) |
-| 1 | Wed, January 10 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_01.pdf) |
-| 2 | Thurs, January 11 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
-| 3 | Fri, January 12 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
-| 4 | Sat, January 13 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT, Importing & Exporting Data | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
+| 1 | Tues, February 20 <br> 6 - 8:30 PM EST | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_01.pdf) |
+| 2 | Wed, February 21 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
+| 3 | Tues, February 27 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions, ISNULL | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
+| 4 | Wed, February 28 <br> 9 - 11:30 AM EST | Advanced Techniques: Windowed Functions, String Manipulation, CROSS & Self Joins, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
+| 5 | Tues, March 4 <br> 9 - 11:30 AM EST | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, Normal Forms, Views | [Expanding your Database]() |
+| 6 | Wed, March 5 <br> 9 - 11:30 AM EST | Beyond SQL: SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
 
 ## Assignments
 
-Grading is pass/fail. Due to the shortened schedule for this term, there is only one assignment and four short (but mandatory) homeworks. Homework questions and answers will be shared with the learners within the Homework folder. Class Participation is 10% of the final grade.
+Grading is pass/fail. There is only one assignment and four short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive.
 
-| Assessment	|  Due Date | SQL | Weight | Submission Link |
-| --- | --- | --- | --- | --- |
-| [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | Wed, January 17, by 11:59 PM EST | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) | 50% | [Link](https://forms.gle/ebR4wijVXai9y2Bm7)|
-| [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ | 10% | [Link](https://forms.gle/MXJ6ydFzLQkgnyjz9) |
-| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 10% | [Link](https://forms.gle/4ayQn3AWyE4G2vZv8) |
-| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 10% | [Link](https://forms.gle/MohneqEqGMfFCXRN7) |
-| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 10% | [Link](https://forms.gle/ta2icyu6twNvtQ1o7) |
+| Assessment	|  Due Date | SQL | Weight |
+| --- | --- | --- | --- |
+| [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | Wed, January 17, by 11:59 PM EST | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) | 50% |
+| [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | Thurs, January 11, by 11:59 PM EST |  ¯\\\_(ツ)_/¯ | 8% |
+| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Fri, January 12, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 10% |
+| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, January 13, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 10% |
+| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Wed, January 17, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 10% |
 
 ## Folder Structure
 Below are the folders contained in this repo with a description of what they contain and information on how to use them.
