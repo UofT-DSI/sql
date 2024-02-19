@@ -126,6 +126,32 @@ class: left, top, inverse
 
 ---
 
+class: left, top, inverse
+# About Me
+.pull-left[
+- Undergrad from Paris-Saclay University in Applied Mathematics and Data Science
+-Discovered SQL, Python and R in an academic setting, and played with them in the industry after.
+- A few internships in Machine Learning and Data Science:
+  - Docugami (Incoming Research Scientist)
+  - Ekimetrics (Data Scientist)
+  - Stellantis (ML Engineer)
+  - Randstad (ML Enginner)
+- Currently pursuing the MscAC program at UofT - in the AI concentration
+- Working on a lot of cool stuff at the intersection between Data Science and LLMs - very exciting but also a very fast-paced environment!
+- Considering pursuing a PhD after to become a full-time professor 🤓
+- On my free time : play guitar, saxophone &amp; bass and have been part of a few music bands 🎷
+]
+
+.pull-right[
+
+&lt;img src="imgs/photo_5963.png"
+     height="500px"
+     style="position:absolute; right:100px; top:130px;"&gt;
+
+]
+
+---
+
 class: middle, center, inverse
 # Welcome
 
@@ -140,13 +166,14 @@ class: middle, center, inverse
 class: left, top, inverse
 # Course Content
 
-This is the shortest version of this course I've taught. We will try and cover a lot but also focus on the key components of SQL querying.
 
-
-- Data Modelling, Schema Design, Data Structures
+- Data Modelling, Data Structures, Schemas, Basic Data Management, Normal Forms
 - Basic SQL Syntax
 - Essential SQL Syntax
-- Advanced Techniques, including importing and Exporting Data to and from SQL
+- Advanced Techniques
+- Importing and Exporting Data to and from SQL
+- SQL's relationship to the Machine Learning Pipeline
+- Data Stewardship, Ethics, and SQL in the Wild
 
 ### Github Repo
 
@@ -198,10 +225,10 @@ class: left, top, inverse
 # Course Content
 
 ### Homework (required)
-- Four homeworks total
+- Six homeworks total
 - At the end of each SQL module, I will provide you with 3-10 queries to write on your own
   - Covers the topics of the modules
-- Review answers in Tutorials with Ananya
+- Review answers in Tutorials with Ananya and Vishnou
   - I may go over one or two queries at the start of class if desired
 - Designed to be relatively easy
   - Reaffirms what we wrote together
@@ -217,11 +244,11 @@ class: left, top, inverse
 
 - Pass/Fail. Do the work, pass the course :) 
 
-- One Assignment: Data Model Design, 50%, due one week from today (Jan 17)
+- One Assignment: Data Model Design, 40%, due March 23
 
-- Homework: 40% (10% each), due the day after each module
+- Homework: 48% (8% each), due on Thursdays and Saturdays
 
-- Class Attendance: 10%
+- Class Attendance: 12% (2% each)
   - Let Ananya or myself know if you are unable to attend a lesson
   - Code along!! Best way to learn.
 
@@ -1050,7 +1077,7 @@ class: top, left, inverse
   - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
   - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
   - market_date (date) is the PK for vendor_inventory
-      - **why? Think, Pair, Share**
+      - **why?** 💭💬**Think, Pair, Share**
 
 ]
 
@@ -1090,7 +1117,7 @@ class: top, left, inverse
 **Q1)**
 Create a logical model for a small bookstore. 📚
 
-At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/).
+At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/) or [Draw.io](https://www.drawio.com/).
 
 **Q2)**
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.

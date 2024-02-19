@@ -194,7 +194,7 @@ class: top, left, inverse
 --
 
 - Best practice suggests that we should explicitly call each column, even if we want all of them
- - **Why do we think this is the case?**
+ - **Why do we think this is the case?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
  
 ---
 
@@ -379,7 +379,7 @@ class: middle, center, inverse
 class: top, left, inverse
 # DISTINCT
 - Not all queries will result in unique rows (i.e. duplicates are present)
-  - **Can we think of why this is?**
+  - **Can we think of why this is? Write your thoughts in the etherpad!**
 
 <br>
 --
@@ -424,6 +424,8 @@ class: middle, center, inverse
 ## INNER JOIN
 
 ## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
 
 ## FULL OUTER JOIN
 
@@ -508,6 +510,8 @@ class: middle, center, inverse
 
 ## LEFT (OUTER) JOIN
 
+## RIGHT (OUTER) JOIN
+
 ## FULL OUTER JOIN
 
 ## Multiple Table Joins
@@ -559,6 +563,8 @@ class: middle, center, inverse
 
 ## **LEFT (OUTER) JOIN**
 
+## RIGHT (OUTER) JOIN
+
 ## FULL (OUTER) JOIN
 
 ## Multiple Table Joins
@@ -596,9 +602,31 @@ class: middle, center, inverse
 
 ## LEFT (OUTER) JOIN
 
+## **RIGHT (OUTER) JOIN**
+
 ## FULL (OUTER) JOIN
 
 ## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# RIGHT (OUTER) JOIN
+- `RIGHT JOIN` filters the "left" table to rows present in the "right" table
+- `RIGHT JOIN` will most often produce `NULL` values
+- The "OUTER" in `RIGHT OUTER JOIN` is optional
+  - Generally, OUTER seems to be excluded, but both are correct
+- `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
+  - Often your query can be reorganized to use a `LEFT JOIN` instead
+    - SQLite does not currently support `RIGHT JOIN`
+
+.center[ 
+<img src="imgs/right_join.png"
+     height="300px";>
+     
+<sup><sup> Image: Teate, Chapter 5 </sup></sup>
+]
+
 
 ---
 
@@ -608,6 +636,8 @@ class: middle, center, inverse
 ## INNER JOIN
 
 ## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
 
 ## **FULL (OUTER) JOIN**
 
@@ -650,6 +680,8 @@ class: middle, center, inverse
 ## INNER JOIN
 
 ## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
 
 ## FULL OUTER JOIN
 
