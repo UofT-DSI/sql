@@ -67,7 +67,7 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 ## Assignments
 
-Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive.
+Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive using lastname_firstname_SQL_HW#.
 
 | Assessment	|  Due Date | SQL | Weight |
 | --- | --- | --- | --- |
