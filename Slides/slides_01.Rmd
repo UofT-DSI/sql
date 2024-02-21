@@ -141,7 +141,7 @@ class: left, top, inverse
 # About Me
 .pull-left[
 - Undergrad from Paris-Saclay University in Applied Mathematics and Data Science
--Discovered SQL, Python and R in an academic setting, and played with them in the industry after.
+- Discovered SQL, Python and R in an academic setting, and played with them in the industry after.
 - A few internships in Machine Learning and Data Science:
   - Docugami (Incoming Research Scientist)
   - Ekimetrics (Data Scientist)

@@ -203,6 +203,18 @@ class: top, left, inverse
 
 (`SELECT` & `FROM` live coding)
 
+<br>
+<br>
+<br>
+
+.center[ 
+<img src="imgs/CAPS.png"
+     height="300px";>
+     
+<sup><sup><sup><sup> Image: Unknown meme creator </sup></sup></sup></sup>
+]
+
+
 ---
 
 class: middle, center, inverse
