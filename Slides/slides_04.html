@@ -34,6 +34,8 @@ class: center, middle, inverse, title-slide
 class: middle, center, inverse
 # Advanced Techniques:
 
+## NULL Management
+
 ## Windowed Functions
 
 ## String Manipulation
@@ -42,12 +44,125 @@ class: middle, center, inverse
 
 ## INTERSECT &amp; EXCEPT
 
-## Importing and Exporting Data
+---
+
+class: middle, center, inverse
+# Advanced Techniques:
+
+## **NULL Management**
+
+## Windowed Functions
+
+## String Manipulation
+
+## UNION &amp; UNION ALL
+
+## INTERSECT &amp; EXCEPT
+
+---
+
+class: middle, center, inverse
+# NULL Management
+
+## IFNULL and COALESCE
+
+## NULLIF
+
+---
+
+class: middle, center, inverse
+# NULL Management
+
+## **IFNULL and COALESCE**
+
+## NULLIF
+
+---
+
+class: left, upper, inverse
+
+# IFNULL/ISNULL (flavour dependent) and COALESCE
+- `IFNULL` (sqlite) or `ISNULL` (most others) allows us to return a replacement value for NULLs
+  - Replacement values can be another column, a calculated value, or static
+      - e.g. when col1 is NULL, it is replaced with values from col2
+          - values from col2 are only present if col1 is NULL
+          - if col2 is NULL, then NULL will be returned
+
+&lt;br&gt;
+--
+      
+- `COALESCE` does this as well, but behaves slightly differently
+  - `COALESCE` allows you to replace NULLs from replacement values themselves
+      - e.g. when col1 is NULL, it's replaced with col2; when col2 is NULL, it's replaced with col3, etc
+  - `IFNULL` has to be wrapped around another (set of) `IFNULL` function(s) in order to mimic this behaviour
+
+&lt;br&gt;
+--
+
+- Both are acceptable, `IFNULL` may be faster in some cases, though this isn't totally clear
+  - `IFNULL` is also less flexible for mixed data types 
+---
+
+class: left, upper, inverse
+
+# IFNULL/ISNULL (flavour dependent) and COALESCE
+
+(`IFNULL` &amp; `COALESCE` live coding)
+
+---
+
+class: middle, center, inverse
+# NULL Management
+
+## IFNULL
+
+## **NULLIF**
+
+---
+
+class: left, upper, inverse
+
+# NULLIF
+- `NULLIF` is a useful, although perhaps uncommon, means of evaluating if two arguments are equal to one another: 
+  - `NULLIF(5,5) AS [same], NULLIF(5,7) AS [different]`
+  - It can be generally viewed as equivalent to: 
+      - `CASE WHEN parameter_1 = parameter_2 THEN NULL ELSE expr1 END`
+
+&lt;br&gt;
+--
+
+- `NULLIF` is particularly useful when embedded within aggregations
+  - Consider checking whether employees received a bonus: 
+      - `SELECT COUNT(NULLIF(Bonus, 0)) FROM Employees`
+  - While these may also be possible within CASE statements, the readability is improved
+
+&lt;br&gt;
+--
+
+- Because it is NULL producing, it can be useful in combination with `COALESCE`
+  - Consider comparing average budgets from year to year: 
+      - `SELECT AVG(NULLIF(COALESCE(current_year, previous_year), 0.00)) FROM budgets`
+ 
+&lt;br&gt; 
+--
+
+- `NULLIF` can also help capture empty strings and turn them into NULLs
+  - `NULLIF(col_with_blanks,'')`
+
+---
+
+class: left, upper, inverse
+
+# NULLIF
+
+(`NULLIF` live coding)
 
 ---
 
 class: middle, center, inverse
 # Advanced Techniques:
+
+## NULL Management
 
 ## **Windowed Functions**
 
@@ -56,8 +171,6 @@ class: middle, center, inverse
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
-
-## Importing and Exporting Data
 
 ---
 
@@ -209,7 +322,7 @@ class: top, left, inverse
 --
 
 - `ROW_NUMBER()` might feel a bit like ranking `RANK()`...but it's not quite
-  - **What is the difference between `ROW_NUMBER()` and `RANK()`?**
+  - **What is the difference between `ROW_NUMBER()` and `RANK()`?** 💭💬**Think, Pair, Share**
 
 ---
 
@@ -265,6 +378,8 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Advanced Techniques:
 
+## NULL Management
+
 ## Windowed Functions
 
 ## **String Manipulation**
@@ -272,8 +387,6 @@ class: middle, center, inverse
 ## UNION &amp; UNION ALL
 
 ## INTERSECT &amp; EXCEPT
-
-## Importing and Exporting Data
 
 ---
 
@@ -545,7 +658,7 @@ class: upper, left, inverse
 
 - `INSTR` provides the starting position or location of a specified string
 - `INSTR('The instructor is named Thomas','Thomas')` will result in 25, because "Thomas" is the 25th through 30th character in our string
-  - `INSTR('ihe Instructor is named Thomas','Th')` will result in 1 because "Th" arises in "The" before "Thomas"
+  - `INSTR('The Instructor is named Thomas','Th')` will result in 1 because "Th" arises in "The" before "Thomas"
 
 &lt;br&gt;
 --
@@ -828,13 +941,16 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Advanced Techniques:
 
+## NULL Management
+
+## Windowed Functions
+
 ## String Manipulation
 
 ## **UNION &amp; UNION ALL**
 
 ## INTERSECT &amp; EXCEPT
 
-## Importing and Exporting Data
 
 ---
 
@@ -909,13 +1025,15 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Advanced Techniques:
 
+## NULL Management
+
+## Windowed Functions
+
 ## String Manipulation
 
 ## UNION &amp; UNION ALL
 
 ## **INTERSECT &amp; EXCEPT**
-
-## Importing and Exporting Data
 
 ---
 
@@ -1018,129 +1136,6 @@ class: top, left, inverse
 
 class: middle, center, inverse
 **Mentimeter: SPEED edition!**
----
-
-class: middle, center, inverse
-**What questions do you have?**
-
----
-
-class: middle, center, inverse
-# Importing and Exporting Data
-
-## Import &amp; Export
-
-## CSV
-
-
----
-
-class: middle, center, inverse
-# Importing and Exporting Data
-
-## **Import &amp; Export**
-
-## CSV
-
----
-
-class: top, left, inverse
-# Import &amp; Export
-- RDBMs allow data to flow into and out of them
-  - Some processes are easy:
-      - e.g. exporting a table as a CSV file
-  - ...while others are complex
-      - e.g. writing a CRM to a normalized data warehouse on a nightly basis
-
---
-
-- In DB Browser for SQLite, we can make use of the following:
-  - Import and export CSV files
-  - Manipulate and export JSON files
-- SQLite more broadly can:
-  - Produce CSVs from queries (using the command line, which we won't do)
-  - Connect to other programming languages
-
----
-
-class: middle, center, inverse
-# Importing and Exporting Data
-
-## Import &amp; Export
-
-## **CSV**
-
----
-
-class: top, left, inverse
-# CSV
-- CSV stands for "Comma Separated Values"
-- CSVs are file formats well designed to store SQL tables
-  - The values of each row are separated by commas
-      - Sometimes it makes more sense to use a "|" (pipe), if there is complex text data stored, which might be more sensitive to the presence of commas and/or line breaks
-
---
-
-- They are a common file format for transporting structured data 
-- CSVs can be opened by:
-  - Excel
-  - Simple text editors (e.g. notepad++, sublime)
-  - Programming languages (e.g. python, R)
-
-
----
-
-class: top, left, inverse
-# CSV
-
-DB Browser for SQLite natively supports CSV importing and exporting for tables:
-
-.center[ 
-&lt;img src="imgs/import_export_menu.png"
-     height="300px";&gt;
-]
-
-You can also export queries if they are stored in Temporary Tables
-
----
-
-class: top, left, inverse
-# CSV
-DB Browser for SQLite allows us to extract a query result in a somewhat roundabout method:
-- First, write a query
-```
-    SELECT * FROM product p
-    JOIN product_category pc ON p.product_category_id = pc.product_category_id
-```
---
-
-- Second, right click the results, and select "Copy as SQL"
-
---
-
-- Third, instantiate a table with `CREATE`
-```
-CREATE TABLE "example" ("product_id", "product_name", "product_size", 
-"product_category_id", "product_qty_type", "product_category_name") ;
-```
---
-
-- Fourth, paste the results from your clipboard
-```
-INSERT INTO "example" ("product_id", "product_name", "product_size", 
-"product_category_id", "product_qty_type", "product_category_name") 
-VALUES ('1', 'Habanero Peppers - Organic', 'medium', '1', 'lbs', 'Fresh Fruits &amp; Vegetables');
-...etc for each row
-```
-- Finally, export the table to CSV
-
-
----
-
-class: top, left, inverse
-#CSV
-
-(CSV live importing/exporting)
 
 ---
 class: middle, center, inverse
