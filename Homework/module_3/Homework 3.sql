@@ -32,21 +32,9 @@ VALUES(col1,col2,col3,col4,col5)
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
 and year are! */
 
--- COALESCE
-/* 1. Our favourite manager wants a detailed long list of products, but is afraid of tables! 
-We tell them, no problem! We can produce a list with all of the appropriate details. 
+/* 2. Using the previous query as a base, determine how much money each customer spent in April 2019. 
+Remember that money spent is quantity*cost_to_customer_per_qty. 
 
-Using the following syntax you create our super cool and not at all needy manager a list:
+HINTS: you will need to AGGREGATE, GROUP BY, and filter...
+but remember, STRFTIME returns a STRING for your WHERE statement!! */
 
-SELECT 
-product_name || ', ' || product_size|| ' (' || product_qty_type || ')'
-FROM product
-
-But wait! The product table has some bad data (a few NULL values). 
-Find the NULLs and then using COALESCE, replace the NULL with a 
-blank for the first problem, and 'unit' for the second problem. 
-
-HINT: keep the syntax the same, but edited the correct components with the string. 
-The `||` values concatenate the columns into strings. 
-Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
-All the other rows will remain the same.) */
