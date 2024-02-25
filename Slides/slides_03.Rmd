@@ -52,8 +52,6 @@ class: middle, center, inverse
 
 ## Datetime Functions
 
-## ISNULL
-
 ---
 
 class: middle, center, inverse
@@ -66,8 +64,6 @@ class: middle, center, inverse
 ## Temporary Tables & CTEs
 
 ## Datetime Functions
-
-## ISNULL
 
 ---
 
@@ -476,8 +472,6 @@ class: middle, center, inverse
 
 ## Datetime Functions
 
-## ISNULL
-
 ---
 
 class: top, left, inverse
@@ -532,8 +526,6 @@ class: middle, center, inverse
 
 ## Datetime Functions
 
-## ISNULL
-
 ---
 
 class: middle, center, inverse
@@ -577,7 +569,7 @@ class: top, left, inverse
 
 - Some older versions of SQL don't allow temporary tables
 - They are *fantastic placeholders*
-  - **What scenarios can we think of where a temporary table would be particularly useful?**
+  - **What scenarios can we think of where a temporary table would be particularly useful?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
 
 ---
 
@@ -651,8 +643,6 @@ class: middle, center, inverse
 ## Temporary Tables & CTEs
 
 ## **Datetime Functions**
-
-## ISNULL
 
 ---
 
@@ -866,58 +856,6 @@ class: left, upper, inverse
 - This syntax is also fairly unique to SQLite, but is conceptually the same, so briefly I will touch on `DATEDIFF`
   - Generally, we specify a datepart, startdate, and enddate
   
----
-
-class: middle, center, inverse
-**Questions of the Day?**
-
----
-
-class: middle, center, inverse
-# Essential Techniques:
-
-## Aggregation Functions
-
-## Subqueries
-
-## Temporary Tables & CTEs
-
-## Datetime Functions
-
-## **ISNULL**
-
----
-
-class: left, upper, inverse
-
-# ISNULL (and/or COALESCE, flavour dependent)
-- `ISNULL` allows us to return a replacement value for NULLs
-  - Replacement values can be another column, a calculated value, or static
-      - e.g. when col1 is NULL, it is replaced with values from col2
-          - values from col2 are only present if col1 is NULL
-          - if col2 is NULL, then NULL will be returned
-
-<br>
---
-      
-- `COALESCE` does this as well, but behaves slightly differently
-  - `COALESCE` allows you to replace NULLs from replacement values themselves
-      - e.g. when col1 is NULL, it's replaced with col2; when col2 is NULL, it's replaced with col3, etc
-  - `ISNULL` has to be wrapped around another (set of) `ISNULL` function(s) in order to mimic this behaviour
-
-<br>
---
-
-- Both are acceptable, `ISNULL` may be faster in some cases, though this isn't totally clear
-  - `ISNULL` is also less flexible for mixed data types 
----
-
-class: left, upper, inverse
-
-# ISNULL (and/or COALESCE, flavour dependent)
-
-(`ISNULL` & `COALESCE` live coding)
-
 ---
 
 class: middle, center, inverse
