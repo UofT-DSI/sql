@@ -4,7 +4,7 @@ SELECT DISTINCT cost_to_customer_per_qty, CAST(cost_to_customer_per_qty AS INT) 
 
 --requires loading the math module (math.dylib)
 ,power(cost_to_customer_per_qty,2)
-,power(2,2)
+,power(2,4)
 ,cos(90)
 ,pi()
 ,floor(10.5)
