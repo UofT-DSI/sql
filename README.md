@@ -40,7 +40,7 @@ By the end of the module, learners will:
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Delivery of Module
-The module will run sychronously twice a week on Zoom. The first two days are used as "lectures" and will last a maximum of 3 hours. During this time, the instructor will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, an instructor or TA will be present on Zoom to assist learners reach the intended learning outcomes.
+The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the instructor will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, an instructor or TA will be present on Zoom to assist learners reach the intended learning outcomes.
 
 **Tutorials**: sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
