@@ -3,15 +3,23 @@
 Welcome! The course was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
 
 ## Contents:
-1. [Description](https://github.com/UofT-DSI/02-intro_sql#description)
-2. [Course Contacts](https://github.com/UofT-DSI/02-intro_sql#course-contacts)
-3. [Learning Outcomes](https://github.com/UofT-DSI/02-intro_sql#learning-outcomes)
-4. [Design](https://github.com/UofT-DSI/02-intro_sql#design)
-5. [Expectations](https://github.com/UofT-DSI/02-intro_sql#expectations)
-6. [Policies](https://github.com/UofT-DSI/02-intro_sql#policies)
-7. [Schedule](https://github.com/UofT-DSI/02-intro_sql#schedule)
-8. [Folder Structure](https://github.com/UofT-DSI/02-intro_sql#folder-structure)
-9. [Acknowledgements](https://github.com/UofT-DSI/02-intro_sql#acknowledgements)
+
+* [Description](#description)
+* [Course Contacts](#course-contacts)
+* [Learning Outcomes](#learning-outcomes)
+* [Delivery of Module](#delivery-of-module)
+  + [How the Instructor will deliver](#how-the-instructor-will-deliver)
+* [Expectations](#expectations)
+* [Requirements](#requirements)
+* [Policies](#policies)
+* [Schedule (subject to change)](#schedule-subject-to-change)
+* [Assignments](#assignments)
+* [Resources](#resources)
+  + [Documents](#documents)
+  + [Videos](#videos)
+  + [How to get help](#how-to-get-help)
+* [Folder Structure](#folder-structure)
+* [Acknowledgements](#acknowledgements)
 
 ## Description
 
