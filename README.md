@@ -55,7 +55,7 @@ The module will run sychronously three times a week on Zoom. The first three day
 **Pedagogy**: This course will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the instructor before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
 ### How the Instructor will deliver
-The instructors will introduce the concepts through a collaborative live coding session usiing the Python notebooks found under `/slides`. All instructors will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
+The instructors will introduce the concepts through a collaborative live coding session using SQLite. All instructors will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
 
 ## Expectations
 The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
