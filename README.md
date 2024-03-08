@@ -114,7 +114,7 @@ Feel free to use the following as resources:
 - [SQLite Playlist](https://www.youtube.com/playlist?list=PLWENznQwkAoxww-cDEfIJ-uuPDfFwbeiJ)
 
 ### How to get help
-![image](/Steps%20to%20ask%20for%20help.png)
+![image](/steps-to-ask-for-help.png)
 
 <hr>
 
