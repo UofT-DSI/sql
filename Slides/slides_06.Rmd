@@ -167,7 +167,7 @@ class: left, top, inverse
 
 ### Pakistani Computerized National ID Card
 
-- **What values systems are embeddedd in databases and data systems you encounter in your day-to-day life?**
+- **What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
 
 --
 
