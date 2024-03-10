@@ -294,6 +294,60 @@ VALUES ('1', 'Habanero Peppers - Organic', 'medium', '1', 'lbs', 'Fresh Fruits &
 
 
 ---
+class: top, left, inverse
+# CSV
+
+We can also extract a query result to CSV with python:
+
+```
+import pandas as pd
+import sqlite3
+
+#set your location, slash direction will change for windows and mac
+DB = '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db' 
+
+#establish your connection
+conn = sqlite3.connect(DB, isolation_level=None,
+                       detect_types=sqlite3.PARSE_COLNAMES)
+                       
+#run your query, use "\" to allow line breaks
+db_df = pd.read_sql_query("SELECT p.*,pc.product_category_name \
+                          FROM product p \
+                          JOIN product_category pc \
+                             ON p.product_category_id = pc.product_category_id"
+                          ,conn)
+
+#save
+db_df.to_CSV('database-py.CSV', index=False)
+```
+
+---
+class: top, left, inverse
+# CSV
+
+...or extract with R instead:
+
+```
+library(DBI)
+library(RSQLite)
+
+#set your location, slash direction will change for windows and mac
+DB = '/Users/thomas/Documents/GitHub/DSI_SQL/SQL/FarmersMarket.db'
+
+#establish your connection
+conn &lt;- dbConnect(SQLite(), DB) 
+
+#run your query
+db_df &lt;- dbGetQuery(conn, "SELECT p.*,pc.product_category_name
+                          FROM product p
+                          JOIN product_category pc
+                            ON p.product_category_id = pc.product_category_id")
+
+#save
+write.CSV(db_df, file = "database-R.CSV")
+```
+
+---
 
 class: top, left, inverse
 #CSV
