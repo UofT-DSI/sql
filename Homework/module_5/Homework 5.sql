@@ -12,7 +12,7 @@ Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR w
 
 
 
-/* 2. FIlter the query to show any product_size value that contain a number with REGEXP. */
+/* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
 
 
 
