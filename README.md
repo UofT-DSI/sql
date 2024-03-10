@@ -62,7 +62,7 @@ The course is designed for both live-coding and corresponding slides. Students s
 | 2 | Wed, February 21 <br> 6 - 8:30 PM EST | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
 | 3 | Tues, February 27 <br> 6 - 8:30 PM EST | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
 | 4 | Wed, February 28 <br> 6 - 8:30 PM EST | Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
-| 5 | Tues, March 12 <br> 6 - 8:30 PM EST | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views | [Expanding your Database]() |
+| 5 | Tues, March 12 <br> 6 - 8:30 PM EST | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views | [Expanding your Database](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_05.pdf) |
 | 6 | Wed, March 13 <br> 6 - 8:30 PM AM EST | Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
 
 ## Assignments
