@@ -529,3 +529,9 @@ avg_mass <- sqldf('SELECT DISTINCT species, sex, AVG(body_mass_g) as avg_mass
 
 class: middle, center, inverse
 **What questions do you have about anything from today?**
+
+
+```{r echo=FALSE}
+#library(renderthis)
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/Slides/slides_06.Rmd")
+```
