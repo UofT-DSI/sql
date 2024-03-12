@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # CONFIGURATION
-folder_md="md/"
-folder_output="pdf/" # This will be used for both PDF and HTML
+folder_md="homework/"
+folder_output="../04-homework/" # This will be used for both PDF and HTML
 
 # Clear the screen for the splash screen
 clear
