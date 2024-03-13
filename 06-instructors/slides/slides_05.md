@@ -89,7 +89,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 ---
 
-### What questions do you have about INSERT UPDATE DELETE?
+# What questions do you have about INSERT UPDATE DELETE?
 
 ---
 
@@ -141,7 +141,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 DB Browser for SQLite natively supports CSV importing and exporting for tables:
 
-![bg right:50% w:500](../imgs/import_export_menu.png)
+![bg right:50% w:500](./images/import_export_menu.png)
 
 You can also export queries if they are stored in Temporary Tables
 
@@ -308,7 +308,7 @@ FROM (...{subquery goes here}...)
 
 - DB Browser for SQLite natively supports JSON exporting for tables 👉
 
-![bg right:50% w:500](../imgs/export_json.png)
+![bg right:50% w:500](./images/export_json.png)
 
 - This also works for Temporary Tables, so queries can be exported as well
 
@@ -357,7 +357,7 @@ FROM (...{subquery goes here}...)
 
 - I love to `CROSS JOIN`!
 - They can be super useful when used correctly 
-  - **What are some good examples that could be useful?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
+  - **What are some good examples that could be useful?** 💭 **Think, Pair, Share**
 
 ---
 
@@ -375,7 +375,7 @@ No complex query is complete without at least one `CROSS JOIN`
 
 
 
-### What questions do you have about CROSS JOIN?
+# What questions do you have about CROSS JOIN?
 
 ---
 
@@ -458,7 +458,7 @@ No complex query is complete without at least one `CROSS JOIN`
 
 - In commercial RDBMs, use execution plans and/or performance dashboards to analyze the underlying engine mechanisms the view uses for instantiation
 
-![bg right:50% w:500](../imgs/example_view_optimization.png)
+![bg right:50% w:500](./images/example_view_optimization.png)
 
 ---
 
@@ -470,4 +470,4 @@ No complex query is complete without at least one `CROSS JOIN`
 ---
 
 
-### What questions do you have about anything from today?
+# What questions do you have about anything from today?

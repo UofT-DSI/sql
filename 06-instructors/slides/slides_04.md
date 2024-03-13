@@ -83,7 +83,6 @@ Handling NULLs effectively:
 (`NULLIF` live coding)
 
 ---
-with the end if Null Management comes:
 
 # Windowed Functions
 
@@ -104,7 +103,7 @@ with the end if Null Management comes:
 - Allow for greater complexity than simple SQL 
   - In Module 3, we mentioned briefly a rolling total, e.g. a `SUM` and a `COUNT`; windowed functions allow us to return these types of results=
 
-![bg right:50% w:600](../imgs/subquery_rownumber.png)
+![bg right:50% w:600](./images/subquery_rownumber.png)
 - Image: Teate, Chapter 7 👉
 
 ---
@@ -151,7 +150,7 @@ with the end if Null Management comes:
   - e.g. life expectancy by country by continent 
 
 
-![](../imgs/wf_partitionby.png)
+![](./images/wf_partitionby.png)
 Image: SQLiteTutorial.net
 
 ---
@@ -180,7 +179,7 @@ Image: SQLiteTutorial.net
 
 - Knowing how and why to use these can make querying a lot easier
 
-![bg right:50% w:500](../imgs/wf_types.png)
+![bg right:50% w:500](./images/wf_types.png)
 Image: SQLiteTutorial.net 👉
 
 ---
@@ -339,7 +338,7 @@ Image: SQLiteTutorial.net 👉
 
 # SUBSTR ("substring")
 
-![bg right:50% w:500](../imgs/sqlite-substr-function.gif)
+![bg right:50% w:500](./images/sqlite-substr-function.gif)
      
 - Image: www.w3resource.com/sqlite/core-functions-substr.php 👉
 
@@ -537,13 +536,7 @@ class: top, left, inverse
 
 ---
 
-### What
-
-### Questions 
-
-### Do You have
-
-### ?
+# What Questions do you have?
 
 ---
 
@@ -633,4 +626,4 @@ Resulting in nothing (because no orders have a product_id that is not found in t
 
 ---
 
-### What questions do you have about anything from today?
+# What questions do you have about anything from today?

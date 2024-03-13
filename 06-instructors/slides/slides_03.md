@@ -100,8 +100,6 @@ For example, a query wanting to know the number of days in each month:
 |-----------|----------------------------|
 | 1         | 4                          |
 
-
-
 | vendor_id | count_of_products |
 |-----------|-------------------|
 | 1         | 7                 |
@@ -234,7 +232,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 
 ---
 
-### What questions do you have about Aggregations?
+# What questions do you have about Aggregations?
 
 ---
 
@@ -290,7 +288,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 
 - Some older versions of SQL don't allow temporary tables
 - They are *fantastic placeholders*
-  - **What scenarios can we think of where a temporary table would be particularly useful?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
+  - **What scenarios can we think of where a temporary table would be particularly useful?** 💭 **Think, Pair, Share**
 
 ---
 
@@ -420,7 +418,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-      - e.g., months until summer `r structure("\U1F3D6", class = "emoji")` `SELECT STRFTIME('%m','2024-06-21') - STRFTIME('%m','NOW')` 
+      - e.g., months until summer 🏖️ 
 
 ---
 
@@ -435,4 +433,4 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
   
 ---
 
-### What questions do you have about anything from today?
+# What questions do you have about anything from today?
