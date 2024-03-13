@@ -37,7 +37,7 @@ Name the timestamp column `snapshot_timestamp`. */
 
 
 
-/*2. Using `INSERT`, add a new row to the table (with an updated timestamp). 
+/*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 
 
