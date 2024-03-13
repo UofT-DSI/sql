@@ -76,7 +76,7 @@ Grading is pass/fail. There is only one assignment and six short (but mandatory)
 | [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | Sat, February 24, by 11:59 PM EST | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 8% |
 | [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | Sat, March 2, by 11:59 PM EST | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 8% |
 | [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | Sat, March 2, by 11:59 PM EST | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 8% |
-| [Homework 5 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.pdf) | Thurs, March 14, by 11:59 PM EST | [Homework 5 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.sql) | 8% |
+| [Homework 5 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.pdf) | Sat, March 16, by 11:59 PM EST | [Homework 5 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.sql) | 8% |
 | [Homework 6 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_6/Homework%206.pdf) | Sat, March 16, by 11:59 PM EST | (╯°□°）╯︵ ┻━┻ | 8% |
 
 ## Folder Structure
