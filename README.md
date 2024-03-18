@@ -1,6 +1,4 @@
-# Data Storage and Access
-
-Welcome! The course was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
+# Data Storage and Access 
 
 ## Contents:
 1. [Description](https://github.com/UofT-DSI/02-intro_sql#description)
