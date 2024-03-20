@@ -2,8 +2,7 @@
 
 ## Assignment 1: Design a Logical Model
 - Please upload your completed assignments to Google Drive.
-- Due on Wednesday, March 23 at 11:59pm
-- Weight: 40% of total grade
+- Due on TBD
 
 ## Question 1
 Create a logical model for a small bookstore. 📚
