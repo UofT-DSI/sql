@@ -92,15 +92,15 @@ The course is designed for both live-coding and corresponding slides. Students s
 
 Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive using lastname_firstname_SQL_HW#.
 
-| Assessment	|  Due Date | SQL | Weight |
-| --- | --- | --- | --- |
-| [Assignment 1](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20-%20Design%20a%20Logical%20Model.pdf) | TBA | [Rubric](https://github.com/UofT-DSI/02-sql/blob/main/Assignments/Assignment%201%20Rubric.pdf) | 40% |
-| [Homework 1 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_1/Homework%201.pdf) | TBA |  ¯\\\_(ツ)_/¯ | 8% |
-| [Homework 2 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.pdf) | TBA | [Homework 2 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_2/Homework%202.sql) | 8% |
-| [Homework 3 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.pdf) | TBA | [Homework 3 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_3/Homework%203.sql) | 8% |
-| [Homework 4 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.pdf) | TBA | [Homework 4 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_4/Homework%204.sql) | 8% |
-| [Homework 5 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.pdf) | TBA | [Homework 5 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_5/Homework%205.sql) | 8% |
-| [Homework 6 PDF](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_/Homework%206.pdf) | TBA | [Homework 6 SQL](https://github.com/UofT-DSI/02-sql/blob/main/Homework/module_6/Homework%206.sql) | 8% |
+| Assessment	|  Due Date | SQL |
+| --- | --- | --- |
+| Assignment 1   | TBA |                |
+| Homework 1 PDF | TBA |  ¯\\\_(ツ)_/¯  |
+| Homework 2 PDF | TBA | Homework 2 SQL |
+| Homework 3 PDF | TBA | Homework 3 SQL |
+| Homework 4 PDF | TBA | Homework 4 SQL |
+| Homework 5 PDF | TBA | Homework 5 SQL |
+| Homework 6 PDF | TBA | Homework 6 SQL |
 
 ## Resources
 Feel free to use the following as resources:

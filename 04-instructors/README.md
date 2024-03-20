@@ -19,17 +19,17 @@ The `/03-homework` directory contains all the homework, a learner can do to demo
 
 | Lecture | Topic | Slides |
 | --- | --- | --- |
-| 1 | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_01.pdf) |
-| 2 | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_02.pdf) |
-| 3 | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions | [Essential Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_03.pdf)|
+| 1 | Introduction, Data Modelling, Schema Design, Data Structures | Introduction |
+| 2 | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | Building Queries |
+| 3 | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions | Essential Techniques|
 
 ### Week 2
 
 | Lecture | Topic | Slides |
 | --- | --- | --- |
-| 4 | Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](https://github.com/UofT-DSI/02-sql/blob/main/PDFs/slides_04.pdf) |
-| 5 | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views | [Expanding your Database]() |
-| 6 | Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
+| 4 | Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT | Advanced Techniques |
+| 5 | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views | Expanding your Database |
+| 6 | Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | Beyond SQL |
 
 #### Assignment
 The assignment for this week is to have learners find the secret password by navigating directories and files!
