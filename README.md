@@ -2,7 +2,7 @@
 
 Welcome! The course was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
 
-## Contents:
+## Content
 
 * [Description](#description)
 * [Course Contacts](#course-contacts)
