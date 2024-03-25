@@ -1,11 +1,11 @@
 # Data Storage and Access
 
-Welcome! The course was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
+Welcome! The module was created for the University of Toronto's Data Sciences Institute. It has been designed for individuals with no prior expertise in data science, empowering learners to thrive in today's data-driven world. 
 
 ## Content
 
 * [Description](#description)
-* [Course Contacts](#course-contacts)
+* [Module Contacts](#module-contacts)
 * [Learning Outcomes](#learning-outcomes)
 * [Delivery of Module](#delivery-of-module)
   + [How the Instructor will deliver](#how-the-instructor-will-deliver)
@@ -23,11 +23,11 @@ Welcome! The course was created for the University of Toronto's Data Sciences In
 
 ## Description
 
-SQL is used across the machine learning pipeline, and a fundamental skill for data scientists to master. This course will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, it will examine common data management concerns, data access management, and data privacy adherence.
+SQL is used across the machine learning pipeline, and a fundamental skill for data scientists to master. This module will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, it will examine common data management concerns, data access management, and data privacy adherence.
 
-Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the course is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire course, students will learn how to problem solve through live coding. 
+Learners are first introduced to data modelling and how to think about the structure of databases. The majority of the module is devoted learning the necessary commands and their syntax to properly extract information from database. Throughout the entire module, students will learn how to problem solve through live coding. 
 
-## Course Contacts
+## Module Contacts
 
 **Questions can be submitted to the #questions channel on Slack**
 
@@ -52,13 +52,13 @@ The module will run sychronously three times a week on Zoom. The first three day
 
 **Tutorials**: sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
-**Pedagogy**: This course will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the instructor before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
+**Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the instructor before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
 ### How the Instructor will deliver
 The instructors will introduce the concepts through a collaborative live coding session using SQLite. All instructors will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
 
 ## Expectations
-The course is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
+The module is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ## Requirements
 * Learners are not expected to have any coding experience, we designed the learning contents for beginners.
@@ -70,8 +70,8 @@ The course is designed for both live-coding and corresponding slides. Students s
 * Camera is optional although highly encouraged. We understand that not everyone may have the space at home to have the camera on.
 
 ## Policies
-* **Accessibility:** We want to provide an accessible learning environment for all. If there is something we can do to make this course more accessible to you, please let us know.
-* **Course communications:** Communications take place over email or on Slack. If communicating over email, please include "DSI-SQL" or similar in the subject line, e.g. "DSI-SQL: CTE question"
+* **Accessibility:** We want to provide an accessible learning environment for all. If there is something we can do to make this module more accessible to you, please let us know.
+* **Module communications:** Communications take place over email or on Slack. If communicating over email, please include "DSI-SQL" or similar in the subject line, e.g. "DSI-SQL: CTE question"
 * **Camera:** Keeping your camera on is optional.
 * **Microphone:** Please keep microphones muted unless you need to speak. Please indicate your name before speaking as some Zoom configurations make it hard to tell who is talking!
 * **Assessment:** There will be homework which **is not** graded, but highly recommended, and there will be two assignments which **are** graded.
@@ -130,7 +130,7 @@ Feel free to use the following as resources:
 |-- .gitignore
 ```
 
-* **Slides:** Slides were built in R with `xaringan`. Output files are HTML.
+* **Slides:** Slides were built in markdown. Output files are HTML.
 * **PDFs:** PDF version of slides, using `renderme`. Some minor differences may exist.
 * **SQL:** FarmersMarket.db, in-class SQL codes.
 * **Data:** Data (csv, json, etc) we'll use for importing.
