@@ -8,7 +8,7 @@ Welcome! The module was created for the University of Toronto's Data Sciences In
 * [Module Contacts](#module-contacts)
 * [Learning Outcomes](#learning-outcomes)
 * [Delivery of Module](#delivery-of-module)
-  + [How the Instructor will deliver](#how-the-instructor-will-deliver)
+  + [How the Technical Facilitator will deliver](#how-the-technical-facilitator-will-deliver)
 * [Expectations](#expectations)
 * [Requirements](#requirements)
 * [Policies](#policies)
@@ -31,8 +31,8 @@ Learners are first introduced to data modelling and how to think about the struc
 
 **Questions can be submitted to the #questions channel on Slack**
 
-* Instructor: **{Name}** {Pronouns}. Emails to the instructor can be sent to {first_name.last_name}@mail.utoronto.ca.
-* TA: **{Name}** {Pronouns}. Emails to the instructor can be sent to {first_name.last_name}@mail.utoronto.ca.
+* Technical Facilitator: **{Name}** {Pronouns}. Emails to the Technical Facilitator can be sent to {first_name.last_name}@mail.utoronto.ca.
+* Learning Support Staff: **{Name}** {Pronouns}. Emails to the Technical Facilitator can be sent to {first_name.last_name}@mail.utoronto.ca.
 
 ## Learning Outcomes
 By the end of the module, learners will:
@@ -48,14 +48,14 @@ By the end of the module, learners will:
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Delivery of Module
-The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the instructor will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, an instructor or TA will be present on Zoom to assist learners reach the intended learning outcomes.
+The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the Technical Facilitator will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, an Technical Facilitator or TA will be present on Zoom to assist learners reach the intended learning outcomes.
 
 **Tutorials**: sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
-**Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the instructor before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
+**Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
-### How the Instructor will deliver
-The instructors will introduce the concepts through a collaborative live coding session using SQLite. All instructors will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
+### How the Technical Facilitator will deliver
+The Technical Facilitators will introduce the concepts through a collaborative live coding session using SQLite. All Technical Facilitators will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
 
 ## Expectations
 The module is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
@@ -121,13 +121,16 @@ Feel free to use the following as resources:
 ## Folder Structure
 
 ```markdown
-|-- 01-slides
-|-- 02-assignments
-|-- 03-homework
-|-- 04-instructors
-|-- 05-sql
-|-- 06-data
-|-- .gitignore
+.
+├── 01-slides
+├── 02-assignments
+├── 03-homework
+├── 04-instructors
+├── 05-data
+├── 06-sql
+├── LICENSE
+├── README.md
+└── steps-to-ask-for-help.png
 ```
 
 * **Slides:** Slides were built in markdown. Output files are HTML.
@@ -136,9 +139,9 @@ Feel free to use the following as resources:
 * **Data:** Data (csv, json, etc) we'll use for importing.
 * **Homework:** Homework to be done after each module.
 * **Assignments:** Rubrics and assignment details.
-* **instructors:** Instructions for the Instructor on what to teach
+* **Instructors:** Instructions for the Technical Facilitator on what to teach
 * README: This file!
-* .gitignore: Files to exclude from this folder, specified by the instructor
+* .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
 
 ## Acknowledgements
 
