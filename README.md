@@ -112,7 +112,7 @@ Feel free to use the following as resources:
 - [SQLite Playlist](https://www.youtube.com/playlist?list=PLWENznQwkAoxww-cDEfIJ-uuPDfFwbeiJ)
 
 ### How to get help
-![image](/steps-to-ask-for-help.png)
+![image](/steps_to_ask_for_help.png)
 
 <hr>
 
@@ -128,7 +128,7 @@ Feel free to use the following as resources:
 ├── 06-sql
 ├── LICENSE
 ├── README.md
-└── steps-to-ask-for-help.png
+└── steps_to_ask_for_help.png
 ```
 
 * **Slides:** Slides were built in markdown. Output files are HTML.
