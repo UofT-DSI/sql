@@ -53,10 +53,10 @@ The module will run sychronously three times a week on Zoom. The first three day
 **Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
 ### How the Technical Facilitator will deliver
-The Technical Facilitators will introduce the concepts through a collaborative live coding session using SQLite. All Technical Facilitators will also upload any live coding files to this repository for any learners to revisit under `/live-code`.
+The Technical Facilitators will introduce the concepts through a collaborative live coding session using SQLite. All Technical Facilitators will also upload any live coding files to this repository for any learners to revisit under `/live_code`.
 
 ## Expectations
-The module is designed for both live-coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
+The module is designed for both live_coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ## Requirements
 * Learners are not expected to have any coding experience, we designed the learning contents for beginners.
@@ -120,9 +120,9 @@ Feel free to use the following as resources:
 
 ```markdown
 .
-├── 01-slides
-├── 02-assignments
-├── 03-homework
+├── 01_slides
+├── 02_assignments
+├── 03_homework
 ├── 04-instructors
 ├── 05-data
 ├── 06-sql

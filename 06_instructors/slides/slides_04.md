@@ -73,13 +73,6 @@ Handling NULLs effectively:
 - Because it is NULL producing, it can be useful in combination with `COALESCE`
   - Consider comparing average budgets from year to year: 
       - `SELECT AVG(COALESCE(NULLIF(current_year, previous_year), 0.00)) FROM budgets`
-<<<<<<< HEAD:Slides/slides_04.Rmd
- 
-<br> 
---
-
-=======
->>>>>>> c0deacf (parent 36b9a5df9693ab7f335f5b6063f5ea71572c9e17):06-instructors/slides/slides_04.md
 - `NULLIF` can also help capture empty strings and turn them into NULLs
   - `NULLIF(col_with_blanks,'')`
 
@@ -345,7 +338,7 @@ Image: SQLiteTutorial.net 👉
 
 # SUBSTR ("substring")
 
-![bg right:50% w:500](./images/sqlite-substr-function.gif)
+![bg right:50% w:500](./images/sqlite_substr_function.gif)
      
 - Image: www.w3resource.com/sqlite/core-functions-substr.php 👉
 

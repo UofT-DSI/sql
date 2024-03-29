@@ -2,7 +2,7 @@
 
 # CONFIGURATION
 folder_md="./slides/"
-folder_output="../01-slides/" # This will be used for both PDF and HTML
+folder_output="../01_slides/" # This will be used for both PDF and HTML
 
 # Clear the screen for the splash screen
 clear
