@@ -29,8 +29,12 @@ Learners are first introduced to data modelling and how to think about the struc
 
 **Questions can be submitted to the #questions channel on Slack**
 
-* Technical Facilitator: **{Name}** {Pronouns}. Emails to the Technical Facilitator can be sent to {first_name.last_name}@mail.utoronto.ca.
-* Learning Support Staff: **{Name}** {Pronouns}. Emails to the Technical Facilitator can be sent to {first_name.last_name}@mail.utoronto.ca.
+* Technical Facilitator: 
+  * name and pronouns: `<Name>`, `<Pronouns>` 
+  * email: `<first_name.last_name@mail.ca>`
+* Learning Support Staff: 
+  * name and pronouns: `<Name>`, `<Pronouns>` 
+  * email: `<first_name.last_name@mail.ca>`
 
 ## Learning Outcomes
 By the end of the module, learners will:
@@ -46,9 +50,9 @@ By the end of the module, learners will:
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Delivery of Module
-The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the Technical Facilitator will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, an Technical Facilitator or TA will be present on Zoom to assist learners reach the intended learning outcomes.
+The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the Technical Facilitator will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, a Technical Facilitator or Learning Support will be present on Zoom to assist learners reach the intended learning outcomes.
 
-**Tutorials**: sessions with both TAs will also be offered over Zoom. These will take place 30 minutes before and after each session.  
+**Tutorials**: sessions with the Learning Support staff will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
 **Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
@@ -123,9 +127,9 @@ Feel free to use the following as resources:
 ├── 01_slides
 ├── 02_assignments
 ├── 03_homework
-├── 04-instructors
-├── 05-data
-├── 06-sql
+├── 04_data
+├── 05_sql
+├── 06_instructors
 ├── LICENSE
 ├── README.md
 └── steps_to_ask_for_help.png
@@ -143,4 +147,4 @@ Feel free to use the following as resources:
 
 ## Acknowledgements
 
-First slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A Mahfouz](https://github.com/amfz) and [Lorena Almaraz](https://github.com/lalmaraz). Slides have been created and modified by [Thomas](https://github.com/mrpotatocode) in 2022, 2023, and 2024.
+First slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A Mahfouz](https://github.com/amfz) and [Lorena Almaraz](https://github.com/lalmaraz). Slides have been created and modified by [Thomas](https://github.com/mrpotatocode) in 2022, 2023, and 2024. Repos updated by [Raymond Chung](https://github.com/rchung95) and [Daniel Razavi](https://github.com/danielrazavi) in 2024.
