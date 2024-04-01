@@ -141,7 +141,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 DB Browser for SQLite natively supports CSV importing and exporting for tables:
 
-![bg right:50% w:500](./images/import_export_menu.png)
+![bg right:50% w:500](./images/05_import_export_menu.png)
 
 You can also export queries if they are stored in Temporary Tables
 
@@ -308,7 +308,7 @@ FROM (...{subquery goes here}...)
 
 - DB Browser for SQLite natively supports JSON exporting for tables 👉
 
-![bg right:50% w:500](./images/export_json.png)
+![bg right:50% w:500](./images/05_export_json.png)
 
 - This also works for Temporary Tables, so queries can be exported as well
 
@@ -458,7 +458,7 @@ No complex query is complete without at least one `CROSS JOIN`
 
 - In commercial RDBMs, use execution plans and/or performance dashboards to analyze the underlying engine mechanisms the view uses for instantiation
 
-![bg right:50% w:500](./images/example_view_optimization.png)
+![bg right:50% w:500](./images/05_example_view_optimization.png)
 
 ---
 

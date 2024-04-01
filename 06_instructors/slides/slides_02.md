@@ -355,7 +355,7 @@ A couple of notes:
 - `INNER JOIN` is the "default" join
   - i.e. queries do not need to specify "INNER", though it's good practice to write INNER 
 
-![bg right:50% w:500](./images/inner_join.png)
+![bg right:50% w:500](./images/02_inner_join.png)
 
 ---
 
@@ -386,7 +386,7 @@ A quick note on table aliasing:
   - Generally, OUTER seems to be excluded, but both are correct
 - LEFT _is not_ optional; there is no "OUTER JOIN"
 
-![bg right:50% w:500](./images/left_join.png)
+![bg right:50% w:500](./images/02_left_join.png)
 
 ---
 
@@ -402,7 +402,7 @@ A quick note on table aliasing:
 - The "OUTER" in `RIGHT OUTER JOIN` is optional
   - Generally, OUTER seems to be excluded, but both are correct
 
-![bg right:40% w:500](./images/right_join.png)
+![bg right:40% w:500](./images/02_right_join.png)
      
 Source: Image: Teate, Chapter 5
 
@@ -413,7 +413,7 @@ Source: Image: Teate, Chapter 5
   - Often your query can be reorganized to use a `LEFT JOIN` instead
     - SQLite does not currently support `RIGHT JOIN`
 
-![bg right:40% w:500](./images/right_join.png)
+![bg right:40% w:500](./images/02_right_join.png)
      
 Source: Image: Teate, Chapter 5
 

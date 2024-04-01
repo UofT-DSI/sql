@@ -35,7 +35,7 @@ $ echo "Data Sciences Institute"
 - Currently working on Data Governance and Ethics at Thomson Reuters
 - **_Have a 2 year old Samoyed named Alto who takes up a lot ofmy free time 👉_**
 
-![bg right:40% w:350](./images/dorky_alto.jpeg)
+![bg right:40% w:350](./images/01_dorky_alto.jpeg)
 
 ---
 
@@ -47,7 +47,7 @@ $ echo "Data Sciences Institute"
 - Former Women in Computer Science president at UofT
 - Involved with Toronto Wxmen in Data Science and RWomen at RBC
 
-![bg right:35% w:350](./images/DSC00461.png)
+![bg right:35% w:350](./images/01_DSC00461.png)
 
 ---
 
@@ -62,7 +62,7 @@ $ echo "Data Sciences Institute"
 - Considering PhD for professorship
 - Hobbies: guitar, saxophone, bass in music bands 🎸🎷
 
-![bg right:35% w:350](./images/photo_5963.png)
+![bg right:35% w:350](./images/01_photo_5963.png)
 
 ---
 
@@ -114,7 +114,7 @@ $ echo "Data Sciences Institute"
   - Complex ETL or tooling
 
 
-![bg right:35% w:400](images/sql.png)
+![bg right:35% w:400](images/01_sql.png)
 
 ---
 
@@ -693,7 +693,7 @@ We'd create additional Many-to-Many relationships if we created a course table, 
 
 ---
 
-![bg w:1000 ](images/farmers_market_cm.png)
+![bg w:1000 ](images/01_farmers_market_cm.png)
      
 ---
 
@@ -717,7 +717,7 @@ We'd create additional Many-to-Many relationships if we created a course table, 
 
 ---
 
-![bg w:700](images/farmers_market_lm.png)
+![bg w:700](images/01_farmers_market_lm.png)
 
 ---
 
@@ -734,7 +734,7 @@ We'd create additional Many-to-Many relationships if we created a course table, 
 ---
 
 
-![bg w:1000](images/farmers_market_pm.png)
+![bg w:1000](images/01_farmers_market_pm.png)
 
 
 ---
