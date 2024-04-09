@@ -1,4 +1,4 @@
-# Data Storage and Access 
+# SQL
 
 ## Content
 
@@ -50,19 +50,21 @@ By the end of the module, learners will:
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Delivery of Module
+
 The module will run sychronously three times a week on Zoom. The first three days are used as "lectures" and will last a maximum of 3 hours. During this time, the Technical Facilitator will introduce the concepts for the week. The last two days are used for as optional, asychronous work periods. The work periods will also last for up to 3 hours. During these two days, a Technical Facilitator or Learning Support will be present on Zoom to assist learners reach the intended learning outcomes.
 
 **Tutorials**: sessions with the Learning Support staff will also be offered over Zoom. These will take place 30 minutes before and after each session.  
 
 **Pedagogy**: This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
-### How the Technical Facilitator will deliver
-The Technical Facilitators will introduce the concepts through a collaborative live coding session using SQLite. All Technical Facilitators will also upload any live coding files to this repository for any learners to revisit under `/live_code`.
+The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for any learners to revisit under `/live_code`.
 
 ## Expectations
-The module is designed for both live_coding and corresponding slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
+
+The module is designed for both live coding and slides. Students should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Students are encouraged to ask questions throughout. 
 
 ## Requirements
+
 * Learners are not expected to have any coding experience, we designed the learning contents for beginners.
 * Learners are encouraged to ask questions, and collaborate with others to enhance learning.
 * Learners must have a computer and an internet connection to participate in online activities.
@@ -72,6 +74,7 @@ The module is designed for both live_coding and corresponding slides. Students s
 * Camera is optional although highly encouraged. We understand that not everyone may have the space at home to have the camera on.
 
 ## Policies
+
 * **Accessibility:** We want to provide an accessible learning environment for all. If there is something we can do to make this module more accessible to you, please let us know.
 * **Module communications:** Communications take place over email or on Slack. If communicating over email, please include "DSI-SQL" or similar in the subject line, e.g. "DSI-SQL: CTE question"
 * **Camera:** Keeping your camera on is optional.
@@ -92,17 +95,10 @@ The module is designed for both live_coding and corresponding slides. Students s
 
 ## Assignments
 
-Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade. Submit via your Google Drive using lastname_firstname_SQL_HW#.
+Grading is pass/fail. There is only one assignment and six short (but mandatory) homeworks. Class Participation is 12% of the final grade.
 
-| Assessment	|  Due Date | SQL |
-| --- | --- | --- |
-| Assignment 1   | TBA |                |
-| Homework 1 PDF | TBA |  ¯\\\_(ツ)_/¯  |
-| Homework 2 PDF | TBA | Homework 2 SQL |
-| Homework 3 PDF | TBA | Homework 3 SQL |
-| Homework 4 PDF | TBA | Homework 4 SQL |
-| Homework 5 PDF | TBA | Homework 5 SQL |
-| Homework 6 PDF | TBA | Homework 6 SQL |
+1. [Design a Logical Model](https://github.com/UofT-DSI/sql/blob/main/02_assignments/design_a_logical_model.md)
+
 
 ## Resources
 Feel free to use the following as resources:
@@ -144,7 +140,3 @@ Feel free to use the following as resources:
 * **Instructors:** Instructions for the Technical Facilitator on what to teach
 * README: This file!
 * .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
-
-## Acknowledgements
-
-First slides were originally developed by [Faria Khandaker](https://fariak.ca) and [Paul Hodgetts](https://hodgettsp.com) under the supervision of [Rohan Alexander](https://rohanalexander.com). Great suggestions were made by [A Mahfouz](https://github.com/amfz) and [Lorena Almaraz](https://github.com/lalmaraz). Slides have been created and modified by [Thomas](https://github.com/mrpotatocode) in 2022, 2023, and 2024. Repos updated by [Raymond Chung](https://github.com/rchung95) and [Daniel Razavi](https://github.com/danielrazavi) in 2024.
