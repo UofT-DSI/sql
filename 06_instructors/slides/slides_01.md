@@ -84,7 +84,7 @@ $ echo "Data Sciences Institute"
 
 # GitHub Repo
 
-[https://github.com/UofT-DSI/02-intro_sql](https://github.com/UofT-DSI/02-intro_sql)
+[https://github.com/UofT-DSI/sql](https://github.com/UofT-DSI/sql)
 
 - Schedule
 - These slides (HTML & PDF)
@@ -92,7 +92,7 @@ $ echo "Data Sciences Institute"
 - All in-class code
 - Homework (and answers, posted afterwards)
 - Assignment details and rubrics
-- Policies, due dates, etc
+- Due Dates
 
 ---
 

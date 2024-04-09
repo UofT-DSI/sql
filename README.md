@@ -9,7 +9,6 @@
   + [How the Technical Facilitator will deliver](#how-the-technical-facilitator-will-deliver)
 * [Expectations](#expectations)
 * [Requirements](#requirements)
-* [Policies](#policies)
 * [Schedule (subject to change)](#schedule-subject-to-change)
 * [Assignments](#assignments)
 * [Resources](#resources)
@@ -72,14 +71,6 @@ The module is designed for both live coding and slides. Students should follow a
 * Learners must not use generative AI such as ChatGPT to generate code in order to complete assignments. It should be use as a supportive tool to seek out answers to questions you may have.
 * We expect learners to have completed the [onboarding repo](https://github.com/UofT-DSI/Onboarding/tree/tech-onboarding-docs).
 * Camera is optional although highly encouraged. We understand that not everyone may have the space at home to have the camera on.
-
-## Policies
-
-* **Accessibility:** We want to provide an accessible learning environment for all. If there is something we can do to make this module more accessible to you, please let us know.
-* **Module communications:** Communications take place over email or on Slack. If communicating over email, please include "DSI-SQL" or similar in the subject line, e.g. "DSI-SQL: CTE question"
-* **Camera:** Keeping your camera on is optional.
-* **Microphone:** Please keep microphones muted unless you need to speak. Please indicate your name before speaking as some Zoom configurations make it hard to tell who is talking!
-* **Assessment:** There will be homework which **is not** graded, but highly recommended, and there will be two assignments which **are** graded.
 
 ## Schedule (subject to change)
 
