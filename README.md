@@ -77,6 +77,8 @@ Before First Live Learning Session: Install & Pre-Session [Setup](https://github
 |---|---|---|---|---|---|
 |Week 2|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT  |Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views   |Live Learning Session 6 Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild |Work Period 1|Work Period 2|
 
+The schedule above will shift to accommodate a case study during Live Learning Session 3 in Week 2
+
 ## Requirements
 
 * Participants are not expected to have any coding experience; the learning content has been designed for beginners.
