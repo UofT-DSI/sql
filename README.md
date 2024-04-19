@@ -67,7 +67,7 @@ Participants should follow along with the coding, interact with the study materi
 
 ## Schedule 
 
-Before First Live Learning Session: Install & Pre-Session [Setup](https://github.com/UofT-DSI/02-sql/blob/main/SQL/SQLite%20Setup.pdf)
+Before First Live Learning Session: Install & Pre-Session [Setup](https://github.com/UofT-DSI/sql/blob/main/05_sql/sqlite_setup/sqlite_setup.md)
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
