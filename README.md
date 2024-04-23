@@ -100,7 +100,7 @@ Feel free to use the following as resources:
 - [SQLite Playlist](https://www.youtube.com/playlist?list=PLWENznQwkAoxww-cDEfIJ-uuPDfFwbeiJ)
 
 ### How to get help
-![image](/steps_to_ask_for_help.png)
+![image](./steps_to_ask_for_help.png)
 
 <hr>
 
@@ -113,7 +113,7 @@ Feel free to use the following as resources:
 ├── 03_homework
 ├── 04_data
 ├── 05_sql
-├── 06_instructors
+├── 06_instructional_team
 ├── LICENSE
 ├── README.md
 └── steps_to_ask_for_help.png
