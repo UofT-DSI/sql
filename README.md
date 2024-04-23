@@ -113,7 +113,7 @@ Feel free to use the following as resources:
 ├── 03_homework
 ├── 04_data
 ├── 05_sql
-├── 06_instructional_team
+├── 06_instructors
 ├── LICENSE
 ├── README.md
 └── steps_to_ask_for_help.png
@@ -124,6 +124,6 @@ Feel free to use the following as resources:
 * **Data:** Data (csv, json, etc) we'll use for importing.
 * **Homework:** Homework to be done after each module.
 * **Assignments:** Assignments.
-* **Instructors:** This folder provides guidance for Technical Facilitators and the Learning Support team on teaching methodologies and content delivery.
+* **Instructors:** This folder guides Technical Facilitators and the Learning Support team on teaching methodologies and content delivery.
 * README: This file!
 * .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
