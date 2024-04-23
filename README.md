@@ -30,11 +30,14 @@ By the end of the module, participants will be able to:
 3. Use SQL querying and data manipulation techniques to formulate queries for diverse purposes.
 
 **Week 2:**
+
 4. Examine the legal framework around sharing data.
 5. Analyze data requirements and work with different stakeholders such as analysts and managers.
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Assignments
+
+Participants should review the [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md) for instructions on how to complete assignments in this module.
 
 There is one assignment and six mandatory homework exercises. Class Participation is considered in the evaluation of the  module. 
 
@@ -50,8 +53,6 @@ There is one assignment and six mandatory homework exercises. Class Participatio
 * Learning Support Staff: 
   * name and pronouns: `<Name>`, `<Pronouns>` 
   * email: `<first_name.last_name@mail.ca>`
-
-
 
 ## Delivery of the Learning Module
 
