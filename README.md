@@ -17,9 +17,9 @@
 
 ## Description
 
-SQL is used across the machine learning pipeline, and a fundamental skill for data scientists to master. This module will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, participants will examine common data management concerns, data access management, and data privacy adherence.
+SQL is used across the machine learning pipeline, and is a fundamental skill for data scientists to master. This module will focus on the technical skills needed for working with SQL, including flat-file datasets (JSON, CSV) ingestion, query design, and relational database management. Additionally, participants will examine common data management concerns, data access management, and data privacy adherence.
 
-Participants are introduced to data modelling and how to think about the structure of databases. The majority of the module is devoted to learning the necessary commands and their syntax to properly extract information from a database. Participants will learn how to problem solve through live coding. 
+Participants are introduced to data modelling and how to think about the structure of databases. The majority of the module is devoted to learning the necessary commands and their syntax to properly extract information from a database. Participants will learn how to problem-solve through live coding. 
 
 ## Learning Outcomes
 By the end of the module, participants will be able to:
@@ -27,12 +27,12 @@ By the end of the module, participants will be able to:
 **Week 1:**
 1. Describe the structure of a database.
 2. Use an export command to save and transport data in CSV and JSON file formats.
-3. Use SQL querying and data manipulation techniques to formulate queries for diverse purposes.
+3. Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
 
 **Week 2:**
 
 4. Examine the legal framework around sharing data.
-5. Analyze data requirements and work with different stakeholders such as analysts and managers.
+5. Analyze data requirements and work with diverse stakeholders such as analysts and managers.
 6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Assignments
