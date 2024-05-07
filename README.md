@@ -25,15 +25,15 @@ Participants are introduced to data modelling and how to think about the structu
 By the end of the module, participants will be able to:
 
 **Week 1:**
-1. Describe the structure of a database.
-2. Use an export command to save and transport data in CSV and JSON file formats.
-3. Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
+* Describe the structure of a database.
+* Use an export command to save and transport data in CSV and JSON file formats.
+* Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
 
 **Week 2:**
 
-4. Examine the legal framework around sharing data.
-5. Analyze data requirements and work with diverse stakeholders such as analysts and managers.
-6. Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
+* Examine the legal framework around sharing data.
+* Analyze data requirements and work with diverse stakeholders such as analysts and managers.
+* Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Assignments
 
