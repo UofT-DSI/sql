@@ -47,12 +47,18 @@ There is one assignment and six mandatory homework exercises. Class Participatio
 
 **Questions can be submitted to the #questions channel on Slack**
 
-* Technical Facilitator: 
-  * name and pronouns: `<Name>`, `<Pronouns>` 
-  * email: `<first_name.last_name@mail.ca>`
+* Technical Facilitator:   
+  * **Thomas Rosenthal** (he/him)  
+    [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
+
 * Learning Support Staff: 
-  * name and pronouns: `<Name>`, `<Pronouns>` 
-  * email: `<first_name.last_name@mail.ca>`
+  * **Amanda Ngd** (she/her)  
+  [waiyuamanda.ng@mail.utoronto.ca](mailto:waiyuamanda.ng@mail.utoronto.ca)
+  * **Ananya Jha** (she/her)  
+  [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
+  * **Sidra Bushra** (she/her)  
+  [sidrabushra@ymail.com](mailto:sidrabushra@ymail.com)
+
 
 ## Delivery of the Learning Module
 
