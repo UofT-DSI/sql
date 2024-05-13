@@ -52,7 +52,7 @@ There is one assignment and six mandatory homework exercises. Class Participatio
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
-  * **Amanda Ngd** (she/her)  
+  * **Amanda Ng** (she/her)  
   [waiyuamanda.ng@mail.utoronto.ca](mailto:waiyuamanda.ng@mail.utoronto.ca)
   * **Ananya Jha** (she/her)  
   [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
