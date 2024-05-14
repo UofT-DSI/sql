@@ -147,9 +147,9 @@ $ echo "Data Sciences Institute"
 
 - Pass/Fail. Do the work, pass the course :) 
 
-- One Assignment: Data Model Design, 40%, due May 25
+- One Assignment: Data Model Design, 40%, due June 1
 
-- Homework: 48% (8% each), due on Thursdays and Saturdays
+- Homework: 48% (8% each), due on Thursdays, Fridays, Saturdays
 
 - Class Attendance: 12% (2% each)
   - Let myself or course support know if you are unable to attend a lesson
