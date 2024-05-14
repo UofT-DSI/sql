@@ -1,7 +1,6 @@
 # Homework 2: Basic SQL 
 
-- Please upload your completed assignments to Google Drive.
--  	Due on Saturday, February 24 at 11:59pm
+-  	Due on Friday, May 17 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 
