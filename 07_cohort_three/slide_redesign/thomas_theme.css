@@ -1,0 +1,172 @@
+/* Theme: Thomas Theme */
+:root {
+    --color-background: #000000; /* Solid black background */
+    --color-text: #FFFFFF; /* White text */
+    --color-bold: #D53276; /* Pink color for bold text */
+    --color-code: #5F67B9; /* Blue color for code */
+    --color-link: #B07E1D; /* Yellow color for links */
+    --color-quote: #333333; /* Dark grey color for quote background */
+    --color-quote-border: #C9421F; /* Orange color for quote border */
+    --color-table-row: #272822; /* Dark greenish color for alternate table rows */
+
+    --font-family-sans-serif: 'Charter', Arial, sans-serif;
+    --font-size-base: 16px; /* Base font size for normal text */
+    --font-size-title: 40px; /* Larger font size for titles */
+    --line-height-base: 1.6; /* Line height for better readability */
+}
+
+section {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family-sans-serif);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Uncomment to center text: text-align: center; */
+
+    padding: 40px;
+}
+
+h1, h2, h3 {
+    font-size: var(--font-size-title);
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    padding-left: 20px;
+    color: var(--color-text);
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+code {
+    background-color: var(--color-background);
+    color: var(--color-code);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+strong {
+    color: var(--color-bold); /* Apply pink color to bold text */
+}
+
+a {
+    color: var(--color-link); /* Apply yellow color to links */
+    text-decoration: none; /* Removes underline from links */
+}
+
+blockquote {
+    background-color: var(--color-quote); /* Dark grey background for quotes */
+    border-left: 8px solid var(--color-quote-border);
+    padding: 15px;
+    margin: 20px 0;
+    color: var(--color-text);
+    text-align: left;
+}
+
+table {
+    width: 100%; /* Make the table width 100% of its container */
+    border-collapse: collapse; /* Ensures that borders between cells are merged */
+}
+
+th, td {
+    border: 1px solid #FFFFFF; /* White borders for table cells */
+    padding: 8px; /* Padding inside cells */
+    text-align: left; /* Align text to the left in cells */
+}
+
+tr:nth-child(odd) {
+    background-color: var(--color-table-row); /* Color every other row */
+}
+/* Theme: Thomas Theme */
+:root {
+  --color-background: #000000; /* Solid black background */
+  --color-text: #FFFFFF; /* White text */
+  --color-bold: #D53276; /* Pink color for bold text */
+  --color-code: #5F67B9; /* Blue color for code */
+  --color-link: #B07E1D; /* Yellow color for links */
+  --color-quote: #333333; /* Dark grey color for quote background */
+  --color-quote-border: #C9421F; /* Orange color for quote border */
+  --color-table-row: #272822; /* Dark greenish color for alternate table rows */
+
+  --font-family-sans-serif: 'Charter', Arial, sans-serif;
+  --font-size-base: 16px; /* Base font size for normal text */
+  --font-size-title: 40px; /* Larger font size for titles */
+  --line-height-base: 1.6; /* Line height for better readability */
+}
+
+section {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Uncomment to center text: text-align: center; */
+
+  padding: 40px;
+}
+
+h1, h2, h3 {
+  font-size: var(--font-size-title);
+  margin-bottom: 20px;
+}
+
+ul, ol {
+  padding-left: 20px;
+  color: var(--color-text);
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+code {
+  background-color: var(--color-background);
+  color: var(--color-code);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+strong {
+  color: var(--color-bold); /* Apply pink color to bold text */
+}
+
+a {
+  color: var(--color-link); /* Apply yellow color to links */
+  text-decoration: none; /* Removes underline from links */
+}
+
+blockquote {
+  background-color: var(--color-quote); /* Dark grey background for quotes */
+  border-left: 8px solid var(--color-quote-border);
+  padding: 15px;
+  margin: 20px 0;
+  color: var(--color-text);
+  text-align: left;
+}
+
+table {
+  width: 100%; /* Make the table width 100% of its container */
+  border-collapse: collapse; /* Ensures that borders between cells are merged */
+}
+
+th, td {
+  border: 1px solid #FFFFFF; /* White borders for table cells */
+  padding: 8px; /* Padding inside cells */
+  text-align: left; /* Align text to the left in cells */
+}
+
+tr:nth-child(odd) {
+  background-color: var(--color-table-row); /* Color every other row */
+}
