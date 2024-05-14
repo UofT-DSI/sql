@@ -96,7 +96,7 @@ class: left, top, inverse
   - Wanted to do less SQL, more R and python
   - SQL seemed like it was on its way out...NOPE, I was just wrong
 - Reluctant Data Scientist (*do we even need this model?*) 
-  - Currently doing Data Governance and Ethics implementation at Dataiku
+  - Currently doing AI Governance and Ethics implementation at Dataiku
 - Have a 2 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
 ]
 
