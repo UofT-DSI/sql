@@ -1,7 +1,6 @@
 # Homework 6: Reflecton
 
-- Please upload your completed assignments to Google Drive.
-- Due on Saturday, March 16, at 11:59pm
+- Due on Saturday, May 25, at 11:59pm
 - Weight: 8% of total grade
 
 <br>
