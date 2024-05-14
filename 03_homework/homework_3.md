@@ -1,7 +1,6 @@
 # Homework 3: Essential SQL
 
-- Please upload your completed assignments to Google Drive.
--  	Due on Thursday, February 29 at 11:59pm
+-  	Due on Saturday, May 17 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 
