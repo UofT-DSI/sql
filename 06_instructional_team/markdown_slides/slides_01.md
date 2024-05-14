@@ -43,7 +43,7 @@ $ echo "Data Sciences Institute"
 
 - UofT Computer Science and Statistics graduate, with minor in Mathematics
 - Co-op at Citi (Software Development) and BMO (Business Analytics)
-- RBC Capital Markets BSA using SQL for Salesforce CRM data, transitioning to Supervisory and Regulatory role soon
+- Machine Learning Engineering Intern at Shopify working on a Fine Tuned LLM for Product Taxonomy, previously RBC Capital Markets
 - Former Women in Computer Science president at UofT
 - Involved with Toronto Wxmen in Data Science and RWomen at RBC
 
