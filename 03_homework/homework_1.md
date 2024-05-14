@@ -1,7 +1,6 @@
 # Homework 1: farmersmarket.db
 
-- Please upload your completed assignments to Google Drive.
-- Due on Thursday, February 22, at 11:59pm
+- Due on Thursday, May 16, at 11:59pm
 - Weight: 8% of total grade
 
 ## Get to know the farmersmarket.db
