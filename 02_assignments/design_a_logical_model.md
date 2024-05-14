@@ -35,7 +35,7 @@ Your answer...
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 ### Submission Parameters:
-* Submission Due Date: `HH:MM AM/PM - DD/MM/YYYY`
+* Submission Due Date: `June 1, 2024`
 * The branch name for your repo should be: `model-design`
 * What to submit for this assignment:
     * This markdown (design_a_logical_model.md) should be populated.
