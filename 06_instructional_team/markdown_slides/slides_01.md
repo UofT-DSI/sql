@@ -207,7 +207,7 @@ For live coding:
 - SQL: Structured Query Language
   - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”
 - SQL is a _query_ language rather than a programming language
-  - Querying is closer to telling a computer *what you want*, rather than *what is has to do*
+  - Querying is closer to telling a computer *what you want*, rather than *what it has to do*
   - SQL code is often less reproducible than other programming languages because it's domain specific
       - Some SQL code, especially more advanced procedural code, is reproducible within the same flavour
   - SQL's domain is databases and is based on set theory
