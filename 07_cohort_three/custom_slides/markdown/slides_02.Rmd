@@ -87,7 +87,7 @@ class: top, left, inverse
 
     `WHERE` : _filters/conditions (optional)_
 
-    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC`_ (optional)_
+    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC` _(optional)_
 
     `LIMIT` : _how many rows we want to return (optional)_
 
@@ -95,7 +95,7 @@ class: top, left, inverse
 
 class: top, left, inverse
 # Fundamental Three Commands
-- Always  specified in this order:
+- Always specified in this order:
   - `SELECT` will come first
   - `FROM` will come after `SELECT`
       - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2024 AS this_year, 'January' AS this_month`
+  - `SELECT 2024 AS this_year, 'May' AS this_month`
 
 <br>
 --
@@ -187,7 +187,7 @@ class: top, left, inverse
 
 - `FROM` statements indicate which table the data is from and where the table is located
   - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
-    - a fully qualified location of a table would thus be `database.schema.table`
+      - a fully qualified location of a table would thus be `database.schema.table`
 - `SELECT * FROM table_name` indicates _everything_ in the table
 
 <br>
@@ -741,5 +741,5 @@ class: middle, center, inverse
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/Slides/slides_02.Rmd")
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/07_cohort_three/custom_slides/markdown/slides_02.Rmd")
 ```
