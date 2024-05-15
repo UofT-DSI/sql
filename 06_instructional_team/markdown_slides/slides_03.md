@@ -325,7 +325,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 
 ---
 
-### What questions do you have?**
+# What questions do you have?
 
 ---
 
@@ -372,8 +372,8 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 - `STRFTIME` converts DATE and DATETIME values into different formats
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
-  - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-02
+- The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-05
   
 ---
 
@@ -418,7 +418,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-      - e.g., months until summer 🏖️ 
+      - e.g., months until summer 🏖️ `SELECT STRFTIME('%m','2024-06-21') - STRFTIME('%m','NOW')`
 
 ---
 
