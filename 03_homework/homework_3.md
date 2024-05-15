@@ -1,6 +1,6 @@
 # Homework 3: Essential SQL
 
--  	Due on Saturday, May 17 at 11:59pm
+-  	Due on Saturday, May 18 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 
