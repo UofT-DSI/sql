@@ -1,4 +1,5 @@
 # Homework 1: farmersmarket.db
+[homework-1.pdf](https://github.com/rktakk/sql/files/15325971/homework-1.pdf)
 
 - Due on Thursday, May 16 at 11:59pm
 - Weight: 8% of total grade
