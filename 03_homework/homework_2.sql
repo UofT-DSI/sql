@@ -35,14 +35,14 @@ filtered by vendor IDs between 8 and 10 (inclusive) using either:
 */
 -- option 1
 SELECT			C.*
-			,	C.quantity * C.cost_to_customer_per_qty AS price
+		,	C.quantity * C.cost_to_customer_per_qty AS price
 FROM		customer_purchases C
 WHERE		C.vendor_id = 8 OR C.vendor_id = 9 OR C.vendor_id = 10
 
 
 -- option 2
 SELECT			C.*
-			,	C.quantity * C.cost_to_customer_per_qty AS price
+		,	C.quantity * C.cost_to_customer_per_qty AS price
 FROM		customer_purchases C
 WHERE		C.vendor_id BETWEEN 8 AND 10
 
@@ -53,20 +53,20 @@ WHERE		C.vendor_id BETWEEN 8 AND 10
 Using the product table, write a query that outputs the product_id and product_name
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
-SELECT		product_id
+SELECT			product_id
 		,	product_name
 		,	CASE
 				WHEN product_qty_type = 'unit' THEN 'unit'
 				ELSE 'bulk'
 			END AS prod_qty_type_condensed
 
-FROM	product
+FROM		product
 
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
 
-SELECT		product_id
+SELECT			product_id
 		,	product_name
 		,	CASE
 				WHEN product_qty_type = 'unit' THEN 'unit'
@@ -77,7 +77,7 @@ SELECT		product_id
 				ELSE 0
 			END AS pepper_flag
 
-FROM	product
+FROM		product
 
 
 --JOIN
@@ -85,7 +85,7 @@ FROM	product
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
 
 SELECT 			V.*
-			,	VB.*
+		,	VB.*
 
 FROM		vendor V
 --
