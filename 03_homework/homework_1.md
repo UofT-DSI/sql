@@ -77,7 +77,6 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 **Homework Submission**
--
 - Here is my homework_1
-  	![Homework1.png](./images/Homework1.png)	
+  	- ![Homework1.png](./images/Homework1.png)	
 
