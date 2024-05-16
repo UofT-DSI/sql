@@ -79,5 +79,5 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 **Homework Submission**
 - Here is my homework_1
 - 
-  	- ![Homework1.png](./images/Homework1.png)	
+  ![Homework1.png](./images/Homework1.png)	
 
