@@ -76,3 +76,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
+### Logical data model (customer and customer_purchases)
+
+![image](https://github.com/RamyaAnand27/sql/assets/167229151/f19d22d8-c732-40b1-99fd-59f26344bb52)
+
