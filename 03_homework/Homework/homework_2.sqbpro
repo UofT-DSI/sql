@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/apple/DSI/sql/05_sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3698"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">--SELECT Function by last, first name 10 rows
+
+SELECT *FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
+
+--WHERE #1 Function product IDs 4 and 9.
+SELECT * FROM customer_purchases
+WHERE product_id IN (4, 9);
+
+--WHERE #2 AND and BETWEEN Function
+SELECT *, (quantity * cost_to_customer_per_qty) AS price
+FROM customer_purchases
+WHERE vendor_id BETWEEN 8 and 10;
+
+-- CASE #1
+SELECT product_id, 
+					product_name,
+					CASE
+						WHEN product_qty_type = 'unit' THEN 'unit'
+						ELSE 'bulk'
+					END AS product_qty_type_condensed
+FROM product;
+
+
+-- CASE #2 - 'pepper' function
+SELECT product_id,
+       product_name,
+       CASE
+           WHEN product_qty_type = 'unit' THEN 'unit'
+           ELSE 'bulk'
+       END AS prod_qty_type_condensed,
+       CASE
+           WHEN LOWER(product_name) LIKE '%pepper%' THEN 1
+           ELSE 0
+       END AS pepper_flag
+FROM product;
+
+--JOIN
+SELECT vendor.vendor_id, 
+       vendor.vendor_name, 
+       vendor_booth_assignments.market_date, 
+       vendor_booth_assignments.booth_number
+FROM vendor
+INNER JOIN vendor_booth_assignments
+ON vendor.vendor_id = vendor_booth_assignments.vendor_id
+ORDER BY vendor.vendor_name, vendor_booth_assignments.market_date;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
