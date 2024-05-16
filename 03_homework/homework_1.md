@@ -1,4 +1,5 @@
 # Homework 1: farmersmarket.db
+<img width="519" alt="homework_1_photo" src="https://github.com/AdithyaLab/sql/assets/167127254/f4647592-d6d2-4298-a923-7a21a7714552">
 
 - Due on Thursday, May 16 at 11:59pm
 - Weight: 8% of total grade
@@ -75,4 +76,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 	- These are the tables that are connected
 	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
+
+<img width="519" alt="homework_1_photo" src="https://github.com/AdithyaLab/sql/assets/167127254/0110a11c-ba28-4a23-b434-35628d731e33">
+
 
