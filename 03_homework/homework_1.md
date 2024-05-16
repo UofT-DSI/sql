@@ -69,7 +69,7 @@ A logical data model must contain:
 
 Please do not pick the exact same tables that I have already diagramed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
 
-**Homework Submission**
+## Homework Submission
 
 - Here is my homework_1
   
