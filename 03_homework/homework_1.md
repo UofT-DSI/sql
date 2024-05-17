@@ -71,6 +71,8 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 
 ## Homework Submission - Rehan Chaudhry
 
+<img width="691" alt="image" src="https://github.com/rehanschaudhry/sql/assets/35706356/3a57ab71-32b7-44a9-8988-33f614b1a802">
+
 - Here is my homework_1
   
   ![Homework1.png](./images/Homework1.png)
