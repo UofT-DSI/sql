@@ -1,19 +1,29 @@
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
-
+SELECT *
+FROM CUSTOMER
 
 
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
 sorted by customer_last_name, then customer_first_ name. */
 
-
+SELECT * FROM CUSTOMER
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10
 
 
 --WHERE
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. */
 -- option 1
+SELECT *
+FROM customer_purchases
+WHERE product_id in (4,9)
 
 -- option 2
+SELECT *
+FROM customer_purchases
+WHERE product_id = 4
+or product_id =9
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
 filtered by vendor IDs between 8 and 10 (inclusive) using either:
