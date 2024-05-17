@@ -69,10 +69,18 @@ A logical data model must contain:
 
 Please do not pick the exact same tables that I have already diagramed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
 
+## Homework Submission - Rehan Chaudhry
+
+- Here is my homework_1
+  
+  ![Homework1.png](./images/Homework1.png)
+
 **A few hints**:
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
 - You can't diagram tables that don't share a common column
 	- These are the tables that are connected
 	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
+
+	
 
