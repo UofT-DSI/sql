@@ -63,3 +63,5 @@ INNER JOIN
 ORDER BY 
     ven.vendor_name, 
     vba.market_date;
+
+Please see changes at sql file
