@@ -25,6 +25,7 @@ FROM customer_purchases
 WHERE product_id = 4
 or product_id =9
 
+	
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
 filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
@@ -39,11 +40,15 @@ where vendor_id BETWEEN 8 and 10
 select *, quantity * cost_to_customer_per_qty as price
 from customer_purchases
 WHERE vendor_id >= 8 AND vendor_id <= 10
+
+
 --CASE
 /* 1. Products can be sold by the individual unit or by bulk measures like lbs. or oz. 
 Using the product table, write a query that outputs the product_id and product_name
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
+
+
 
 
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
