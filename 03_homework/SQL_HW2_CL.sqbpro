@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/cecilyli/Documents/DSI/sql/05_sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3793"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="101"/><column index="3" value="300"/><column index="4" value="68"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL Homework2.sql">--SELECT
+--1. return everything in customer table
+SELECT*FROM customer
+
+--2. display all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name
+SELECT*FROM customer WHERE ROWID &lt;11
+ORDER BY customer_last_name ASC, customer_first_name ASC
+
+
+
+--WHERE
+--1. query that returns all customer purchases of product IDs 4 and 9
+--(NOTE: not sure why I get &quot;Execution finished without errors&quot; but no output when I add &quot;AND product_id = 9&quot; to the SQL query below)
+SELECT*FROM customer_purchases WHERE product_id =4 AND  product_id = 9
+
+--2. query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (inclusive) using &quot;BETWEEN&quot;
+-- (NOTE: commands run ok in 2 separate runs, not sure why it results in an error when run together)
+ALTER TABLE customer_purchases ADD  [price] AS (quantity * cost_to_customer_per_qty)
+SELECT * FROM customer_purchases WHERE vendor_id BETWEEN 8 AND 10 
+
+
+
+--CASE
+--1. query that outputs the product_id and product_name columns and add a column called prod_qty_type_condensed that displays the word “unit” if the product_qty_type is “unit,” and otherwise displays the word “bulk.”
+--(NOTE: when run, results in error that says 'unit' is not a column name. tried [ and no syntax (bracket or quotation) but still results in same error. Attempted to run code with an acutal column name from table replacing &quot;unit&quot; but output still says column name not found.
+SELECT product_id, product_name 
+,CASE WHEN product_qty_type = 'unit' THEN ['unit']
+ELSE 'bulk' END as prod_qty_type_condensed
+FROM product
+
+--2. Add a column to the previous query called pepper_flag that outputs a 1 if the product_name contains the word “pepper” (regardless of capitalization), and otherwise outputs 0.
+-- (NOTE: see note above)
+SELECT product_id, product_name 
+,CASE WHEN product_qty_type = 'unit' THEN ['unit']
+ELSE 'bulk' END as prod_qty_type_condensed
+,CASE WHEN product_name = 'pepper' THEN ['1']
+ELSE '0' END as pepper_flag
+FROM product
+
+
+
+--JOIN
+--1. query that INNER JOINs the vendor table to the vendor_booth_assignments table on the vendor_id field they both have in common, and sorts the result by vendor_name, then market_date.
+
+SELECT * FROM vendor v
+JOIN vendor_booth_assignments vba
+ON v.vendor_id = vba.vendor_id
+ORDER by vendor_name ASC, market_date ASC
+</sql><sql name="SQL 2">SELECT * FROM vendor v
+JOIN vendor_booth_assignments vba
+ON v.vendor_id = vba.vendor_id
+ORDER by vendor_name ASC, market_date ASC</sql><current_tab id="0"/></tab_sql></sqlb_project>
