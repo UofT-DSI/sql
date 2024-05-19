@@ -53,4 +53,4 @@ but remember, STRFTIME returns a STRING for your WHERE statement!! */
 select customer_id, STRFTIME('%m',market_date) as month, STRFTIME('%Y',market_date) as year ,SUM(quantity * cost_to_customer_per_qty) as money from customer_purchases
 where  year='2019' and month='04' 
 group by customer_id
-
+  
