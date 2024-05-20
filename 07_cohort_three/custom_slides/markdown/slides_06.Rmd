@@ -480,7 +480,7 @@ class: left, top, inverse
 ---
 class: left, top, inverse
 # Run SQLite in python and/or R
-
+renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/07_cohort_three/custom_slides/markdown/slides_04.Rmd")
 ### Python Example
 
 
@@ -533,5 +533,5 @@ class: middle, center, inverse
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/Slides/slides_06.Rmd")
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/07_cohort_three/custom_slides/markdown/slides_06.Rmd")
 ```
