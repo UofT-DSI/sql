@@ -423,7 +423,7 @@ FROM (...{subquery goes here}...)
 
 - I love to `CROSS JOIN`!
 - They can be super useful when used correctly 
-  - **What are some good examples that could be useful?** 💭 **Think, Pair, Share**
+  - **What are some good examples that could be useful?** 💭💬 **Think, Pair, Share**
 
 ---
 

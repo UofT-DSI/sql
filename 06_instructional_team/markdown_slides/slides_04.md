@@ -163,7 +163,7 @@ Image: SQLiteTutorial.net
   - Determining the top (or bottom) per group is often done through `ROW_NUMBER()`
 
 - `ROW_NUMBER()` might feel a bit like ranking `RANK()`...but it's not quite
-  - **What is the difference between `ROW_NUMBER()` and `RANK()`?** 💭 **Think, Pair, Share**
+  - **What is the difference between `ROW_NUMBER()` and `RANK()`?** 💭💬 **Think, Pair, Share**
 
 ---
 

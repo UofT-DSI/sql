@@ -288,7 +288,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 
 - Some older versions of SQL don't allow temporary tables
 - They are *fantastic placeholders*
-  - **What scenarios can we think of where a temporary table would be particularly useful?** 💭 **Think, Pair, Share**
+  - **What scenarios can we think of where a temporary table would be particularly useful?** 💭💬 **Think, Pair, Share**
 
 ---
 
