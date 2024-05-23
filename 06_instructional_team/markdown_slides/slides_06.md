@@ -346,11 +346,10 @@ At last, we have 3NF, for both our student_software table:
 
 # Run SQLite in Python
 
-- We have seen how to connect a SQLite database to Python and interact with tables
-- **...but did you know you can also run SQLite queries on Python dataframe objects?**
-- Both languages offer good support 
-    - Often there is corresponding Python syntax to achieve similar results
-        - As always with data, there is no prescribed way of doing something!
+- We have seen how to connect a SQLite database to python and interact with tables
+- **...but did you know you can also run SQLite queries on python dataframe objects?**
+- Unsure of whether to write a pythonic SQL statement or connect to a SQL database in python?
+    - As always with data, there is no prescribed way of doing something!
         
 ---
 

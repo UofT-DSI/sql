@@ -101,10 +101,7 @@ Handling NULLs effectively:
 # Purpose
 - Windowed Functions allow us to create groupings within groupings ("partitions")
 - Allow for greater complexity than simple SQL 
-  - In Module 3, we mentioned briefly a rolling total, e.g. a `SUM` and a `COUNT`; windowed functions allow us to return these types of results=
-
-![bg right:50% w:600](./images/04_subquery_rownumber.png)
-- Image: Teate, Chapter 7 👉
+  - In Module 3, we mentioned briefly a rolling total, e.g. a `SUM` and a `COUNT`; windowed functions allow us to return these types of results
 
 ---
 
@@ -114,6 +111,10 @@ Handling NULLs effectively:
   - One of the most common techniques is creating a row number `ROW_NUMBER()` per group
       - When combined with `ORDER BY`, the associated row number will be the _highest_ or _lowest_ per grouping
       - This allows you to select the min or max by setting the row number = 1 in the "outer" query (i.e. not the "inner" subquery)
+
+![bg right:42% w:500](./images/04_subquery_rownumber.png)
+- Image: Teate, Chapter 7 👉
+
 
 ---
 
@@ -162,7 +163,7 @@ Image: SQLiteTutorial.net
   - Determining the top (or bottom) per group is often done through `ROW_NUMBER()`
 
 - `ROW_NUMBER()` might feel a bit like ranking `RANK()`...but it's not quite
-  - **What is the difference between `ROW_NUMBER()` and `RANK()`?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
+  - **What is the difference between `ROW_NUMBER()` and `RANK()`?** 💭💬 **Think, Pair, Share**
 
 ---
 
