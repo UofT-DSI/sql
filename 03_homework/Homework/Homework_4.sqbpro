@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/apple/DSI/sql/05_sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3698"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">
---Windowed Functions #1,
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/apple/DSI/sql/05_sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3698"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="101"/><column index="3" value="300"/><column index="4" value="68"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">--COALESCE
+SELECT 
+  product_name || ', ' || COALESCE(product_size, '') || ' (' || COALESCE(product_qty_type, 'unit') || ')' AS product_description
+FROM product;
+
+--#1 Windowed Functions
 SELECT customer_id, market_date
 FROM customer_purchases;
 
@@ -10,5 +14,79 @@ SELECT
 FROM 
   customer_purchases;
   
-  -- Reverse the Numbering #2
+  -- #2 Reverse the Numbering
+ 
+SELECT 
+  customer_id, 
+  market_date
+FROM 
+  (
+    SELECT 
+      customer_id, 
+      market_date, 
+      ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY market_date DESC) AS visit_number
+    FROM 
+      customer_purchases
+  ) AS visits
+WHERE 
+  visit_number = 1;
+
+  -- #3 Using a COUNT()
+SELECT 
+  customer_id, 
+  product_id, 
+  market_date, 
+  COUNT(*) OVER (PARTITION BY customer_id, product_id) AS purchase_count
+FROM 
+  customer_purchases;
+  
+  
+  --String Manipulation
+  SELECT 
+  product_name,
+  TRIM(SUBSTR(product_name, INSTR(product_name, '-') + 1)) AS description
+FROM 
+  product
+WHERE 
+  INSTR(product_name, '-') &gt; 0;
+
+--UNION
+WITH SalesByDate AS (
+    SELECT 
+        market_date, 
+        SUM(quantity * cost_to_customer_per_qty) AS total_sales
+    FROM 
+        customer_purchases
+    GROUP BY 
+        market_date
+),
+RankedSales AS (
+    SELECT 
+        market_date, 
+        total_sales,
+        RANK() OVER (ORDER BY total_sales DESC) AS sales_rank_desc,
+        RANK() OVER (ORDER BY total_sales ASC) AS sales_rank_asc
+    FROM 
+        SalesByDate
+)
+SELECT 
+    market_date, 
+    total_sales,
+    'Highest Sales' AS description
+FROM 
+    RankedSales
+WHERE 
+    sales_rank_desc = 1
+
+UNION
+
+SELECT 
+    market_date, 
+    total_sales,
+    'Lowest Sales' AS description
+FROM 
+    RankedSales
+WHERE 
+    sales_rank_asc = 1;
+
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
