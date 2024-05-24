@@ -28,23 +28,30 @@ $ echo "Data Sciences Institute"
 
 # Fundamental Three Commands
 
-- **SELECT**: Choose the data columns you wish to display.
-- **FROM**: Specify the data source, essentially which table(s) to retrieve data from.
-- **WHERE**: Apply filters to select only those rows that meet certain criteria.
+- Our first three commands (`SELECT`, `FROM`, `WHERE`) are essential to nearly every SQL query
 
-Other commands that are also important:
-- **ORDER BY**: Arrange the output rows of your query in either ascending (ASC) or descending (DESC) order based on the values of one or more columns.
-- **LIMIT**: Restrict the number of rows returned by the query, which is particularly useful for queries on large tables.
+- The template for our initial SQL statement is as such:
+
+    `SELECT` : _the columns we want to retrieve_
+
+    `FROM` : _the table we are querying_
+
+    `WHERE` : _filters/conditions (optional)_
+
+    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC` _(optional)_
+
+    `LIMIT` : _how many rows we want to return (optional)_
 
 ---
 
 # Fundamental Three Commands
 
-  - `SELECT` will come first
-  - `FROM` will come after `SELECT`
-      - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
-  - `WHERE` will come after `FROM` 
-  - `ORDER BY` will come after `WHERE` clauses
+  - Always specified in this order:
+    - `SELECT` will come first
+    - `FROM` will come after `SELECT`
+        - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
+    - `WHERE` will come after `FROM` 
+    - `ORDER BY` will come after `WHERE` clauses
 
 ---
 
@@ -58,7 +65,7 @@ Other commands that are also important:
   - In SQL, we use two dashes `--` to comment out lines, rather than `#`
 ---
 
-# `SELECT` Command
+# SELECT Command
 
 - At its simplest `SELECT` specifies column names we are retrieving
   - commas come between each column name
@@ -68,7 +75,7 @@ Other commands that are also important:
 
 ---
 
-# `SELECT` Command
+# SELECT Command
 
 - Within `SELECT` statements we can perform manipulations on columns
   - e.g. rename a column
@@ -79,18 +86,18 @@ Other commands that are also important:
 
 ---
 
-# `SELECT` Command
+# SELECT Command
 
 - We can use `SELECT` to perform math without a `FROM` statement
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2024 AS this_year, 'January' AS this_month`
+  - `SELECT 2024 AS this_year, 'May' AS this_month`
 - When selecting columns, they need to exist in the table!
 
 ---
 
-# `FROM` Command
+# FROM Command
 
 - `FROM` statements indicate which table the data is from and where the table is located
   - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
@@ -102,7 +109,13 @@ Other commands that are also important:
  
 ---
 
-# `WHERE` Command
+# SELECT & FROM
+
+(`SELECT` & `FROM` live coding)
+
+---
+
+# WHERE Command
 
 - `WHERE` clauses are conditions that the query will follow
 - When we want to have multiple conditions, we use a single `WHERE` and then additional logical operations
@@ -111,7 +124,7 @@ Other commands that are also important:
 
 ---
 
-# `WHERE` Command
+# WHERE Command
 
 ```
     SELECT *
@@ -125,7 +138,7 @@ Other commands that are also important:
   
 ---
 
-# `WHERE` Command
+# WHERE Command
 
 ### Logical Operators
 - `AND`
@@ -138,7 +151,7 @@ Other commands that are also important:
 
 ---
 
-# `WHERE` Command
+# WHERE Command
 
 ### Logical Operators (continued...)
 
@@ -152,7 +165,7 @@ Other commands that are also important:
   
 ---
 
-# `WHERE` Command
+# WHERE Command
 
 - `NULL` is not a value (it's the absence of a value)
   - to check null values, we use `IS NULL` or `IS NOT NULL`
@@ -160,7 +173,7 @@ Other commands that are also important:
 
 ---
 
-# `WHERE` Command
+# WHERE Command
 
 - `LIKE` allows for string wildcards
 - `%` specifies the wildcard placement
@@ -175,7 +188,9 @@ Other commands that are also important:
 
 ---
 
-# `WHERE`: Live Coding
+# WHERE Command
+
+(`WHERE` live coding)
 
 ---
 
@@ -357,6 +372,8 @@ A couple of notes:
 
 ![bg right:50% w:500](./images/02_inner_join.png)
 
+Source: Image: Teate, Chapter 5
+
 ---
 
 # INNER JOIN
@@ -387,6 +404,8 @@ A quick note on table aliasing:
 - LEFT _is not_ optional; there is no "OUTER JOIN"
 
 ![bg right:50% w:500](./images/02_left_join.png)
+
+Source: Image: Teate, Chapter 5
 
 ---
 

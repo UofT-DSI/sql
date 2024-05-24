@@ -17,11 +17,13 @@ $ echo "Data Sciences Institute"
 
 ## $\rightarrow$ INSERT, UPDATE, DELETE
 
+## Views
+
 ## Importing and Exporting Data
 
 ## CROSS & Self Joins
 
-## Views
+
 
 ---
 
@@ -30,7 +32,7 @@ $ echo "Data Sciences Institute"
 
 Prior to this, we've focused solely on retrieving values from tables:
 - Tables can also be manipulated with `INSERT`, `UPDATE`, and/or `DELETE`
-- _A word of warning...these commands are PERMANENT_ `r structure("\U1F631", class = "emoji")`
+- _A word of warning...these commands are PERMANENT_ 😱
   - Generally, follow a policy that avoids altering data 
   - Make backups of tables before you run a query
   - Never hurts to test on a temporary table first!
@@ -93,17 +95,81 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 ---
 
+# Expanding your Database:
+
+## INSERT, UPDATE, DELETE
+
+## $\rightarrow$ Views
+
+## Importing and Exporting Data
+
+## CROSS & Self Joins
+
+
+---
+
+# Views
+
+- Views instantiate a query result permanently
+- They are particularly useful in highly normalized databases, where reproducing a query is tiresome or prone to query errors
+- In databases that have live data flowing in:
+  - Tables that are created from queries need to be continuously updated whenever there is new data
+      - This requires either downtime where the table is empty
+      - Or the chance of a "dirty read" (where a table is read before the data is fully updated)
+  - Views, on the other hand, will always show the most up-to-date values!
+
+---
+
+# Views
+
+
+- Views are created just like tables:
+```
+    CREATE VIEW history AS
+    SELECT ...
+```
+---
+
+
+# Views Performance
+
+- Views can be very slow if poorly created
+- Always use primary keys and indexing to make them more performative
+- Select the most important columns
+- Avoid stacking views (views within a view)
+---
+
+# Views Performance
+
+- In commercial RDBMs, use execution plans and/or performance dashboards to analyze the underlying engine mechanisms the view uses for instantiation
+- Image: Yaseen, SQLShack
+
+![bg right:50% w:500](./images/05_example_view_optimization.png)
+
+---
+
+
+# Views
+
+(Views live coding)
+
+---
+
+# What questions do you have about views?
+
+---
+
 
 
 # Expanding your Database:
 
 ## INSERT, UPDATE, DELETE
 
+## Views
+
 ## $\rightarrow$ Importing and Exporting Data
 
 ## CROSS & Self Joins
-
-## Views
 
 ---
 
@@ -208,7 +274,7 @@ db_df.to_CSV('database-py.CSV', index=False)
 
 # CSV
 
-(CSV live importing/exporting)
+(CSV live importing to update our view, CSV live exporting)
 
 ---
 
@@ -224,11 +290,11 @@ db_df.to_CSV('database-py.CSV', index=False)
 ---
 # JSON
 
-  -  e.g. `{"first_name":"Thomas", "last_name":"Rosenthal"}`
+  -  e.g. `{"first_name":"Ralph", "last_name":"Kimball"}`
   - or for tables: 
 ```
-    [ {"first_name":"A", "last_name":"Mahfouz"}
-        {"first_name":"Thomas", "last_name":"Rosenthal"} ]
+    [ {"first_name":"Ralph", "last_name":"Kimball"},
+        {"first_name":"Bill", "last_name":"Imnom"} ]
 ```
 
 - JSON can be opened by:
@@ -331,11 +397,11 @@ FROM (...{subquery goes here}...)
 
 ## INSERT, UPDATE, DELETE
 
+## Views
+
 ## Importing and Exporting Data
 
 ## $\rightarrow$ CROSS & Self Joins
-
-## Views
 
 ---
 
@@ -357,7 +423,7 @@ FROM (...{subquery goes here}...)
 
 - I love to `CROSS JOIN`!
 - They can be super useful when used correctly 
-  - **What are some good examples that could be useful?** 💭 **Think, Pair, Share**
+  - **What are some good examples that could be useful?** 💭💬 **Think, Pair, Share**
 
 ---
 
@@ -404,70 +470,5 @@ No complex query is complete without at least one `CROSS JOIN`
 ```    
 
 ---
-
-
-### FROM Questions? JOIN Questions?
-
----
-
-
-# Expanding your Database:
-
-## INSERT, UPDATE, DELETE
-
-## Importing and Exporting Data
-
-## CROSS & Self Joins
-
-## $\rightarrow$ Views
-
----
-
-# Views
-
-- Views instantiate a query result permanently
-- They are particularly useful in highly normalized databases, where reproducing a query is tiresome or prone to query errors
-- In databases that have live data flowing in:
-  - Tables that are created from queries need to be continuously updated whenever there is new data
-      - This requires either downtime where the table is empty
-      - Or the chance of a "dirty read" (where a table is read before the data is fully updated)
-  - Views, on the other hand, will always show the most up-to-date values!
-
----
-
-# Views
-
-
-- Views are created just like tables:
-```
-    CREATE VIEW history AS
-    SELECT ...
-```
----
-
-
-# Views Performance
-
-- Views can be very slow if poorly created
-- Always use primary keys and indexing to make them more performative
-- Select the most important columns
-- Avoid stacking views (views within a view)
----
-
-# Views Performance
-
-- In commercial RDBMs, use execution plans and/or performance dashboards to analyze the underlying engine mechanisms the view uses for instantiation
-
-![bg right:50% w:500](./images/05_example_view_optimization.png)
-
----
-
-
-# Views
-
-(Views live coding)
-
----
-
 
 # What questions do you have about anything from today?
