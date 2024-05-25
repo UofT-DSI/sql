@@ -1,3 +1,72 @@
+-- String manipulations
+/* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
+These are separated from the product name with a hyphen. 
+Create a column using SUBSTR (and a couple of other commands) that captures these, but is otherwise NULL. 
+Remove any trailing or leading whitespaces. Don't just use a case statement for each product! 
+
+| product_name               | description |
+|----------------------------|-------------|
+| Habanero Peppers - Organic | Organic     |
+
+Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
+
+SELECT product_name,
+	CASE WHEN INSTR(product_name, '-') > 0 THEN Trim(SUBSTR(product_name, INSTR(product_name, '-') + 1)) END AS description
+FROM product
+
+
+/* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
+
+
+SELECT product_size
+FROM product
+WHERE product_size REGEXP '\d+'
+
+-- UNION
+/* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
+
+HINT: There are a possibly a few ways to do this query, but if you're struggling, try the following: 
+1) Create a CTE/Temp Table to find sales values grouped dates; 
+2) Create another CTE/Temp table with a rank windowed function on the previous query to create 
+"best day" and "worst day"; 
+3) Query the second temp table twice, once for the best day, once for the worst day, 
+with a UNION binding them. */
+--1
+WITH T1 AS (
+	SELECT market_date, SUM(quantity * cost_to_customer_per_qty) AS total_sales
+	FROM customer_purchases
+	GROUP BY market_date
+), W AS (
+	SELECT *,  ROW_NUMBER() OVER win1 AS RowId
+	FROM T1
+	WINDOW win1 AS (ORDER BY total_sales)
+), B AS (
+	SELECT *,  ROW_NUMBER() over win1 as RowId
+	FROM T1
+	WINDOW win1 AS (ORDER BY total_sales Desc)
+)
+SELECT market_date, total_sales, 'Worst' Descr FROM W WHERE RowId = 1
+UNION 
+SELECT market_date, total_sales, 'Best' Descr FROM B WHERE RowId = 1
+
+--2
+WITH T1 AS (
+	SELECT market_date, SUM(quantity * cost_to_customer_per_qty) AS total_sales
+	FROM customer_purchases
+	GROUP BY market_date
+), W AS (
+	SELECT market_date, total_sales, 'Worst' Descr 
+	FROM T1 
+	ORDER BY total_sales Limit 1
+), B AS (
+	SELECT market_date, total_sales, 'Best' Descr 
+	FROM T1 
+	ORDER BY total_sales Desc Limit 1
+)
+SELECT * FROM W
+UNION 
+SELECT * FROM B
+
 -- Cross Join
 /*1. Suppose every vendor in the `vendor_inventory` table had 5 of each of their products to sell to **every** 
 customer on record. How much money would each vendor make per product? 
@@ -9,7 +78,15 @@ Think a bit about the row counts: how many distinct vendors, product names are t
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
 
-
+WITH D AS (
+	SELECT DISTINCT vendor_name, product_name, original_price, 5 AS Qty
+	FROM vendor_inventory I Join product P ON I.product_id = P.product_id
+	JOIN vendor V ON I.vendor_id = V.vendor_id
+), C AS (
+	SELECT Count(*) CustCnt FROM customer
+)
+SELECT *, original_price*Qty*CustCnt AS Total
+FROM D CROSS JOIN C
 
 -- INSERT
 /*1.  Create a new table "product_units". 
@@ -17,19 +94,25 @@ This table will contain only products where the `product_qty_type = 'unit'`.
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
 
-
+CREATE TABLE product_units AS 
+SELECT *, CURRENT_TIMESTAMP as snapshot_timestamp
+FROM product WHERE product_qty_type = 'unit'
 
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 
-
+INSERT INTO product_units (product_id, product_name, product_size, product_category_id, product_qty_type, snapshot_timestamp)
+VALUES (7, 'Apple Pie', '10"', 3, 'unit', CURRENT_TIMESTAMP)
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
-
+WITH X AS (
+	SELECT product_id, snapshot_timestamp FROM product_units WHERE product_name = 'Apple Pie' ORDER BY snapshot_timestamp DESC LIMIT 1
+)
+DELETE FROM product_units WHERE product_name = 'Apple Pie' AND snapshot_timestamp NOT IN (SELECT snapshot_timestamp FROM X)
 
 -- UPDATE
 /* 1.We want to add the current_quantity to the product_units table. 
@@ -48,4 +131,15 @@ Finally, make sure you have a WHERE statement to update the right row,
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
 
+ALTER TABLE product_units ADD current_quantity INT;
 
+WITH M AS (
+	SELECT product_id, max(market_date) MaxDT
+	FROM vendor_inventory
+	GROUP BY product_id
+), L AS (
+	SELECT I.product_id, Sum(I.quantity) LastQty
+	FROM vendor_inventory I Join M ON I.product_id = M.product_id AND I.market_date = M.MaxDT
+	GROUP BY I.product_id
+)
+UPDATE product_units AS U SET current_quantity = coalesce((SELECT L.LastQty FROM L WHERE U.product_id = L.product_id), 0)
