@@ -56,7 +56,6 @@ FROM numbered_visits
 WHERE reverse_number_of_visits = 1
 ORDER BY customer_id;
 
-
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 SELECT
