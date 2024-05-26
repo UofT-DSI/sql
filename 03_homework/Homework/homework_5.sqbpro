@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/apple/Downloads/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3698"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Cross Join
+WITH vendor_customer_combinations AS (
+    SELECT
+        vi.vendor_id,
+        vi.product_id,
+        c.customer_id
+    FROM
+        vendor_inventory vi
+    CROSS JOIN
+        customer c
+),
+vendor_sales AS (
+    SELECT
+        v.vendor_name,
+        p.product_name,
+        COUNT(*) * 5 * vi.original_price AS total_sales
+    FROM
+        vendor_customer_combinations vc
+    JOIN
+        vendor_inventory vi ON vc.vendor_id = vi.vendor_id AND vc.product_id = vi.product_id
+    JOIN
+        vendor v ON vi.vendor_id = v.vendor_id
+    JOIN
+        product p ON vi.product_id = p.product_id
+    GROUP BY
+        v.vendor_name, p.product_name
+)
+SELECT
+    vendor_name,
+    product_name,
+    total_sales
+FROM
+    vendor_sales
+ORDER BY
+    vendor_name, product_name;
+
+-- INSERT
+-- Verify if the product_units table 
+SELECT name
+FROM sqlite_master
+WHERE type='table' AND name='product_units';
+
+-- Create the product_units table
+CREATE TABLE IF NOT EXISTS product_units AS
+SELECT *, CURRENT_TIMESTAMP AS snapshot_timestamp
+FROM product
+WHERE product_qty_type = 'unit';
+
+INSERT INTO product_units (product_id, product_name, product_size, product_category_id, product_qty_type)
+SELECT product_id, product_name, product_size, product_category_id, product_qty_type
+FROM product
+WHERE product_name = 'Apple Pie' AND product_qty_type = 'unit';
+
+-- Check for &quot;Apple Pie&quot; in the product table
+SELECT product_id, product_name, product_size, product_category_id, product_qty_type
+FROM product
+WHERE product_name = 'Apple Pie' AND product_qty_type = 'unit';
+
+-- DELETE
+
+DELETE FROM product_units
+WHERE rowid = (
+    SELECT rowid
+    FROM product_units
+    WHERE product_name = 'Apple Pie'
+    ORDER BY snapshot_timestamp ASC
+    LIMIT 1
+);
+
+-- UPDATE
+
+PRAGMA table_info(product_units);
+
+-- Update the current_quantity column with the last quantity value from vendor_inventory
+UPDATE product_units
+SET current_quantity = COALESCE((
+    SELECT vi.quantity
+    FROM vendor_inventory vi
+    WHERE vi.product_id = product_units.product_id
+    ORDER BY vi.market_date DESC
+    LIMIT 1
+), 0);
+
+SELECT * FROM product_units;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
