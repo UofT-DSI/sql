@@ -4,25 +4,27 @@
 Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
-
+![alt text](image-3.png)
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
-
+![alt text](image-2.png)
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
-
+![alt text](image-4.png)
 _Hint, search type 1 vs type 2 slowly changing dimensions._
-
+Type 1 Slowly Changing Dimensions replaces data that is different under the same Customer ID, Customer ID is unique in Type 1
+Type 2 Slowly Changing Dimensions adds lines to data that is different under the same Customer ID, Customer ID is many using Type 2.
 Bonus: Are there privacy implications to this, why or why not?
-```
-Your answer...
+There could be privacy implications if access to the Customer Address table is not properly restricted.
+For type 2, there could be privacy implications as there is no need to keep historical address information of customers for business use 
+Your answer... 
 ```
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
-```
+``` The schema highlight the PK and FKs for each table rather than just use arrows. I would also choose to remap tables in relevant sections as it gets bigger and I choose to break up tables to allow for better data access management.
 Your answer...
 ```
 
