@@ -15,7 +15,27 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+A Slowly Changing Dimension (SCD) is a table which can be updated to keep up 
+with changing data. I propose to implement an SCD for customer addresses called
+'customer_addresses'. The table's columns will include customer_id, a one-to-one
+key with the customer table, as well as columns for Street Address, Suite, City,
+State, Country, and Zip Code.
+
+An SCD can have type 1 architecture or type 2 architecture. Suppose customer_addresses
+were implemented in type 1. Then a change of address update will overwrite the old
+data in the table or create a new entry if the customer_address is new. 
+
+In the other case, suppose that customer_addresses were implemented with type 2 
+architecture. Then a customer_address update will always create a new row. 
+Additionally, one of the customer_addresses columns tracks whether the record is 
+the current address. 
+
+Bonus: 
+Meaningful consent to collect private information requires the option to refuse 
+to disclose. The schema should accomodate this refusal and permitting no 
+address in the record in a way that does not break query tasks like JOINS.
+
+As well, include a privacy consent flag which can be updated ongoing.
 ```
 
 ## Question 4
@@ -23,7 +43,16 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+I noticed the use of AddressID keyed to StateProvince on  StateProvinceID is 
+used to determine the tax rate. I find that especially clever for implementing 
+online sales. 
+
+The employee table included a lot more information and was missing names!
+employee table was keyed to Person on BusinessEntityID, and Person tracks 
+6 columns detailing every part of a person's salutation. Instead of naming
+employee table at AdventureWorks tracks states like shift, job title,
+hire date, salariedflag, and two types of paid time off. I would copy these
+items and leave out the private information like MaritalStatus column.
 ```
 
 # Criteria
@@ -44,9 +73,9 @@ Your answer...
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `model-design`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `model-design`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-3-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
