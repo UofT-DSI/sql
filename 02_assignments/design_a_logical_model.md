@@ -17,6 +17,14 @@ Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
 ```
+Privacy Concerns for Type 1 SCD
+    - Since existing data is overwritten by new values, entities historical information is erased. If historical data is required for legal, regulatory compliance or analysis purposes it will be a concern.
+
+Privacy Concern for Type 2 SCD
+    - Since Type 2 retains historical data, sensitive information will be accumulated over the years. This is a privacy concern if it includes personal identity information and if these data are excessive and outdated.
+
+In both scenarios it is the best practice to retain only the data required for the intended purpose and remove outdated data. Also, it is best to grant authorized access to SCD data. If data is retained after the retention period it is best to anonymize the data due to privacy concerns.
+
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
@@ -25,6 +33,10 @@ Highlight at least two differences between it and your ERD. Would you change any
 ```
 Your answer...
 ```
+- In AdventureWorks schema entity tables are categorized for example person, sales, production etc. In my ERD entity tables are not categorized.
+- In AdventureWorks schema separate tables are used to store address, state and country. In my ERD address, country and state are stored in the same customer address table.
+
+Yes I would make the above changes to my ERD beacuse it will improve the readability.And by storing address,state and country in seperate tables it would be easy to manipulate and analyse location data.
 
 # Criteria
 
