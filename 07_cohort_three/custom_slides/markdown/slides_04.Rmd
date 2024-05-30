@@ -1074,5 +1074,5 @@ class: middle, center, inverse
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/Slides/slides_04.Rmd")
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/07_cohort_three/custom_slides/markdown/slides_04.Rmd")
 ```
