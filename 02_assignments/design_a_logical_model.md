@@ -5,18 +5,15 @@ Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 ![Q1](https://github.com/movcha/sql/assets/29900189/f001e449-3961-4dbc-9242-7ec49637ff42)
-![Q1](https://github.com/movcha/sql/assets/29900189/f001e449-3961-4dbc-9242-7ec49637ff42)
 
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
-![Q2](https://github.com/movcha/sql/assets/29900189/7a1287fd-e671-4756-85f5-03fa535d2f10)
 ![Q2](https://github.com/movcha/sql/assets/29900189/7a1287fd-e671-4756-85f5-03fa535d2f10)
 
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
 
 _Hint, search type 1 vs type 2 slowly changing dimensions._
-![Q3](https://github.com/movcha/sql/assets/29900189/07ab7045-5485-4e0c-9fb5-da7124ebd198)
 ![Q3](https://github.com/movcha/sql/assets/29900189/07ab7045-5485-4e0c-9fb5-da7124ebd198)
 
 Bonus: Are there privacy implications to this, why or why not?
