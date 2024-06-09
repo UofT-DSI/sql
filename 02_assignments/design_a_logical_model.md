@@ -15,7 +15,8 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+Yes there are some privacy implications due to storing PII contained in customer address. Storing PII increases the risk of data breaches.
+
 ```
 
 ## Question 4
@@ -23,7 +24,7 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+All the tables has modifiedDate column and ID column as primary which I would like to change in my mode.
 ```
 
 # Criteria
