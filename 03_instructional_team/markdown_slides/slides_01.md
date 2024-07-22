@@ -175,7 +175,7 @@ Let's make sure everyone has DB Browser for SQLite installed.
 
 For live coding:
 - Please download/fork the FarmersMarket.db from our GH repo:
-  - [FarmersMarket.db](../../05_sql/farmersmarket.db)
+  - [FarmersMarket.db](../../05_src/sql/farmersmarket.db)
 - Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
 
 ---

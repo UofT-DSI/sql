@@ -41,7 +41,7 @@ Participants should review the [Assignment Submission Guide](https://github.com/
 
 There is one assignment and six mandatory homework exercises. Class Participation is considered in the evaluation of the  module. 
 
-1. [Design a Logical Model](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/design_a_logical_model.md)
+1. [Design a Logical Model](./02_activities/assignments/design_a_logical_model.md)
 
 ## Contacts
 
@@ -74,7 +74,7 @@ Participants should follow along with the coding, interact with the study materi
 
 ## Schedule 
 
-Before First Live Learning Session: Install & Pre-Session [Setup](https://github.com/UofT-DSI/sql/blob/main/05_sql/sqlite_setup/sqlite_setup.md)
+Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md)
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
