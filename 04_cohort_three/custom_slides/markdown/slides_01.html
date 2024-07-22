@@ -1,45 +1,34 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>slides_01.knit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <p><img src="imgs/mrpotatocode_banner.png" style="width:7in" /></p>
+]
+.subtitle[
+## Introduction to Data Access and Storage
+]
+.author[
+### Thomas Rosenthal - DSI @ UofT
+]
+.date[
+### Module 01
+]
+
 ---
-title: |
-  ![](imgs/mrpotatocode_banner.png){width=7in}  
-subtitle: "Introduction to Data Access and Storage"
-author: "Thomas Rosenthal - DSI @ UofT" 
-date: "Module 01"
-output:
-  xaringan::moon_reader:
-    css: [xaringan-themer.css, custom.css]
-    lib_dir: libs
-    nature:
-      highlightStyle: style_solarized_light
-      highlightLines: true
-      countIncrementalSlides: false
-      slideNumberFormat: "%current%"
-      ratio: "16:9"
-      seal: false
-editor_options: 
-  chunk_output_type: consolex
----
-
-```{r, warning=FALSE, include=FALSE}
-library(xaringanthemer)
-style_solarized_light(
-  
-  #colours
-  inverse_background_color = "#000000",
-  background_color = "#000000",
-  table_row_even_background_color = "#2C2D26",
-  code_highlight_color = "#268bd2",
-
-  # fonts
-  header_font_google = google_font("Martel", "300", "400"),
-  text_font_google = google_font("Lato"),
-  code_font_google = google_font("Fira Mono"),
-  base_font_size = "18px",
-  header_h2_font_size = "2rem" #unique to _01
-  )
 
 
-library(showtext)
-```
+
 
 class: middle, center, inverse
 # Introduction:
@@ -90,21 +79,21 @@ class: left, top, inverse
 - Worked as a Data Analyst in US healthcare until moving to Canada in 2018
   - Challenging data
   - Easy to see impact of good queries
-  - I was pretty naive about data, probably lucky I didn't break anything `r structure("\U1F937", class = "emoji")`
+  - I was pretty naive about data, probably lucky I didn't break anything 🤷
 - Worked as a Data Engineer at Plan Canada managing a CRM Data Warehouse backend
 - Went back to UofT to do my Master of Information
   - Wanted to do less SQL, more R and python
   - SQL seemed like it was on its way out...NOPE, I was just wrong
 - Reluctant Data Scientist (*do we even need this model?*) 
   - Currently doing AI Governance and Ethics implementation at Dataiku
-- Have a 2 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
+- Have a 2 year old Samoyed named Alto who takes up a lot of my free time 👉
 ]
 
 .pull-right[
 
-<img src="imgs/dorky_alto.png"
+&lt;img src="imgs/dorky_alto.png"
      height="500px"
-     style="position:absolute; right:100px; top:130px;">
+     style="position:absolute; right:100px; top:130px;"&gt;
 
 ]
 
@@ -123,9 +112,9 @@ class: left, top, inverse
 
 .pull-right[
 
-<img src="imgs/ananya.png"
+&lt;img src="imgs/ananya.png"
      height="500px"
-     style="position:absolute; right:100px; top:130px;">
+     style="position:absolute; right:100px; top:130px;"&gt;
 
 ]
 
@@ -143,9 +132,9 @@ class: left, top, inverse
 
 .pull-right[
 
-<img src="imgs/amanda.png"
+&lt;img src="imgs/amanda.png"
      height="500px"
-     style="position:absolute; right:100px; top:130px;">
+     style="position:absolute; right:100px; top:130px;"&gt;
 
 ]
 
@@ -163,9 +152,9 @@ class: left, top, inverse
 
 .pull-right[
 
-<img src="imgs/sidra.png"
+&lt;img src="imgs/sidra.png"
      height="500px"
-     style="position:absolute; right:100px; top:130px;">
+     style="position:absolute; right:100px; top:130px;"&gt;
 
 ]
 
@@ -198,7 +187,7 @@ class: left, top, inverse
 [https://github.com/UofT-DSI/sql](https://github.com/UofT-DSI/sql)
 
 - Schedule
-- These slides (HTML & PDF)
+- These slides (HTML &amp; PDF)
 - Our database for live coding
 - All in-class code
 - Homework (and answers, posted afterwards)
@@ -230,9 +219,9 @@ class: left, top, inverse
 
 .pull-right[
 
-<img src="imgs/sql.png"
+&lt;img src="imgs/sql.png"
      height="500px"
-     style="position:absolute; right:50px; top:130px;">
+     style="position:absolute; right:50px; top:130px;"&gt;
 
 
 ]
@@ -296,16 +285,16 @@ Let's make sure everyone has DB Browser for SQLite installed.
 If not, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/)
 
 --
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 For live coding:
 - Please download/fork the FarmersMarket.db from our GH repo:
-  - [https://github.com/UofT-DSI/sql/tree/main/05_sql](https://github.com/UofT-DSI/sql/tree/main/05_sql)
+  - [farmersmarket.db](../../../05_src/sql/farmersmarket.db)
 - Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
 
 --
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 **Good to go?**
 
 **If not, please message your course support**
@@ -353,7 +342,7 @@ class: top, left, inverse
 - SQL: Structured Query Language
   - Pronounced as either S.Q.L. (ess-cue-ell) or “sequel”
 
-<br>
+&lt;br&gt;
 --
 
 - SQL is a _query_ language rather than a programming language
@@ -362,7 +351,7 @@ class: top, left, inverse
       - Some SQL code, especially more advanced procedural code, is reproducible within the same flavour
   - SQL's domain is databases and is based on set theory
 
-<br>
+&lt;br&gt;
 --
 
 - Designed to manage data within Relational Database Management Systems (RDBMs), e.g.
@@ -382,7 +371,7 @@ class: top, left, inverse
   - Generally, these keywords are written in all caps: `SELECT`
   - Most modern interpreters no longer require this, but it is the expected standard
 
-<br>
+&lt;br&gt;
 --
 
 - All statements/queries should end with a semicolon
@@ -437,7 +426,7 @@ class: top, left, inverse
         `SELECT TOP 10...` vs `SELECT ... LIMIT 10`
     - different syntax
       - e.g. not equal: 
-      `!=` or `<>` (or both)
+      `!=` or `&lt;&gt;` (or both)
     - other, more nuanced/complex differences
       - e.g. architecture, data types, etc
 
@@ -462,7 +451,7 @@ class: top, left, inverse
   - Not every command exists, but workarounds are usually possible
   - Some utilize RDBMs that feel extremely outdated
 
-<br>
+&lt;br&gt;
 --
 
 - Broad observations about enterprise systems:
@@ -501,7 +490,7 @@ class: top, left, inverse
   - Often transactional, meaning data is actively being written to by frontend systems
   - Tables are normalized
 
-<br>
+&lt;br&gt;
 --
 
 - There are also non-relational databases, often referred to as NoSQL
@@ -524,7 +513,7 @@ class: top, left, inverse
   - Tables are denormalized
   - Very common for enterprises, but losing traction in many industries
 
-<br>
+&lt;br&gt;
 --
 
 - Data Marts are created from Data Warehouses to focus on a single subject 
@@ -549,7 +538,7 @@ class: top, left, inverse
   - Inexpensive compared to Data Warehouses
   - Increasingly common for enterprises to shift towards Data Lakes, especially with support from newer tools like Snowflake, Databricks, etc, which can maximize the analytical value of a Data Lake
 
-<br>
+&lt;br&gt;
 --
 
 - Data Swamps...are poorly governed Data Lakes
@@ -595,7 +584,7 @@ class: middle, center, inverse
 
 ## Entity Relationship Diagrams
 
-## Attributes of an ERD: Entities & Relationships
+## Attributes of an ERD: Entities &amp; Relationships
 
 ## Relationship Examples
 
@@ -631,14 +620,14 @@ class: top, left, inverse
   - Manage permissions for data access
   - Mitigate data corruption and unauthorized access
 
-<br>
+&lt;br&gt;
 --
 
 - Generally, data is stored in a _database_
   - A database is a collection of information
   - Within a database, a collection of objects (e.g. tabular data "tables") is stored
 
-<br>
+&lt;br&gt;
 --
 
 - RDBMs allow users to define interactions between these objects, such as:
@@ -734,7 +723,7 @@ class: top, left, inverse
   - `DATE`, `DATETIME`, `TIME` (dates and times: '2023-01-09', '11:11:11.000')
 - These may vary slightly by flavour (in SQLite they are simpler and less restricted)
 
-<br>
+&lt;br&gt;
 --
 
 - Data types are important:
@@ -807,7 +796,7 @@ class: middle, center, inverse
 
 ## **Entity Relationship Diagrams**
 
-## Attributes of an ERD: Entities & Relationships
+## Attributes of an ERD: Entities &amp; Relationships
 
 ## Relationship Examples
 
@@ -825,7 +814,7 @@ class: top, left, inverse
 - Entity Relationship Diagrams (ERDs) are diagrams depicting the structure of tables within a database
   - This both _identifies the tables_ and _describes their relationships_ 
 
-<br>
+&lt;br&gt;
 --
 
 - ERDs are useful for:
@@ -833,7 +822,7 @@ class: top, left, inverse
   - Debugging
   - Writing logical, consistent, and efficient queries
 
-<br>
+&lt;br&gt;
 --
   
 - There are three levels of detail for ERD depictions:
@@ -848,7 +837,7 @@ class: middle, center, inverse
 
 ## Entity Relationship Diagrams
 
-## **Attributes of an ERD: Entities & Relationships**
+## **Attributes of an ERD: Entities &amp; Relationships**
 
 ## Relationship Examples
 
@@ -886,7 +875,7 @@ class: middle, center, inverse
 
 ## Entity Relationship Diagrams (ERDs)
 
-## Attributes of an ERD: Entities & Relationships
+## Attributes of an ERD: Entities &amp; Relationships
 
 ## **Relationship Examples**
 
@@ -1001,7 +990,7 @@ class: middle, center, inverse
 
 ## Entity Relationship Diagrams
 
-## Attributes of an ERD: Entities & Relationships
+## Attributes of an ERD: Entities &amp; Relationships
 
 ## Relationship Examples
 
@@ -1023,7 +1012,7 @@ class: top, left, inverse
 
 --
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 .pull-left.w40[
 - Our Farmers Market database: 
@@ -1036,9 +1025,9 @@ class: top, left, inverse
 ]
 
 .pull-right[
-<img src="imgs/farmers_market_cm.png"
+&lt;img src="imgs/farmers_market_cm.png"
      height="400px";
-     style="position:absolute; right:50px; top:250px;">
+     style="position:absolute; right:50px; top:250px;"&gt;
 ]     
 
 ---
@@ -1058,7 +1047,7 @@ class: top, left, inverse
 
 --
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 .pull-left.w60[
 
@@ -1069,9 +1058,9 @@ class: top, left, inverse
 ]
 
 .pull-right.w35[
-<img src="imgs/farmers_market_lm.png"
+&lt;img src="imgs/farmers_market_lm.png"
      height="300px";
-     style="position:absolute; right:50px; top:250px;">
+     style="position:absolute; right:50px; top:250px;"&gt;
 ]
 
 
@@ -1088,7 +1077,7 @@ class: top, left, inverse
 
 --
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 .pull-left.w40[
 
@@ -1096,14 +1085,14 @@ class: top, left, inverse
   - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
   - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
   - market_date (date) is the PK for vendor_inventory
-      - **why?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
+      - **why?** 💭💬**Think, Pair, Share**
 
 ]
 
 .pull-right[
-<img src="imgs/farmers_market_pm.png"
+&lt;img src="imgs/farmers_market_pm.png"
      height="200px";
-     style="position:absolute; right:50px; top:250px;">
+     style="position:absolute; right:50px; top:250px;"&gt;
 ]
 
 ---
@@ -1118,7 +1107,7 @@ class: middle, center, inverse
 
 ## Entity Relationship Diagrams
 
-## Attributes of an ERD: Entities & Relationships
+## Attributes of an ERD: Entities &amp; Relationships
 
 ## Relationship Examples
 
@@ -1134,7 +1123,7 @@ class: top, left, inverse
 ### Assignment 1: Design a Logical Model
 
 **Q1)**
-Create a logical model for a small bookstore. `r structure("\U1F4DA", class = "emoji")`
+Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/) or [Draw.io](https://www.drawio.com/).
 
@@ -1159,7 +1148,143 @@ class: middle, center, inverse
 **What questions do you have about anything from today?**
 
 
-```{r echo=FALSE}
-#library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/07_cohort_three/custom_slides/markdown/slides_01.Rmd")
-```
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "style_solarized_light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
+"seal": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -41,7 +41,7 @@ Participants should review the [Assignment Submission Guide](https://github.com/
 
 There is one assignment and six mandatory homework exercises. Class Participation is considered in the evaluation of the  module. 
 
-1. [Design a Logical Model](https://github.com/UofT-DSI/sql/blob/main/02_assignments/design_a_logical_model.md)
+1. [Design a Logical Model](./02_activities/assignments/design_a_logical_model.md)
 
 ## Contacts
 
@@ -68,13 +68,13 @@ Participants are encouraged to engage actively during the learning module. They 
 
 This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
-The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./07_cohort_three/live_code`.
+The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./04_cohort_three/live_code`.
 
 Participants should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Participants are encouraged to ask questions throughout. 
 
 ## Schedule 
 
-Before First Live Learning Session: Install & Pre-Session [Setup](https://github.com/UofT-DSI/sql/blob/main/05_sql/sqlite_setup/sqlite_setup.md)
+Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md)
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
@@ -115,22 +115,25 @@ Feel free to use the following as resources:
 
 ```markdown
 .
-├── 01_slides
-├── 02_assignments
-├── 03_homework
-├── 04_data
-├── 05_sql
-├── 06_instructors
+├── .github
+├── .gitignore
+├── 01_materials
+├── 02_activities
+├── 03_instructional_team
+├── 04_cohort_three
+├── 05_src
 ├── LICENSE
 ├── README.md
 └── steps_to_ask_for_help.png
 ```
 
-* **Slides:** Slides were built in markdown. Output files are HTML and PDFs.
-* **SQL:** FarmersMarket.db, in-class SQL codes.
-* **Data:** Data (csv, json, etc) we'll use for importing.
-* **Homework:** Homework to be done after each module.
-* **Assignments:** Assignments.
-* **Instructors:** This folder guides Technical Facilitators and the Learning Support team on teaching methodologies and content delivery.
-* README: This file!
-* .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
+* **.github**: Contains issue templates, pull request templates and workflows for the repository.
+* **materials**: Module slides used during learning sessions.
+* **activities**: Contains graded assignments, exercises, and homework to practice concepts covered in the learning module.
+* **instructional_team**: Resources for the instructional team.
+* **cohort_three**: Additional materials and resources for cohort three.
+* **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
+* **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
+* **LICENSE**: The license for this repository.
+* **README**: This file.
+* **steps_to_ask_for_help.png**: Guide on how to ask for help.

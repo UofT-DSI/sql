@@ -11,24 +11,24 @@ The module is organized into 3 main directories:
 
 The `/01_slides` directory contains the live learning session slides.
 
-The `/02_assignments` contains assignments participants should submit for evaluation as  `complete` or `incomplete`. The assignments measure a participant's achievement of the learning outcomes, and help technical facilitators determine if a participant has successfully completed the learning module. 
+The `/02_activities/assignments` contains assignments participants should submit for evaluation as  `complete` or `incomplete`. The assignments measure a participant's achievement of the learning outcomes, and help technical facilitators determine if a participant has successfully completed the learning module. 
 
-The `/03_homework` directory contains homework participants can complete to further develop and practice the skills covered in a learning module. Homework is optional, but participants are encouraged to complete as much as they can.
+The `/02_activities/homework` directory contains homework participants can complete to further develop and practice the skills covered in a learning module. Homework is optional, but participants are encouraged to complete as much as they can.
 
 ### Week 1
 
 | Live Learning Session | Date | Topic | Slides |
 | --- | --- | --- | --- |
-| 0 | Before First Live Learning Session | Install & Pre-Class | [Setup](https://github.com/UofT-DSI/sql/blob/main/05_sql/sqlite_setup/sqlite_setup.md) |
-| 1 | TBA | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](https://github.com/UofT-DSI/sql/blob/main/01_slides/slides_01.pdf) |
-| 2 | TBA | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](https://github.com/UofT-DSI/sql/blob/main/01_slides/slides_02.pdf) |
-| 3 | TBA | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions | [Essential Techniques](https://github.com/UofT-DSI/sql/blob/main/01_slides/slides_03.pdf)|
+| 0 | Before First Live Learning Session | Install & Pre-Class | [Setup](../05_src/sql/sqlite_setup/sqlite_setup.md) |
+| 1 | TBA | Introduction, Data Modelling, Schema Design, Data Structures | [Introduction](../01_materials/slides/slides_01.pdf) |
+| 2 | TBA | Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs | [Building Queries](./01_materials/slides/slides_02.pdf) |
+| 3 | TBA | Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions | [Essential Techniques](../01_materials/slides/slides_03.pdf)|
 
 ### Week 2
 
 | Live Learning Session | Date | Topic | Slides |
 | --- | --- | --- | --- |
-| 4 | TBA | Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](https://github.com/UofT-DSI/sql/blob/main/01_slides/slides_04.pdf) |
+| 4 | TBA | Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT | [Advanced Techniques](../01_materials/slides/slides_04.pdf) |
 | 5 | TBA | Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views | [Expanding your Database]() |
 | 6 | TBA | Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild | [Beyond SQL]() |
 
