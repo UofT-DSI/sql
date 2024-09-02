@@ -1,6 +1,6 @@
 # Homework 4: Advanced SQL
 
--  	Due on Thursday, May 23 at 11:59pm
+-  	Due on Thursday, September 19 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 
