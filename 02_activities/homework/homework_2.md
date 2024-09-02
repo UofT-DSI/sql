@@ -1,6 +1,6 @@
 # Homework 2: Basic SQL 
 
--  	Due on Friday, May 17 at 11:59pm
+-  	Due on Friday, Sept 13 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 
