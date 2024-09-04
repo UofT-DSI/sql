@@ -668,6 +668,6 @@ class: middle, center, inverse
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_cohort_three/custom_slides/markdown/slides_05.Rmd")
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_05.Rmd")
 
 ```
