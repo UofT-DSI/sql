@@ -27,4 +27,4 @@ If you select the zip, place the extract somewhere convenient, like your desktop
 ### For Mac:
 I've installed both the traditional dmg and the homebrew way. It's probably easier to use the dmg, but you're welcome to do homebrew if you're used to doing things those way. I've tested on a few different OS versions and they all seem to go smoothly.
 
-If you have issues, there are also nightly builds, select the appropriate architecture (Intel or ARM, if you are unsure which you need, go to About this Mac, and if your processor is M1/M2 then install ARM, otherwise Intel) : https://sqlitebrowser.org/dl/#nightly-builds
+If you have issues, there are also nightly builds, select the appropriate architecture (Intel or ARM, if you are unsure which you need, go to About this Mac, and if your processor is M1/M2/M3 then install ARM, otherwise Intel) : https://sqlitebrowser.org/dl/#nightly-builds
