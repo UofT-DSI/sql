@@ -33,7 +33,7 @@ $ echo "Data Sciences Institute"
 - Transitioned to Data Engineer at Plan Canada
 - Pursued Master of Information at UofT for R and Python focus
 - Currently working on AI Governance and Ethics at Dataiku
-- **_Have a 3 year old Samoyed named Alto who takes up a lot ofmy free time 👉_**
+- **_Have a 3 year old Samoyed named Alto who takes up a lot of my free time 👉_**
 
 ![bg right:40% w:350](./images/01_happy_alto.jpeg)
 
