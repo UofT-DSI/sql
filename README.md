@@ -68,7 +68,7 @@ Participants are encouraged to engage actively during the learning module. They 
 
 This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
-The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./04_cohort_three/live_code`.
+The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./04_this_cohort/live_code`.
 
 Participants should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Participants are encouraged to ask questions throughout. 
 
@@ -120,7 +120,7 @@ Feel free to use the following as resources:
 ├── 01_materials
 ├── 02_activities
 ├── 03_instructional_team
-├── 04_cohort_three
+├── 04_this_cohort
 ├── 05_src
 ├── LICENSE
 ├── README.md
@@ -131,7 +131,7 @@ Feel free to use the following as resources:
 * **materials**: Module slides used during learning sessions.
 * **activities**: Contains graded assignments, exercises, and homework to practice concepts covered in the learning module.
 * **instructional_team**: Resources for the instructional team.
-* **cohort_three**: Additional materials and resources for cohort three.
+* **this_cohort**: Additional materials and resources for cohort three.
 * **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
 * **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
 * **LICENSE**: The license for this repository.
