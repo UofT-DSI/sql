@@ -754,7 +754,7 @@ class: left, upper, inverse
 --
 
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-05
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-09
   
 ---
 class: left, upper, inverse
@@ -843,7 +843,7 @@ class: left, upper, inverse
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-      - e.g., months until summer `r structure("\U1F3D6", class = "emoji")` `SELECT STRFTIME('%m','2024-06-21') - STRFTIME('%m','NOW')` 
+      - e.g., months until summer `r structure("\U1F3D6", class = "emoji")` `SELECT STRFTIME('%m','2025-06-21') - STRFTIME('%m','NOW')` 
 
 --
 
