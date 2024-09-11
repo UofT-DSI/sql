@@ -75,5 +75,12 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 	- These are the tables that are connected
 	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
-Homework:
+
+Homework 1 diagram:
+
 ![ERD_homework_1.png](./images/ERD_homework_1.png)
+
+Relationships:
+- market_date_info to customer_purchases: One-to-Many (1:M) - One market date can have many customer purchases.
+- zip_code to customer: One-to-Many (1:M) - One zip code can be associated with many customers.
+- customer to customer_purchases: One-to-Many (1:M) - One customer can make many purchases.
