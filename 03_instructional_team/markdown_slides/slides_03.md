@@ -373,7 +373,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-05
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-09
   
 ---
 

@@ -33,31 +33,18 @@ $ echo "Data Sciences Institute"
 - Transitioned to Data Engineer at Plan Canada
 - Pursued Master of Information at UofT for R and Python focus
 - Currently working on AI Governance and Ethics at Dataiku
-- **_Have a 2 year old Samoyed named Alto who takes up a lot ofmy free time 👉_**
+- **_Have a 3 year old Samoyed named Alto who takes up a lot of my free time 👉_**
 
-![bg right:40% w:350](./images/01_dorky_alto.jpeg)
-
----
-
-# About Us (Ananya)
-
-- UofT Computer Science and Statistics graduate, with minor in Mathematics
-- Co-op at Citi (Software Development) and BMO (Business Analytics)
-- Machine Learning Engineering Intern at Shopify working on a Fine Tuned LLM for Product Taxonomy, previously RBC Capital Markets
-- Former Women in Computer Science president at UofT
-- Involved with Toronto Wxmen in Data Science and RWomen at RBC
-
-![bg right:35% w:350](./images/01_ananya.png)
+![bg right:40% w:350](./images/01_happy_alto.png)
 
 ---
-
 
 # About Us (Amanda)
 
-- UofT Statistics undergraduate (entering 4th year)
+- UofT Statistics & Math undergrad (4th year)
+- Considering grad school in Stat/Biostat
 - Self-taught SQL through online resources
-- Currently in summer research program under UofT Statistics department
-- Considering MSc in Statistics
+- Have experiences in both research and industry 
 - Hobbies: piano, puzzle, Netflix
 
 ![bg right:35% w:350](./images/01_amanda.png)
@@ -76,6 +63,18 @@ $ echo "Data Sciences Institute"
 
 ---
 
+# About Us (Niyaz)
+
+- Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
+- 15 years of experience in software development, database design, and query optimization
+- Co-founder of a company offering web design, SEO, and Google Ads services in Canada
+- Experienced mentor and facilitator in product development, focusing on code reviews and Agile practices to ensure quality and continuous improvement
+- I always enjoy helping others learn while continuously learning myself
+
+![bg right:35% w:350](./images/01_niyaz.png)
+
+---
+
 # Welcome / Course Content
 
 ---
@@ -89,6 +88,20 @@ $ echo "Data Sciences Institute"
 - Importing and Exporting Data to and from SQL
 - SQL's relationship to the Machine Learning Pipeline
 - Data Stewardship, Ethics, and SQL in the Wild
+
+---
+
+# Course Tools
+
+- [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
+- [GitHub](https://github.com/UofT-DSI/sql): *Module overview*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Sept2024): *Where we will keep track of session progress*
+  - **Visit and complete the sign in prompt at the start every session**
+- [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
+- [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignment 1*
+- [Code Share](https://codeshare.io/): *To share code during our live coding sessions*
+  - This is for convenience only during live coding sessions, use the repo after the session instead
+- Mentimeter (links vary): *Small in-class quizzes, ungraded*
 
 ---
 
@@ -135,7 +148,7 @@ $ echo "Data Sciences Institute"
   - Covers the topics of the modules
 - Review answers in Office Hours with myself or course support
   - I may go over one or two queries at the start of class if desired
-- Designed to be relatively easy
+- Designed to be relatively easy (with a couple of hard questions)
   - Reaffirms what we wrote together
   - Doing work on your own helps reinforce the learning
 - ChatGPT probably won't help you much
@@ -147,11 +160,11 @@ $ echo "Data Sciences Institute"
 
 - Pass/Fail. Do the work, pass the course :) 
 
-- One Assignment: Data Model Design, 40%, due June 1
+- One Assignment: Data Model Design, 52%, due Sept 28
 
 - Homework: 48% (8% each), due on Thursdays, Fridays, Saturdays
 
-- Class Attendance: 12% (2% each)
+- Class Attendance: *not graded this cohort, come anyways!*
   - Let myself or course support know if you are unable to attend a lesson
   - Code along!! Best way to learn.
 
@@ -683,13 +696,6 @@ Table: Different countries align differently within these definition
 | 003        | ∞:∞ | 12        |
 
 We can create additional Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
-
-
----
-
-# Relationship Examples
-
-We'd create additional Many-to-Many relationships if we created a course table, because A and Ananya are involved in multiple courses!
 
 ---
 

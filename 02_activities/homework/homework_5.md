@@ -1,6 +1,6 @@
 # Homework 5: Expanding your Database
 
--  	Due on Friday, May 24 at 11:59pm
+-  	Due on Friday, September 20 at 11:59pm
 -  	Weight: 8% of total grade
 -  	Upload one .sql file with your queries
 

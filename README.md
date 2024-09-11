@@ -54,8 +54,8 @@ There is one assignment and six mandatory homework exercises. Class Participatio
 * Learning Support Staff: 
   * **Amanda Ng** (she/her)  
   [waiyuamanda.ng@mail.utoronto.ca](mailto:waiyuamanda.ng@mail.utoronto.ca)
-  * **Ananya Jha** (she/her)  
-  [ananya.jha@mail.utoronto.ca](mailto:ananya.jha@mail.utoronto.ca)
+  * **Niyaz Nazari** (she/her)  
+  [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
   * **Sidra Bushra** (she/her)  
   [sidrabushra@ymail.com](mailto:sidrabushra@ymail.com)
 
@@ -68,7 +68,7 @@ Participants are encouraged to engage actively during the learning module. They 
 
 This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
-The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./04_cohort_three/live_code`.
+The technical facilitator will introduce the concepts through a collaborative live coding session using SQLite. The technical facilitator will upload any live coding files to this repository for participants to revisit under `./04_this_cohort/live_code`.
 
 Participants should follow along with the coding, interact with the study material [SQL for Data Scientists by Renee Teate](https://sqlfordatascientists.com/), and think about the broader data landscape. Participants are encouraged to ask questions throughout. 
 
@@ -78,13 +78,11 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
-|Week 1|Live Learning Session 1 Introduction, Data Modelling, Schema Design, Data Structures |Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |Work Period 1|Work Period 2|
+|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures |Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |Work Period 1|Work Period 2|
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
 |Week 2|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT  |Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views   |Live Learning Session 6 Beyond SQL: Normal Forms, SQL and the Machine Learning pipeline, Broader Data Landscape, Reproducibility, Ethics, SQL in the wild |Work Period 1|Work Period 2|
-
-The schedule above will shift to accommodate a case study during Live Learning Session 3 in Week 2
 
 ## Requirements
 
@@ -120,7 +118,7 @@ Feel free to use the following as resources:
 ├── 01_materials
 ├── 02_activities
 ├── 03_instructional_team
-├── 04_cohort_three
+├── 04_this_cohort
 ├── 05_src
 ├── LICENSE
 ├── README.md
@@ -131,7 +129,7 @@ Feel free to use the following as resources:
 * **materials**: Module slides used during learning sessions.
 * **activities**: Contains graded assignments, exercises, and homework to practice concepts covered in the learning module.
 * **instructional_team**: Resources for the instructional team.
-* **cohort_three**: Additional materials and resources for cohort three.
+* **this_cohort**: Additional materials and resources for cohort three.
 * **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
 * **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
 * **LICENSE**: The license for this repository.

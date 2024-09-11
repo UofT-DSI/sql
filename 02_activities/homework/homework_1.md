@@ -1,6 +1,6 @@
 # Homework 1: farmersmarket.db
 
-- Due on Thursday, May 16 at 11:59pm
+- Due on Thursday, September 12 at 11:59pm
 - Weight: 8% of total grade
 
 ## Get to know the farmersmarket.db
