@@ -1,9 +1,87 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0" version="24.7.13">
   <diagram name="Page-1" id="sIyZ1Rtmupw2BvP-3QWP">
-    <mxGraphModel>
+    <mxGraphModel dx="880" dy="434" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="XhdduYZDkeqmosZqZzJm-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XhdduYZDkeqmosZqZzJm-1" target="XhdduYZDkeqmosZqZzJm-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-1" value="BOOTH" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-4" value="&lt;p align=&quot;center&quot;&gt;&lt;b&gt;DATASET : FARMER&#39;S MARKET &lt;br&gt;&lt;/b&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;I&#39;ll create a conceptual model by describing the relationships between the entities and identifying their key attributes. Here&#39;s an overview of each table and how they connect within the data model:&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="30" width="490" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-5" value="Booth_id (PK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-6" value="Booth_location" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-7" value="Booth_size" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-8" value="Market_id (FK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="XhdduYZDkeqmosZqZzJm-12" target="XhdduYZDkeqmosZqZzJm-13" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-12" value="CUSTOMER" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-13" value="Customer_id (PK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-14" value="First+Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-15" value="Last_Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-16" value="Email" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="XhdduYZDkeqmosZqZzJm-18" target="XhdduYZDkeqmosZqZzJm-19" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-18" value="BOOTH" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-19" value="Booth_id (PK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-20" value="Booth_location" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-21" value="Booth_size" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-22" value="Market_id (FK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="XhdduYZDkeqmosZqZzJm-24" target="XhdduYZDkeqmosZqZzJm-25" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-24" value="BOOTH" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-25" value="Booth_id (PK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-26" value="Booth_location" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-27" value="Booth_size" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-28" value="Market_id (FK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XhdduYZDkeqmosZqZzJm-29" value="Phone_no" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
