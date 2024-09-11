@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>slides_02.knit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <p><img src="imgs/mrpotatocode_banner.png" style="width:7in" /></p>
+]
+.subtitle[
+## Introduction to Data Access and Storage
+]
+.author[
+### Thomas Rosenthal - DSI @ UofT
+]
+.date[
+### Module 02
+]
+
+---
+
+
+
+
+class: middle, center, inverse
+# Building Queries:
+
+## Fundamental Three Commands
+
+## Two More Commands
+
+## Putting Things Together with JOIN
+
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## **Fundamental Three Commands**
+
+## Two More Commands
+
+## Putting Things Together with JOIN
+
+---
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT
+
+## FROM
+
+## WHERE    
+
+---
+
+class: top, left, inverse
+# Fundamental Three Commands
+- Our first three commands (`SELECT`, `FROM`, `WHERE`) are essential to nearly every SQL query
+
+--
+
+- The template for our initial SQL statement is as such:
+
+    `SELECT` : _the columns we want to retrieve_
+
+    `FROM` : _the table we are querying_
+
+    `WHERE` : _filters/conditions (optional)_
+
+    `ORDER BY` : _column sorting: ascending_ `ASC` _or descending_ `DESC` _(optional)_
+
+    `LIMIT` : _how many rows we want to return (optional)_
+
+---
+
+class: top, left, inverse
+# Fundamental Three Commands
+- Always specified in this order:
+  - `SELECT` will come first
+  - `FROM` will come after `SELECT`
+      - when we are querying more than one table at a time, each will come after `FROM` but before `WHERE` (more on this later)
+  - `WHERE` will come after `FROM` 
+  - `ORDER BY` will come after `WHERE` clauses
+
+&lt;br&gt;
+--
+
+- We'll sometimes use the `LIMIT` clause to look at data
+  - This comes at the very end of a query
+  - `LIMIT` shouldn't be used for analytics unless you have a specific reason
+    - `ORDER BY` often impacts the usefulness of `LIMIT` 
+
+&lt;br&gt;
+--
+
+- Remember:
+  - In SQL, we use two dashes `--` to comment out lines, rather than `#`
+---
+
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## **SELECT**
+
+## FROM
+
+## WHERE
+
+---
+
+class: top, left, inverse
+# SELECT
+
+- At its simplest `SELECT` specifies column names we are retrieving
+  - commas come between each column name
+      - `SELECT student, course, grade ...`
+  - column names with a space need to be enclosed in square brackets
+      - `SELECT [poorly named column], better_column_name, AnotherColumnName`
+
+&lt;br&gt;
+--
+
+- Within `SELECT` statements we can perform manipulations on columns
+  - e.g. rename a column
+      - `SELECT [poorly named column] AS better_col`
+  - combine two text columns
+  - perform math on a numeric column
+  - ...and many more things
+
+
+---
+
+class: top, left, inverse
+# SELECT
+
+- We can use `SELECT` to perform math without a `FROM` statement
+  - `SELECT 1 + 1`
+  - `SELECT 10*5, cos(2), pi()`
+
+&lt;br&gt;
+--
+
+- And we can use `SELECT` to specify constant values
+  - `SELECT 2024 AS this_year, 'May' AS this_month`
+
+&lt;br&gt;
+--
+
+- When selecting columns, they need to exist in the table!
+  
+---
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT
+
+## **FROM**
+
+## WHERE
+
+---
+
+class: top, left, inverse
+# FROM
+
+- `FROM` statements indicate which table the data is from and where the table is located
+  - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
+      - a fully qualified location of a table would thus be `database.schema.table`
+- `SELECT * FROM table_name` indicates _everything_ in the table
+
+&lt;br&gt;
+--
+
+- Best practice suggests that we should explicitly call each column, even if we want all of them
+ - **Why do we think this is the case?** 💭💬**Think, Pair, Share**
+ 
+---
+
+class: top, left, inverse
+# FROM
+
+(`SELECT` &amp; `FROM` live coding)
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[ 
+&lt;img src="imgs/CAPS.png"
+     height="300px";&gt;
+     
+&lt;sup&gt;&lt;sup&gt;&lt;sup&gt;&lt;sup&gt; Image: Unknown meme creator &lt;/sup&gt;&lt;/sup&gt;&lt;/sup&gt;&lt;/sup&gt;
+]
+
+
+---
+
+class: middle, center, inverse
+**Quick Mentimeter**
+---
+
+class: middle, center, inverse
+# Fundamental Three Commands
+
+## SELECT 
+
+## FROM
+
+## **WHERE**
+
+---
+class: top, left, inverse
+# WHERE
+
+- `WHERE` clauses are conditions that the query will follow
+- When we want to have multiple conditions, we use a single `WHERE` and then additional logical operations
+
+```
+    SELECT *
+    FROM students
+    WHERE first_name = 'Thomas'
+    AND last_name = 'Rosenthal'
+```
+
+- **Notice we put string values in single quotes**
+  - SQLite also allows double quotes, with a few minor caveats
+
+&lt;br&gt;
+--
+
+- `WHERE` clauses always return rows evaluating to `TRUE`
+  - Follows Boolean rules if more than one condition is present
+  
+---
+
+class: top, left, inverse
+# WHERE
+
+### Logical Operators
+- `AND`
+- `OR`
+- `NOT`
+- `NOT IN`
+- equals: `=`
+- does not equal: `&lt;&gt;` `!=`  
+  - (flavour dependent)
+- greater than (equal to): `&gt;` `&gt;=` 
+- less than (equal to): `&lt;` `&lt;=`
+- `BETWEEN`
+- `EXISTS`
+  - table specific
+- `IS`
+  - `NULL` specific 
+  
+---
+
+class: top, left, inverse
+# WHERE
+
+### NULL
+- `NULL` is not a value (it's the absence of a value)
+  - to check null values, we use `IS NULL` or `IS NOT NULL`
+  - `= NULL` will not work
+
+--
+
+### LIKE
+- `LIKE` allows for string wildcards
+- `%` specifies the wildcard placement
+  - `country_name LIKE 'and%'`
+      - Andorra
+  - `country_name LIKE '%and'`
+      - Finland, Iceland ...more
+  - `country_name LIKE '%and%'`
+      - all of the above, _plus_ Antigua and Barbuda, Netherlands, Rwanda ...more!
+  - `country_name LIKE '%an%d%'`
+      - Canada ...surely more!
+
+---
+
+class: top, left, inverse
+# WHERE
+
+(`WHERE` live coding)
+
+---
+
+class: middle, center, inverse
+**What questions do you have about SELECT, FROM, WHERE?**
+
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## Fundamental Three Commands
+
+## **Two More Commands**
+
+## Putting Things Together with JOIN
+
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## CASE
+
+## DISTINCT
+
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## **CASE**
+
+## DISTINCT
+
+---
+
+class: top, left, inverse
+# CASE
+- `CASE` statements allow us to introduce conditional logic into our `SELECT` statements
+
+--
+
+- They are generally similar to `if` or `if else` statements in python, R, and other languages
+  - When a condition is introduced, we check whether it evaluates to TRUE
+      - If it is true, we proceed with a desired command, calculation, value, etc
+      - If it is not true, we move to the next condition
+          - If it is true, we proceed with another desired command, calculation, value, etc
+              - ...all the way until we run out of conditions
+  - For all FALSE conditions, we can use an `ELSE` statement if we want to
+
+--
+
+- The results of a `CASE` statement will be a new column
+- Best practice is to name the new column using `AS new_column_name`
+
+```
+    CASE 
+      WHEN [something is true]
+        THEN [value or calculation]
+      WHEN [something else is true]
+        THEN [value or calcuation]
+      ELSE [value or calcuation]
+    END 
+```  
+
+---
+
+class: top, left, inverse
+# CASE
+
+(`CASE` live coding)
+
+---
+
+class: middle, center, inverse
+# Two More Commands
+
+## CASE
+
+## **DISTINCT**
+
+---
+
+class: top, left, inverse
+# DISTINCT
+- Not all queries will result in unique rows (i.e. duplicates are present)
+  - **Can we think of why this is? Write your thoughts in the etherpad!**
+
+&lt;br&gt;
+--
+
+- `DISTINCT` has two possible spots within a query:
+  - One comes immediately after `SELECT`, before column names are specified
+      - e.g. `SELECT DISTINCT songs, albums, artists...`
+      - This `DISTINCT` will govern the entire query
+      
+  - The other comes within aggregation (we'll get to this later)
+      - e.g. `COUNT(DISTINCT products)`
+      - This `DISTINCT` will only affect this specific aggregation
+
+---
+
+class: top, left, inverse
+# DISTINCT
+
+(`DISTINCT` live coding)
+
+---
+
+class: middle, center, inverse
+**What questions do you have about CASE, DISTINCT?**
+
+---
+
+class: middle, center, inverse
+# Building Queries:
+
+## Fundamental Three Commands
+
+## Two More Commands
+
+## **Putting Things Together with JOIN**
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## INNER JOIN
+
+## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
+
+## FULL OUTER JOIN
+
+## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# Putting Things Together with JOIN
+
+- Joins are used to combine data stored in different tables into a single table
+
+--
+
+- Joins are the "Cartesian product" of two tables with _conditional selection(s)_ of specific rows
+  - A Cartesian product combines all possible row values with another 
+    - An easy example is a deck of cards:
+      
+      combining four suits: 
+      {♠, ♥, ♦, ♣} 
+      
+      with thirteen ranks:
+      {A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2}
+      
+      produces 52 cards (4 * 13)
+      
+  - To create a Cartesian Product in SQL we use `CROSS JOIN` (rare, but not unheard of)
+
+---
+class: top, left, inverse
+# Putting Things Together with JOIN
+
+- Joins require relationships (with one exception, `CROSS JOIN`) between tables
+- Different joins create different results
+  - Join names specify which conditional selection is desired
+
+&lt;br&gt;
+--
+
+- There are three join types in SQL but different joining criteria can further limit results 
+- The most permitting join is a `FULL OUTER JOIN` and the least permitting is an `INNER JOIN`
+  - Let's explore what this means by looking at each of them
+
+
+---
+
+class: top, left, inverse
+# Putting Things Together with JOIN
+
+### JOIN Syntax
+
+Syntax for a join is as follows:
+
+```
+SELECT [columns]
+
+FROM [left table]
+	
+JOIN [right table]
+	
+ON [left table.matching column] = [right table.matching column]
+```
+
+--
+
+A couple of notes:
+
+- You will need to specify which join type is desired:
+  - e.g. `INNER JOIN`
+- Matching columns do not need to have the same name, just the same value
+  - e.g. `ON table1.LetterGrade = table2.Alphabet` will work because A=A, B=B, C=C, etc
+- You can specify more than one column to be joined
+  - e.g. `ON table1.FirstName = table2.FirstName AND table1.LastName = table2.LastName`
+
+---
+
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## **INNER JOIN**
+
+## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
+
+## FULL OUTER JOIN
+
+## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# INNER JOIN
+- `INNER JOIN` filters both tables to rows present in both tables
+- `INNER JOIN` does not produce `NULL` values
+- `INNER JOIN` is the "default" join
+  - i.e. queries do not need to specify "INNER", though it's good practice to write INNER 
+
+.center[ 
+&lt;img src="imgs/inner_join.png"
+     height="300px";&gt;
+     
+&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
+]
+
+---
+
+class: top, left, inverse
+# INNER JOIN
+
+A quick note on table aliasing:
+- It is very common practice to alias table names 
+  - It makes join criteria much more concise
+  - It simplifies `SELECT` statements when column names are the same
+    - This is a common error: _"ambiguous column name"_
+      - SQL requires you to specify _which_ table you are returning the result from
+- Generally, tables are aliased with the first letter (or first few letters) of the table so they can be easily referenced
+  - `product AS p`
+  - `product_category AS pc`
+  
+---
+
+class: top, left, inverse
+# INNER JOIN
+
+(`INNER JOIN` live coding)
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## INNER JOIN
+
+## **LEFT (OUTER) JOIN**
+
+## RIGHT (OUTER) JOIN
+
+## FULL (OUTER) JOIN
+
+## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOIN
+- `LEFT JOIN` filters the "right" table to rows present in the "left" table
+- `LEFT JOIN` will most often produce `NULL` values
+- The "OUTER" in `LEFT OUTER JOIN` is optional
+  - Generally, OUTER seems to be excluded, but both are correct
+- LEFT _is not_ optional; there is no "OUTER JOIN"
+
+.center[ 
+&lt;img src="imgs/left_join.png"
+     height="300px";&gt;
+     
+&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
+]
+
+---
+
+class: top, left, inverse
+# LEFT (OUTER) JOIN
+
+(`LEFT JOIN` live coding)
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## INNER JOIN
+
+## LEFT (OUTER) JOIN
+
+## **RIGHT (OUTER) JOIN**
+
+## FULL (OUTER) JOIN
+
+## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# RIGHT (OUTER) JOIN
+- `RIGHT JOIN` filters the "left" table to rows present in the "right" table
+- `RIGHT JOIN` will most often produce `NULL` values
+- The "OUTER" in `RIGHT OUTER JOIN` is optional
+  - Generally, OUTER seems to be excluded, but both are correct
+- `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
+  - Often your query can be reorganized to use a `LEFT JOIN` instead
+    - SQLite does not currently support `RIGHT JOIN`
+
+.center[ 
+&lt;img src="imgs/right_join.png"
+     height="300px";&gt;
+     
+&lt;sup&gt;&lt;sup&gt; Image: Teate, Chapter 5 &lt;/sup&gt;&lt;/sup&gt;
+]
+
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## INNER JOIN
+
+## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
+
+## **FULL (OUTER) JOIN**
+
+## Multiple Table Joins
+
+---
+
+class: top, left, inverse
+# FULL (OUTER) JOIN
+- `FULL OUTER JOIN` does not filter either "left" or "right" table
+- Expect `NULL` values to be produced from a `FULL OUTER JOIN`
+- My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
+- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
+
+--
+
+### Filtering a FULL (OUTER) JOIN
+- All OUTER JOIN syntax can be filtered to exclude the _matching_ criteria
+  - Often called an ANTI JOIN, i.e. what's _not_ in the other table
+
+```
+    SELECT *
+    FROM table_1
+    {LEFT | RIGHT | FULL} OUTER JOIN table_2
+    ON table_1.key = table_2.key
+    WHERE {table_1.key IS NULL | table_2.key IS NULL | 
+           table_1.key IS NULL OR table_2.key IS NULL}
+```
+
+---
+
+class: middle, center, inverse
+**Quick Mentimeter**
+
+---
+
+class: middle, center, inverse
+# Putting Things Together with JOIN
+
+## INNER JOIN
+
+## LEFT (OUTER) JOIN
+
+## RIGHT (OUTER) JOIN
+
+## FULL OUTER JOIN
+
+## **Multiple Table Joins**
+
+---
+
+class: top, left, inverse
+# Multiple Table Joins
+- More than one table can be joined at a time
+
+```
+    SELECT *
+    FROM table_1
+    {INNER | LEFT | FULL JOIN table_2
+      ON table_1.key = table_2.key
+    {INNER | LEFT | FULL JOIN table_3
+      ON {table_1 | table_2}.key = table_3.key
+    {INNER | LEFT | FULL JOIN table_n
+      ON {table_1 | table_2 | table_3}.key = table_n.key
+
+```
+
+--
+
+- The order and type of joins will have significant effect on the final table
+- It's important to determine which table should be the `FROM` table
+
+&lt;br&gt;
+
+- Sometimes you have to experiment a bit to get things right
+- **Can you imagine scenarios based on your knowledge of different `JOIN` types that result in significantly different outputs?**
+---
+
+class: top, left, inverse
+# Multiple Table Joins
+
+(Multiple Table Joins live coding)
+
+---
+
+class: middle, center, inverse
+**What questions do you have about anything from today?**
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "style_solarized_light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
+"seal": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
