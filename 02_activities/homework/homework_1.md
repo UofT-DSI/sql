@@ -82,6 +82,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 The relationship is **many-to-many**:
 
 A single customer can purchase multiple products from various vendors.
+
 A single vendor can sell different products to multiple customers.
 
 ![homework_1_ER.png](./images/homework_1_ER.jpg)
