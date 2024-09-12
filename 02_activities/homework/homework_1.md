@@ -77,9 +77,9 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 
-Answer:  I worked on the customer_purchases and vendor_inventory tables. Based on my analysis, there is no primary key (PK) in the customer_purchases table, however, the combination of customer_id, vendor_id, and product_id provides a unique set of records. Similarly, in the vendor_inventory table, the combination of vendor_id and product_id creates a unique set of records, as no primary key is explicitly defined here either.
+**Answer:** I worked on the customer_purchases and vendor_inventory tables. Based on my analysis, there is no primary key (PK) in the customer_purchases table, however, the combination of customer_id, vendor_id, and product_id provides a unique set of records. Similarly, in the vendor_inventory table, the combination of vendor_id and product_id creates a unique set of records, as no primary key is explicitly defined here either.
 
-The relationship is many-to-many:
+The relationship is **many-to-many**:
 
 A single customer can purchase multiple products from various vendors.
 A single vendor can sell different products to multiple customers.
