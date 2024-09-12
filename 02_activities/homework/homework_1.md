@@ -77,3 +77,5 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ![image](https://github.com/user-attachments/assets/24215b9d-33bb-457b-b206-770bd7fb9b7d)
+
+
