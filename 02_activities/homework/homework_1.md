@@ -1,3 +1,4 @@
+![homework 1 diagram](https://github.com/user-attachments/assets/ba670195-69b5-44ff-9649-91e943721a1a)
 # Homework 1: farmersmarket.db
 
 - Due on Thursday, September 12 at 11:59pm
