@@ -3,7 +3,11 @@
 - Due on Thursday, September 12 at 11:59pm
 - Weight: 8% of total grade
 
-## Get to know the farmersmarket.db
+## Get to know the farmersmarket.db!
+[Table 1](https://github.com/user-attachments/assets/13981f8f-ed85-484e-b49c-d3d7e83dba15)
+
+[Table 2](https://github.com/user-attachments/assets/70c57299-13b4-42b3-8ef7-c4e1fcaec961)
+
 Steps to complete this part of the homework:
 
 #### 1) Load Database
