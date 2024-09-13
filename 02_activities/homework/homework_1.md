@@ -79,7 +79,9 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 
 **Answer:** I worked on the customer_purchases and vendor_inventory tables. 
 
-Based on my analysis, there is no primary key (PK) in the customer_purchases table, however, the combination of customer_id, market_date provides the unique set products purchased on a single day. Similarly, in the vendor_inventory table, the combination of vendor_id and market_date creates a unique set of products have inventory on a single day, as no primary key is explicitly defined here either.
+Based on my analysis, there is no primary key (PK) in the customer_purchases table.
+
+However, the combination of customer_id, market_date provides the unique set products purchased on a single day.  Similarly, in the vendor_inventory table, the combination of vendor_id and market_date creates a unique set of products have inventory on a single day, as no primary key is explicitly defined here either.
 
 The relationship is **many-to-many**:
 
