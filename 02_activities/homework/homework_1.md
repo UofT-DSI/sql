@@ -1,5 +1,8 @@
 # Homework 1: farmersmarket.db
 
+![homework_1_Yibin Wang](https://github.com/user-attachments/assets/75e1ecfe-dd39-4353-a98a-818bea0c8481)
+
+
 - Due on Thursday, September 12 at 11:59pm
 - Weight: 8% of total grade
 
