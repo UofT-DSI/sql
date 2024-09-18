@@ -5,17 +5,34 @@ Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 
+
+
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
+![alt text](image.png)
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
+
+
 
 _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+Type 1 (Overwrite):
+
+Minimal privacy concerns because only the latest address is kept in the database.
+Once the old address is overwritten, it no longer exists in the system.
+Benefit: Limits exposure of customer data to only the current address, reducing potential privacy risks from historical data breaches.
+
+Type 2 (Retain Changes):
+
+Higher privacy implications due to the retention of all historical addresses.
+Even after a customer updates their address, their previous addresses remain stored, which could pose a privacy risk if the data is breached or misused.
+Risk: Retaining outdated personal data without clear consent might violate data protection laws like GDPR or CCPA, especially if the information is not essential for business purposes. Customers might expect that old addresses are removed once updated.
+Mitigation: Consider adding expiration policies for old records and clearly inform customers if historical data is kept for specific reasons (e.g., fraud detection, audits).
+
 ```
 
 ## Question 4
@@ -50,3 +67,6 @@ Checklist:
 - [ ] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-4-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
+
+
+[def]: image.png
