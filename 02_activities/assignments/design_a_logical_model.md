@@ -19,7 +19,7 @@ Your answer...
 ```
 
 ## Question 4
-Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
+Review the AdventureWorks Schema [here](https://imgur.com/a/u0m8fX6)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
