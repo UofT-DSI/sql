@@ -6,7 +6,7 @@ FROM product;
 --Windowed Functions
 --1.
 SELECT *
-,row_number() over (PARTITION BY customer_id ORDER BY market_date ASC, transaction_time ASC) AS visit_number
+,row_number() over (PARTITION BY customer_id ORDER BY market_date ASC, CAST(transaction_time AS TIME)) AS visit_number
 FROM 
 			customer_purchases;
 --2.			
