@@ -41,10 +41,8 @@ VALUES(1001,'macaroon','4cm',10,'unit',CURRENT_TIMESTAMP);
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
-DELETE FROM product_units WHERE product_name = 'macaroon';
-
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
-
+DELETE FROM product_units WHERE product_name = 'macaroon';
 
 
 -- UPDATE
@@ -64,4 +62,15 @@ Finally, make sure you have a WHERE statement to update the right row,
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
 
+ALTER TABLE product_units
+ADD current_quantity INT;
 
+WITH recent_quantity AS(
+SELECT product_id, row_number() OVER(PARTITION by product_id ORDER BY market_date desc) as recent,
+COALESCE(quantity,0) AS quantity
+FROM vendor_inventory)
+
+UPDATE product_units
+SET current_quantity = (SELECT recent_quantity.quantity FROM recent_quantity
+WHERE product_units.product_id = recent_quantity.product_id
+AND recent_quantity.recent = 1);
