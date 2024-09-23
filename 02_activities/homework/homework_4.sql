@@ -5,7 +5,7 @@ We tell them, no problem! We can produce a list with all of the appropriate deta
 Using the following syntax you create our super cool and not at all needy manager a list:
 
 SELECT 
-product_name || ', ' || product_size|| ' (' || product_qty_type || ')'
+product_name || ', ' || COALESCE(product_size,'')|| ' (' || COALESCE(product_qty_type,'unit') || ')'
 FROM product
 
 But wait! The product table has some bad data (a few NULL values). 
@@ -20,6 +20,7 @@ All the other rows will remain the same.) */
 
 
 
+
 --Windowed Functions
 /* 1. Write a query that selects from the customer_purchases table and numbers each customer’s  
 visits to the farmer’s market (labeling each market date with a different number). 
@@ -29,16 +30,24 @@ You can either display all rows in the customer_purchases table, with the counte
 each new market date for each customer, or select only the unique market dates per customer 
 (without purchase details) and number those visits. 
 HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
+SELECT customer_id, market_date,  DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY market_date ASC) 
+FROM customer_purchases;
 
 
 /* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
 only the customer’s most recent visit. */
+SELECT DISTINCT * FROM
+(SELECT customer_id, market_date,  DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY market_date DESC) 
+AS visit FROM customer_purchases)
+WHERE visit = 1;
 
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
-
+SELECT *,
+COUNT(*) OVER (PARTITION BY customer_id, product_id)
+FROM customer_purchases;
 
 
 
@@ -53,15 +62,39 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 | Habanero Peppers - Organic | Organic     |
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
-
-
+SELECT product_name, CASE WHEN SUBSTR(product_name, instr(product_name, '-')+2,LENGTH(product_name)) = 'Organic' THEN 'Organic'
+  WHEN SUBSTR(product_name, instr(product_name, '-')+2,LENGTH(product_name)) = 'Jar' THEN 'Jar'
+  ELSE NULL END AS description
+FROM product;
 
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
-
+SELECT *
+FROM product
+WHERE product_size REGEXP '[0-9]';
 
 
 -- UNION
 /* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
+With highest AS (
+SELECT sum(quantity*cost_to_customer_per_qty) as total_sales, market_date
+FROM customer_purchases
+GROUP BY market_date
+ORDER BY total_sales DESC
+LIMIT 1
+),
+lowest AS (
+SELECT sum(quantity*cost_to_customer_per_qty) as total_sales, market_date
+FROM customer_purchases
+GROUP BY market_date
+ORDER BY total_sales ASC
+LIMIT 1
+)
+SELECT total_sales, market_date
+FROM highest
+UNION
+SELECT total_sales, market_date
+FROM lowest
+;
 
 HINT: There are a possibly a few ways to do this query, but if you're struggling, try the following: 
 1) Create a CTE/Temp Table to find sales values grouped dates; 
