@@ -9,23 +9,39 @@ Think a bit about the row counts: how many distinct vendors, product names are t
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
 
+WITH vendor_product AS (
+	SELECT DISTINCT vendor_id , product_id, original_price
+	FROM vendor_inventory
+),
+cross_table AS (	
+SELECT vp.vendor_id, vp.product_id, c.customer_id, vp.original_price * 5 as sales 
+FROM vendor_product vp
+CROSS JOIN
+customer c)
 
+SELECT vendor_id, product_id, sum(sales) as total_sales
+FROM cross_table
+GROUP BY vendor_id, product_id;
 
 -- INSERT
 /*1.  Create a new table "product_units". 
 This table will contain only products where the `product_qty_type = 'unit'`. 
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
-
+CREATE TABLE product_units AS
+SELECT *, CURRENT_TIMESTAMP AS snapshot_timestamp FROM product
+WHERE product_qty_type = 'unit'
 
 
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
-
+INSERT INTO product_units
+VALUES(1001,'macaroon','4cm',10,'unit',CURRENT_TIMESTAMP);
 
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
+DELETE FROM product_units WHERE product_name = 'macaroon';
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
