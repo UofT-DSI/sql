@@ -9,8 +9,8 @@ At the minimum it should have employee, order, sales, customer, and book entitie
 
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+![alt text](<Assignment - SQL-Q1&2.drawio.png>)
 
-![alt text](image.png)
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
 
@@ -19,6 +19,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
+![alt text](<Assignment - SQL-Q3.drawio.png>)
 ```
 Type 1 (Overwrite):
 
@@ -33,6 +34,8 @@ Even after a customer updates their address, their previous addresses remain sto
 Risk: Retaining outdated personal data without clear consent might violate data protection laws like GDPR or CCPA, especially if the information is not essential for business purposes. Customers might expect that old addresses are removed once updated.
 Mitigation: Consider adding expiration policies for old records and clearly inform customers if historical data is kept for specific reasons (e.g., fraud detection, audits).
 
+If you implement Type 2 (retaining historical data), you should consider how long to keep this data and whether to inform customers explicitly that their past addresses will be stored. Some jurisdictions might require you to delete historical data unless there’s a legitimate business reason to retain it. Data minimization principles (as in GDPR) suggest keeping the least amount of data necessary to achieve business purposes, which might argue against a Type 2 approach unless required.
+
 ```
 
 ## Question 4
@@ -40,7 +43,20 @@ Review the AdventureWorks Schema [here](https://imgur.com/a/u0m8fX6)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+Two Key Differences Between AdventureWorks and My Bookstore ERD:
+Product Entity Granularity:
+
+AdventureWorks: It has a highly normalized schema for products, with separate tables for product details, product categories, product models, and product reviews. The schema captures detailed aspects of products, such as descriptions, categories, and versions.
+My Bookstore ERD: The Book table is relatively simpler, with fields like book_id, title, author, genre, and price, and it does not break down into additional categories like AdventureWorks does.
+Would I Change It?
+Yes, depending on the complexity and needs of the bookstore. If the bookstore were to expand and start carrying multiple types of products (e.g., non-book items like stationery, or different formats of books such as ebooks and audiobooks), it might make sense to normalize the product data further and break it down into multiple tables like in AdventureWorks. For example, I could add separate tables for Book Format or Book Categories to handle these distinctions in more detail.
+
+Sales and Order Entities:
+
+AdventureWorks: AdventureWorks has a much more sophisticated system for handling sales and orders. It includes tables like SalesOrderHeader, SalesOrderDetail, and SalesTerritory. Sales are broken down into detailed components, with specific headers and details, along with the assignment of sales to territories and salespeople.
+My Bookstore ERD: My bookstore schema combines the Order and Sales concepts in a simpler way. The Sales table tracks order details but doesn't have the level of granularity found in AdventureWorks, such as assigning sales to territories or sales representatives.
+Would I Change It?
+I would consider making changes if the bookstore plans to expand its business to operate multiple locations or regions. Introducing sales territories or separating out the Order Header and Order Details (like in AdventureWorks) would allow for better tracking of large-scale sales operations. For example, I could separate Order into Order_Header and Order_Detail to more effectively capture order-level information vs. line-item details.
 ```
 
 # Criteria
