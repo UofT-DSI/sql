@@ -10,7 +10,7 @@ LIMIT 10;
 -- WHERE Queries
 -- a. Query that returns all customer purchases of product IDs 4 and 9:
 SELECT * 
-FROM customer_purchases 
+FROM customer_purchases
 WHERE product_id IN (4, 9);
 
 -- b. Query that returns all customer purchases and a new calculated column price (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (using two conditions with AND):
