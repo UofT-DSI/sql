@@ -10,10 +10,30 @@ We want to create employee shifts, splitting up the day into morning and evening
 
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
+Option 1: Overwriting Changes (Type 1 SCD):
+CUSTOMER_ADDRESS Table (Type 1):
+Columns:
+customer_id (Primary Key)
+address_line_1
+address_line_2
+city
+state
+postal_code
+In this model, when a customer's address changes, the previous address is overwritten. No historical record is kept of the old address.
 
-_Hint, search type 1 vs type 2 slowly changing dimensions._
+Option 2: Retaining Changes (Type 2 SCD):
+CUSTOMER_ADDRESS Table (Type 2):
+Columns:
+customer_id (Primary Key)
+address_line_1
+address_line_2
+city
+state
+postal_code
+start_date
+end_date
+In this model, whenever a customer’s address changes, a new row is created with the updated address and the old record is marked with an end_date. This approach keeps a historical record of all changes.
 
-Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
 ```
@@ -23,7 +43,16 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+1. Complexity in Order and Sales Data:
+AdventureWorks: It separates sales data into SalesOrderHeader (order-level data) and SalesOrderDetail (item-level data). This allows for better granularity and flexibility in recording detailed sales transactions.
+Bookstore Model: In contrast, the bookstore’s Order table and Sales table combine these responsibilities, which could be expanded if more detail is needed.
+2. Customer Relationships:
+AdventureWorks: Includes a detailed system for customer relationships with various sales territories and salespersons.
+Bookstore Model: This is simpler and does not include sales territory information or customer relationships with salespeople. However, this could be useful if the bookstore expands to serve larger geographic regions.
+Changes You Might Consider:
+Introduce a SalesOrderHeader and SalesOrderDetail structure to better handle order data granularity.
+Add sales territories or region management if the bookstore begins operating across multiple areas.
+
 ```
 
 # Criteria
