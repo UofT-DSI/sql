@@ -1,30 +1,26 @@
 # Assignment 1: Design a Logical Model
 
 ## Question 1
-Create a logical model for a small bookstore. 📚
-
-At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 
 ## Question 2
-We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+Employee - Shift Relationship is One-to-Many since each shift can have multiple employees working on it, and each employee is assigned to one shift at a time.
 
 ## Question 3
-The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
+First table is a Type 1 Slowly Changing Dimension because we overwrite the existing address without keeping historical data.
+Second table is a Type 2 Slowly Changing Dimension because it keeps a history of changes to the address.
 
-_Hint, search type 1 vs type 2 slowly changing dimensions._
-
-Bonus: Are there privacy implications to this, why or why not?
-```
-Your answer...
-```
+Bonus: Retaining a customer's address history (as in Type 2) may raise privacy concerns because it involves storing personal data over a long period. If a customer moves, they may not want their old address kept on record. Compliance with data privacy regulations like GDPR may require that old addresses are deleted or anonymized.
 
 ## Question 4
-Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
+Differences between my model and AdventureWorks:
+In AdventureWorks, product information is split across multiple tables (e.g., Product, ProductModel, ProductCategory). In my diagram I can keep everything in one Book table. I might consider splitting the Book table into Book, Genre, and Publisher to mimic the structure in AdventureWorks. AdventureWorks also includes detailed customer demographic data (e.g., income group, marital status), whereas my diagram only captures basic customer info like name and email. I could consider expanding the Customer table to include more detailed demographic data.
 
-Highlight at least two differences between it and your ERD. Would you change anything in yours?
-```
-Your answer...
-```
+Would I change anything in your design?
+I could further normalize the diagram by splitting Book data into separate tables (e.g., Genre, Author) for better scalability. I could also include customer demographics to improve marketing and sales analysis but may raise ethical concerns around privacy.
+
+
+
+
 
 # Criteria
 
@@ -44,9 +40,9 @@ Your answer...
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `model-design`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `model-design`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-4-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
