@@ -69,6 +69,10 @@ A logical data model must contain:
 
 Please do not pick the exact same tables that I have already diagramed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
 
+Following is the data model:
+
+![Homework1.png](./images/Homework1.png)
+
 **A few hints**:
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
 - You can't diagram tables that don't share a common column
