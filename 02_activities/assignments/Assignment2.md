@@ -7,7 +7,7 @@
 * Weight: 50% of total grade
 * The branch name for your repo should be: `assignment-two`
 * What to submit for this assignment:
-    * This markdown (assignment2.md) with written responses in Section 1
+    * This markdown (Assignment2.md) with written responses in Section 1
     * Two Entity-Relationship Diagrams (preferably in a pdf, jpeg, png format).
 	* One .sql file 
 * What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pull/<pr_id>`
