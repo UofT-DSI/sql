@@ -26,7 +26,8 @@ If you encounter any difficulties or have questions, please don't hesitate to re
 You can start this section following *module 1*.
 
 Steps to complete this part of the assignment:
-- Design a logical data model
+- Load the farmersmarket.db and browse its content
+- Create a logical data model
 
 <br>
 If this is your first time in DB Browser for SQLite, the following instructions may help:
