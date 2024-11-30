@@ -63,11 +63,11 @@ There are 10 tables in the Main Window:
 10) zip_data
 
 Switch to the Browse Data tab, booth is selected by default
- <img src="./images/01_the_browse_data_tab.png" width="900">
+<img src="./images/01_the_browse_data_tab.png" width="900">
 
 
 Using the table drop down at the top left, explore some of the contents of the database
- <img src="./images/01_the_table_drop_down_at_the_top_left.png" width="200">
+<img src="./images/01_the_table_drop_down_at_the_top_left.png" width="200">
 
 Move on to the Logical Data Model task when you have looked through the tables
 
