@@ -41,7 +41,7 @@ At the minimum it should have employee, order, sales, customer, and book entitie
 
 Additionally, include a date table. 
 
-There are several tools online you can use, I'd recommend *Draw.io* ([https://www.drawio.com/](https://www.drawio.com/)) or *LucidChart* ([https://www.lucidchart.com/pages/](https://www.lucidchart.com/pages/)).
+There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
