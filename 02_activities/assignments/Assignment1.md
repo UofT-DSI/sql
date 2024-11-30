@@ -111,7 +111,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 You can start this section following *module 2*.
 
 Steps to complete this part of the assignment:
-- Open the following .sql file in DB Browser for SQLite:
+- Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
@@ -148,7 +148,7 @@ Steps to complete this part of the assignment:
 You can start this section following *module 3*.
 
 Steps to complete this part of the assignment:
-- Open the following .sql file in DB Browser for SQLite:
+- Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
