@@ -59,7 +59,7 @@ Your answer...
 You can start this section following *module 4*.
 
 Steps to complete this part of the assignment:
-- Open the assignment_2.sql file in DB Browser for SQLite:
+- Open the assignment2.sql file in DB Browser for SQLite:
 	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment_2.sql)
 	- or, from your local forked repository  
 - Complete each question
@@ -113,7 +113,7 @@ You can either display all rows in the customer_purchases table, with the counte
 You can start this section following *module 5*.
 
 Steps to complete this part of the assignment:
-- Open the assignment_2.sql file in DB Browser for SQLite:
+- Open the assignment2.sql file in DB Browser for SQLite:
 	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment_2.sql)
 	- or, from your local forked repository  
 - Complete each question
