@@ -36,7 +36,7 @@ If this is your first time in DB Browser for SQLite, the following instructions 
 - Go to File > Open Database
 - Navigate to your farmersmarket.db 
 	- This will be wherever you cloned the GH Repo (within the **SQL** folder)
-	- ![8338a7f3d843398c3b7b395eae3e1994.png](../../../_resources/8338a7f3d843398c3b7b395eae3e1994.png)
+	- ![db_browser_for_sqlite_choose_db.png](./images/01_db_browser_for_sqlite_choose_db.png)
 
 #### 2) Configure your windows
 By default, DB Browser for SQLite has three windows, with four tabs in the main window and three tabs in the bottom right window
@@ -47,7 +47,7 @@ By default, DB Browser for SQLite has three windows, with four tabs in the main 
 	- Switch this to DB Schema tab (very bottom)
 
 Your screen should look like this (or very similar)
-![4159f1cda9ef0b41aa174e161164edb8.png](../../../_resources/4159f1cda9ef0b41aa174e161164edb8.png)
+![db_browser_for_sqlite.png](./images/01_db_browser_for_sqlite.png)
 
 #### 3) The farmersmarket.db
 There are 10 tables in the Main Window:
@@ -63,11 +63,11 @@ There are 10 tables in the Main Window:
 10) zip_data
 
 Switch to the Browse Data tab, booth is selected by default
- <img src="../../../_resources/1b76ca960e925f83012d8c95ebe45989.png" width="900"> 
+ ![01_the_browse_data_tab.png](./images/01_the_browse_data_tab.png) 
 
 
 Using the table drop down at the top left, explore some of the contents of the database
- <img src="../../../_resources/77784e1297381e950ea625397ab11464.png" width="200"> 
+![01_the_table_drop_down_at_the_top_left.png](./images/01_the_table_drop_down_at_the_top_left.png)
 
 Move on to the Logical Data Model task when you have looked through the tables
 
@@ -82,7 +82,7 @@ I diagramed the following four tables:
 - vendor
 - vendor_inventory
 
-<img src="../../../_resources/0937edd4dac1b2c8afb35a9b3b95884d.png" width="500"> 
+![01_farmers_market_logical_model_partial.png](./images/01_farmers_market_logical_model_partial.png)
 
 
 #### Prompt 1:
@@ -99,7 +99,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
 - You can't diagram tables that don't share a common column
 	- These are the tables that are connected
-	-  <img src="../../../_resources/78b6e6a00e0e8844eb7a49373fd640bc.png" width="600"> 
+	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ***
@@ -109,7 +109,7 @@ You can start this section following *module 2*.
 
 Steps to complete this part of the assignment:
 - Open the following .sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment_2.sql)
+	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
 
@@ -140,7 +140,7 @@ You can start this section following *module 3*.
 
 Steps to complete this part of the assignment:
 - Open the following .sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment_2.sql)
+	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
 
