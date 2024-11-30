@@ -63,11 +63,11 @@ There are 10 tables in the Main Window:
 10) zip_data
 
 Switch to the Browse Data tab, booth is selected by default
- ![01_the_browse_data_tab.png](./images/01_the_browse_data_tab.png) 
+ <img src="./images/01_the_browse_data_tab.png" width="900">
 
 
 Using the table drop down at the top left, explore some of the contents of the database
-![01_the_table_drop_down_at_the_top_left.png](./images/01_the_table_drop_down_at_the_top_left.png)
+ <img src="./images/01_the_table_drop_down_at_the_top_left.png" width="200">
 
 Move on to the Logical Data Model task when you have looked through the tables
 
@@ -82,7 +82,7 @@ I diagramed the following four tables:
 - vendor
 - vendor_inventory
 
-![01_farmers_market_logical_model_partial.png](./images/01_farmers_market_logical_model_partial.png)
+ <img src="./images/01_farmers_market_logical_model_partial.png" width="500">
 
 
 #### Prompt 1:
@@ -99,7 +99,7 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
 - You can't diagram tables that don't share a common column
 	- These are the tables that are connected
-	-  ![01_farmers_market_conceptual_model.png](./images/01_farmers_market_conceptual_model.png)
+	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ***
