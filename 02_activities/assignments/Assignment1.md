@@ -155,7 +155,7 @@ Steps to complete this part of the assignment:
    
 **HINT**: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword.
 
-<p style="text-align: center;">-</p>
+<div align="center">-</div>
 
 #### Temp Table
 1. Insert the original vendor table into a temp.new_vendor and then add a 10th vendor: Thomass Superfood Store, a Fresh Focused store, owned by Thomas Rosenthal
