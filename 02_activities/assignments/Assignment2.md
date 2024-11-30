@@ -27,11 +27,15 @@ If you encounter any difficulties or have questions, please don't hesitate to re
 You can start this section following *module 1*, but you may want to wait until you feel comfortable wtih basic SQL query writing. 
 
 Steps to complete this part of the assignment:
+- Design a logical data model
+- Duplicate the logical data model and add another table to it following the instructions
+- Write, within this markdown file, an answer to Prompt 3
+
 
 ###  Design a Logical Model
 
 #### Prompt 1
-Create a logical model for a small bookstore. 📚
+Design a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. 
 
