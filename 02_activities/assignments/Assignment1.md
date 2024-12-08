@@ -4,7 +4,7 @@
 
 #### Submission Parameters:
 * Submission Due Date: `December 15, 2024`
-* Weight: 50% of total grade
+* Weight: 30% of total grade
 * The branch name for your repo should be: `assignment-one`
 * What to submit for this assignment:
     * One Entity-Relationship Diagram (preferably in a pdf, jpeg, png format).
@@ -96,7 +96,7 @@ A logical data model must contain:
 - column names
 - relationship type
 
-Please do not pick the exact same tables that I have already diagramed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
+Please do not pick the exact same tables that I have already diagrammed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
 
 **HINTS**:
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
