@@ -4,7 +4,7 @@
 
 #### Submission Parameters:
 * Submission Due Date: `December 22, 2024`
-* Weight: 50% of total grade
+* Weight: 70% of total grade
 * The branch name for your repo should be: `assignment-two`
 * What to submit for this assignment:
     * This markdown (Assignment2.md) with written responses in Section 1
