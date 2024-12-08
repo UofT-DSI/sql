@@ -10,7 +10,7 @@
     * This markdown (Assignment2.md) with written responses in Section 1
     * Two Entity-Relationship Diagrams (preferably in a pdf, jpeg, png format).
     * One .sql file 
-* What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pull/<pr_id>`
+* What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pulls/<pr_id>`
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
@@ -24,7 +24,7 @@ If you encounter any difficulties or have questions, please don't hesitate to re
 ***
 
 ## Section 1:
-You can start this section following *module 1*, but you may want to wait until you feel comfortable wtih basic SQL query writing. 
+You can start this section following *session 1*, but you may want to wait until you feel comfortable wtih basic SQL query writing. 
 
 Steps to complete this part of the assignment:
 - Design a logical data model
@@ -60,11 +60,11 @@ Your answer...
 ***
 
 ## Section 2:
-You can start this section following *module 4*.
+You can start this section following *session 4*.
 
 Steps to complete this part of the assignment:
 - Open the assignment2.sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment2.sql)
+	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
 - Complete each question
 
@@ -120,11 +120,11 @@ You can either display all rows in the customer_purchases table, with the counte
 ***
 
 ## Section 3:
-You can start this section following *module 5*.
+You can start this section following *session 5*.
 
 Steps to complete this part of the assignment:
 - Open the assignment2.sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment2.sql)
+	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
 - Complete each question
 

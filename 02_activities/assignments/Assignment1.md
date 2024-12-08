@@ -9,7 +9,7 @@
 * What to submit for this assignment:
     * One Entity-Relationship Diagram (preferably in a pdf, jpeg, png format).
     * One .sql file 
-* What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pull/<pr_id>`
+* What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pulls/<pr_id>`
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
@@ -23,7 +23,7 @@ If you encounter any difficulties or have questions, please don't hesitate to re
 *** 
 
 ## Section 1:
-You can start this section following *module 1*.
+You can start this section following *session 1*.
 
 Steps to complete this part of the assignment:
 - Load the farmersmarket.db and browse its content
@@ -77,7 +77,7 @@ Move on to the Logical Data Model task when you have looked through the tables
 
 ### Build Logical Data Model
 
-Recall during module 1:
+Recall during session 1:
 
 I diagramed the following four tables:
 - product
@@ -108,11 +108,11 @@ Please do not pick the exact same tables that I have already diagramed. For exam
 ***
 
 ## Section 2:
-You can start this section following *module 2*.
+You can start this section following *session 2*.
 
 Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
+	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
 
@@ -145,11 +145,11 @@ Steps to complete this part of the assignment:
 ***
 
 ## Section 3:
-You can start this section following *module 3*.
+You can start this section following *session 3*.
 
 Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
-	- from [Github](https://github.com/UofT-DSI/sql/blob/main/02_activities/assignments/assignment1.sql)
+	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
 - Complete each question
 
