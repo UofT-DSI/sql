@@ -19,15 +19,15 @@
 
 ## Section 2
 - *(10 points total)*
-- *(6 points)***All questions have been attempted** 
-- *(4 points)***The following questions return the correct result set:** 
+- *(6 points)* **All questions have been attempted** 
+- *(4 points)* **The following questions return the correct result set:** 
   - WHERE, Question 2
   - JOIN Question 1
 
 ## Section 3
 - *(10 points total)*
-- *(6 points)***All questions have been attempted** 
-- *(4 points)***The following questions return the correct result set:** 
+- *(6 points)* **All questions have been attempted** 
+- *(4 points)* **The following questions return the correct result set:** 
   - AGGREGATE, Question 2
   - DATE, Question 2
 
