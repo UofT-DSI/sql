@@ -11,20 +11,23 @@
 
 ## Section 1
 
-### Prompt 1, 10 points
+### Prompt 1
+- (10 points total)
 - Two tables are diagramed as a logical model
   - Needs to contain table names, column names, relationships between columns, relationship-type
 - Any format acceptable so long as a "logical model"
 
-## Section 2, 10 points
-- **All questions have been attempted**: 6 points
-- **The following questions return the correct result set:**: 4 points
+## Section 2
+- (10 points total)
+- **All questions have been attempted** (6 points)
+- **The following questions return the correct result set:** (4 points)
   - WHERE, Question 2
   - JOIN Question 1
 
-## Section 3, 10 points
-- **All questions have been attempted**: 6 points
-- **The following questions return the correct result set:**: 4 points
+## Section 3
+- (10 points total)
+- **All questions have been attempted**(6 points)
+- **The following questions return the correct result set:** (4 points)
   - AGGREGATE, Question 2
   - DATE, Question 2
 

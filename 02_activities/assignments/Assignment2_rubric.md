@@ -9,9 +9,11 @@
   - Criteria: assignment2.sql is completed
   - Criteria: assignment2.sql is correct
 
-## Section 1. 50 points total
+## Section 1
+- (50 points total)
 
-### Prompt 1, 30 points
+### Prompt 1
+- (30 points total)
 
   - **Tables**
     - Employee: Relates to employees.
@@ -27,10 +29,12 @@
     - Must exist with typical columns.
     - Must have correct relationships with other relevant tables indicated.
 
-### Prompt 2, 10 points
+### Prompt 2
+- (10 points total)
 - Employee Shift Table exists, and we can discern morning/evening shifts from its design**
 
-### Prompt 3, 10 points
+### Prompt 3
+- (10 points total)
 - **Two distinct architectures are proposed**
 - **One design for Customer Addresses table would retain changes**
 - **One design for Customer Addresses table would overwrite changes**
@@ -39,15 +43,17 @@
     - One Wrong (Incomplete)
     - Both Wrong (Incomplete)
 
-## Section 2, 10 points
-- **All questions have been attempted**: 6 points
-- **The following questions return the correct result set:**: 4 points
+## Section 2
+- (10 points total)
+- **All questions have been attempted** (6 points)
+- **The following questions return the correct result set:** (4 points)
   - WINDOWED FUNCTIONS Question 1
   - UNION Question 1
 
-## Section 3, 10 points
-- **All questions have been attempted**: 2 point
-- **The following questions return the correct result set:**: 8 points
+## Section 3
+- (10 points total)
+- **All questions have been attempted** (4 points)
+- **The following questions return the correct result set:** (6 points)
   - INSERT
   - DELETE 
   - UPDATE
