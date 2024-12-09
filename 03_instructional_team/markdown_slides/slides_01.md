@@ -33,33 +33,34 @@ $ echo "Data Sciences Institute"
 - Transitioned to Data Engineer at Plan Canada
 - Pursued Master of Information at UofT for R and Python focus
 - Currently working on AI Governance and Ethics at Dataiku
-- **_Have a 3 year old Samoyed named Alto who takes up a lot of my free time 👉_**
+- **_Have a 3 year o🦫ld Samoyed named Alto who takes up a lot of my free time 👉_**
 
 ![bg right:40% w:350](./images/01_happy_alto.png)
 
 ---
 
-# About Us (Amanda)
+# About Us (Ernani)
 
-- UofT Statistics & Math undergrad (4th year)
-- Considering grad school in Stat/Biostat
-- Self-taught SQL through online resources
-- Have experiences in both research and industry 
-- Hobbies: piano, puzzle, Netflix
+- UofT (DSI) & Master of Engineering in S&T at McMaster University
+- Electrical & Telecom Engineer
+- DSI cohort 3 alumni
+- Cloud AWS Architecture, Unix / Linux & Data Science
+- Facial Action Coding System Instructor (Paul Ekman / F-M Group International)
+- Hobbies: Photography, Math challenges, Reading, Neuroscience
 
-![bg right:35% w:350](./images/01_amanda.png)
+![bg right:35% w:350](./images/01_ernani.png)
 
 ---
 
-# About Us (Sidra)
+# About Us (James)
 
-- Bachelor’s in Biomedical Engineering from NED-UET
-- Postgraduate diploma in data analytics from  Toronto School Of Management.
-- Machine Learning Software Foundations Certificate from DSI-University Of Toronto.
-- 4+ years of experience in business intelligence and data analysis.
-- Engaged in  Continuously Learning and Upskilling my skills
+- UofT Engineering undergrad and master 🦫
+- Licensed engineer in an oil & gas company sending robots into pipelines 🤘
+- DSI cohort 3 alumni
+- Self-taught woodworking hobbyist 🪚
+- Real hobbies: motorcycle 🛵, leisure skating ⛸️, camping ⛺️
 
-![bg right:35% w:350](./images/01_sidra.png)
+![bg right:35% w:350](./images/01_james.png)
 
 ---
 
@@ -67,6 +68,7 @@ $ echo "Data Sciences Institute"
 
 - Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
 - 15 years of experience in software development, database design, and query optimization
+- DSI cohort 2 alumni
 - Co-founder of a company offering web design, SEO, and Google Ads services in Canada
 - Experienced mentor and facilitator in product development, focusing on code reviews and Agile practices to ensure quality and continuous improvement
 - I always enjoy helping others learn while continuously learning myself
@@ -94,11 +96,11 @@ $ echo "Data Sciences Institute"
 # Course Tools
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
-- [GitHub](https://github.com/UofT-DSI/sql): *Module overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Sept2024): *Where we will keep track of session progress*
+- [GitHub](https://github.com/UofT-DSI/sql): *Course Overview*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jan2024): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
-- [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignment 1*
+- [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
 - [Code Share](https://codeshare.io/): *To share code during our live coding sessions*
   - This is for convenience only during live coding sessions, use the repo after the session instead
 - Mentimeter (links vary): *Small in-class quizzes, ungraded*
@@ -113,9 +115,8 @@ $ echo "Data Sciences Institute"
 - These slides (HTML & PDF)
 - Our database for live coding
 - All in-class code
-- Homework (and answers, posted afterwards)
 - Assignment details and rubrics
-- Due Dates
+- Policies, due dates, etc
 
 ---
 
@@ -142,13 +143,17 @@ $ echo "Data Sciences Institute"
 ---
 
 
-# Homework (required)
-- Six homeworks total
-- At the end of each SQL module, I will provide you with 3-10 queries to write on your own
-  - Covers the topics of the modules
-- Review answers in Office Hours with myself or course support
-  - I may go over one or two queries at the start of class if desired
-- Designed to be relatively easy (with a couple of hard questions)
+# Assignments
+
+- Two assignments, released on Monday of each week.
+- Broken into three sections:
+  - Section 1 focuses on database design
+  - Sections 2 and 3 on sql writing
+- Each sections states about when you can start working on the answers
+- Review questions/answers in Office Hours course support
+- Database design sections are more time consuming
+  - Especially Assignment 2. **Do not put this off too much.**
+- SQL sections are designed to be relatively easy (with a couple of hard questions)
   - Reaffirms what we wrote together
   - Doing work on your own helps reinforce the learning
 - ChatGPT probably won't help you much
@@ -160,14 +165,13 @@ $ echo "Data Sciences Institute"
 
 - Pass/Fail. Do the work, pass the course :) 
 
-- One Assignment: Data Model Design, 52%, due Sept 28
-
-- Homework: 48% (8% each), due on Thursdays, Fridays, Saturdays
+- Assignment 1: 30% of mark
+- Assignment 2: 70% of mark
+- Review rubrics for full details
 
 - Class Attendance: *not graded this cohort, come anyways!*
   - Let myself or course support know if you are unable to attend a lesson
   - Code along!! Best way to learn.
-
 ---
 
 
@@ -412,7 +416,7 @@ multiple lines
 ---
 
 
-# Inrtoduction:
+# Introduction:
 
 ## Welcome
 
@@ -766,33 +770,59 @@ We can create additional Many-to-Many relationships if we created a table includ
 
 ---
 
-#  Assignment 1: Design a Logical Model
+# Assignment 1, Section 1: Meet the farmersmarket.db
 
-**Q1)** Create a logical model for a small bookstore. 📚
+**Prompt 1)**
+Choose two tables and create a logical data model. There are lots of tools you can do this (including drawing this by hand), but I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/). 
 
-At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [Lucidchart](https://www.lucidchart.com/pages/) or [Draw.io](https://www.drawio.com/).
-
----
-
-#  Assignment 1: Design a Logical Model
-
-**Q2)** We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+A logical data model must contain:
+- table name
+- column names
+- relationship type
 
 ---
 
-#  Assignment 1: Design a Logical Model
+# Assignment 1, Section 1: Meet the farmersmarket.db
 
-**Q3)** The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? *Hint, search type 1 vs type 2 slowly changing dimensions*. 
+Please do not pick the exact same tables that I have already diagrammed. For example, you shouldn't diagram the relationship between `product` and `product_category`, but you could diagram `product` and `customer_purchases`.
 
-_**Bonus**_: Are there privacy implications to this, why or why not?
+*HINTS*:
+- You will need to use the Browse Data tab in the main window to figure out the relationship types.
+- You can't diagram tables that don't share a common column (see )
+- The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ---
 
-#  Assignment 1: Design a Logical Model
+# Assignment 2
 
-**Q4)** Review the AdventureWorks ERD here: [link](https://i.stack.imgur.com/LMu4W.gif)
+---
 
-Highlight at least two differences between it and your ERD. Would you change anything in yours?
+
+#  Assignment 2: Design a Logical Model
+
+**Prompt 1)**Create a logical model for a small bookstore. 📚
+
+At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. 
+
+Additionally, include a date table. 
+
+There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
+
+*HINT:* You do not need to create any data for this prompt. This is a conceptual model only. 
+
+---
+
+#  Assignment 2: Design a Logical Model
+
+**Prompt 2)** We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+---
+
+#  Assignment 2: Design a Logical Model
+
+**Prompt 3)** The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
+
+*HINT:* search type 1 vs type 2 slowly changing dimensions. 
 
 ---
 

@@ -67,7 +67,7 @@ For example, a query wanting to know the number of days in each month:
 ```
     SELECT
     COUNT(days)
-    ,COUNT(months)
+    ,COUNT(DISTINCT months)
     ,years
 
     FROM calendar
@@ -85,13 +85,13 @@ For example, a query wanting to know the number of days in each month:
 
 | vendor_id | product_id | market_date |
 |-----------|------------|-------------|
-| 1         | 1          | 2019-01-01  |
-| 1         | 1          | 2019-01-02  |
-| 1         | 2          | 2019-01-01  |
-| 1         | 2          | 2019-01-02  |
-| 1         | 2          | 2019-01-03  |
-| 1         | 3          | 2019-01-02  |
-| 1         | 4          | 2019-01-02  |
+| 1         | 1          | 2024-01-01  |
+| 1         | 1          | 2024-01-02  |
+| 1         | 2          | 2024-01-01  |
+| 1         | 2          | 2024-01-02  |
+| 1         | 2          | 2024-01-03  |
+| 1         | 3          | 2024-01-02  |
+| 1         | 4          | 2024-01-02  |
 
 
 ---
@@ -229,6 +229,11 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 # HAVING: Filtering Aggregated Results
 
 (`HAVING` live coding)
+
+![bg right:50% w:500](./images/03_order_of_execution.png)
+
+Image: Joseph Ferrer, KDnuggets
+
 
 ---
 
@@ -373,7 +378,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-09
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-12
   
 ---
 
@@ -418,7 +423,7 @@ Avoid averaging `dow_market_avg_temp` to get an `overall_market_avg_temp`:
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-      - e.g., months until summer 🏖️ `SELECT STRFTIME('%m','2024-06-21') - STRFTIME('%m','NOW')`
+      - e.g., months until summer 🏖️ `SELECT STRFTIME('%m','2025-06-21') - STRFTIME('%m','NOW')`
 
 ---
 

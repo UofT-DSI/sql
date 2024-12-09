@@ -32,7 +32,7 @@ $ echo "Data Sciences Institute"
 
 Prior to this, we've focused solely on retrieving values from tables:
 - Tables can also be manipulated with `INSERT`, `UPDATE`, and/or `DELETE`
-- _A word of warning...these commands are PERMANENT_ 😱
+- _A word of warning...these commands are challening to undo and can be PERMANENT_ 😱
   - Generally, follow a policy that avoids altering data 
   - Make backups of tables before you run a query
   - Never hurts to test on a temporary table first!
@@ -61,7 +61,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 - Specify where you are making your change:
   - `UPDATE [some_table_name]`
 - ...and what you want to change:
-  - `SET column_one = value1, column_one = value2`
+  - `SET column_one = value1, column_two = value2`
 - _SPECIFY A_ `WHERE` _CONDITION_
   - `WHERE condition`
 - You can change a single column, a few columns, all the columns, etc
@@ -409,7 +409,7 @@ FROM (...{subquery goes here}...)
 
 - `CROSS JOIN` creates an unfiltered Cartesian Product
 - They are not joined on any columns
-- Recall our deck of cards example in Module 2:
+- Recall our deck of cards example in Session 2:
 ```
     SELECT suit, rank
     FROM suits

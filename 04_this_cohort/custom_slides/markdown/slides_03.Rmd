@@ -3,7 +3,7 @@ title: |
   ![](imgs/mrpotatocode_banner.png){width=7in}  
 subtitle: "Introduction to Data Access and Storage"
 author: "Thomas Rosenthal - DSI @ UofT" 
-date: "Module 03"
+date: "Session 03"
 output:
   xaringan::moon_reader:
     css: [xaringan-themer.css, custom.css]
@@ -159,7 +159,7 @@ class: top, left, inverse
 ```
     SELECT
     COUNT(days)
-    ,COUNT(months)
+    ,COUNT(DISTINCT months)
     ,years
 
     FROM calendar
@@ -180,13 +180,13 @@ class: top, left, inverse
 
 | vendor_id | product_id | market_date |
 |-----------|------------|-------------|
-| 1         | 1          | 2019-01-01  |
-| 1         | 1          | 2019-01-02  |
-| 1         | 2          | 2019-01-01  |
-| 1         | 2          | 2019-01-02  |
-| 1         | 2          | 2019-01-03  |
-| 1         | 3          | 2019-01-02  |
-| 1         | 4          | 2019-01-02  |
+| 1         | 1          | 2024-01-01  |
+| 1         | 1          | 2024-01-02  |
+| 1         | 2          | 2024-01-01  |
+| 1         | 2          | 2024-01-02  |
+| 1         | 2          | 2024-01-03  |
+| 1         | 3          | 2024-01-02  |
+| 1         | 4          | 2024-01-02  |
 
 ]
 
@@ -449,6 +449,15 @@ class: top, left, inverse
 # HAVING
 
 (`HAVING` live coding)
+
+<br>
+
+.center[ 
+<img src="imgs/order_of_execution.png"
+     height="350px";>
+     
+<sup><sup> Image: Joseph Ferrer, KDnuggets </sup></sup>
+]
 
 ---
 
@@ -754,7 +763,7 @@ class: left, upper, inverse
 --
 
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-09
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-12
   
 ---
 class: left, upper, inverse
