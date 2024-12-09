@@ -442,7 +442,7 @@ Source: Image: Teate, Chapter 5
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
+- Annoyingly, DB Browser for SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
 
 ---
 
