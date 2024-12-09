@@ -43,7 +43,7 @@ $ echo "Data Sciences Institute"
 
 - UofT (DSI) & Master of Engineering in S&T at McMaster University
 - Electrical & Telecom Engineer
-- DSI cohort 3 alumni
+- DSI cohort 3
 - Cloud AWS Architecture, Unix / Linux & Data Science
 - Facial Action Coding System Instructor (Paul Ekman / F-M Group International)
 - Hobbies: Photography, Math challenges, Reading, Neuroscience
@@ -56,7 +56,7 @@ $ echo "Data Sciences Institute"
 
 - UofT Engineering undergrad and master 🦫
 - Licensed engineer in an oil & gas company sending robots into pipelines 🤘
-- DSI cohort 3 alumni
+- DSI cohort 3
 - Self-taught woodworking hobbyist 🪚
 - Real hobbies: motorcycle 🛵, leisure skating ⛸️, camping ⛺️
 
@@ -68,7 +68,7 @@ $ echo "Data Sciences Institute"
 
 - Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
 - 15 years of experience in software development, database design, and query optimization
-- DSI cohort 2 alumni
+- DSI cohort 2
 - Co-founder of a company offering web design, SEO, and Google Ads services in Canada
 - Experienced mentor and facilitator in product development, focusing on code reviews and Agile practices to ensure quality and continuous improvement
 - I always enjoy helping others learn while continuously learning myself
@@ -96,7 +96,7 @@ $ echo "Data Sciences Institute"
 # Course Tools
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
-- [GitHub](https://github.com/UofT-DSI/sql): *Course Overview*
+- [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
 - [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jan2024): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
