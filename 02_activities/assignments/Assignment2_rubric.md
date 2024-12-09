@@ -10,10 +10,8 @@
   - Criteria: assignment2.sql is correct
 
 ## Section 1
-- *(50 points total)*
 
 ### Prompt 1
-- *(30 points total)*
 
   - **Tables**
     - Employee: Relates to employees.
@@ -30,11 +28,9 @@
     - Must have correct relationships with other relevant tables indicated.
 
 ### Prompt 2
-- *(10 points total)*
 - Employee Shift Table exists, and we can discern morning/evening shifts from its design**
 
 ### Prompt 3
-- *(10 points total)*
 - **Two distinct architectures are proposed**
 - **One design for Customer Addresses table would retain changes**
 - **One design for Customer Addresses table would overwrite changes**
@@ -44,16 +40,14 @@
     - Both Wrong (Incomplete)
 
 ## Section 2
-- *(10 points total)*
-- *(6 points)* **All questions have been attempted** 
-- *(4 points)* **The following questions return the correct result set:** 
+- **All questions have been attempted** 
+- **The following questions return the correct result set:** 
   - WINDOWED FUNCTIONS Question 1
   - UNION Question 1
 
 ## Section 3
-- *(10 points total)*
-- *(4 points)* **All questions have been attempted** 
-- *(6 points)* **The following questions return the correct result set:** 
+- *All questions have been attempted** 
+- **The following questions return the correct result set:** 
   - INSERT
   - DELETE 
   - UPDATE
