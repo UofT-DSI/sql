@@ -39,9 +39,10 @@ By the end of the module, participants will be able to:
 
 Participants should review the [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md) for instructions on how to complete assignments in this module.
 
-There is one assignment and six mandatory homework exercises. Class Participation is considered in the evaluation of the  module. 
+There are two assignments.
 
-1. [Design a Logical Model](./02_activities/assignments/design_a_logical_model.md)
+1. [Assignment 1](./02_activities/assignments/Assignment1.md)
+1. [Assignment 2](./02_activities/assignments/Assignment2.md)
 
 ## Contacts
 
@@ -52,17 +53,18 @@ There is one assignment and six mandatory homework exercises. Class Participatio
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
-  * **Amanda Ng** (she/her)  
-  [waiyuamanda.ng@mail.utoronto.ca](mailto:waiyuamanda.ng@mail.utoronto.ca)
+  * **Ernani Fantinatti** (he/him)  
+  [ernanif@fantinatti.com](mailto:ernanif@fantinatti.com)
+  * **James Li** (he/him)  
+  [james.zefang.li@gmail.com](mailto:james.zefang.li@gmail.com)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
-  * **Sidra Bushra** (she/her)  
-  [sidrabushra@ymail.com](mailto:sidrabushra@ymail.com)
+
 
 
 ## Delivery of the Learning Module
 
-This module will include live learning sessions and optional, asynchronous work periods. During live learning sessions, the Technical Facilitator will introduce and explain key concepts and demonstrate core skills. Learning is facilitated during this time. Before and after each live learning session, the instructional team will be available for questions related to the core concepts of the module. Optional work periods are to be used to seek help from peers, the Learning Support team, and to work through the homework and assignments in the learning module, with access to live help. Content is not facilitated, but rather this time should be driven by participants. We encourage participants to come to these work periods with questions and problems to work through. 
+This module will include live learning sessions and optional, asynchronous work periods. During live learning sessions, the Technical Facilitator will introduce and explain key concepts and demonstrate core skills. Learning is facilitated during this time. Before and after each live learning session, the instructional team will be available for questions related to the core concepts of the module. Optional work periods are to be used to seek help from peers, the Learning Support team, and to work through the assignments in the learning module, with access to live help. Content is not facilitated, but rather this time should be driven by participants. We encourage participants to come to these work periods with questions and problems to work through. 
  
 Participants are encouraged to engage actively during the learning module. They key to developing the core skills in each learning module is through practice. The more participants engage in coding along with the instructional team, and applying the skills in each module, the more likely it is that these skills will solidify. 
 
@@ -127,7 +129,7 @@ Feel free to use the following as resources:
 
 * **.github**: Contains issue templates, pull request templates and workflows for the repository.
 * **materials**: Module slides used during learning sessions.
-* **activities**: Contains graded assignments, exercises, and homework to practice concepts covered in the learning module.
+* **activities**: Contains graded assignments, and rubrics for evaluating assignments.
 * **instructional_team**: Resources for the instructional team.
 * **this_cohort**: Additional materials and resources for cohort three.
 * **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
