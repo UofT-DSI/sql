@@ -29,6 +29,8 @@ Steps to complete this part of the assignment:
 - Load the farmersmarket.db and browse its content
 - Create a logical data model
 
+![alt text](image.png)
+
 <br>
 If this is your first time in DB Browser for SQLite, the following instructions may help:
 
