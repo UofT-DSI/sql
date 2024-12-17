@@ -107,7 +107,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 
 ## The Relationship between Product and Customer_Purchases and Customer and ## ## Customer_Purchases is shown in this image:
-[text](images/farmersmarket.pdf)
+[text](farmersmarket.pdf)
 ***
 
 ## Section 2:
