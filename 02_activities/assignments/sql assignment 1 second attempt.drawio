@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" version="25.0.3">
+  <diagram name="Page-1" id="vy2BGQBfWGtZTL5RvyGQ">
+    <mxGraphModel dx="1226" dy="667" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2R5MNWDgDigovLvv1GpD-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="300" as="sourcePoint" />
+            <mxPoint x="220" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="110" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-7" value="vendor booth assignment" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="135" width="60" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-8" value="vendor inventory" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="130" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2R5MNWDgDigovLvv1GpD-9" target="2R5MNWDgDigovLvv1GpD-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-9" value="" style="whiteSpace=wrap;html=1;aspect=fixed;direction=north;" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-10" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="550" y="230" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-11" value="vendor_id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-13" value="booth_number" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="285" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-14" value="market_date" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="310" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-15" value="market_date" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-16" value="quantity" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="270" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-17" value="vendor_id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="300" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-18" value="product_id" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="340" width="60" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-19" value="original_price" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="350" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2R5MNWDgDigovLvv1GpD-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=-0.02;entryY=0.626;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2R5MNWDgDigovLvv1GpD-9" target="2R5MNWDgDigovLvv1GpD-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
