@@ -82,7 +82,7 @@ FROM product;
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
 
-SELECT v.vendor_id, vendor_name,vendor_owner_first_name,vendor_owner_last_name 
+SELECT v.vendor_id, vendor_name,vendor_owner_first_name,vendor_owner_last_name, market_date
 FROM vendor v
 INNER JOIN vendor_booth_assignments vba
 ON v.vendor_id = vba.vendor_id
@@ -116,7 +116,7 @@ INNER JOIN (
 	SELECT customer_id, SUM(quantity*cost_to_customer_per_qty) as total_cost
 	FROM customer_purchases
 	GROUP BY customer_id
-	HAVING total_cost >= 2000
+	HAVING total_cost > 2000
 	) x ON c.customer_id = x.customer_id
 	
 	order by x.total_cost DESC
