@@ -54,7 +54,13 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 will overwrite addresses to the most recent address.
+This architecture will use CustomerID as both a primary key and a foreign key to the Customer table with a one to one relationship.
+
+Type 2 will keep track of previous addresses.
+This table will have a CustomerAddressID that is the primary key and CustomerID as a foreign key to the customer table. Customer has a One to Many relationship to the Customer Address table.
+This table will also have some sort of flag to identify the status of the addresses.
+It could have 2 date fields for start date and end date, which would let you follow the address changes by date. It could also have a boolean for Current Address True or False which would only identify the current address and not the order of the previous ones. You could also have an Address order INT that starts at 1 and increments everytime the CustomerID gets used again, as long as the dates don't matter.s
 ```
 
 ***
