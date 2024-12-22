@@ -44,9 +44,13 @@ Additionally, include a date table.
 There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
+# This is the pdf for this prompt:
+[text](Bookstore1.drawio.pdf)
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+# This is the pdf for this prompt:
+[text](Bookstore2.drawio.pdf)
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -54,7 +58,15 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+The two different types of architectures related to the concept of Slowly Changing Dimensions (SCD) can be used to store a CUSTOMER_ADDRESS table are:
+
+Overwrite (Type 1 SCD): simply overwrites an existing record with the new data. 
+Only the latest address is stored. This is simple to implement and maintain, and requires less storage space as no historical data is kept. That no historical data is kept is also the downside since the system can't track changes over time.
+
+Add New Row (Type 2 SCD): a new row is added for each change, while the old one is retained, which allows you to maintain a complete history of address changes for each customer. If knowing about address changes is important then this is obviously useful; however, it is more complex and does require more storage space.
+
+
+
 ```
 
 ***
