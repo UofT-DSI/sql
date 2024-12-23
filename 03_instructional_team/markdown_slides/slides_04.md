@@ -101,7 +101,7 @@ Handling NULLs effectively:
 # Purpose
 - Windowed Functions allow us to create groupings within groupings ("partitions")
 - Allow for greater complexity than simple SQL 
-  - In Module 3, we mentioned briefly a rolling total, e.g. a `SUM` and a `COUNT`; windowed functions allow us to return these types of results
+  - In Session 3, we mentioned briefly a rolling total, e.g. a `SUM` and a `COUNT`; windowed functions allow us to return these types of results
 
 ---
 
@@ -453,7 +453,7 @@ class: top, left, inverse
 - Situated within a `WHERE` clause, very similar to `LIKE`
 - Can use either SQL's or regex's Boolean operators
   - e.g. `WHERE austen_books REGEXP '(sion|ice)$'`
-  - Or   `WHERE austen_books REGEXP 'sion$' OR book_title REGEXP 'ice$'`
+  - Or   `WHERE austen_books REGEXP 'sion$' OR austen_books REGEXP 'ice$'`
 ---
 
 # REGEXP (flavour dependent)
@@ -558,7 +558,7 @@ class: top, left, inverse
 - `EXCEPT` returns the opposite of an `INTERSECT`
   - for whatever rows are returned by the first `SELECT` statement, `EXCEPT` will return rows that were _not_ returned by the second `SELECT` statement
 - The "direction" of `EXCEPT` matters a lot
-  - `EXCEPT` is relative the the first `SELECT` statement, so changing which comes first will always change the results of the query
+  - `EXCEPT` is relative to the first `SELECT` statement, so changing which comes first will always change the results of the query
 
 ---
 

@@ -1,4 +1,4 @@
--- CROSS JOIN
+--CROSS JOIN
 
 DROP TABLE IF EXISTS temp.sizes;
 CREATE TEMP TABLE IF NOT EXISTS temp.sizes (size TEXT);

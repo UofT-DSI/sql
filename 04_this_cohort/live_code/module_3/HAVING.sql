@@ -1,15 +1,26 @@
 --HAVING
 
--- how much did a customer spend on each day
+--how much did a customer spend on each day
 SELECT 
-customer_id
-,market_date
-,SUM(quantity*cost_to_customer_per_qty) as cost
+market_date,
+customer_id,
+SUM(quantity*cost_to_customer_per_qty) as total_cost
 
-FROM customer_purchases as cp
-WHERE customer_id BETWEEN 1 AND 3 -- filters BEFORE the aggregation, only customers 1 2 3 are being aggregated
---AND cost > 50 -- not allowed , has to be in HAVING!
+FROM customer_purchases
+WHERE customer_id BETWEEN 1 AND 5
+GROUP BY market_date, customer_id
+HAVING total_cost > 50;
 
-GROUP BY customer_id
-,market_date
-HAVING cost > 50 -- filters AFTER based on the aggregation
+--how many products were bought
+SELECT count(product_id) as num_of_prod, product_id
+FROM customer_purchases
+WHERE product_id <= 8
+GROUP BY product_id
+HAVING count(product_id) BETWEEN 300 AND 500;
+
+--"top"
+SELECT count(product_id) as num_of_prod, product_id
+FROM customer_purchases
+GROUP BY product_id
+ORDER BY count(product_id) DESC
+LIMIT 3

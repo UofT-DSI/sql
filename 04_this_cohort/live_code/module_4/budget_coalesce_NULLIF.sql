@@ -1,5 +1,5 @@
 
--- create a budge temp table
+-- create a budget temp table
 DROP TABLE IF EXISTS temp.budgets; 
 
 -- here i am specifying the column types, this was asked, so budget is a string, current year is an integer, prev year also int

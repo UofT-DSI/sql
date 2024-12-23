@@ -1,19 +1,17 @@
---SELECT
+-- SELECT 
 
--- SELECT *
--- FROM customer;
--- 
--- 
--- SELECT customer_first_name, customer_last_name, customer_id
--- FROM customer;
+--selecting everything from customer
+SELECT *
+FROM customer;
 
+-- adding some static values
+SELECT 2024 as this_year, 'December' as this_month, customer_id
+FROM customer;
 
--- SELECT 10*5 AS [math_product]
--- , customer_id
--- , customer_id+10 as [addition]
--- 
--- FROM customer
+--math
+SELECT 10*5;
 
---SELECT * FROM customer_purchases
-
-SELECT 'September' AS this_month, customer_id FROM customer
+-- add an order by
+SELECT * 
+FROM customer
+ORDER BY customer_last_name DESC

@@ -1,37 +1,43 @@
--- string manipulations
+--string manipulations
 
-SELECT DISTINCT
+SELECT DISTINCT 
+LTRIM('                 THOMAS ROSENTHAL              ') as [ltrim]
+,RTRIM('                 THOMAS ROSENTHAL              ') as [rtrim]
+,RTRIM(LTRIM('                 THOMAS ROSENTHAL              ')) as [both]
+,TRIM('                 THOMAS ROSENTHAL              ')  as [also_both]
 
-LTRIM('            THOMAS ROSNETHAL         ') as [ltrim]
-,RTRIM('            THOMAS ROSNETHAL         ') as [rtrim]
-,LTRIM(RTRIM('            THOMAS ROSNETHAL         ')) as [both]
+,product_name
+,REPLACE(product_name, 'a','e')
+,REPLACE(product_name,'h','1') -- case sensitivity
+,REPLACE(product_name,' ','_') -- replace spaces with underscore (good way to get pot_hole_case)
 
-,REPLACE('THOMAS ROSENTHAL', ' ', ' WILLIAM ') -- adds my middle name to the middle with spaces on both sides
-,REPLACE('THOMAS ROSENTHAL','a','') -- case sensitive, does not replace
-,REPLACE('THOMAS ROSENTHAL','A','') -- replaces both As
+,UPPER(product_name) as upper_case
+,LOWER(product_name) as lower_case
 
---upper/lower
-,lower(customer_first_name)
-,upper(customer_last_name)
+,product_name || product_size
+
+FROM product;
 
 --concat
-,customer_first_name || ' ' ||customer_last_name as customer_name
-,UPPER(customer_first_name) || ' ' || UPPER(customer_last_name) as upper_full_name
+SELECT *
+,customer_first_name || ' ' || customer_last_name as customer_name
+,UPPER(customer_first_name) || ' ' || UPPER(customer_last_name) as upper_last_name
 
 ,SUBSTR(customer_last_name,4) -- any length from the 4th character
-,SUBSTR(customer_last_name,4,2) 
-,SUBSTR(customer_last_name, -5,4) -- counting from the right
-,SUBSTR(customer_last_name,1,2)
+,SUBSTR(customer_last_name,4,2) --2 characters long from the 4th character
+--,SUBSTR(customer_last_name, -5,4)
+--,INSTR(customer_last_name,'a')
 
-,length(customer_last_name)
+,length(customer_first_name || ' ' || customer_last_name)
+
 ,'THOMAS
 
-ROSENTHAL' 
-
+ROSENTHAL' -- added a linebreak
 ,replace('THOMAS
 
-ROSENTHAL',char(10),' ') -- removing all instances of line breaks from this string
+ROSENTHAL', char(10), ' ') -- removing all linebreaks from this string
 
-from customer
+FROM customer
 
-WHERE customer_first_name REGEXP '(a)$' -- filtering to only ending in e, has to be valid regex
+WHERE customer_first_name REGEXP '(a)$'
+

@@ -3,7 +3,7 @@ title: |
   ![](imgs/mrpotatocode_banner.png){width=7in}  
 subtitle: "Introduction to Data Access and Storage"
 author: "Thomas Rosenthal - DSI @ UofT" 
-date: "Module 02"
+date: "Session 02"
 output:
   xaringan::moon_reader:
     css: [xaringan-themer.css, custom.css]
@@ -662,7 +662,7 @@ class: top, left, inverse
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
+- Annoyingly, DB Browser for SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
 
 --
 

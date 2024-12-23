@@ -1,27 +1,19 @@
 --windowed function
---what product is the highest price per vendor
+-- what was the highest price seen per product for each vendor
 
-SELECT * 
+SELECT *
 
 FROM (
-		SELECT 
-		vendor_id
-		,market_date
-		,product_id
-		,original_price
-		,ROW_NUMBER() OVER(PARTITION BY vendor_id,product_id ORDER BY original_price DESC) as price_rank
-		
-		FROM vendor_inventory
+
+	SELECT DISTINCT
+	vendor_id
+	--,market_date
+	,product_id
+	,original_price
+	,ROW_NUMBER() OVER(PARTITION BY vendor_id,product_id ORDER BY original_price DESC) as price_rank
+
+	FROM vendor_inventory
+	WHERE vendor_id = 7
 ) x
 
-WHERE x.price_rank = 1;
-
-
--- SELECT 
--- 		vendor_id
--- 		,market_date
--- 		,product_id
--- 		,original_price
--- 
--- FROM vendor_inventory
--- order by original_price DESC
+WHERE x.price_rank = 1

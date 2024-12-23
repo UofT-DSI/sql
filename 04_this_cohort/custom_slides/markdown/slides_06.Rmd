@@ -3,7 +3,7 @@ title: |
   ![](imgs/mrpotatocode_banner.png){width=7in}  
 subtitle: "Introduction to Data Access and Storage"
 author: "Thomas Rosenthal - DSI @ UofT" 
-date: "Module 06"
+date: "Session 06"
 output:
   xaringan::moon_reader:
     css: [xaringan-themer.css, custom.css]
@@ -230,6 +230,8 @@ class: middle, center, inverse
 ## Ethics
 
 ## **Normal Forms**
+
+## Run SQLite in python and/or R
 
 ---
 
