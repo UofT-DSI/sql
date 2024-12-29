@@ -54,8 +54,11 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+To store customer addresses in a customer address table, we can have a table that only tracks the current address for a customer in an address column. This table would have a 1:1 relationship with the customer table. If the address changes then the value in this column will be overwritten with the new address. This architecture is an example of Type 1 Slowly changing Dimensions.
+
+To retain a history of customer addresses we can add a new created_at column to the customer_address table. Every time a customer's address is updated, a new row is added to the customer address table. The row with the latest created_at value would be the customer's current address. The customer table would have a 1:N relationship with the customer_address table. This architecture is an example of Type 2 Slowly Changing Dimensions.
 ```
+![Type 1 vs Type 2 architecture for customer_address table](./sql-assignment2-section1-prompt3.png)
 
 ***
 
