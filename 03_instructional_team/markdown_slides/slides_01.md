@@ -39,28 +39,15 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Ernani)
+# About Us (Keil)
 
-- UofT (DSI) & Master of Engineering in S&T at McMaster University
-- Electrical & Telecom Engineer
-- DSI cohort 3
-- Cloud AWS Architecture, Unix / Linux & Data Science
-- Facial Action Coding System Instructor (Paul Ekman / F-M Group International)
-- Hobbies: Photography, Math challenges, Reading, Neuroscience
+- UofT Master of Information (where I met Thomas and Rohan)
+- Interested in the ethical dimensions of NLP and LLM. Currently applying for a PhD to pursue further research 
+- Worked in industry as data engineer
+- Bachelor degree in fine arts: wanted to be an art teacher since I was a kid
+- Hobbies: Reading, plants, bubble teas 
 
-![bg right:35% w:350](./images/01_ernani.png)
-
----
-
-# About Us (James)
-
-- UofT Engineering undergrad and master 🦫
-- Licensed engineer in an oil & gas company sending robots into pipelines 🤘
-- DSI cohort 3
-- Self-taught woodworking hobbyist 🪚
-- Real hobbies: motorcycle 🛵, leisure skating ⛸️, camping ⛺️
-
-![bg right:35% w:350](./images/01_james.png)
+![bg right:35% w:350](./images/01_keli.png)
 
 ---
 
@@ -630,6 +617,10 @@ Table 1: Country — Table 2: Capital City
 | Mexico          | 1:1 | Mexico City     |
 
 
+---
+
+![bg w:400 ](images/01_na_capitals.png)
+
 
 ---
 
@@ -655,7 +646,9 @@ Table 1: Country — Table 2: States
 | Mexico          | 1:∞ | Baja California   |
 | Mexico          | 1:∞ | ...(30 more rows) |
 
+---
 
+![bg w:400 ](images/01_na_states.png)
 
 ---
 
@@ -702,6 +695,12 @@ Table: Different countries align differently within these definition
 We can create additional Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
 
 ---
+
+![bg w:1000 ](images/01_euro_status.png)
+
+---
+
+
 
 # Conceptual Models
 

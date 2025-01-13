@@ -85,13 +85,13 @@ For example, a query wanting to know the number of days in each month:
 
 | vendor_id | product_id | market_date |
 |-----------|------------|-------------|
-| 1         | 1          | 2024-01-01  |
-| 1         | 1          | 2024-01-02  |
-| 1         | 2          | 2024-01-01  |
-| 1         | 2          | 2024-01-02  |
-| 1         | 2          | 2024-01-03  |
-| 1         | 3          | 2024-01-02  |
-| 1         | 4          | 2024-01-02  |
+| 1         | 1          | 2025-01-01  |
+| 1         | 1          | 2025-01-02  |
+| 1         | 2          | 2025-01-01  |
+| 1         | 2          | 2025-01-02  |
+| 1         | 2          | 2025-01-03  |
+| 1         | 3          | 2025-01-02  |
+| 1         | 4          | 2025-01-02  |
 
 
 ---
@@ -251,15 +251,25 @@ Image: Joseph Ferrer, KDnuggets
 ---
 # Subqueries: Queries Within Queries
 - Subqueries can be used in both `JOIN` and `WHERE` clauses
-  - In the case of `JOIN`:
+  - In the case of `JOIN` (or `FROM`):
       - you want the subquery to add columns to your output
-      - you are using a subquery because you are joining complex criteria that require manipulation
+      - you are using a subquery because you are joining/selecting complex criteria that require manipulation
           - it is often the case that you are joining two or more tables within a subquery to another table
+
+
+![bg right:35% w:340](./images/03_subquery_join.png)
+
+---
+
+# Subqueries: Queries Within Queries
   - In the case of `WHERE`:
       - you want to filter results 
       - you are using a subquery because it is simpler than joining and filtering the columns otherwise
       - it's important to note: *you can only return a single column* in your subquery
           - **Why do we think this is?**
+
+![bg right:35% w:340](./images/03_subquery_where.png)
+
 ---
 
 # Subqueries
@@ -378,14 +388,14 @@ Image: Joseph Ferrer, KDnuggets
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2024-12
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2025-01
   
 ---
 
 # STRFTIME
 
 - `STRFTIME` also allows modification to date dynamically
-  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2024-01-12', 'start of month')`
+  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2025-01-23', 'start of month')`
   - **How do we go about subtracting dates rather than adding them?**
 - Modifiers include:
   - +/- N years/months/days/hours/minutes/seconds
@@ -406,9 +416,9 @@ Image: Joseph Ferrer, KDnuggets
 - SQLite supports two means of adding increments of time to a date:
   - `STRFTIME` as mentioned previously
   - Using `DATE` 
-      - e.g. `SELECT DATE('2024-01-12', 'start of month')`
+      - e.g. `SELECT DATE('2025-01-23', 'start of month')`
 - Both of these methods allow you to chain modifiers
-  - e.g. `SELECT DATE('2024-01-12', 'start of month', '-1 day')`
+  - e.g. `SELECT DATE('2025-01-23', 'start of month', '-1 day')`
 
 **What do we see as the difference between these?**
 
@@ -436,6 +446,12 @@ Image: Joseph Ferrer, KDnuggets
 - This syntax is also fairly unique to SQLite, but is conceptually the same, so briefly I will touch on `DATEDIFF`
   - Generally, we specify a datepart, startdate, and enddate
   
+---
+
+# Datetime Functions
+
+(Adding Dates and Difference between Dates live coding)
+
 ---
 
 # What questions do you have about anything from today?

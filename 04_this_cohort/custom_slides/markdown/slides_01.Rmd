@@ -35,6 +35,7 @@ style_solarized_light(
   code_font_google = google_font("Fira Mono"),
   base_font_size = "18px",
   header_h2_font_size = "2rem" #unique to _01
+
   )
 
 
@@ -111,40 +112,18 @@ class: left, top, inverse
 ---
 
 class: left, top, inverse
-# About Us (Ernani)
+# About Us (Keil)
 .pull-left[
-- UofT (DSI) & Master of Engineering in S&T at McMaster University
-- Electrical & Telecom Engineer
-- DSI cohort 3
-- Cloud AWS Architecture, Unix / Linux & Data Science
-- Facial Action Coding System Instructor (Paul Ekman / F-M Group International)
-- Hobbies: Photography, Math challenges, Reading, Neuroscience
-
+- UofT Master of Information (where I met Thomas and Rohan)
+- Interested in the ethical dimensions of NLP and LLM. Currently applying for a PhD to pursue further research 
+- Worked in industry as data engineer
+- Bachelor degree in fine arts: wanted to be an art teacher since I was a kid
+- Hobbies: Reading, plants, bubble teas 
 ]
 
 .pull-right[
 
-<img src="imgs/ernani.png"
-     height="450px"
-     style="position:absolute; right:100px; top:130px;">
-
-]
-
----
-
-class: left, top, inverse
-# About Us (James)
-.pull-left[
-- UofT Engineering undergrad and master `r structure("\U1F9AB", class = "emoji")`
-- Licensed engineer in an oil & gas company sending robots into pipelines `r structure("\U1F918", class = "emoji")`
-- DSI cohort 3
-- Self-taught woodworking hobbyist `r structure("\U1FA9A", class = "emoji")`
-- Real hobbies: motorcycle `r structure("\U1F6F5", class = "emoji")`, leisure skating `r structure("\U26F8", class = "emoji")`, camping `r structure("\U26FA", class = "emoji")`
-]
-
-.pull-right[
-
-<img src="imgs/james.png"
+<img src="imgs/keli.png"
      height="450px"
      style="position:absolute; right:100px; top:130px;">
 
@@ -154,6 +133,8 @@ class: left, top, inverse
 
 class: left, top, inverse
 # About Us (Niyaz)
+
+
 .pull-left[
 
 - Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
@@ -196,12 +177,12 @@ class: left, top, inverse
 - Advanced Techniques
 - Importing and Exporting Data to and from SQL
 - SQL's relationship to the Machine Learning Pipeline
-- Data Stewardship, Ethics, and SQL in the Wild
+
 
 ### Course Tools
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jan2024): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS25): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -262,7 +243,7 @@ class: left, top, inverse
 # Course Content
 
 ### Assignments 
-- Two assignments, released on Monday of each week.
+- Two assignments, released at the start of the course.
 - Broken into three sections:
   - Section 1 focuses on database design
   - Sections 2 and 3 on sql writing
@@ -288,7 +269,7 @@ class: left, top, inverse
 - Assignment 2: 70% of mark
 - Review rubrics for full details
 
-- Class Attendance: *not graded this cohort, come anyways!*
+- Class Attendance: *not graded for SGS, come anyways!*
   - Let myself or course support know if you are unable to attend a lesson
   - Code along!! Best way to learn.
 
@@ -923,17 +904,35 @@ class: top, left, inverse
 
 ### Relationship Examples
 
+
+
+.pull-left.w55[ 
+
 **One-to-One**: where a given row within a table is associated with only a single row in another table
 
 Table 1: Country — Table 2: Capital City
 
-.pull-left.w30[ 
+.pull-left.w53[
+
 
 | Table 1:Country |     | Table 2:Capital |
 |-----------------|-----|-----------------|
 | Canada          | 1:1 | Ottawa          |
 | USA             | 1:1 | Washington DC   |
 | Mexico          | 1:1 | Mexico City     |
+
+
+]
+
+]
+
+--
+
+.pull-right.w40[
+
+  <img src="imgs/na_capitals.png"
+      height="450px"
+      style="position:absolute; right:100px; top:150px;";>
 
 ]
 
@@ -943,11 +942,15 @@ class: top, left, inverse
 
 ### Relationship Examples
 
+.pull-left.w55[ 
+
 **One-to-Many**: where a given row within a table can be referenced by multiple rows in another table
 
 Table 1: Country — Table 2: States 
 
-.pull-left.w32[ 
+.pull-left.w55[
+
+.tablefontsize[
 
 | Table 1:Country |     | Table 2:States    |
 |-----------------|-----|-------------------|
@@ -963,6 +966,20 @@ Table 1: Country — Table 2: States
 
 ]
 
+]
+
+]
+
+--
+
+.pull-right.w40[
+
+  <img src="imgs/na_states.png"
+      height="450px"
+      style="position:absolute; right:100px; top:150px;";>
+
+]
+
 ---
 class: top, left, inverse
 # Data Modelling
@@ -973,8 +990,9 @@ class: top, left, inverse
 
 Table 1: Country — Table 2: Membership
 
-For this example, consider different ways to define "European" membership, such as whether or not a country: 1) is a member of the EU, 2) uses the Euro, or 3) has abolished  border controls (Schengen Agreement)
+--
 
+For this example, consider different ways to define "European" membership, such as whether or not a country: 1) is a member of the EU, 2) uses the Euro, or 3) has abolished  border controls (Schengen Agreement)
 
 .pull-left.w40[
 
@@ -1010,7 +1028,20 @@ For this example, consider different ways to define "European" membership, such 
 
 ]
 
-We can create additional Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Relationship Examples
+
+**Many-to-Many**: where multiple rows within a table can be referenced by multiple rows in another table
+
+<img src="imgs/euro_status.png" 
+  height="300px";>
+
+We can create even more Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
 
 ---
 

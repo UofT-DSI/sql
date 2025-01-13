@@ -92,7 +92,7 @@ $ echo "Data Sciences Institute"
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2024 AS this_year, 'May' AS this_month`
+  - `SELECT 2025 AS this_year, 'January' AS this_month`
 - When selecting columns, they need to exist in the table!
 
 ---
@@ -430,7 +430,6 @@ Source: Image: Teate, Chapter 5
 # RIGHT (OUTER) JOIN
 - `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
   - Often your query can be reorganized to use a `LEFT JOIN` instead
-    - SQLite does not currently support `RIGHT JOIN`
 
 ![bg right:40% w:500](./images/02_right_join.png)
      
@@ -442,7 +441,6 @@ Source: Image: Teate, Chapter 5
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, DB Browser for SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
 
 ---
 
