@@ -7,7 +7,7 @@
 * Weight: 70% of total grade
 * The branch name for your repo should be: `assignment-two`
 * What to submit for this assignment:
-    * This markdown (Assignment2.md) with written responses in Section 1
+    * This markdown (Assignment2.md) with written responses in Section 1 and 4
     * Two Entity-Relationship Diagrams (preferably in a pdf, jpeg, png format).
     * One .sql file 
 * What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pulls/<pr_id>`
@@ -19,7 +19,7 @@ Checklist:
 - [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
 - [ ] Verify that the link is accessible in a private browser window.
 
-If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-5-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
+If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
 ***
 
@@ -161,3 +161,26 @@ ADD current_quantity INT;
 Then, using `UPDATE`, change the current_quantity equal to the **last** `quantity` value from the vendor_inventory details. 
 
 **HINT**: This one is pretty hard. First, determine how to get the "last" quantity per product. Second, coalesce null values to 0 (if you don't have null values, figure out how to rearrange your query so you do.) Third, `SET current_quantity = (...your select statement...)`, remembering that WHERE can only accommodate one column. Finally, make sure you have a WHERE statement to update the right row, you'll need to use `product_units.product_id` to refer to the correct row within the product_units table. When you have all of these components, you can run the update statement.
+
+*** 
+
+## Section 4:
+You can start this section anytime.
+
+Steps to complete this part of the assignment:
+- Read the article
+- Write, within this markdown file, <1000 words.
+
+### Ethics
+
+Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way down._ Normcore Tech. <br>
+    https://vicki.substack.com/p/neural-nets-are-just-people-all-the
+
+**What are the ethical issues important to this story?**
+
+Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
+
+
+```
+Your thoughts...
+```

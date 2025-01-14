@@ -513,7 +513,7 @@ class: top, left, inverse
 
 # UNION & UNION ALL
 
-- If we recall SQLite's lack of support for `FULL OUTER JOINS`, `UNION ALL` will allow us to emulate one:
+- Through `UNION ALL` we can emulate a full outer join:
 
 ```
   SELECT s1.quantity, s1.costume, s2.quantity
