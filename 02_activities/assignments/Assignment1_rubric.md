@@ -8,7 +8,8 @@
     - cannot be a duplicate of my example tables from Session 1 slides
   - Criteria: assignment1.sql is completed
   - Criteria: assignment1.sql is correct
-
+  - Criteria: Written content for Section 4 is of reasonable length (likely less than 1000 words, but not fewer than 250 words)
+  
 ## Section 1
 
 ### Prompt 1
@@ -28,6 +29,10 @@
   - AGGREGATE, Question 2
   - DATE, Question 2
 
+## Section 4
+- Response is written
+- Response is free of typos, was not written by an LLM, etc
+
 ## Criteria
 
 |Criteria|Complete|Partial|Incomplete|
@@ -35,3 +40,4 @@
 |Section 1, Prompt 1 Requirements|All requirements are met.|Missing some requirements.|Several requirements are not met or diagram is not a logical model.|
 |Section 2 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
 |Section 3 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
+|Section 4 Requirements|All requirements are met.|Missing some requirements.|Response missing.|

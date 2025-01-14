@@ -8,9 +8,10 @@
   - Criteria: Two ERDs exist
   - Criteria: assignment2.sql is completed
   - Criteria: assignment2.sql is correct
+  - Criteria: Written content for Section 4 is of reasonable length (likely less than 1000 words, but not fewer than 250 words)
 
 ## Section 1
-- *(50 points total)*
+- *(46 points total)*
 
 ### Prompt 1
 - *(30 points total)*
@@ -34,7 +35,7 @@
 - Employee Shift Table exists, and we can discern morning/evening shifts from its design**
 
 ### Prompt 3
-- *(10 points total)*
+- *(6 points total)*
 - **Two distinct architectures are proposed**
 - **One design for Customer Addresses table would retain changes**
 - **One design for Customer Addresses table would overwrite changes**
@@ -44,19 +45,25 @@
     - Both Wrong (Incomplete)
 
 ## Section 2
-- *(10 points total)*
-- *(6 points)* **All questions have been attempted** 
-- *(4 points)* **The following questions return the correct result set:** 
+- *(8 points total)*
+- *(5 points)* **All questions have been attempted** 
+- *(3 points)* **The following questions return the correct result set:** 
   - WINDOWED FUNCTIONS Question 1
   - UNION Question 1
 
 ## Section 3
-- *(10 points total)*
-- *(4 points)* **All questions have been attempted** 
-- *(6 points)* **The following questions return the correct result set:** 
+- *(8 points total)*
+- *(3 points)* **All questions have been attempted** 
+- *(5 points)* **The following questions return the correct result set:** 
   - INSERT
   - DELETE 
   - UPDATE
+
+## Section 4
+- *(8 points total)*
+- Response is written
+- Response is free of typos, was not written by an LLM, etc
+
 
 ## Criteria
 
@@ -68,7 +75,7 @@
 |Section 1, Prompt 3 Requirements|All requirements are met.|Some architecture missing or incorrect.|Missing response.|
 |Section 2 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
 |Section 3 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
-
+|Section 4 Requirements|All requirements are met.|Missing some requirements.|Response missing.|
 
 ## Section 2 answers
 ### # COALESCE
