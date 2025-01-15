@@ -46,15 +46,15 @@
 
 ## Section 2
 - *(8 points total)*
-- *(5 points)* **All questions have been attempted** 
-- *(3 points)* **The following questions return the correct result set:** 
+- *(4 points)* **All questions have been attempted** 
+- *(4 points)* **The following questions return the correct result set:** 
   - WINDOWED FUNCTIONS Question 1
   - UNION Question 1
 
 ## Section 3
 - *(8 points total)*
-- *(3 points)* **All questions have been attempted** 
-- *(5 points)* **The following questions return the correct result set:** 
+- *(2 points)* **All questions have been attempted** 
+- *(6 points)* **The following questions return the correct result set:** 
   - INSERT
   - DELETE 
   - UPDATE
