@@ -3,10 +3,11 @@
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 #### Submission Parameters:
-* Submission Due Date: `December 15, 2024`
+* Submission Due Date: `January 24, 2025`
 * Weight: 30% of total grade
 * The branch name for your repo should be: `assignment-one`
 * What to submit for this assignment:
+    * This markdown (Assignment1.md) with written responses in Section 4
     * One Entity-Relationship Diagram (preferably in a pdf, jpeg, png format).
     * One .sql file 
 * What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pulls/<pr_id>`
@@ -18,7 +19,7 @@ Checklist:
 - [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
 - [ ] Verify that the link is accessible in a private browser window.
 
-If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-5-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
+If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
 *** 
 
@@ -181,3 +182,28 @@ To insert the new row use VALUES, specifying the value you want for each column:
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
    
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
+
+*** 
+
+## Section 4:
+You can start this section anytime.
+
+Steps to complete this part of the assignment:
+- Read the article
+- Write, within this markdown file, <1000 words.
+
+### Ethics
+
+Read: Qadri, R. (2021, November 11). _When Databases Get to Define Family._  Wired. <br>
+    https://www.wired.com/story/pakistan-digital-database-family-design/
+
+Link if you encounter a paywall: https://web.archive.org/web/20240422105834/https://www.wired.com/story/pakistan-digital-database-family-design/
+
+**What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
+
+Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
+
+
+```
+Your thoughts...
+```

@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2024 AS this_year, 'May' AS this_month`
+  - `SELECT 2025 AS this_year, 'January' AS this_month`
 
 <br>
 --
@@ -630,7 +630,6 @@ class: top, left, inverse
   - Generally, OUTER seems to be excluded, but both are correct
 - `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
   - Often your query can be reorganized to use a `LEFT JOIN` instead
-    - SQLite does not currently support `RIGHT JOIN`
 
 .center[ 
 <img src="imgs/right_join.png"
@@ -662,7 +661,6 @@ class: top, left, inverse
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
-- Annoyingly, DB Browser for SQLite does not support `FULL OUTER JOIN` (_it really should_), but there is a workaround to produce the results
 
 --
 
