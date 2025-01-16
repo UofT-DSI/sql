@@ -2,9 +2,6 @@
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
-# THIS IS A TEST CHANGE
-echo 'test change'
-
 #### Submission Parameters:
 * Submission Due Date: `January 25, 2025`
 * Weight: 30% of total grade
