@@ -39,7 +39,7 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Keil)
+# About Us (Keli)
 
 - UofT Master of Information (where I met Thomas and Rohan)
 - Interested in the ethical dimensions of NLP and LLM. Currently applying for a PhD to pursue further research 
@@ -519,7 +519,7 @@ multiple lines
 - Data types are important:
   - They affect operation speed, storage size, data validity
       - Speed: it's computationally less expensive to compute smaller values
-      - Storage: small is usually better, but the wrong size will affect systems; e.g. Psy's Gangnam Style exceeded 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 64-bit (~9.2b if signed)
+      - Storage: small is usually better, but the wrong size will affect systems; e.g. Psy's Gangnam Style exceeded 2,147,483,647 (32-bit signed, 2^32/2-1) views, causing YouTube to expand the view counter to 9,223,372,036,854,775,807 (64-bit signed, 2^64/2-1)
       - Validity: ensures columns contain the right type of data for operations, e.g. avoiding 5 + 'ten' = ??
       
 ---
