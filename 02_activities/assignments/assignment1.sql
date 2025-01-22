@@ -88,7 +88,7 @@ SELECT v.*, va.*
 FROM vendor as v 
 INNER JOIN vendor_booth_assignments as va
 ON v.vendor_id = va.vendor_id
-ORDER BY vendor_name ASC, market_date ASC;
+ORDER BY vendor_name ASC, market_date ASC;--sort by vendor_name first before market_date
 
 
 
