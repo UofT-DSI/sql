@@ -56,6 +56,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+One version would include a table called customer_address which contains customer_id and current_address (this will over-write info if type 1)
+Another version would include a table called customer_address which contains customer_id and address_log (if type 2 this will just add new rows)
 
 ***
 
