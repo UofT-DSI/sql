@@ -205,5 +205,17 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Just like how Pakistan’s NADRA system encodes rigid definitions of family and citizenship, 
+determining who gets access to basic rights, the Canadian healthcare system—through UHIP and provincial
+ health databases—creates a hierarchy of healthcare access based on residency status. 
+ As an international student, I experience this first-hand when I’m denied access to simple, 
+ everyday healthcare services that Canadian citizens can obtain effortlessly, 
+ like getting a pharmacist at Shoppers Drug Mart or Rexall to diagnose and prescribe treatment for minor issues.
+ Instead of receiving quick care, I have to navigate a longer, more complicated process just to get the same medication,
+  reinforcing the idea that healthcare databases don’t just organize information, 
+  they define who "deserves" easier access to medical services. 
+  Much like NADRA’s system marginalizes those who don’t fit its definition of a valid family structure, 
+  Canada’s healthcare database quietly embeds the assumption that only permanent residents and citizens 
+  should have full access to seamless, pharmacist-led care, leaving international students in an administrative 
+  limbo that delays treatment and adds unnecessary barriers.
 ```
