@@ -119,6 +119,8 @@ Steps to complete this part of the assignment:
 
 ### Write SQL
 
+see sql file
+
 #### SELECT
 1. Write a query that returns everything in the customer table.
 2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
@@ -207,3 +209,6 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 ```
 Your thoughts...
 ```
+In some instances, these databases are working as intended. If they are designed specifically to exclude people who don't fit the gender binary, or exclude children of unmarried couples, then there's nothing wrong with the database. It is just a tool that is used to intentionally cary out discrimination. If a government only recognizes two genders, then why would it design a database where gender is not boolean? In an earlier analog version of this database, people were able to work around discrimination (provided the person who was filing the paperwork looked the other way) because a human is not beholden to the strict rules of a computer. These biased databases mostly just highlight existing flaws within the government. 
+
+It's not clear if the Pakistani government is actually motivated to fix any of these issues that leave people with no ID or the ability to even purchase a bus ticket. Once societal pressure becomes great enough, small portions of the database get updated (e.g., adding a new gender identity or randomly assigning orphans to parents). Who bears the responsibility, the government or the group of people who designed the database? I don't think anyone designing the database would ignore instructions and make a database that's actually flexible and inclusive (or if they did, they'd get fired). If you're working for a government, and they tell you to design a database where gender can only be binary, you should quit your job.
