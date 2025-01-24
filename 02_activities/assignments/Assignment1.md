@@ -206,4 +206,13 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 ```
 Your thoughts...
+
+Canadian data systems have embedded values that shape daily experiences. Healthcare databases focus on wait times over patient experience.
+Banking systems balance PIPEDA privacy rules with institutional data sharing. Government ID systems use rigid categories for ethnicity and
+language that don't capture multicultural realities. Provincial driver databases standardize credentials nationally but create barriers for
+newcomers. University systems use grade standardization that can disadvantage non-traditional learners or international students.
+Databases force complex human identities and experiences into standardized fields and dropdown menus. A person might speak multiple languages
+with varying fluency, but government forms often demand choosing just one "primary language. Someone's gender identity might be fluid, but medical records typically require a single fixed selection.
+These rigid systems can make people feel invisible or misrepresented. The human experience doesnt fit very well into a box or category. 
 ```
+
