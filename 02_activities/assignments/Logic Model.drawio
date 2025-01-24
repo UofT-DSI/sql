@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" version="26.0.7">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
+    <mxGraphModel dx="820" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o3sM1vBLUJyq59fgU475-2" value="market_max_temp" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-6" value="market_date" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="55" y="40" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-7" value="market_day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="55" y="60" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-8" value="market_week" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="55" y="80" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-9" value="market_year" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="55" y="100" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-10" value="market_start_time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="40" y="120" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-11" value="market_end_time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="40" y="140" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-12" value="special_notes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="50" y="160" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-15" value="market_season" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="45" y="180" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-16" value="market_min_temp" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="40" y="200" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-17" value="market_max_temp" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="40" y="220" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-18" value="market_rain_flag" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="45" y="240" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-19" value="market_snow_flag" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-2">
+          <mxGeometry x="40" y="260" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-4" value="customer_purchases" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="150" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-20" value="product_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="60" y="30" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-21" value="vendor_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="60" y="50" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-22" value="market_date" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="55" y="70" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-23" value="customer_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="55" y="90" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-24" value="quantity" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="65" y="110" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-25" value="cost_to_customer_per_qty" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="20" y="130" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-26" value="transaction_time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="o3sM1vBLUJyq59fgU475-4">
+          <mxGeometry x="45" y="150" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o3sM1vBLUJyq59fgU475-39" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="310" y="160" as="sourcePoint" />
+            <mxPoint x="450" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
