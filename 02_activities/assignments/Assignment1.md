@@ -201,9 +201,66 @@ Link if you encounter a paywall: https://web.archive.org/web/20240422105834/http
 
 **What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
 
-Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
+Consider, for example, concepts of fairness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
 ```
 Your thoughts...
+Introduction
+
+Databases might seem like neutral tools, but in reality, they carry the values and biases of the societies that create them. The article When Databases Get to Define Family by Qadri R. (2021) explores how Pakistan's digital family registration system enforces a rigid definition of family, excluding marginalized groups and reinforcing social norms. This issue isn’t unique to Pakistan—it’s a global concern that raises questions about fairness, inequality, and how technology shapes our lives.
+
+How Databases Reflect Societal Values
+
+Every day, we interact with databases that influence our opportunities and experiences. From government records to financial systems, these databases shape our access to essential services. But who gets included, and who is left out?
+
+1. Fairness and Inequality
+
+A well-designed database should aim to be inclusive, but many systems reflect existing social biases. For example:
+
+Government databases often fail to recognize non-traditional families, like single-parent households or LGBTQ+ couples, making it harder for them to access rights and benefits.
+
+Credit scoring systems tend to favour wealthier individuals, making it difficult for low-income people to secure loans or mortgages.
+
+Healthcare databases may not fully represent diverse racial and genetic backgrounds, leading to misdiagnoses and inadequate treatment for marginalized communities.
+
+In Pakistan, the National Database and Registration Authority (NADRA) requires women to rely on male guardians for family verification, reinforcing patriarchal structures. This isn’t just a Pakistani issue—many legal and financial systems worldwide fail to recognize relationships that don’t fit traditional norms, creating unnecessary barriers.
+
+2. Social Structures and Marginalization
+
+Data systems tend to mirror existing power structures, often sidelining marginalized groups:
+
+Caste and Ethnicity Bias: Some databases categorize people by race or caste in ways that reinforce discrimination, affecting access to jobs and education.
+
+Gender and Identity: Many systems still use binary gender classifications, making it difficult for non-binary and transgender individuals to have their identities recognized.
+
+Algorithmic Discrimination: AI-driven hiring or law enforcement tools often inherit biases from historical data, leading to unfair treatment, particularly for people of colour.
+
+3. The Intersection of Technology and Society
+
+We often think of technology as neutral, but databases are shaped by human decisions. This raises major ethical concerns:
+
+Surveillance and Privacy: Governments use digital databases for national security, but this can lead to overreach and violations of personal privacy.
+
+Data Ownership and Consent: Most people don’t control their own digital data, allowing corporations and governments to exploit their personal information.
+
+Historical Data Bias: Predictive policing databases, for example, rely on past crime records—but if law enforcement has historically targeted specific racial groups, these databases reinforce discrimination.
+
+Building More Ethical Data Systems
+
+To create fairer, more inclusive data systems, we need to:
+
+-Acknowledge Bias: Database architects and policymakers must actively identify and address biases in data collection and categorization.
+
+-Design for Inclusivity: Systems should recognize diverse identities and family structures, rather than imposing rigid definitions.
+
+-Strengthen Data Protection Laws: Individuals should have control over how their data is collected and used.
+
+-Encourage Public Oversight: Independent organizations should have a role in reviewing and regulating database practices.
+
+Conclusion
+
+Databases influence our lives in ways we often don’t realize. They decide who gets access to resources, how we are identified, and even how we move through the world. But they are not neutral—they reflect the priorities and prejudices of those who build and maintain them. The case of Pakistan’s family database serves as a reminder that we need to actively question and improve the systems we rely on. As we become more dependent on digital systems, ethical considerations must guide database design to ensure fairness and inclusivity for all.
+
+
 ```
