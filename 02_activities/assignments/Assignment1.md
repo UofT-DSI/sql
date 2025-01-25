@@ -205,5 +205,21 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Response by Darshan Panesar
+
+In our first lecture several everyday sources of information and things we do which have underlying databases such as social media, healthcare, banks, etc. Databases and data systems are present throughout every facet of my everyday life.  Based on what context the database or system is utilized would reflect the embedded value systems present.
+
+A relatively good example of value systems embedded in databases and systems is healthcare. As a researcher in healthcare, the most obvious data systems are those used in hospitals, clinicians, researchers have records of information about us. This information has strict regulations in place of how data is collected, stored, and typically utilized. The information is collected in a systematic manner across our lives as it provides key information when utilized. For example, when a doctor refers to a patient’s history allowing them to make informed decisions. Such systems try to maximize security, integrity, and typically show an absence to bias, social structures, etc. However, the picture is much more complex.
+
+Given there is personal information also raises the risk of bias and can raise issues of inequality based on the available information. For example, studies report in the US, that there is implicit bias against people of color present in the healthcare community (Hall et al., 2015). As the featured article noted, if something is a part of our social structures it will show up in a vast number of use cases including databases and systems. As a consequence, an individual’s identity could be used to perpetuate inequality  in terms of quality of care, treatment, insurance and more.
+
+Along similar lines is research. I often have discussions on the topic that research is often done with WEIRD populations (Western, Educated, Industrialized, Rich, and Democratic). As a result, the information we take away from research upon which we construct databases and data systems may inadvertently result in reflection of specific social structures, issues of equality, and lack of representation of diverse populations. Considering databases and systems in particular, our understanding of so many concepts from psychology to medicine are built on this framework. In my discussion the outcome is always that we need to strive to expand our data collection measures in order to improve our databases and their value systems.
+
+Another example is social media. Social media is a vortex of information collection especially personal information (for example personalized ads). The value systems here can be utilized in useful ways to connect people to others who share interest e.g., if someone joins an online art group. Recently there has been significant news that individuals are shown more one sided or biased political, cultural, ideological, or biased information etc. items. Not getting into specifics, in doing so perpetuates those doctrines. These values are incorporated into databased and are maladaptively utilized to encourage individuals to side with those ideas. Again, in this case this can increase problematic issues such as inequality and marginalization.
+
+Overall, the value systems, as mentioned in the featured article are complex and influenced by us. Data like any tool can be utilized for a variety of things. Where technology and society intersect, we need to strive to foremost collect and present data in unbiased, secure, and candid ways. In addition, we need to adopt value systems in our database and data systems that adapt to accommodate fairness, allow data to be utilized in unbiased ways. But ultimately value systems I think can go so far, our use of these data bases and data systems as a sociate also needs to be reflected upon. 
+
+References
+Hall, W. J., Chapman, M. V., Lee, K. M., Merino, Y. M., Thomas, T. W., Payne, B. K., Eng, E., Day, S. H., & Coyne-Beasley, T. (2015). Implicit Racial/Ethnic Bias Among Health Care Professionals and Its Influence on Health Care Outcomes: A Systematic Review. American journal of public health, 105(12), e60–e76. https://doi.org/10.2105/AJPH.2015.302903
+
 ```
