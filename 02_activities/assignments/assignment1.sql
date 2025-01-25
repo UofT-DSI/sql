@@ -82,17 +82,30 @@ ORDER BY v.vendor_name, vba.market_date;
 -- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
-
-
+SELECT vendor_id, COUNT(*) AS booth_rentals
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
 sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list 
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
-
-
-
+SELECT 
+    c.customer_id,
+    c.customer_last_name,
+    c.customer_first_name,
+    SUM(CAST(cp.quantity AS decimal(5,2)) * cp.cost_to_customer_per_qty) AS total_cost
+FROM 
+    customer c
+JOIN 
+    customer_purchases cp ON c.customer_id = cp.customer_id
+GROUP BY 
+    c.customer_id, c.customer_last_name, c.customer_first_name
+HAVING 
+    total_cost > 2000
+ORDER BY 
+    c.customer_last_name, c.customer_first_name;
 --Temp Table
 /* 1. Insert the original vendor table into a temp.new_vendor and then add a 10th vendor: 
 Thomass Superfood Store, a Fresh Focused store, owned by Thomas Rosenthal
