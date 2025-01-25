@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-one`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-one`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -205,5 +205,26 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+
+That was a fascinating read. I am Pakistani, but born and raised in Canada, so it was enlightening to read about. Whenever my mom goes to Pakistan, or wants to bring her kids, she has to file a National Identity Card for Overseas Pakistanis (NICOP) card, which is the CNIC equivalent for those who live overseas and have dual citizenship. Until now, I knew nothing about this process.
+
+Anyways, to answering the question. What value systems are embedded in databases and data systems I encounter in my day-to-day life?
+
+First of all, with respect to biometrics like fingerprints (which our data bases use, particularly for my friends applying for permanent visas), one must first have all their fingers. This sounds a bit silly but it's the first one I thought of.
+
+Another one that comes to mind is the assumption that one has a Facebook or Instagram account. The latter is particularly annoying for me because I don't have Instagram. For those who have "no surf" values or want to become unplugged, it's increasingly harder to "go offline" because so many data collection platforms (particularly surveys) work under the assumption that you have some form of social media, or even that you simply have data available to connect to the internet. These platforms also assume you have an email which...it's a sensible thing to have, sure, but it reflects a society that is becoming increasingly reliant on technology and social media services.
+
+On another note, for the systems I encounter in my clinical research work, a LOT of thought is put into those databases. The main one is privacy, so we encode the ability to associate the participants with an id number and the key to connect the id to patient is only known to a select few people. The double-blinded entries then have less barriers to access for the researchers using them to do the work. 
+
+One main issue we ran into after a recent audit was that, in our inclusion criteria, we said the participant must be "stable". We collected this by getting the doctor overseeing the participant to check a box that said "stable". However, the auditor was not happy with this. They wanted rigorous documentation for the definition of "stable." In the opinion of us researchers, this was a difference of values on the information we included in the database. We valued a lower burden of work for the overseeing doctor, and it was sufficient to trust their interpretation of what contitutes stable for their participant. But auditors in general value being able to meticulously trace even unrelated pieces of information (such as temperature that we store our gas that we use during experiments, which...yes, we were made to collect, even though it has no bearing or effect on anything). The debate with these auditors has sometimes required that we completely overhaul aspects of our database, rather than simply adding a category, meaning that the researcher vs auditor values would impact the organization of the database.  
+
+Within this work, one thing I noticed was that the entry in our database marked for "ethnicity" was not a large enough category. I am Pakistani, i.e. South Asian, but this database would consider me "Caucasian" because the field was simply not diverse enough. This likely occurred because cystic fibrosis, which is the disease I work with, is most common in Caucasians, with some prevalence in East Asians and Black/African individuals. So they hard-coded these ethicities in. There was an assumption that the genetic anomaly resulting in cystic fibrosis does not occur in other populations, which is not the best practice for organizing the database and could result in South Asians not having their needs appropriately met if their paperwork calls them Caucasian.
+
+On the note of diversity and intersecionalism, I think our society (Canada...USA out here trying to reverse it) generally does a better job of including these in databases in recent times. I notice more databases contain entries asking for pronouns, sex and gender with more categories, but also gives the option not to answer for those who do not want to (so accounting for all political beliefs across the spectrum). There's more considerations for people with disabilities, accessibility needs and Indigenous populations. I also appreciate the inclusion of a dietary restrictions category for conferences, and doubly so when it includes halal (I am Muslim). You can really feel that diversity and inclusion (DEI) values are being considered in the creation of databases in Canada. 
+
+Above, I  have covered a few values: Implied abelism, intersection of technology and society, ethics in clinical studies, value differences on how much attention to detail is sufficient, and various comments on DEI principles. While a bit more disjointed of an "essay"-like response than I would like (reading more like a stream-of-consciousness honestly), I hope you found the read enjoyable. Thanks!
+
+-Faiyza Alam
+
+
 ```
