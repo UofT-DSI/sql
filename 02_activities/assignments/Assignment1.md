@@ -207,3 +207,8 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 ```
 Your thoughts...
 ```
+A few examples of how our data systems and databases can unwittingly discriminate against people come to mind. 
+Credit scores rely on employment and credit history and end up discriminating against newcomers and students since they don't have established financial track records. This limits access to loans.
+Similarly IRCC requires on extensive background documentation and proof of funds that can discriminate against people from less developed countries where arranging documentation can be difficult or time-consuming. 
+Many companies have moved to online booking systems, chat and frustrating IVRS systems for customer support. These put people with accessibility requirements and seniors who are not tech savvy at a disadvantage.
+These systems seem to be built on meritocracy and equality whereas equity and social justice might have been better considerations for developing them.
