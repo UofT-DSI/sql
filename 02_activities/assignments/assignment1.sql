@@ -20,7 +20,7 @@ LIMIT 10;
 -- option 1 
 SELECT *
 FROM customer_purchases
-WHERE product_id IN (4,9)
+WHERE product_id IN (4,9);
 -- option 2
 SELECT *
 FROM customer_purchases
@@ -49,7 +49,7 @@ CASE
 WHEN product_qty_type = 'unit' THEN 'unit'
  ELSE 'bulk'
   END AS prod_qty_type_condensed
-FROM product
+FROM product;
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
@@ -85,7 +85,6 @@ GROUP BY vendor_id;
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
 sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list 
 of customers for them to give stickers to, sorted by last name, then first name. 
-
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 SELECT 
     c.customer_id,
@@ -116,7 +115,6 @@ CREATE TEMPORARY TABLE temp.new_vendor AS
 SELECT * FROM vendor;
 INSERT INTO temp.new_vendor (vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
 VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
-
 -- Date
 /*1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
