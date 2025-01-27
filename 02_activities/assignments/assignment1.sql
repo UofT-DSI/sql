@@ -181,7 +181,7 @@ of customers for them to give stickers to, sorted by last name, then first name.
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 
-	   SELECT customer_first_name, customer_last_name
+	   SELECT customer_first_name, customer_last_name, SUM(customer_purchases.quantity*customer_purchases.cost_to_customer_per_qty) AS 'total_spend'
 
 	   FROM customer
 
@@ -193,6 +193,9 @@ HINT: This query requires you to join two tables, use an aggregate function, and
 
 	   HAVING SUM(quantity*cost_to_customer_per_qty) &gt; 2000
 
+	   ORDER BY customer_last_name, customer_first_name
+
+
 	   -- This one was hard...
 
 	   -- In my mind, if I couldn't see the tables attached after join, they weren't joined
@@ -200,6 +203,8 @@ HINT: This query requires you to join two tables, use an aggregate function, and
 	   -- As a result I simply wasn't trusting that group by and having were working
 
 	   -- However, I manually verified that this result was correct
+
+	   -- EDITED: Added a total-spend column, ordered by last name then first name
 
 
 
@@ -285,14 +290,16 @@ but remember, STRFTIME returns a STRING for your WHERE statement!! */
 
 
 
-	   SELECT customer_id, SUM(quantity*cost_to_customer_per_qty) AS 'money_spent' 
+	   SELECT customer_id, month, year, SUM(quantity*cost_to_customer_per_qty) AS 'money_spent' 
 
 	   FROM purchase_date
 
-	   WHERE month='07' AND year='2022'
+	   WHERE month='04' AND year='2022'
 
 	   GROUP BY customer_id
 
 	   -- I found this one fun to do
+
+	   -- EDITED: Fixed April -> 04, added month and year columns
 
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
