@@ -108,11 +108,6 @@ Feel free to use the following as resources:
 - [What is SQLite?](https://www.youtube.com/watch?v=p2tOmltUh34)
 - [SQLite Playlist](https://www.youtube.com/playlist?list=PLWENznQwkAoxww-cDEfIJ-uuPDfFwbeiJ)
 
-### How to get help
-![image](./steps_to_ask_for_help.png)
-
-<hr>
-
 ## Folder Structure
 
 ```markdown
