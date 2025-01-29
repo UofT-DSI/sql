@@ -54,7 +54,12 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+To manage customer addresses in the bookstore database, two distinct architectures can be proposed. 
+
+The first design follows a Type 1 Slowly Changing Dimension (SCD) approach, where the Customer table directly stores the latest address, and any update overwrites the previous address. In this model, when a customer moves to a new location, their previous address is lost and replaced with the new one. This design is simpler, requires less storage, and is ideal for scenarios where only the current address is relevant, such as for deliveries or contact purposes.
+
+In contrast, the second design follows a Type 2 Slowly Changing Dimension (SCD) approach, where a separate Customer_Address table is introduced to store multiple addresses per customer, with effective start and end dates. Each time a customer updates their address, a new row is inserted with a new AddressID, while the previous address is marked with an EndDate and set to inactive. This allows the system to track historical addresses. 
+
 ```
 
 ***
@@ -182,5 +187,7 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+I believe that AI-driven content moderation presents significant ethical challenges, particularly in its inability to fully grasp context, nuance, and cultural sensitivities when filtering online material. Automated systems are increasingly relied upon by social media platforms to detect and remove harmful content, such as hate speech, misinformation, and violent imagery, yet these models often fail to distinguish between satire, historical discussion, or legitimate political critique. The limitations of AI moderation can lead to over-censorship, where marginalized voices, political activists, or minority dialects are disproportionately silenced, while at the same time allowing harmful content to slip through due to biased or incomplete training data. Moreover, content moderation remains deeply dependent on human labor, particularly outsourced workers in the Global South, who must review distressing images, texts, and videos to refine AI filters.
+
+ These workers, often underpaid and working in psychologically harmful conditions, are exposed to traumatic content without adequate mental health support or labor protections, highlighting the hidden human cost of maintaining AI-driven platforms. The reliance on AI for moderation also raises accountability concerns, as platforms often evade responsibility by blaming algorithmic errors instead of addressing systemic flaws in their moderation policies. As AI models continue to shape the flow of online information, it becomes critical to ensure that content moderation is transparent, ethically designed, and includes human oversight that prioritizes well-being over profit-driven efficiency.
 ```
