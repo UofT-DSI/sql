@@ -12,7 +12,6 @@
 * [Resources](#resources)
   + [Documents](#documents)
   + [Videos](#videos)
-  + [How to get help](#how-to-get-help)
 * [Folder Structure](#folder-structure)
 
 ## Description
