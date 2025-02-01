@@ -382,6 +382,12 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
+The rapid advance of artificial intelligence (AI) is indispensable of Fei Fei Li’s groundbreaking work in computer vision and the invention of ImageNet, a large-scale dataset designed for use in visual object recognition software search and the current “gold standard of machine learning”. While people amazed at the massive number of correctly labeled images in the ImageNet database, the lesser-known reality is that there are major ethical issues surrounding this technical advancement, which are exploitation of cheap labor and biased labeling of images. 
+One of the main ethical issues is that the massive correctly labeled images within the ImageNet database were labeled by people around the world using Amazon Mechanical Turk with extremely low wages. The contributions made by these “invisible” human labor is often ignored without any acknowledgement. Moreover, the words used for collecting these images from search engines were derived from WordNet, which is a word-specific database developed by George Miller and Christiane Fellbaum at Princeton University. A key foundation for WordNet was the Brown Corpus, developed by Henry Kučera and W. Nelson Francis at Brown University. However, it is little known that the Brown Corpus was built by graduate students compiling and categorizing words from newspaper clippings in the 1960s. These graduate students were unnamed and unacknowledged for their contributions to neither the Brown Corpus, WordNet, nor AI.
+Another concerning ethical issue surrounding AI is the bias in image labeling within ImageNet. WordNet contains biased and derogatory terms, including racial, gender, and class-based stereotypes, which were blindly inherited by ImageNet. These inherited stereotypes and biases might lead to discriminatory outcomes for certain AI applications such as facial recognition and automated hiring systems.
+While AI is revolutionizing our society, it also highlights the hidden biases in the training datasets. Addressing these biases is critical to ensure AI systems are fair, ethical, and inclusive.
+
+
 
 ```
 
