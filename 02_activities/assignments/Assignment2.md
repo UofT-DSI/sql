@@ -54,7 +54,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 is when it overwrites the changes while type 2 is when changes are reteained, essentially there is a unique ID for each change.
 ```
 
 ***
@@ -182,5 +182,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Two critical ethical concerns are the exploitation of invisible human labor and job displacement due to AI automation. 
+
+AI systems rely on thousands of people to label data, moderate content, and improve responses. Many of these workers live in low-income countries, earn low wages, and do difficult tasks like reviewing harmful content. This work is hidden from most users, making AI seem more independent than it really is. The ethical question is whether companies should profit from AI while ignoring the workers who make it possible. Should AI companies pay fair wages, provide better working conditions, and offer mental health support to moderators?
+
+At the same time, AI threatens jobs in creative fields. Writers, artists, and content creators now compete with AI-generated work that is faster and cheaper to produce. This raises another ethical issue: Do AI companies have a responsibility to help workers whose jobs they are replacing? If AI leads to major job losses, should companies be required to fund retraining programs or share their profits to support displaced workers?
 ```
