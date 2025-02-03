@@ -15,16 +15,33 @@ But wait! The product table has some bad data (a few NULL values).
 Find the NULLs and then using COALESCE, replace the NULL with a 
 blank for the first problem, and 'unit' for the second problem. 
 
-HINT: keep the syntax the same, but edited the correct components with the string. 
+HINT: keep the syntax the same, but edit the correct components with the string. 
 The `||` values concatenate the columns into strings. 
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
 All the other rows will remain the same.) */
 
+--I cannot get the code to replace the existing column named product_size
+
+--VERSION 1
+SELECT * from product
+
+SELECT *
+,coalesce(product_size,' ') as product_size_new
+,product_name || ', ' || product_size|| ' (' || product_qty_type || ')'
+FROM product
+
+--VERSION 2
+SELECT * from product
+
+SELECT *
+,coalesce(product_size,'unit') as product_size_new
+,product_name || ', ' || product_size|| ' (' || product_qty_type || ')'
+FROM product
 
 
 --Windowed Functions
 /* 1. Write a query that selects from the customer_purchases table and numbers each customer’s  
-visits to the farmer’s market (labeling each market date with a different number). 
+visit to the farmer’s market (labeling each market date with a different number). 
 Each customer’s first visit is labeled 1, second visit is labeled 2, etc. 
 
 You can either display all rows in the customer_purchases table, with the counter changing on
@@ -34,14 +51,64 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 
 
 
+SELECT *
+--,ROW_NUMBER() OVER(ORDER BY customer_id, market_date ASC) as [row] -- just a set up to make sure it is working
+,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date ASC) as [row2]
+,DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date ASC) as [row3]
+
+FROM customer_purchases
+
+
+
 /* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
 only the customer’s most recent visit. */
 
+SELECT *
+,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row2]
+,DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row3]
+
+FROM customer_purchases
+
+
+SELECT * FROM
+(
+SELECT *
+,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row2]
+--,DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row3]
+
+FROM customer_purchases
+) x
+WHERE row2 in (1)
+
+--The same thing on the second version is as follows:
+
+SELECT * FROM
+(
+SELECT *
+--,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row2]
+,DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY customer_id,market_date DESC) as [row3]
+
+FROM customer_purchases
+) x
+WHERE row3 in (1)
 
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
+
+select * from customer_purchases
+
+-- how many times a product purchased per customer
+SELECT 
+product_id
+,customer_id
+,count(product_id)
+FROM customer_purchases
+WHERE product_id IS NOT NULL -- remove the NULL rows
+GROUP BY customer_id, product_id
+
+-- The above is close but I cannot seem to figure out how to get it to display on each row of the table
 
 
 
