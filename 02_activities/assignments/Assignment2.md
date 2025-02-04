@@ -54,7 +54,49 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+To store customer addresses, we propose two different architectures:
+
+Type 1: Overwriting Changes
+
+A simple structure where the latest address replaces the previous one:
+
+Table: CUSTOMER_ADDRESS
+
+customer_id (Primary Key, Foreign Key from Customer)
+
+address
+
+city
+
+state
+
+zip
+
+In this model, whenever a customer updates their address, the old data is overwritten.
+
+Type 2: Retaining History
+
+A more complex structure that maintains historical address changes:
+
+Table: CUSTOMER_ADDRESS_HISTORY
+
+customer_id (Foreign Key from Customer)
+
+address
+
+city
+
+state
+
+zip
+
+start_date
+
+end_date
+
+With this approach, whenever a customer changes their address, a new record is created with the start_date, and the previous record is updated with an end_date, preserving history.
+
+Type 1 is best when historical data is not needed, whereas Type 2 is essential when tracking address changes over time.
 ```
 
 ***
