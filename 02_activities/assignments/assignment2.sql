@@ -1,4 +1,4 @@
-/* ASSIGNMENT 2 */
+/* ASSIGNMENT 2 */ --- FESOBI OLUWAMUYIWA
 /* SECTION 2 */
 
 -- COALESCE - Handle NULL values
