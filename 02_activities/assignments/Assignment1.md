@@ -36,7 +36,7 @@ If this is your first time in DB Browser for SQLite, the following instructions 
 - Open DB Browser for SQLite
 - Go to File > Open Database
 - Navigate to your farmersmarket.db 
-	- This will be wherever you cloned the GH Repo (within the **SQL** folder)
+	- This will be wherever you cloned the GH Repo (within the **05_src/sql** folder)
 	- ![db_browser_for_sqlite_choose_db.png](./images/01_db_browser_for_sqlite_choose_db.png)
 
 #### 2) Configure your windows
