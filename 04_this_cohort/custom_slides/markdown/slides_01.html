@@ -168,7 +168,7 @@ class: left, top, inverse
 class: middle, center, inverse
 # Welcome
 
-## About Me
+## About Us
 
 ## **Course Content**
 
@@ -292,7 +292,7 @@ class: middle, center, inverse
 class: middle, center, inverse
 # Welcome
 
-## About Me
+## About Us
 
 ## Course Content
 
@@ -303,9 +303,9 @@ class: middle, center, inverse
 class: left, top, inverse
 # Quick Technical Check
 
-Let's make sure everyone has DB Browser for SQLite installed.
+Make sure to install DB Browser for SQLite by our next session.
 
-If not, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/)
+If you haven't already, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/). 
 
 --
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -318,9 +318,9 @@ For live coding:
 --
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
-**Good to go?**
+*Install Issues?**
 
-**If not, please message your course support**
+**If yes, please message your course support**
 
 ---
 
@@ -811,6 +811,118 @@ class: top, left, inverse
     - As many FKs as needed per table
     - May be NULL
     - Record can be deleted
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Constraints
+**Why do we need Primary and Foreign Keys?**
+- Formalizing the relationship between PKs and FKs ensures:
+  - New records added to tables require a matching value when a relationship exists
+      - *orders* are made by *customers* 
+      - *orders* refer to *products* that exist
+  - Deleted records don't make the data elsewhere meaningless
+      - *customers* who have had *orders* can't be deleted without deleting the orders first
+      - *orders* referring to *products* can't be deleted without deleting the products first
+- The PK-FK relationship can sometimes feel a bit backwards: by establishing a FK we are determining what is allowed to happen!
+
+.pull-left.w40[
+
+| customer_id (PK) | address            | name |
+|---------|--------------------|------|
+| 10      | 42 Wallaby Way     | TR   |
+| 11      | 221B Baker St      | NN   |
+| 12      | 124 Conch Street    | JZ   |
+| 13      | 4 Privet Drive     | LM   |
+
+
+]
+
+.pull-left.w20[
+
+| order_id (PK) | customer_id (FK) | product_id (FK) |
+|----------|---------|------------|
+| 93       | 11      | 123        |
+| 94       | 11      | 789        |
+| 95       | 13      | 456        |
+| 96       | 10      | 101        |
+
+]
+
+.pull-right.w40[
+
+| product_id (PK) | name  | price |
+|------------|-------|-------|
+| 123        | Pen   | 2     |
+| 456        | Wand   | 17     |
+| 789        | Notepad | 6    |
+| 101        | Lamp  | 15    |
+
+]
+
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Constraints
+**Why then do we *require* PKs to be unique** 
+- The PK is an identifier for each row
+  - Much like how we all have various "ID" numbers to identify us to schools/organizations/governments/etc
+  - Some identifying data isn't inherently unique, e.g. name, date of birth because others can share the same values
+- Ensures we are identifying the correct corresponding row of the relationship
+  - *This* order was made by *This* customer for *This* product
+      - The customer_id in the customer table is unique so that we know exactly which customer made the purchase
+      - The product_id in the product table is unique so that we know exactly what was purchased
+
+.pull-left.w40[
+
+| customer_id (PK) | address            | name |
+|---------|--------------------|------|
+| 11      | 221B Baker St      | NN   |
+
+
+]
+
+.pull-left.w20[
+
+| order_id (PK) | customer_id (FK) | product_id (FK) |
+|----------|---------|------------|
+| 93       | 11      | 123        |
+| 94       | 11      | 789        |
+
+]
+
+.pull-right.w40[
+
+| product_id (PK) | name  | price |
+|------------|-------|-------|
+| 123        | Pen   | 2     |
+| 789        | Notepad | 6    |
+
+]
+--
+&lt;br&gt;
+
+- The customer_id in the order table does not need to be unique: **Why?**
+  - Because a customer can make more than one order
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Constraints
+**What about *composite* keys?**
+- Sometimes no single column in a table is unique
+  - In this case, in order to make a primary key unique, we build "composite" keys
+- Composite keys use a combination of columns to uniquely identify each row
+- This can be useful to enforce relationships between two or more attributes
+- Quite a few of farmersmarket PKs are composite keys
+  - customer_purchases for example uses a composite key on product_id, vendor_id, market_date
 
 ---
 

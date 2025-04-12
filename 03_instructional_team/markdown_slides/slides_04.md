@@ -249,7 +249,7 @@ Image: SQLiteTutorial.net 👉
 # REPLACE
 
 - `REPLACE` statements can be strung together — the innermost function will be executed first
-  - e.g. `REPLACE(REPLACE(REPLACE(REPLACE('A?lot-of,punctuation.','.',' '),',',' '),'-',' '),'?',' ')` results in 'A lot of punctuation'
+  - e.g. `REPLACE(REPLACE(REPLACE(REPLACE('A?lot-of,punctuation.','.',''),',',' '),'-',' '),'?',' ')` results in 'A lot of punctuation'
 
 ---
 
