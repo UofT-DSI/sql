@@ -4,7 +4,7 @@
     <title>slides_01.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Rosenthal - DSI @ UofT" />
-    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
@@ -252,7 +252,7 @@ class: left, top, inverse
 # Course Content
 
 ### Assignments 
-- Two assignments, released at the start of the course.
+- Two assignments, released on Monday of each week.
 - Broken into three sections:
   - Section 1 focuses on database design
   - Sections 2 and 3 on SQL writing
@@ -823,24 +823,24 @@ class: top, left, inverse
   - New records added to tables require a matching value when a relationship exists
       - *orders* are made by *customers* 
       - *orders* refer to *products* that exist
-  - Deleted records don't make the data elsewhere meaningless
+  - Deleted records don't make data elsewhere meaningless
       - *customers* who have had *orders* can't be deleted without deleting the orders first
       - *orders* referring to *products* can't be deleted without deleting the products first
-- The PK-FK relationship can sometimes feel a bit backwards: by establishing a FK we are determining what is allowed to happen!
+- The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
 
-.pull-left.w40[
+.pull-left.w32[
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
 | 10      | 42 Wallaby Way     | TR   |
 | 11      | 221B Baker St      | NN   |
-| 12      | 124 Conch Street    | JZ   |
-| 13      | 4 Privet Drive     | LM   |
+| 12      | 124 Conch St    | JZ   |
+| 13      | 4 Privet Dr     | LM   |
 
 
 ]
 
-.pull-left.w20[
+.pull-left.w40[
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
 |----------|---------|------------|
@@ -851,7 +851,7 @@ class: top, left, inverse
 
 ]
 
-.pull-right.w40[
+.pull-right.w28[
 
 | product_id (PK) | name  | price |
 |------------|-------|-------|
@@ -872,13 +872,13 @@ class: top, left, inverse
 **Why then do we *require* PKs to be unique** 
 - The PK is an identifier for each row
   - Much like how we all have various "ID" numbers to identify us to schools/organizations/governments/etc
-  - Some identifying data isn't inherently unique, e.g. name, date of birth because others can share the same values
+  - Some identifying data isn't inherently unique (e.g. name, date of birth) because others can share the same values
 - Ensures we are identifying the correct corresponding row of the relationship
-  - *This* order was made by *This* customer for *This* product
+  - *This* order was made by *this* customer for *this* product
       - The customer_id in the customer table is unique so that we know exactly which customer made the purchase
       - The product_id in the product table is unique so that we know exactly what was purchased
 
-.pull-left.w40[
+.pull-left.w32[
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
@@ -887,7 +887,7 @@ class: top, left, inverse
 
 ]
 
-.pull-left.w20[
+.pull-left.w40[
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
 |----------|---------|------------|
@@ -896,7 +896,7 @@ class: top, left, inverse
 
 ]
 
-.pull-right.w40[
+.pull-right.w28[
 
 | product_id (PK) | name  | price |
 |------------|-------|-------|
@@ -918,10 +918,10 @@ class: top, left, inverse
 ### Constraints
 **What about *composite* keys?**
 - Sometimes no single column in a table is unique
-  - In this case, in order to make a primary key unique, we build "composite" keys
+  - In this case, in order to make a PK unique, we build "composite" keys
 - Composite keys use a combination of columns to uniquely identify each row
 - This can be useful to enforce relationships between two or more attributes
-- Quite a few of farmersmarket PKs are composite keys
+- Quite a few of Farmers Market PKs are composite keys
   - customer_purchases for example uses a composite key on product_id, vendor_id, market_date
 
 ---
@@ -1268,7 +1268,7 @@ class: top, left, inverse
 
 - Our (partial) Farmers Market database: 
   - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
-  - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
+  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
   - market_date (date) is the PK for vendor_inventory
       - **why?** 💭💬**Think, Pair, Share**
 
@@ -1358,12 +1358,12 @@ class: middle, center, inverse
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "style_solarized_light",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"slideNumberFormat": "%current%",
-"ratio": "16:9",
-"seal": false
+  "highlightStyle": "style_solarized_light",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%",
+  "ratio": "16:9",
+  "seal": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

@@ -1075,4 +1075,7 @@ class: middle, center, inverse
 ```{r echo=FALSE}
 #library(renderthis)
 #renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_04.Rmd")
+
+##April 2025, Rmd render not working, use html instead
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_04.html")
 ```

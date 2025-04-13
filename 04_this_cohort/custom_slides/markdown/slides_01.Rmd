@@ -264,7 +264,7 @@ class: left, top, inverse
 # Course Content
 
 ### Assignments 
-- Two assignments, released at the start of the course.
+- Two assignments, released on Monday of each week.
 - Broken into three sections:
   - Section 1 focuses on database design
   - Sections 2 and 3 on SQL writing
@@ -840,7 +840,7 @@ class: top, left, inverse
       - *orders* referring to *products* can't be deleted without deleting the products first
 - The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
 
-.pull-left.w40[
+.pull-left.w32[
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
@@ -852,7 +852,7 @@ class: top, left, inverse
 
 ]
 
-.pull-left.w20[
+.pull-left.w40[
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
 |----------|---------|------------|
@@ -863,7 +863,7 @@ class: top, left, inverse
 
 ]
 
-.pull-right.w40[
+.pull-right.w28[
 
 | product_id (PK) | name  | price |
 |------------|-------|-------|
@@ -890,7 +890,7 @@ class: top, left, inverse
       - The customer_id in the customer table is unique so that we know exactly which customer made the purchase
       - The product_id in the product table is unique so that we know exactly what was purchased
 
-.pull-left.w40[
+.pull-left.w32[
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
@@ -899,7 +899,7 @@ class: top, left, inverse
 
 ]
 
-.pull-left.w20[
+.pull-left.w40[
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
 |----------|---------|------------|
@@ -908,7 +908,7 @@ class: top, left, inverse
 
 ]
 
-.pull-right.w40[
+.pull-right.w28[
 
 | product_id (PK) | name  | price |
 |------------|-------|-------|
@@ -1367,5 +1367,8 @@ class: middle, center, inverse
 
 ```{r echo=FALSE}
 #library(renderthis)
-#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_01.Rmd")     
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_01.Rmd")    
+
+##April 2025, Rmd render not working, use html instead
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_01.html")
 ```
