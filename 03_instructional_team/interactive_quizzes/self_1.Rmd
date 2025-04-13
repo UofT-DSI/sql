@@ -95,7 +95,7 @@ quiz(
     answer("NVARCHAR", correct = TRUE)
     ,allow_retry = TRUE
   ),
-  question("For PostalCode, which data type would be more restrictive?",
+  question("For the PostalCode column, which data type would be more restrictive?",
     answer("NVARCHAR"),
     answer("INTEGER", correct = TRUE)
     ,allow_retry = TRUE

@@ -1,0 +1,129 @@
+---
+title: "Self Assessment: Session 2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+# Self Assessment: Session 2
+
+## Instructions
+
+**Welcome!**
+
+*This app is still very nascent, please alert me of any errors or unexpected behaviour.*
+
+Use the chinook.db to answer these questions.
+ 
+**Click Next Topic when you're ready to begin**
+
+## SELECT
+
+```{r select, echo=FALSE}
+quiz(
+    question("Which of the following SELECT statements are syntactically correct (even if not meaningful)?",
+    answer("`SELECT 1 * 5`", correct = TRUE),
+    answer("`SELCT 2025 as thisyear`", correct = TRUE),
+    answer("`SELECT thomas as instructor`"),
+    answer("`SELECT '2025-06-20' as summer solstice`")
+    ,allow_retry = TRUE
+    ,random_answer_order = TRUE
+  ),
+  question("Which of the following SELECT statements are valid?",
+    answer("`SELECT * FROM Artist`", correct = TRUE),
+    answer("`SELECT ArtistId,Name FROM Artist`", correct = TRUE),
+    answer("`SELECT ALL FROM Artist`" ),
+    answer("`SELECT Artist`"),
+    answer("`SELECT AlbumID,ArtistID,Name FROM Artist`")
+    ,allow_retry = TRUE
+    ,random_answer_order = TRUE
+  ),
+  question("Which of the following SELECT statements will sort the Invoice table by the smallest Total values?",
+  answer("`SELECT * FROM Invoice ORDER BY Total`", correct = TRUE),
+  answer("`SELECT InvoiceId, CustomerId, InvoiceDate FROM Invoice ORDER BY Total`", correct = TRUE),
+  answer("`SELECT * FROM Invoice ORDER BY Total ASC`", correct = TRUE),
+  answer("`SELECT * FROM Invoice SORT BY Total ASC`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```
+
+## WHERE
+
+```{r where, echo=FALSE}
+quiz(
+  question("Which of the following WHERE clauses correctly filters results to show customers who reside in either 'Brazil' or 'Canada'? ",
+  answer("`...WHERE Country = 'Brazil' or 'Canada'`"),
+  answer("`...WHERE Country IN ('Brazil' AND 'Canada')`"),
+  answer("`...WHERE Country = 'Brazil' AND Country = 'Canada'`"),
+  answer("`...WHERE Country = 'Brazil' OR Country 'Canada'`", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  question("Which of the following WHERE clauses correctly filters results to show only employees with the last name 'Mitchell'?",
+  answer("`...WHERE LastName = 'Mitchell'`", correct = TRUE),
+  answer("`...WHERE LastName IS 'Mitchell'`"),
+  answer("`...WHERE LastName LIKE 'Mitchell'`", correct = TRUE),
+  answer("`...WHERE LastName == 'Mitchell'`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  question("Which of the following WHERE clauses correctly filters results to show employees with a salary between 92000 and 117500?",
+  answer("`...WHERE Salary BETWEEN 92000 AND 117500`", correct = TRUE),
+  answer("`...WHERE Salary > 92000 AND Salary < 117500`"),
+  answer("`...WHERE Salary >= 92000 AND Salary =< 117500 `", correct = TRUE),
+  answer("`...WHERE Salary IN (92000, 117500)`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```
+
+
+## CASE
+
+```{r case, echo=FALSE}
+quiz(
+  question("",
+  answer(""),
+  answer("", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  question("",
+  answer(""),
+  answer("", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```
+
+## JOIN
+
+
+```{r join, echo=FALSE}
+quiz(
+  question_numeric("Input the correct numeric value (3 digits) putting the JOINs in correct order starting `FROM Customer c` in order to see all the tracks purchased by a customer.
+                   
+      1) ...JOIN Invoice i
+      2) ...JOIN Tracks t
+      3) ...JOIN InvoiceLine il
+              ",
+  answer("132", correct = TRUE),
+  answer("")
+  ,allow_retry = TRUE
+  ),
+  question("",
+  answer(""),
+  answer("", correct = TRUE),
+  answer("", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```

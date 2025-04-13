@@ -14,7 +14,7 @@
 <meta name="allow-skip" content="false" />
 <meta name="learnr-version-prerender" content="0.11.5" />
 
-<title>Self Assessment: Session 1</title>
+<title>Self Assessment: Session 2</title>
 
 <!-- header-includes START -->
 <!-- HEAD_CONTENT -->
@@ -109,184 +109,111 @@ if (window.hljs) {
 
 <article class="topics" id="learnr-tutorial-content">
 
-<div id="section-self-assessment-session-1" class="section level1">
-<h1>Self Assessment: Session 1</h1>
+<div id="section-self-assessment-session-2" class="section level1">
+<h1>Self Assessment: Session 2</h1>
 <div id="section-instructions" class="section level2">
 <h2>Instructions</h2>
 <p><strong>Welcome!</strong></p>
-<p><em>This app is still very nascent, please alert me to any errors or
+<p><em>This app is still very nascent, please alert me of any errors or
 unexpected behaviour.</em></p>
-<p>If this is your first time in DB Browser for SQLite, the following
-instructions may help:</p>
-<div id="section-load-database" class="section level4">
-<h4>1) Load database</h4>
-<ul>
-<li>Open DB Browser for SQLite</li>
-<li>Go to File &gt; Open Database</li>
-<li>Navigate to your chinook.db
-<ul>
-<li>This will be wherever you cloned the GH Repo (within the
-<strong>02_activities/self_assessment</strong> folder)</li>
-<li><img src="images/01_db_browser_for_sqlite_choose_chinook_db.png" width="500"></li>
-</ul></li>
-</ul>
-</div>
-<div id="section-configure-your-windows" class="section level4">
-<h4>2) Configure your windows</h4>
-<p>By default, DB Browser for SQLite has three windows, with four tabs
-in the main window and three tabs in the bottom right window</p>
-<ul>
-<li>Window 1: Main Window (centre)
-<ul>
-<li>Stay in the Database Structure tab for now</li>
-</ul></li>
-<li>Window 2: Edit Database Cell (top right)</li>
-<li>Window 3: Remote (bottom right)
-<ul>
-<li>Switch this to DB Schema tab (very bottom)</li>
-</ul></li>
-</ul>
-<p>Your screen should look like this (or very similar)</p>
-<p><img src="images/01_db_browser_for_sqlite.png" width="500"></p>
-</div>
-<div id="section-the-chinook.db" class="section level4">
-<h4>3) The chinook.db</h4>
-<p>There are 11 tables in the Main Window:</p>
-<ol style="list-style-type: decimal">
-<li>Album</li>
-<li>Artist</li>
-<li>Customer</li>
-<li>Employee</li>
-<li>Genre</li>
-<li>Invoice</li>
-<li>InvoiceLine</li>
-<li>MediaType</li>
-<li>Playlist</li>
-<li>PlaylistTrack</li>
-<li>Track</li>
-</ol>
-<p>Switch to the Browse Data tab, Album is selected by default</p>
-<p><img src="images/01_the_browse_data_tab.png" width="500"></p>
-<p>Using the table drop down at the top left, explore some of the
-contents of the database</p>
-<p><img src="images/01_the_table_drop_down_at_the_top_left.png" width="200"></p>
+<p>Use the chinook.db to answer these questions.</p>
 <p><strong>Click Next Topic when you’re ready to begin</strong></p>
 </div>
-</div>
-<div id="section-getting-acquainted-with-db-browser-for-sqlite"
-class="section level2">
-<h2>Getting Acquainted with DB Browser for SQLite</h2>
-<p>Navigate to the Artist table</p>
+<div id="section-select" class="section level2">
+<h2>SELECT</h2>
 <div class="panel-heading tutorial-quiz-title"><span data-i18n="text.quiz">Quiz</span></div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="db-browser-1" class="tutorial-question panel-body">
-<div id="db-browser-1-answer_container" class="shiny-html-output"></div>
-<div id="db-browser-1-message_container" class="shiny-html-output"></div>
-<div id="db-browser-1-action_button_container" class="shiny-html-output"></div>
+<div data-label="select-1" class="tutorial-question panel-body">
+<div id="select-1-answer_container" class="shiny-html-output"></div>
+<div id="select-1-message_container" class="shiny-html-output"></div>
+<div id="select-1-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="db-browser-2" class="tutorial-question panel-body">
-<div id="db-browser-2-answer_container" class="shiny-html-output"></div>
-<div id="db-browser-2-message_container" class="shiny-html-output"></div>
-<div id="db-browser-2-action_button_container" class="shiny-html-output"></div>
+<div data-label="select-2" class="tutorial-question panel-body">
+<div id="select-2-answer_container" class="shiny-html-output"></div>
+<div id="select-2-message_container" class="shiny-html-output"></div>
+<div id="select-2-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="select-3" class="tutorial-question panel-body">
+<div id="select-3-answer_container" class="shiny-html-output"></div>
+<div id="select-3-message_container" class="shiny-html-output"></div>
+<div id="select-3-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 </div>
-<div id="section-data-types" class="section level2">
-<h2>Data Types</h2>
-<p>Navigate to the Customer table</p>
+<div id="section-where" class="section level2">
+<h2>WHERE</h2>
 <div class="panel-heading tutorial-quiz-title"><span data-i18n="text.quiz">Quiz</span></div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="data-type-1" class="tutorial-question panel-body">
-<div id="data-type-1-answer_container" class="shiny-html-output"></div>
-<div id="data-type-1-message_container" class="shiny-html-output"></div>
-<div id="data-type-1-action_button_container" class="shiny-html-output"></div>
+<div data-label="where-1" class="tutorial-question panel-body">
+<div id="where-1-answer_container" class="shiny-html-output"></div>
+<div id="where-1-message_container" class="shiny-html-output"></div>
+<div id="where-1-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="data-type-2" class="tutorial-question panel-body">
-<div id="data-type-2-answer_container" class="shiny-html-output"></div>
-<div id="data-type-2-message_container" class="shiny-html-output"></div>
-<div id="data-type-2-action_button_container" class="shiny-html-output"></div>
+<div data-label="where-2" class="tutorial-question panel-body">
+<div id="where-2-answer_container" class="shiny-html-output"></div>
+<div id="where-2-message_container" class="shiny-html-output"></div>
+<div id="where-2-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="where-3" class="tutorial-question panel-body">
+<div id="where-3-answer_container" class="shiny-html-output"></div>
+<div id="where-3-message_container" class="shiny-html-output"></div>
+<div id="where-3-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 </div>
-<div id="section-relationships" class="section level2">
-<h2>Relationships</h2>
+<div id="section-case" class="section level2">
+<h2>CASE</h2>
 <div class="panel-heading tutorial-quiz-title"><span data-i18n="text.quiz">Quiz</span></div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="relationships-1" class="tutorial-question panel-body">
-<div id="relationships-1-answer_container" class="shiny-html-output"></div>
-<div id="relationships-1-message_container" class="shiny-html-output"></div>
-<div id="relationships-1-action_button_container" class="shiny-html-output"></div>
+<div data-label="case-1" class="tutorial-question panel-body">
+<div id="case-1-answer_container" class="shiny-html-output"></div>
+<div id="case-1-message_container" class="shiny-html-output"></div>
+<div id="case-1-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="relationships-2" class="tutorial-question panel-body">
-<div id="relationships-2-answer_container" class="shiny-html-output"></div>
-<div id="relationships-2-message_container" class="shiny-html-output"></div>
-<div id="relationships-2-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="relationships-3" class="tutorial-question panel-body">
-<div id="relationships-3-answer_container" class="shiny-html-output"></div>
-<div id="relationships-3-message_container" class="shiny-html-output"></div>
-<div id="relationships-3-action_button_container" class="shiny-html-output"></div>
+<div data-label="case-2" class="tutorial-question panel-body">
+<div id="case-2-answer_container" class="shiny-html-output"></div>
+<div id="case-2-message_container" class="shiny-html-output"></div>
+<div id="case-2-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 </div>
-<div id="section-primary-and-foreign-keys" class="section level2">
-<h2>Primary and Foreign Keys</h2>
-<p>From the Database Structure tab, you can examine primary and foreign
-keys by right clicking a table and selecting “Modify Table”. Don’t
-actually change anything, but browse the structure.</p>
-<p><img src="images/01_what_pk_fks.png" width="400"></p>
+<div id="section-join" class="section level2">
+<h2>JOIN</h2>
 <div class="panel-heading tutorial-quiz-title"><span data-i18n="text.quiz">Quiz</span></div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="pks-1" class="tutorial-question panel-body">
-<div id="pks-1-answer_container" class="shiny-html-output"></div>
-<div id="pks-1-message_container" class="shiny-html-output"></div>
-<div id="pks-1-action_button_container" class="shiny-html-output"></div>
+<div data-label="join-1" class="tutorial-question panel-body">
+<div id="join-1-answer_container" class="shiny-html-output"></div>
+<div id="join-1-message_container" class="shiny-html-output"></div>
+<div id="join-1-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
 <div class="panel panel-default tutorial-question-container">
-<div data-label="pks-2" class="tutorial-question panel-body">
-<div id="pks-2-answer_container" class="shiny-html-output"></div>
-<div id="pks-2-message_container" class="shiny-html-output"></div>
-<div id="pks-2-action_button_container" class="shiny-html-output"></div>
+<div data-label="join-2" class="tutorial-question panel-body">
+<div id="join-2-answer_container" class="shiny-html-output"></div>
+<div id="join-2-message_container" class="shiny-html-output"></div>
+<div id="join-2-action_button_container" class="shiny-html-output"></div>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="pks-3" class="tutorial-question panel-body">
-<div id="pks-3-answer_container" class="shiny-html-output"></div>
-<div id="pks-3-message_container" class="shiny-html-output"></div>
-<div id="pks-3-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-</div>
-<div id="section-commenting-out-sql-code" class="section level2">
-<h2>Commenting Out SQL Code</h2>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="code-comment" class="tutorial-question panel-body">
-<div id="code-comment-answer_container" class="shiny-html-output"></div>
-<div id="code-comment-message_container" class="shiny-html-output"></div>
-<div id="code-comment-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<pre><code>## [1] &quot;That&#39;s a first-class answer!&quot;</code></pre>
 <p>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
@@ -314,213 +241,252 @@ session$onSessionEnded(function() {
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "db-browser-1", 
-    question = structure("How many rows are in the Artist table?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_fd08241", 
-        option = "347", value = "347", label = structure("347", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c3e4dcc", 
-        option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_55c2b4f", 
-        option = "275", value = "275", label = structure("275", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "select-1", 
+    question = structure("Which of the following SELECT statements are syntactically correct (even if not meaningful)?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_4ff73f1", 
+        option = "`SELECT 1 * 5`", value = "`SELECT 1 * 5`", 
+        label = structure("<code>SELECT 1 * 5<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7255d61", 
-        option = "59", value = "59", label = structure("59", html = TRUE, class = c("html", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_18bf199", 
+        option = "`SELCT 2025 as thisyear`", value = "`SELCT 2025 as thisyear`", 
+        label = structure("<code>SELCT 2025 as thisyear<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f2d5cf7", 
+        option = "`SELECT thomas as instructor`", value = "`SELECT thomas as instructor`", 
+        label = structure("<code>SELECT thomas as instructor<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6f8e06f", 
+        option = "`SELECT '2025-06-20' as summer solstice`", 
+        value = "`SELECT '2025-06-20' as summer solstice`", label = structure("<code>SELECT '2025-06-20' as summer solstice<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "db-browser-1-answer", question = "db-browser-1"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 440648322.294807, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "db-browser-2", 
-    question = structure("How many columns are in the Artist table?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_8bd2ac2", 
-        option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_428cd97", 
-        option = "3", value = "3", label = structure("3", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_63a1ff0", 
-        option = "275", value = "275", label = structure("275", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "db-browser-2-answer", question = "db-browser-2"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 864103854.59762, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "data-type-1", 
-    question = structure("What data type is PostalCode?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_c70732d", 
-        option = "INTEGER", value = "INTEGER", label = structure("INTEGER", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e53111c", 
-        option = "NVARCHAR", value = "NVARCHAR", label = structure("NVARCHAR", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "data-type-1-answer", question = "data-type-1"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1131685237.97302, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "data-type-2", 
-    question = structure("For the PostalCode column, which data type would be more restrictive?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_984b9e1", 
-        option = "NVARCHAR", value = "NVARCHAR", label = structure("NVARCHAR", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_28ce00f", 
-        option = "INTEGER", value = "INTEGER", label = structure("INTEGER", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct! While some postal codes might be integers for some countries, many contain letters and other characters (spaces, hyphens, etc).", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "data-type-2-answer", question = "data-type-2"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1563185917.27208, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "relationships-1", 
-    question = structure("What is the relationship between Artist and Album?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_2780b06", 
-        option = "One-to-One", value = "One-to-One", label = structure("One-to-One", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_cb1f6e9", 
-        option = "One-to-Many", value = "One-to-Many", label = structure("One-to-Many", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_55ea157", 
-        option = "Many-to-Many", value = "Many-to-Many", label = structure("Many-to-Many", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6f29b4e", 
-        option = "These tables have no relationship", value = "These tables have no relationship", 
-        label = structure("These tables have no relationship", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "relationships-1-answer", question = "relationships-1"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 104948541.45113, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "relationships-2", 
-    question = structure("What is the relationship between Customer and Employee?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_1e65996", 
-        option = "One-to-One", value = "One-to-One", label = structure("One-to-One", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e4ef6d6", 
-        option = "Many-to-One", value = "Many-to-One", label = structure("Many-to-One", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3bfe394", 
-        option = "Many-to-Many", value = "Many-to-Many", label = structure("Many-to-Many", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_990387d", 
-        option = "These tables have no relationship", value = "These tables have no relationship", 
-        label = structure("These tables have no relationship", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct! The columns don’t need to share names. Not all employees are support representatives, so it’s more logical to name the Employee table column ‘EmployeeId’ rather than ‘SupportRepId’", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "relationships-2-answer", question = "relationships-2"), 
-    loading = NULL, random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 899265343.081247, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "relationships-3", 
-    question = structure("What tables are required to see which tracks a customer has purchased? Select every table required.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_d38b054", 
-        option = "Album", value = "Album", label = structure("Album", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_662e31b", 
-        option = "Customer", value = "Customer", label = structure("Customer", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9d3e2be", 
-        option = "Employee", value = "Employee", label = structure("Employee", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_722089f", 
-        option = "Invoice", value = "Invoice", label = structure("Invoice", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f30ddcd", 
-        option = "InvoiceLine", value = "InvoiceLine", label = structure("InvoiceLine", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ddd45c3", 
-        option = "MediaType", value = "MediaType", label = structure("MediaType", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d5f1857", 
-        option = "Track", value = "Track", label = structure("Track", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_152c3dc", 
-        option = "This isn't possible", value = "This isn't possible", 
-        label = structure("This isn’t possible", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct! The individual track purchase is stored on the InvoiceLine table, which connects hierarchically to the Invoice table. From the Invoice table, we can reference the customer making the purchase.", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "relationships-3-answer", question = "relationships-3"), 
-    loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 818741384.118744, options = list()), class = c("learnr_checkbox", 
-"tutorial_question")), session = session)
+        answer = "select-1-answer", question = "select-1"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1695123433.71065, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "pks-1", question = structure("What is the primary key of the Album table?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c9c1dd9", 
-    option = "AlbumId", value = "AlbumId", label = structure("AlbumId", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "select-2", 
+    question = structure("Which of the following SELECT statements are valid?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2ff70c5", 
+        option = "`SELECT * FROM Artist`", value = "`SELECT * FROM Artist`", 
+        label = structure("<code>SELECT * FROM Artist<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_994820d", 
+        option = "`SELECT ArtistId,Name FROM Artist`", value = "`SELECT ArtistId,Name FROM Artist`", 
+        label = structure("<code>SELECT ArtistId,Name FROM Artist<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f41d8e9", 
+        option = "`SELECT ALL FROM Artist`", value = "`SELECT ALL FROM Artist`", 
+        label = structure("<code>SELECT ALL FROM Artist<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_765b651", 
+        option = "`SELECT Artist`", value = "`SELECT Artist`", 
+        label = structure("<code>SELECT Artist<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_fa52a3e", 
+        option = "`SELECT AlbumID,ArtistID,Name FROM Artist`", 
+        value = "`SELECT AlbumID,ArtistID,Name FROM Artist`", 
+        label = structure("<code>SELECT AlbumID,ArtistID,Name FROM Artist<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = NULL, post_message = NULL), ids = list(
+        answer = "select-2-answer", question = "select-2"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1031769007.01955, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "select-3", 
+    question = structure("Which of the following SELECT statements will sort the Invoice table by the smallest Total values?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_1bad7c", 
+        option = "`SELECT * FROM Invoice ORDER BY Total`", value = "`SELECT * FROM Invoice ORDER BY Total`", 
+        label = structure("<code>SELECT * FROM Invoice ORDER BY Total<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3d7fc4a", 
+        option = "`SELECT InvoiceId, CustomerId, InvoiceDate FROM Invoice ORDER BY Total`", 
+        value = "`SELECT InvoiceId, CustomerId, InvoiceDate FROM Invoice ORDER BY Total`", 
+        label = structure("<code>SELECT InvoiceId, CustomerId, InvoiceDate FROM Invoice ORDER BY Total<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bffb5c7", 
+        option = "`SELECT * FROM Invoice ORDER BY Total ASC`", 
+        value = "`SELECT * FROM Invoice ORDER BY Total ASC`", 
+        label = structure("<code>SELECT * FROM Invoice ORDER BY Total ASC<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_dff0dc4", 
+        option = "`SELECT * FROM Invoice SORT BY Total ASC`", 
+        value = "`SELECT * FROM Invoice SORT BY Total ASC`", 
+        label = structure("<code>SELECT * FROM Invoice SORT BY Total ASC<\u002fcode>", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = NULL, post_message = NULL), ids = list(
+        answer = "select-3-answer", question = "select-3"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1430730565.33376, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "where-1", question = structure("Which of the following WHERE clauses correctly filters results to show customers who reside in either ‘Brazil’ or ‘Canada’?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_31dfe9f", 
+    option = "`...WHERE Country = 'Brazil' or 'Canada'`", value = "`...WHERE Country = 'Brazil' or 'Canada'`", 
+    label = structure("<code>...WHERE Country = 'Brazil' or 'Canada'<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b7121f4", 
+    option = "`...WHERE Country IN ('Brazil' AND 'Canada')`", 
+    value = "`...WHERE Country IN ('Brazil' AND 'Canada')`", 
+    label = structure("<code>...WHERE Country IN ('Brazil' AND 'Canada')<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2c9de84", 
+    option = "`...WHERE Country = 'Brazil' AND Country = 'Canada'`", 
+    value = "`...WHERE Country = 'Brazil' AND Country = 'Canada'`", 
+    label = structure("<code>...WHERE Country = 'Brazil' AND Country = 'Canada'<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d2755af", 
+    option = "`...WHERE Country = 'Brazil' OR Country 'Canada'`", 
+    value = "`...WHERE Country = 'Brazil' OR Country 'Canada'`", 
+    label = structure("<code>...WHERE Country = 'Brazil' OR Country 'Canada'<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ff23f17", 
-    option = "ArtistId", value = "ArtistId", label = structure("ArtistId", html = TRUE, class = c("html", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "where-1-answer", question = "where-1"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 11709729.4945472, 
+    options = list()), class = c("learnr_radio", "tutorial_question"
+)), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "where-2", question = structure("Which of the following WHERE clauses correctly filters results to show only employees with the last name ‘Mitchell’?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_ce1406", 
+    option = "`...WHERE LastName = 'Mitchell'`", value = "`...WHERE LastName = 'Mitchell'`", 
+    label = structure("<code>...WHERE LastName = 'Mitchell'<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87e96bd", 
+    option = "`...WHERE LastName IS 'Mitchell'`", value = "`...WHERE LastName IS 'Mitchell'`", 
+    label = structure("<code>...WHERE LastName IS 'Mitchell'<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e901a3f", 
-    option = "This table doesn't have a PK", value = "This table doesn't have a PK", 
-    label = structure("This table doesn’t have a PK", html = TRUE, class = c("html", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7d59afb", 
+    option = "`...WHERE LastName LIKE 'Mitchell'`", value = "`...WHERE LastName LIKE 'Mitchell'`", 
+    label = structure("<code>...WHERE LastName LIKE 'Mitchell'<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_aac3ad3", 
+    option = "`...WHERE LastName == 'Mitchell'`", value = "`...WHERE LastName == 'Mitchell'`", 
+    label = structure("<code>...WHERE LastName == 'Mitchell'<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_86f488b", 
-    option = "AlbumId and ArtistId", value = "AlbumId and ArtistId", 
-    label = structure("AlbumId and ArtistId", html = TRUE, class = c("html", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "where-2-answer", question = "where-2"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1175933726.95241, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "where-3", question = structure("Which of the following WHERE clauses correctly filters results to show employees with a salary between 92000 and 117500?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_54046c7", 
+    option = "`...WHERE Salary BETWEEN 92000 AND 117500`", value = "`...WHERE Salary BETWEEN 92000 AND 117500`", 
+    label = structure("<code>...WHERE Salary BETWEEN 92000 AND 117500<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ad50769", 
+    option = "`...WHERE Salary > 92000 AND Salary < 117500`", 
+    value = "`...WHERE Salary > 92000 AND Salary < 117500`", 
+    label = structure("<code>...WHERE Salary &gt; 92000 AND Salary &lt; 117500<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_54a4a9", 
+    option = "`...WHERE Salary >= 92000 AND Salary =< 117500 `", 
+    value = "`...WHERE Salary >= 92000 AND Salary =< 117500 `", 
+    label = structure("<code>...WHERE Salary &gt;= 92000 AND Salary =&lt; 117500 <\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5afdadc", 
+    option = "`...WHERE Salary IN (92000, 117500)`", value = "`...WHERE Salary IN (92000, 117500)`", 
+    label = structure("<code>...WHERE Salary IN (92000, 117500)<\u002fcode>", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "where-3-answer", question = "where-3"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 350495059.836788, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "case-1", question = structure("", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_cdb905a", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7135d8c", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "case-1-answer", question = "case-1"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1128033642.47472, 
+    options = list()), class = c("learnr_radio", "tutorial_question"
+)), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "case-2", question = structure("", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_b2c51ec", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_793cc0e", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "case-2-answer", question = "case-2"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1351374213.37072, 
+    options = list()), class = c("learnr_radio", "tutorial_question"
+)), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "join-1", question = structure("Input the correct numeric value (3 digits) putting the JOINs in correct order starting <code>FROM Customer c<\u002fcode> in order to see all the tracks purchased by a customer.<\u002fp>\n<pre><code>  1) ...JOIN Invoice i\n  2) ...JOIN Tracks t\n  3) ...JOIN InvoiceLine il\n<\u002fcode><\u002fpre>\n", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_bfe9ebc", 
+    option = "132", value = "132", label = structure("132", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1d702b5", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
@@ -528,93 +494,34 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
-    answer = "pks-1-answer", question = "pks-1"), loading = NULL, 
-    random_answer_order = TRUE, allow_retry = TRUE, seed = 1797133829.66314, 
-    options = list()), class = c("learnr_radio", "tutorial_question"
-)), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "pks-2", question = structure("How many tables use TrackId as a foreign key?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1a46edb", 
-    option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_77cfb2", 
-    option = "3", value = "3", label = structure("3", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_af83f54", 
-    option = "5", value = "5", label = structure("5", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct! InvoiceLine and PlaylistTrack require TrackId as a foreign key. The Track table itself has 3 foreign keys to other tables (Album, Genre, MediaType).", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "pks-2-answer", question = "pks-2"), loading = NULL, 
-    random_answer_order = TRUE, allow_retry = TRUE, seed = 1014649021.02752, 
-    options = list()), class = c("learnr_radio", "tutorial_question"
-)), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "pks-3", question = structure("Suppose there were no primary or foreign keys at all. If you wanted to delete a Track from the database, how many tables would be affected by such a deletion?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_3dc693f", 
-    option = "1", value = "1", label = structure("1", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_71677f5", 
-    option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_56bab55", 
-    option = "3", value = "3", label = structure("3", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_30b163", 
-    option = "5", value = "5", label = structure("5", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e25a53", 
-    option = "11", value = "11", label = structure("11", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct! Removing a Track without modifying the InvoiceLine and PlaylistTrack tables would cause those tables’ integrity to be affected. This is the reasoning associated with the previous question and why the answers are the same.", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "pks-3-answer", question = "pks-3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1670860282.72195, 
-    options = list()), class = c("learnr_radio", "tutorial_question"
-)), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "code-comment", 
-    question = structure("How do you comment out code in SQL?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a2e97ca", 
-        option = "`# SELECT...`", value = "`# SELECT...`", label = structure("<code># SELECT...<\u002fcode>", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3090a42", 
-        option = "`-- SELECT...`", value = "`-- SELECT...`", 
-        label = structure("<code>-- SELECT...<\u002fcode>", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4ab59c6", 
-        option = "`/* SELECT... */`", value = "`/* SELECT... */`", 
-        label = structure("<code>/* SELECT... */<\u002fcode>", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_df2818f", 
-        option = "`// SELECT...`", value = "`// SELECT...`", 
-        label = structure("<code>// SELECT...<\u002fcode>", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = NULL), ids = list(
-        answer = "code-comment-answer", question = "code-comment"), 
-    loading = NULL, random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 139187090.435186, options = list()), class = c("learnr_checkbox", 
+    answer = "join-1-answer", question = "join-1"), loading = NULL, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1550893083.77781, 
+    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "join-2", question = structure("", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_d234b03", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_845c084", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6058ba", 
+    option = "", value = "", label = structure("", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "join-2-answer", question = "join-2"), loading = NULL, 
+    random_answer_order = TRUE, allow_retry = TRUE, seed = 1123045607.97704, 
+    options = list()), class = c("learnr_checkbox", "tutorial_question"
+)), session = session)
 </script>
 </p>
 <!--html_preserve-->
@@ -640,7 +547,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 <!-- begin doc-metadata -->
 <div id="doc-metadata">
 <h1 class="title toc-ignore" style="display:none;">Self Assessment:
-Session 1</h1>
+Session 2</h1>
 </div>
 <!-- end doc-metadata -->
 
