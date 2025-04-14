@@ -1,0 +1,226 @@
+---
+title: "Self Assessment: Session 2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+# Self Assessment: Session 2
+
+## Instructions
+
+**Welcome!**
+
+*This app is still very nascent, please alert me to any errors or unexpected behaviour.*
+
+Use the chinook.db to answer these questions.
+ 
+**Click Next Topic when you're ready to begin**
+
+## SELECT
+
+```{r select, echo=FALSE}
+quiz(
+    question("Which of the following SELECT statements are syntactically correct (even if not meaningful)?",
+    answer("`SELECT 1 * 5`", correct = TRUE),
+    answer("`SELECT 2025 as thisyear`", correct = TRUE),
+    answer("`SELECT thomas as instructor`"),
+    answer("`SELECT '2025-06-20' as summer solstice`")
+    ,allow_retry = TRUE
+    ,random_answer_order = TRUE
+  ),
+  question("Which of the following SELECT statements are valid?",
+    answer("`SELECT * FROM Artist`", correct = TRUE),
+    answer("`SELECT ArtistId,Name FROM Artist`", correct = TRUE),
+    answer("`SELECT ALL FROM Artist`" ),
+    answer("`SELECT Artist`"),
+    answer("`SELECT AlbumID,ArtistID,Name FROM Artist`")
+    ,allow_retry = TRUE
+    ,random_answer_order = TRUE
+  ),
+  question("Which of the following SELECT statements will sort the Invoice table by the smallest Total values?",
+  answer("`SELECT * FROM Invoice ORDER BY Total`", correct = TRUE),
+  answer("`SELECT InvoiceId, CustomerId, InvoiceDate FROM Invoice ORDER BY Total`", correct = TRUE),
+  answer("`SELECT * FROM Invoice ORDER BY Total ASC`", correct = TRUE),
+  answer("`SELECT * FROM Invoice SORT BY Total ASC`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```
+
+## WHERE
+
+```{r where, echo=FALSE}
+quiz(
+  question("Which of the following WHERE clauses correctly filters results to show customers who reside in either 'Brazil' or 'Canada'? ",
+  answer("`...WHERE Country = 'Brazil' OR 'Canada'`"),
+  answer("`...WHERE Country IN ('Brazil' AND 'Canada')`"),
+  answer("`...WHERE Country = 'Brazil' AND Country = 'Canada'`"),
+  answer("`...WHERE Country = 'Brazil' OR Country = 'Canada'`", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  question("Which of the following WHERE clauses correctly filters results to show only employees with the last name 'Mitch'?",
+  answer("`...WHERE LastName = 'Mitch'`", correct = TRUE),
+  answer("`...WHERE LastName LIKE 'Mitch%'`"),
+  answer("`...WHERE LastName LIKE '%Mitch'`", correct = TRUE),
+  answer("`...WHERE LastName EXISTS 'Mitch'`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  question("Which of the following WHERE clauses correctly filters results to show employees with a salary between $92,000 and $117,500?",
+  answer("`...WHERE Salary BETWEEN 92000 AND 117500`", correct = TRUE),
+  answer("`...WHERE Salary > 92000 AND Salary < 117500`"),
+  answer("`...WHERE Salary >= 92000 AND Salary =< 117500 `", correct = TRUE),
+  answer("`...WHERE Salary IN (92000, 117500)`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  )
+)
+```
+
+
+## CASE
+
+```{r case, echo=FALSE}
+quiz(
+  question("Which of the following CASE statements are syntactically correct?",
+  answer("`...CASE WHEN condition THEN result END`", correct = TRUE),
+  answer("`...CASE result WHEN condition THEN END`"),
+  answer("`...CASE WHEN condition THEN result ELSE alternative_condition END`", correct = TRUE),
+  answer("`...CASE WHEN condition THEN result`"),
+  answer("`...CASE condition WHEN result THEN END`")
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+
+    question("Suppose you want to classify 'rock','alternative', and 'metal' genres into a single category: 'favourites', but want to classify 'Rock And Roll' and 'Blues' into a separate category: 'oldies'. Which of the following CASE statements are correct?",
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  WHEN Name LIKE '%rock%' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  ELSE '' END as classify
+FROM Genre
+```", correct = TRUE),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name = 'Rock' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+  THEN 'favourites'
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```", correct = TRUE),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name LIKE '%rock%' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```"),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name != 'Rock And Roll' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```")
+  ,allow_retry = TRUE
+  ,correct = "Correct! While you could write the CASE statement without a LIKE statement and achieve a similar result, there may be more complex scenarios where this is harder. In those instances, the order of the CASE statement is crucial, as once a row is evaluated to meet a criteria, it won't be re-evaluated."
+  )
+)
+```
+
+## JOIN
+
+
+```{r join, echo=FALSE}
+quiz(
+  question("Which JOIN types produce NULL values?",
+  answer("JOIN"),
+  answer("INNER JOIN"),
+  answer("LEFT JOIN", correct = TRUE),
+  answer("RIGHT JOIN", correct = TRUE),
+  answer("FULL OUTER JOIN", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  
+  question("Which of the following queries correctly joins tables to output all tracks and their corresponding artists and albums?",
+    answer("```
+SELECT Title, Name, Name 
+FROM Album a
+INNER JOIN Artist aa
+	ON a.ArtistId = aa.ArtistId
+INNER JOIN Track t
+	ON a.AlbumId = t.AlbumId
+```"),
+  answer("```
+SELECT a.Title, aa.Name, t.Name 
+FROM Album a
+INNER JOIN Artist aa
+	ON a.ArtistId = aa.ArtistId
+INNER JOIN Track t
+	ON a.AlbumId = t.AlbumId
+```", correct = TRUE),
+answer("```
+SELECT Album.Title as AlbumName, Artist.Name as AristName, Track.Name as TrackName
+FROM Album 
+INNER JOIN Artist
+	ON Album.ArtistId = Artist.ArtistId
+INNER JOIN Track
+	ON Album.AlbumId = Track.AlbumId
+```", correct = TRUE),
+answer("```
+SELECT Title, Name 
+FROM Album a
+INNER JOIN Track t
+	ON a.AlbumId = t.AlbumId
+```")
+,allow_retry = TRUE
+  ,random_answer_order = TRUE
+    ),
+  
+  question_numeric("Input the correct numeric value (3 digits) putting the JOIN statements in correct order starting `FROM Customer c` in order to see all the tracks purchased by a customer.
+                   
+      1) ...JOIN Invoice i
+      2) ...JOIN Tracks t
+      3) ...JOIN InvoiceLine il
+              ",
+  answer("132", correct = TRUE)
+  ,allow_retry = TRUE
+  ),
+  
+  question("If new records were added to the Album table, would the result set change if the join type for the below query was switched to a LEFT JOIN instead?
+          
+          SELECT a.*, aa.Name
+          FROM Album a
+          INNER JOIN Artist aa
+          	ON a.ArtistId = aa.ArtistId 
+          ",
+  answer("Results would remain the same", correct = TRUE),
+  answer("Results could change")
+  ,allow_retry = TRUE
+  ,correct = "Correct! Because the Album.ArtistId is the Foreign Key on Artist, we know that there cannot be records in the Album table without a corresponding ArtistId."
+  ),
+  
+    question("If new records were added to the Album table, would the result set change if the join type for the below query was switched to a RIGHT JOIN instead?
+          
+          SELECT a.*, aa.Name
+          FROM Album a
+          INNER JOIN Artist aa
+          	ON a.ArtistId = aa.ArtistId 
+          ",
+  answer("Results would remain the same"),
+  answer("Results could change", correct = TRUE)
+  ,allow_retry = TRUE
+  ,correct = "Correct! Though Album.ArtistId is the Foreign Key on Artist, we can have artists in the Artist table without corresponding Albums. In the case of a RIGHT JOIN, we would see NULL values for all a.* columns without a corresponding ArtistId." 
+  )
+)
+```
