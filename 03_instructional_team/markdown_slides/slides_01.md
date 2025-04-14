@@ -39,15 +39,28 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Keli)
+# About Us (James)
 
-- UofT Master of Information (where I met Thomas and Rohan)
-- Interested in the ethical dimensions of NLP and LLM. Currently applying for a PhD to pursue further research 
-- Worked in industry as data engineer
-- Bachelor degree in fine arts: wanted to be an art teacher since I was a kid
-- Hobbies: Reading, plants, bubble teas 
+- UofT Engineering undergrad and master 🦫
+- Licensed engineer in an oil & gas company sending robots into pipelines 🤘
+- DSI cohort 3
+- Self-taught woodworking hobbyist 🪚
+- Real hobbies: motorcycle 🛵, leisure skating ⛸️, camping ⛺️
 
-![bg right:35% w:350](./images/01_keli.png)
+![bg right:35% w:350](./images/01_james.png)
+
+---
+
+# About Us (Laura)
+
+- Over four years of experience in Full Stack Development creating database models and schemas as well as optimizing high-volume data workflows
+- Worked as a Teaching Assistant at York University in Statistics breaking down complex concepts and providing one-on-one support for technical challenges
+- Honours BSc in Psychology and survived a Web Development Bootcamp
+- DSI cohort 5
+- 7 years as a Research Analyst at the Centre for Addiction and Mental Health coordinating research studies, analyzing large datasets as well as created visualizations for clinical research (and co-authored a paper or 3)
+- Cat lover, research nerd and hairstyle chameleon 
+
+![bg right:35% w:350](./images/01_laura.png)
 
 ---
 
@@ -84,13 +97,13 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jan2024): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_April2025): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
 - [Code Share](https://codeshare.io/): *To share code during our live coding sessions*
   - This is for convenience only during live coding sessions, use the repo after the session instead
-- Mentimeter (links vary): *Small in-class quizzes, ungraded*
+- Mentimeter (links vary): *Small in-class quizzes, easiest to participate on your phone if available, ungraded*
 
 ---
 
@@ -135,7 +148,7 @@ $ echo "Data Sciences Institute"
 - Two assignments, released on Monday of each week.
 - Broken into three sections:
   - Section 1 focuses on database design
-  - Sections 2 and 3 on sql writing
+  - Sections 2 and 3 on SQL writing
 - Each sections states about when you can start working on the answers
 - Review questions/answers in Office Hours course support
 - Database design sections are more time consuming
@@ -173,9 +186,9 @@ $ echo "Data Sciences Institute"
 
 # Quick Technical Check
 
-Let's make sure everyone has DB Browser for SQLite installed.
+Make sure to install DB Browser for SQLite by our next session.
 
-- If not, please download it here: [https://sqlitebrowser.org/dl/](https://sqlitebrowser.org/dl/)
+- If you haven't already, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/).
 
 For live coding:
 - Please download/fork the FarmersMarket.db from our GH repo:
@@ -185,9 +198,9 @@ For live coding:
 ---
 
 
-# **Good to go?**
+# **Install Issues?**
 
-**If not, please message your course support**
+**If yes, please message your course support**
 
 ---
 
@@ -514,6 +527,7 @@ multiple lines
 
 
 ---
+
 # Structure of Data
 
 - Data types are important:
@@ -547,6 +561,7 @@ multiple lines
     - Ensures database integrity by restricting record deletion
 
 ---
+
 # Constraints
 
 - **FOREIGN KEY (FK)**
@@ -557,6 +572,100 @@ multiple lines
     - As many FKs as needed per table
     - May be NULL
     - Record can be deleted
+
+---
+
+# Constraints
+
+**Why do we need Primary and Foreign Keys?**
+- Formalizing the relationship between PKs and FKs ensures:
+  - New records added to tables require a matching value when a relationship exists
+      - *orders* are made by *customers* 
+      - *orders* refer to *products* that exist
+  - Deleted records don't make data elsewhere meaningless
+      - *customers* who have had *orders* can't be deleted without deleting the orders first
+      - *orders* referring to *products* can't be deleted without deleting the products first
+- The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
+
+---
+
+# Constraints
+
+| customer_id (PK) | address            | name |
+|---------|--------------------|------|
+| 10      | 42 Wallaby Way     | TR   |
+| 11      | 221B Baker St      | NN   |
+| 12      | 124 Conch St    | JZ   |
+| 13      | 4 Privet Dr     | LM   |
+
+
+| order_id (PK) | customer_id (FK) | product_id (FK) |
+|----------|---------|------------|
+| 93       | 11      | 123        |
+| 94       | 11      | 789        |
+| 95       | 13      | 456        |
+| 96       | 10      | 101        |
+
+---
+
+# Constraints
+
+| product_id (PK) | name  | price |
+|------------|-------|-------|
+| 123        | Pen   | 2     |
+| 456        | Wand   | 17     |
+| 789        | Notepad | 6    |
+| 101        | Lamp  | 15    |
+
+
+
+---
+
+# Constraints
+
+**Why then do we *require* PKs to be unique** 
+- The PK is an identifier for each row
+  - Much like how we all have various "ID" numbers to identify us to schools/organizations/governments/etc
+  - Some identifying data isn't inherently unique (e.g. name, date of birth) because others can share the same values
+- Ensures we are identifying the correct corresponding row of the relationship
+  - *This* order was made by *this* customer for *this* product
+      - The customer_id in the customer table is unique so that we know exactly which customer made the purchase
+      - The product_id in the product table is unique so that we know exactly what was purchased
+
+---
+
+# Constraints
+
+| customer_id (PK) | address            | name |
+|---------|--------------------|------|
+| 11      | 221B Baker St      | NN   |
+
+
+| order_id (PK) | customer_id (FK) | product_id (FK) |
+|----------|---------|------------|
+| 93       | 11      | 123        |
+| 94       | 11      | 789        |
+
+
+| product_id (PK) | name  | price |
+|------------|-------|-------|
+| 123        | Pen   | 2     |
+| 789        | Notepad | 6    |
+
+- The customer_id in the order table does not need to be unique: **Why?**
+  - Because a customer can make more than one order
+
+---
+
+# Constraints
+
+**What about *composite* keys?**
+- Sometimes no single column in a table is unique
+  - In this case, in order to make a PK unique, we build "composite" keys
+- Composite keys use a combination of columns to uniquely identify each row
+- This can be useful to enforce relationships between two or more attributes
+- Quite a few of Farmers Market PKs are composite keys
+  - customer_purchases for example uses a composite key on product_id, vendor_id, market_date
 
 ---
 

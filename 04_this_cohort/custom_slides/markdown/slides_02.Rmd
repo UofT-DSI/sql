@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2025 AS this_year, 'January' AS this_month`
+  - `SELECT 2025 AS this_year, 'April' AS this_month`
 
 <br>
 --
@@ -740,4 +740,7 @@ class: middle, center, inverse
 ```{r echo=FALSE}
 #library(renderthis)
 #renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_02.Rmd")
+
+##April 2025, Rmd render not working, use html instead
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_02.html")
 ```
