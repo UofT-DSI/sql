@@ -88,17 +88,51 @@ quiz(
 
 ```{r case, echo=FALSE}
 quiz(
-  question("",
-  answer(""),
-  answer("", correct = TRUE)
+  question("Which of the following CASE statements are syntactically correct?",
+  answer("`...CASE WHEN condition THEN result END`", correct = TRUE),
+  answer("`...CASE result WHEN condition THEN END`"),
+  answer("`CASE WHEN condition THEN result ELSE alternative_condition END`", correct = TRUE),
+  answer("`CASE WHEN condition THEN result`"),
+  answer("`CASE condition WHEN result THEN END`")
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
   ),
-  question("",
-  answer(""),
-  answer("", correct = TRUE)
+
+    question("Suppose you wanted to classify any 'rock','alternative',and 'metal' genres into a single category: 'favourites', but want to classify 'Rock & Roll' and 'Blues into a separate category: 'oldies'. What is the correct case statements?",
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  WHEN Name LIKE '%rock%' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  ELSE '' END as classify
+FROM Genre
+```", correct = TRUE),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name = 'Rock' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+  THEN 'favourites'
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```", correct = TRUE),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name LIKE '%rock%' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```"),
+  answer("```
+SELECT DISTINCT Name,
+CASE WHEN Name != 'Rock And Roll' OR Name LIKE '%metal%' or Name LIKE '%alt%' 
+	THEN 'favourites' 
+  WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
+  ELSE '' END as classify
+FROM Genre
+```")
   ,allow_retry = TRUE
-  ,random_answer_order = TRUE
+  ,correct = "Correct! While you could write the case statement without a like statement and achieve a similar result, there may be more complex scenarios where this is harder. In those instances, the order of the case statement is crucial, as once a row is evaluated that it meets a criteria, it won't be re-evaluated."
   )
 )
 ```
@@ -108,22 +142,85 @@ quiz(
 
 ```{r join, echo=FALSE}
 quiz(
-  question_numeric("Input the correct numeric value (3 digits) putting the JOINs in correct order starting `FROM Customer c` in order to see all the tracks purchased by a customer.
+  question("Which JOIN types produce NULL values",
+  answer("JOIN"),
+  answer("INNER JOIN"),
+  answer("LEFT JOIN", correct = TRUE),
+  answer("RIGHT JOIN", correct = TRUE),
+  answer("FULL OUTER JOIN", correct = TRUE)
+  ,allow_retry = TRUE
+  ,random_answer_order = TRUE
+  ),
+  
+  question("Which of the following queries correctly joins tables to output all tracks and their corresponding arists and albums?",
+    answer("```
+SELECT Title, Name, Name 
+FROM Album a
+INNER JOIN Artist aa
+	ON a.ArtistId = aa.ArtistId
+INNER JOIN Track t
+	ON a.AlbumID = t.AlbumId
+```"),
+  answer("```
+SELECT a.Title, aa.Name, t.Name 
+FROM Album a
+INNER JOIN Artist aa
+	ON a.ArtistId = aa.ArtistId
+INNER JOIN Track t
+	ON a.AlbumID = t.AlbumId
+```", correct = TRUE),
+answer("```
+SELECT *
+FROM Album 
+INNER JOIN Artist
+	ON Album.ArtistId = Artist.ArtistId
+INNER JOIN Track
+	ON Album.AlbumID = Track.AlbumId
+```", correct = TRUE),
+answer("```
+SELECT Title, Name 
+FROM Album a
+INNER JOIN Track t
+	ON a.AlbumID = t.AlbumId
+```")
+,allow_retry = TRUE
+  ,random_answer_order = TRUE
+    ),
+  
+  question_numeric("Input the correct numeric value (3 digits) putting the JOIN statements in correct order starting `FROM Customer c` in order to see all the tracks purchased by a customer.
                    
       1) ...JOIN Invoice i
       2) ...JOIN Tracks t
       3) ...JOIN InvoiceLine il
               ",
-  answer("132", correct = TRUE),
-  answer("")
+  answer("132", correct = TRUE)
   ,allow_retry = TRUE
   ),
-  question("",
-  answer(""),
-  answer("", correct = TRUE),
-  answer("", correct = TRUE)
+  
+  question("If new records were added to the Album table, would the result set change if the join type for the below query was switched to a LEFT JOIN instead?
+          
+          SELECT a.*, aa.Name
+          FROM Album a
+          INNER JOIN Artist aa
+          	ON a.ArtistId = aa.ArtistId 
+          ",
+  answer("Results would remain the same", correct = TRUE),
+  answer("Results could change")
   ,allow_retry = TRUE
-  ,random_answer_order = TRUE
+  ,correct = "Correct! Because the Album.ArtistId is the Foreign Key on Artist, we know that there cannot be records in the Album table without a corresponding ArtistId."
+  ),
+  
+    question("If new records were added to the Album table, would the result set change if the join type for the below query was switched to a RIGHT JOIN instead?
+          
+          SELECT a.*, aa.Name
+          FROM Album a
+          INNER JOIN Artist aa
+          	ON a.ArtistId = aa.ArtistId 
+          ",
+  answer("Results would remain the same"),
+  answer("Results could change", correct = TRUE)
+  ,allow_retry = TRUE
+  ,correct = "Correct! Though Album.ArtistId is the Foreign Key on Artist, we can have artists in the Artist table without corresponding Albums. In the case of a RIGHT JOIN, we would see NULL values for all a.* columns without a corresponding ArtistId." 
   )
 )
 ```
