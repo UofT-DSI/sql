@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Welcome!**
 
-*This app is still very nascent, please alert me of any errors or unexpected behaviour.*
+*This app is still very nascent, please alert me to any errors or unexpected behaviour.*
 
 Use the chinook.db to answer these questions.
  
@@ -26,7 +26,7 @@ Use the chinook.db to answer these questions.
 quiz(
     question("Which of the following SELECT statements are syntactically correct (even if not meaningful)?",
     answer("`SELECT 1 * 5`", correct = TRUE),
-    answer("`SELCT 2025 as thisyear`", correct = TRUE),
+    answer("`SELECT 2025 as thisyear`", correct = TRUE),
     answer("`SELECT thomas as instructor`"),
     answer("`SELECT '2025-06-20' as summer solstice`")
     ,allow_retry = TRUE
@@ -57,22 +57,22 @@ quiz(
 ```{r where, echo=FALSE}
 quiz(
   question("Which of the following WHERE clauses correctly filters results to show customers who reside in either 'Brazil' or 'Canada'? ",
-  answer("`...WHERE Country = 'Brazil' or 'Canada'`"),
+  answer("`...WHERE Country = 'Brazil' OR 'Canada'`"),
   answer("`...WHERE Country IN ('Brazil' AND 'Canada')`"),
   answer("`...WHERE Country = 'Brazil' AND Country = 'Canada'`"),
-  answer("`...WHERE Country = 'Brazil' OR Country 'Canada'`", correct = TRUE)
+  answer("`...WHERE Country = 'Brazil' OR Country = 'Canada'`", correct = TRUE)
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
   ),
-  question("Which of the following WHERE clauses correctly filters results to show only employees with the last name 'Mitchell'?",
-  answer("`...WHERE LastName = 'Mitchell'`", correct = TRUE),
-  answer("`...WHERE LastName IS 'Mitchell'`"),
-  answer("`...WHERE LastName LIKE 'Mitchell'`", correct = TRUE),
-  answer("`...WHERE LastName == 'Mitchell'`")
+  question("Which of the following WHERE clauses correctly filters results to show only employees with the last name 'Mitch'?",
+  answer("`...WHERE LastName = 'Mitch'`", correct = TRUE),
+  answer("`...WHERE LastName LIKE 'Mitch%'`"),
+  answer("`...WHERE LastName LIKE '%Mitch'`", correct = TRUE),
+  answer("`...WHERE LastName EXISTS 'Mitch'`")
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
   ),
-  question("Which of the following WHERE clauses correctly filters results to show employees with a salary between 92000 and 117500?",
+  question("Which of the following WHERE clauses correctly filters results to show employees with a salary between $92,000 and $117,500?",
   answer("`...WHERE Salary BETWEEN 92000 AND 117500`", correct = TRUE),
   answer("`...WHERE Salary > 92000 AND Salary < 117500`"),
   answer("`...WHERE Salary >= 92000 AND Salary =< 117500 `", correct = TRUE),
@@ -91,14 +91,14 @@ quiz(
   question("Which of the following CASE statements are syntactically correct?",
   answer("`...CASE WHEN condition THEN result END`", correct = TRUE),
   answer("`...CASE result WHEN condition THEN END`"),
-  answer("`CASE WHEN condition THEN result ELSE alternative_condition END`", correct = TRUE),
-  answer("`CASE WHEN condition THEN result`"),
-  answer("`CASE condition WHEN result THEN END`")
+  answer("`...CASE WHEN condition THEN result ELSE alternative_condition END`", correct = TRUE),
+  answer("`...CASE WHEN condition THEN result`"),
+  answer("`...CASE condition WHEN result THEN END`")
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
   ),
 
-    question("Suppose you wanted to classify any 'rock','alternative',and 'metal' genres into a single category: 'favourites', but want to classify 'Rock & Roll' and 'Blues into a separate category: 'oldies'. What is the correct case statements?",
+    question("Suppose you want to classify 'rock','alternative', and 'metal' genres into a single category: 'favourites', but want to classify 'Rock And Roll' and 'Blues' into a separate category: 'oldies'. Which of the following CASE statements are correct?",
   answer("```
 SELECT DISTINCT Name,
 CASE WHEN Name IN ('Rock And Roll','Blues') THEN 'oldies' 
@@ -132,7 +132,7 @@ CASE WHEN Name != 'Rock And Roll' OR Name LIKE '%metal%' or Name LIKE '%alt%'
 FROM Genre
 ```")
   ,allow_retry = TRUE
-  ,correct = "Correct! While you could write the case statement without a like statement and achieve a similar result, there may be more complex scenarios where this is harder. In those instances, the order of the case statement is crucial, as once a row is evaluated that it meets a criteria, it won't be re-evaluated."
+  ,correct = "Correct! While you could write the CASE statement without a LIKE statement and achieve a similar result, there may be more complex scenarios where this is harder. In those instances, the order of the CASE statement is crucial, as once a row is evaluated to meet a criteria, it won't be re-evaluated."
   )
 )
 ```
@@ -142,7 +142,7 @@ FROM Genre
 
 ```{r join, echo=FALSE}
 quiz(
-  question("Which JOIN types produce NULL values",
+  question("Which JOIN types produce NULL values?",
   answer("JOIN"),
   answer("INNER JOIN"),
   answer("LEFT JOIN", correct = TRUE),
@@ -152,14 +152,14 @@ quiz(
   ,random_answer_order = TRUE
   ),
   
-  question("Which of the following queries correctly joins tables to output all tracks and their corresponding arists and albums?",
+  question("Which of the following queries correctly joins tables to output all tracks and their corresponding artists and albums?",
     answer("```
 SELECT Title, Name, Name 
 FROM Album a
 INNER JOIN Artist aa
 	ON a.ArtistId = aa.ArtistId
 INNER JOIN Track t
-	ON a.AlbumID = t.AlbumId
+	ON a.AlbumId = t.AlbumId
 ```"),
   answer("```
 SELECT a.Title, aa.Name, t.Name 
@@ -167,21 +167,21 @@ FROM Album a
 INNER JOIN Artist aa
 	ON a.ArtistId = aa.ArtistId
 INNER JOIN Track t
-	ON a.AlbumID = t.AlbumId
+	ON a.AlbumId = t.AlbumId
 ```", correct = TRUE),
 answer("```
-SELECT *
+SELECT Album.Title as AlbumName, Artist.Name as AristName, Track.Name as TrackName
 FROM Album 
 INNER JOIN Artist
 	ON Album.ArtistId = Artist.ArtistId
 INNER JOIN Track
-	ON Album.AlbumID = Track.AlbumId
+	ON Album.AlbumId = Track.AlbumId
 ```", correct = TRUE),
 answer("```
 SELECT Title, Name 
 FROM Album a
 INNER JOIN Track t
-	ON a.AlbumID = t.AlbumId
+	ON a.AlbumId = t.AlbumId
 ```")
 ,allow_retry = TRUE
   ,random_answer_order = TRUE

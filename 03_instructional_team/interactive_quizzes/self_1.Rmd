@@ -165,7 +165,7 @@ quiz(
     ,random_answer_order = TRUE
     ,correct = "Correct! InvoiceLine and PlaylistTrack require TrackId as a foreign key. The Track table itself has 3 foreign keys to other tables (Album, Genre, MediaType)."
   ),
-  question("Suppose there were no primary or foreign keys at all. If you wanted to delete a Track from the database, how many tables would be affected by such a deletion?",
+  question("Suppose there were no primary or foreign keys at all. If you wanted to delete a Track from the Track table, how many other tables would be affected by such a deletion?",
     answer("1"),
     answer("2", correct = TRUE),
     answer("3"),
