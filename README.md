@@ -25,14 +25,14 @@ By the end of the module, participants will be able to:
 
 **Week 1:**
 * Describe the structure of a database.
-
-**Week 2:**
+* Use an export command to save and transport data in CSV and JSON file formats.
 * Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
 
-**Week 3:**
-* Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
-* Use an export command to save and transport data in CSV and JSON file formats.
+**Week 2:**
 
+* Examine the legal framework around sharing data.
+* Analyze data requirements and work with diverse stakeholders such as analysts and managers.
+* Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
 
 ## Assignments
 
@@ -52,8 +52,10 @@ There are two assignments.
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
-  * **Keli Chiu** (she/her)  
-  [keli.chiu.kc@gmail.com](mailto:keli.chiu.kc@gmail.com)
+  * **James Li** (he/him)  
+  [james.zefang.li@gmail.com](mailto:james.zefang.li@gmail.com)
+  * **Laura MacKew** (she/her)  
+  [lauramackew@gmail.com](mailto:lauramackew@gmail.com)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
 
@@ -75,17 +77,13 @@ Participants should follow along with the coding, interact with the study materi
 
 Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md)
 
-||Day 1|Day 2|
-|---|---|---|
-|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures |Work Period|
+||Day 1|Day 2|Day 3|Day 4|Day 5|
+|---|---|---|---|---|---|
+|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures |Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |No Work Period|Work Period 2|
 
-||Day 1|Day 2|Day 3|
-|---|---|---|---|
-|Week 2|Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs |Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |Work Period|
-
-||Day 1|Day 2|Day 3|
-|---|---|---|---|
-|Week 3|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT |Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views |Work Period|
+||Day 1|Day 2|Day 3|Day 4|Day 5|
+|---|---|---|---|---|---|
+|Week 2|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT  |Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views   |Live Learning Session 6 Beyond SQL: Ethics and Case Study |Work Period 1|Work Period 2|
 
 ## Requirements
 

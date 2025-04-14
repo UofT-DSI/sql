@@ -8,34 +8,28 @@
     - cannot be a duplicate of my example tables from Session 1 slides
   - Criteria: assignment1.sql is completed
   - Criteria: assignment1.sql is correct
-  - Criteria: Written content for Section 4 is of reasonable length (likely less than 1000 words, but not fewer than 250 words)
 
 ## Section 1
 
 ### Prompt 1
-- *(8 points total)*
+- *(10 points total)*
 - Two tables are diagramed as a logical model
   - Needs to contain table names, column names, relationships between columns, relationship-type
 - Any format acceptable so long as a "logical model"
 
 ## Section 2
-- *(7 points total)*
-- *(5 points)* **All questions have been attempted** 
-- *(2 points)* **The following questions return the correct result set:** 
+- *(10 points total)*
+- *(6 points)* **All questions have been attempted** 
+- *(4 points)* **The following questions return the correct result set:** 
   - WHERE, Question 2
   - JOIN Question 1
 
 ## Section 3
-- *(7 points total)*
-- *(5 points)* **All questions have been attempted** 
-- *(2 points)* **The following questions return the correct result set:** 
+- *(10 points total)*
+- *(6 points)* **All questions have been attempted** 
+- *(4 points)* **The following questions return the correct result set:** 
   - AGGREGATE, Question 2
   - DATE, Question 2
-
-## Section 4
-- *(8 points total)*
-- Response is written
-- Response is free of typos, was not written by an LLM, etc
 
 ## Criteria
 
@@ -44,7 +38,6 @@
 |Section 1, Prompt 1 Requirements|All requirements are met.|Missing some requirements.|Several requirements are not met or diagram is not a logical model.|
 |Section 2 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
 |Section 3 Requirements|All requirements are met and result sets are correct.|Some questions missing or wrong result set.|Several questions missing.|
-|Section 4 Requirements|All requirements are met.|Missing some requirements.|Response missing.|
 
 
 
