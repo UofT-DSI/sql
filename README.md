@@ -121,10 +121,10 @@ Feel free to use the following as resources:
 ```
 
 * **.github**: Contains issue templates, pull request templates and workflows for the repository.
-* **materials**: Module slides used during learning sessions.
-* **activities**: Contains graded assignments, and rubrics for evaluating assignments.
+* **materials**: Module slides.
+* **activities**: Contains self-assessments, graded assignments, and rubrics for evaluating assignments.
 * **instructional_team**: Resources for the instructional team.
-* **this_cohort**: Additional materials and resources for cohort three.
+* **this_cohort**: Additional materials and resources for this cohort.
 * **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
 * **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
 * **LICENSE**: The license for this repository.
