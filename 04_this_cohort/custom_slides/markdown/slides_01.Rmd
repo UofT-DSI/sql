@@ -840,7 +840,7 @@ class: top, left, inverse
       - *orders* referring to *products* can't be deleted without deleting the products first
 - The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
 
-.pull-left.w32[
+.pull-left.w33[
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
@@ -852,7 +852,7 @@ class: top, left, inverse
 
 ]
 
-.pull-left.w40[
+.pull-left.w39[
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
 |----------|---------|------------|
