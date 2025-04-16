@@ -825,7 +825,7 @@ class: top, left, inverse
       - *orders* refer to *products* that exist
   - Deleted records don't make data elsewhere meaningless
       - *customers* who have had *orders* can't be deleted without deleting the orders first
-      - *orders* referring to *products* can't be deleted without deleting the products first
+      - *products* associated with *orders* can't be deleted without deleting the orders first
 - The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
 
 .pull-left.w33[
@@ -1319,7 +1319,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 *HINTS*:
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
-- You can't diagram tables that don't share a common column (see )
+- You can't diagram tables that don't share a common column (see conceptual model)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 ---
 
