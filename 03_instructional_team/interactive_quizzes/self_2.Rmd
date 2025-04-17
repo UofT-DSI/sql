@@ -75,7 +75,7 @@ quiz(
   question("Which of the following WHERE clauses correctly filters results to show employees with a salary between $92,000 and $117,500?",
   answer("`...WHERE Salary BETWEEN 92000 AND 117500`", correct = TRUE),
   answer("`...WHERE Salary > 92000 AND Salary < 117500`"),
-  answer("`...WHERE Salary >= 92000 AND Salary =< 117500 `", correct = TRUE),
+  answer("`...WHERE Salary >= 92000 AND Salary <= 117500`", correct = TRUE),
   answer("`...WHERE Salary IN (92000, 117500)`")
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
