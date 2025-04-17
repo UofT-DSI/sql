@@ -56,6 +56,38 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+Type 1:
+
+Each new entry overwrites the current address by customer_id
+last_updated keeps a log of when the last change was made.
+UPDATE statement used to replace old values
+
+CREATE TABLE CUSTOMER_ADDRESS (
+    customer_id integer [primary key]
+    address_unit varchar
+    address_number integer
+    address_name varchar
+    postal_code varchar
+    province varchar
+    country varchar
+    last_updated timestamp
+)
+
+Type 2:
+Each new entry is written into the table as the customer changes address
+entry_timestamp logs when the address was inserted
+INSERT INTO statement used to add values
+
+CREATE TABLE CUSTOMER_ADDRESS (
+    customer_id integer
+    address_unit varchar
+    address_number integer
+    address_name varchar
+    postal_code varchar
+    province varchar
+    country varchar
+    entry_timestamp timestamp
+)
 
 ***
 
