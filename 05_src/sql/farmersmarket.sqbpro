@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8502"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000002c900000295fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000000002c90000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00ffffff000002810000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="assignment1.sql" filename="C:/Users/Rituparna/SQL/sql-main/sql-main/02_activities/assignments/assignment1.sql">-- Reference to file &quot;C:/Users/Rituparna/SQL/sql-main/sql-main/02_activities/assignments/assignment1.sql&quot; (not supported by this version) --</sql><sql name="SQL 2*">-- INNER JOIN
+-- no alias INNER JOIN
+
+/* get product names alongside customer_purchases...only products that a customer has purchased will be present */
+SELECT 
+product_name, -- coming from product
+vendor_id, -- coming from cp...below
+market_date,
+customer_id,
+customer_purchases.product_id
+
+FROM customer_purchases
+INNER JOIN product
+	ON customer_purchases.product_id = product.product_id;
+	
+/* which vendor has sold products to a customer AND which product was it AND to whom was it sold ? */
+SELECT DISTINCT vendor_id, 
+product_id, 
+--customer_id -- this is dissatisfying...let's have a name!
+customer_first_name,
+customer_last_name
+
+FROM customer_purchases as cp
+INNER JOIN customer as c
+	ON cp.customer_id = c.customer_id
+rova
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
