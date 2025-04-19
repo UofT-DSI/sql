@@ -5,7 +5,7 @@ account: mrpotatocode
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14519703
-bundleId: 10114269
+bundleId: 10132601
 url: https://mrpotatocode.shinyapps.io/Self-Assessment-Session-2/
 version: 1
 asMultiple: FALSE
