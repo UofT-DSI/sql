@@ -105,6 +105,9 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
+The link to the diagram is here: 
+![alt text](drawio.png)
+
 ***
 
 ## Section 2:
@@ -120,16 +123,31 @@ Steps to complete this part of the assignment:
 
 #### SELECT
 1. Write a query that returns everything in the customer table.
+Select *
+From customer
 2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
-
+SELECT *
+FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10
 <div align="center">-</div>
 
 #### WHERE
 1. Write a query that returns all customer purchases of product IDs 4 and 9.
+SELECT *
+FROM customer_purchases
+WHERE product_id IN (4, 9)
+
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
-	2.  one condition using BETWEEN
+SELECT *, (quantity * cost_to_customer_per_qty) AS price
+FROM customer_purchases
+WHERE vendor_id >= 8 AND vendor_id <= 10
 
+	2.  one condition using BETWEEN
+SELECT *, (quantity * cost_to_customer_per_qty) AS price
+FROM customer_purchases
+WHERE vendor_id BETWEEN 8 AND 10
 <div align="center">-</div>
 
 #### CASE
