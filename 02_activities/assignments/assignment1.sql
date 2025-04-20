@@ -155,3 +155,6 @@ SELECT customer_id,
 FROM customer_purchases
 WHERE strftime('%Y', market_date) = '2022' AND strftime('%m', market_date) = '04'
 GROUP BY customer_id;
+
+
+/* completed8 */
