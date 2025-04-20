@@ -49,12 +49,12 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 
 select product_id, product_name, case WHEN product_qty_type='unit' then 'unit'
 									  else 'bulk.' end as prod_qty_type_condensed, case WHEN product_name like '%pepper%' THEN 1
-																						else 0 end as pepper_flag from product
+																						else 0 end as pepper_flag from product;
 --JOIN
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
 
-
+select v.*, vba.* from vendor v inner join vendor_booth_assignments vba on v.vendor_id=vba.vendor_id order by vendor_name, market_date;
 
 
 /* SECTION 3 */
@@ -63,7 +63,7 @@ vendor_id field they both have in common, and sorts the result by vendor_name, t
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 
-
+select distinct vendor_id, booth_number, count(distinct market_date) as no_of_days_booth_rented_by_vendor from vendor_booth_assignments group by vendor_id, booth_number order by vendor_id, booth_number;
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
 sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list 
@@ -71,9 +71,11 @@ of customers for them to give stickers to, sorted by last name, then first name.
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 
+With customer_id_data as (select distinct customer_id, sum(quantity*cost_to_customer_per_qty) as total_purchase from customer_purchases group by customer_id order by customer_id)
 
+select a.customer_id, a.total_purchase, concat(b.customer_first_name, ' ', b.customer_last_name) as customer_name from customer_id_data a left join customer b on a.customer_id=b.customer_id where a.total_purchase>2000 order by b.customer_last_name, b.customer_first_name;
 
---Temp Table
+-- Tempo Table
 /* 1. Insert the original vendor table into a temp.new_vendor and then add a 10th vendor: 
 Thomass Superfood Store, a Fresh Focused store, owned by Thomas Rosenthal
 
@@ -84,6 +86,16 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
+
+DROP TABLE IF EXISTS new_vendor;
+
+CREATE TEMP TABLE new_vendor AS select * from vendor;
+
+INSERT INTO new_vendor (vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+values (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
+
+select * from new_vendor
+
 
 
 
