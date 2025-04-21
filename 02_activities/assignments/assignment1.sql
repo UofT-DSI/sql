@@ -125,7 +125,6 @@ DROP TABLE IF EXISTS new_vendor;
 CREATE TABLE temp.new_vendor AS SELECT * FROM vendor;
 INSERT INTO temp.new_vendor
 VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
---SELECT * FROM new_vendor;
 
 
 -- Date
