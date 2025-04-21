@@ -126,12 +126,14 @@ VALUES(col1,col2,col3,col4,col5)
 */
 INSERT INTO new_vendor (vendor_id,vendor_name,vendor_type,vendor_owner_first_name,vendor_owner_last_name)
 VALUES (10,'Thomass Superfood Store','Fresh Focused store','Thomas','Rosenthal');
+
 -- Date
 /*1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
 
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
 and year are! */
 
+/* NAdeli: We were told not to do this part yet.*/
 
 
 /* 2. Using the previous query as a base, determine how much money each customer spent in April 2022. 
