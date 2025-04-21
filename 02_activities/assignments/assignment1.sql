@@ -30,11 +30,17 @@ filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
 */
+
 -- option 1
 
+SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE vendor_id >= 8 AND vendor_id <= 10;
 
 -- option 2
-
+ SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE vendor_id BETWEEN 8 AND 10;
 
 
 --CASE
@@ -43,11 +49,39 @@ Using the product table, write a query that outputs the product_id and product_n
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
 
+-- Get product_id and product_name
+
+SELECT 
+    product_id, 
+    product_name,
+    CASE 
+        WHEN product_qty_type = 'unit' THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed
+FROM product;
+
 
 
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
+
+-- Get product info
+-- Add a "condensed" qty type column
+-- Flag if product name contains "pepper" (1 = yes, 0 = no)
+
+SELECT 
+    product_id, 
+    product_name,
+    CASE 
+        WHEN product_qty_type = 'unit' THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed,
+    CASE 
+        WHEN LOWER(product_name) LIKE '%pepper%' THEN 1
+        ELSE 0
+    END AS pepper_flag
+FROM product;
 
 
 
@@ -55,7 +89,15 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
 
-
+SELECT 
+    vendor.vendor_id,
+    vendor_name,
+    market_date,
+    booth_id
+FROM vendor
+INNER JOIN vendor_booth_assignments
+    ON vendor.vendor_id = vendor_booth_assignments.vendor_id
+ORDER BY vendor_name, market_date;
 
 
 /* SECTION 3 */
@@ -64,6 +106,12 @@ vendor_id field they both have in common, and sorts the result by vendor_name, t
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 
+-- Count how many times each vendor has rented a booth
+SELECT 
+    vendor_id, 
+    COUNT(*) AS booth_rentals
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
@@ -85,8 +133,24 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
+-- Create a temp table from the vendor table
+CREATE TEMP TABLE new_vendor AS
+SELECT * FROM vendor;
 
-
+INSERT INTO new_vendor (
+    vendor_id, 
+    vendor_name, 
+    vendor_type, 
+    vendor_store_type, 
+    vendor_owner
+)
+VALUES (
+    10, 
+    'Thomass Superfood Store', 
+    'Fresh', 
+    'Focused', 
+    'Thomas Rosenthal'
+);
 
 
 -- Date
@@ -103,3 +167,4 @@ Remember that money spent is quantity*cost_to_customer_per_qty.
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement!! */
 
+-- Teacher said not to do the date part. 
