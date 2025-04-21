@@ -270,3 +270,5 @@ FROM customer_purchases
 WHERE STRFTIME('%m', purchase_date) = '04'
   AND STRFTIME('%Y', purchase_date) = '2022'
 GROUP BY customer_id
+
+
