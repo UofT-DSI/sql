@@ -54,7 +54,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Your answer... SCD type1 is required when keeping only current customer address where history of previous addresses is not required. SCD Type2 is required when keeping history is required for each customer by added new row for updated address. For this type (type2), it is good practice to have two column (start_date & end_date) showing the period each address was used by each customer.
 ```
 
 ***
