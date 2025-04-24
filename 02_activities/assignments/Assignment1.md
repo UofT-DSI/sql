@@ -61,7 +61,7 @@ There are 10 tables in the Main Window:
 7) vendor
 8) vendor_booth_assignments
 9) vendor_inventory
-10) zip_data
+10) postal_data
 
 Switch to the Browse Data tab, booth is selected by default
 

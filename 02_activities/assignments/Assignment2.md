@@ -43,7 +43,7 @@ Additionally, include a date table.
 
 There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
 
-**HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
+**HINT:** You do not need to create any data for this prompt. This is a logical model (ERD) only. 
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
