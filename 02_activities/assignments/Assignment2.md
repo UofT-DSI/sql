@@ -54,7 +54,13 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+With SDC Type1: where we overwrite the Addresses and do not keep any history; Here is the table schema:
+CUSTOMER_ADDRESS(customer_id, street, city, postal_code, country, updated_date)
+The updated_date in the type1 table will store the last updated_date. customer_id will be PK and any new address update will trigger the update query on the same row.
+
+With SDC Type2: where we create a new row for new addresses, hence storing the historical addresses. Here is the table schema:
+CUSTOMER_ADDRESS(address_id, customer_id, street, city, postal_code, country, inserted_date, is_currrent)
+In the type2 table, address_id will be PK, customer_id will be duplicate, inserted_date will be unique per customer and is_current boolean flag will specify the customer's current address. 
 ```
 
 ***
