@@ -45,8 +45,13 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+Answer: Please see image Bookstore-ERD-prompt1.jpg
+
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+Answer: Please see image Bookstore-ERD-prompt2.jpg
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -54,8 +59,22 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
+**Answer**:
+
+The CUSTOMER_ADDRESSS table could be stored into two tables, one with SCD type 1 and one with SCD type 2.
+
+Type 1 will overwrite the CUSTOMER_ADDRESS table when an update or an upsert operation is run. For this solution we must ensure the following columns are available.
+
+REC_CREATED_ON (DATETIME) - the date the record was initially created.
+REC_UPDATED_ON (DATETIME) - the most recent date the record was updated.
+
+The type 2 will deactivate the old record and store the new record. In this solution design we should consider three additional columns 
+
+REC_STATUS (VARCHAR) OR ACTIVE_REC_FLAG (BOOLEAN)- this to indicate whether this is the most recent/active record
+
+REC_EFFECTIVE_FROM (DATETIME) - this to indicate the day the record was created on or inserted on the table with REC_STATUS as "active"
+
+REC_EFFECTIVE_TO (DATETIME) - this to indicate the day the record was deactivated by turning the REC_STATUS = "inactive" on for audit tracking purposes.
 
 ***
 

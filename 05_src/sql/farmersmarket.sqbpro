@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="220"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="vendor" custom_title="0" dock_id="8" table="4,6:mainvendor"/><table title="vendor" custom_title="0" dock_id="7" table="4,6:mainvendor"/><table title="customer_purchases" custom_title="0" dock_id="4" table="4,18:maincustomer_purchases"/><table title="product" custom_title="0" dock_id="6" table="4,7:mainproduct"/><table title="market_date_info" custom_title="0" dock_id="3" table="4,16:mainmarket_date_info"/><table title="customer_purchases" custom_title="0" dock_id="9" table="4,18:maincustomer_purchases"/><dock_state state="000000ff00000000fd000000010000000200000451000002befc0100000002fc000000000000013a0000000000fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320000000000ffffffff0000000000000000fc00000000000004510000012d00fffffffa000000060100000007fb000000160064006f0063006b00420072006f00770073006500330100000000ffffffff0000012400fffffffb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012d00fffffffb000000160064006f0063006b00420072006f00770073006500350000000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500360100000000ffffffff0000011e00fffffffb000000160064006f0063006b00420072006f00770073006500370100000000ffffffff0000011800fffffffb000000160064006f0063006b00420072006f00770073006500380100000000ffffffff0000011800fffffffb000000160064006f0063006b00420072006f00770073006500390100000000ffffffff0000012d00ffffff000002700000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="77"/><column index="2" value="127"/><column index="3" value="125"/><column index="4" value="136"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="64"/><column index="3" value="85"/><column index="4" value="79"/><column index="5" value="55"/><column index="6" value="158"/><column index="7" value="103"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="market_date_info" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="85"/><column index="2" value="78"/><column index="3" value="85"/><column index="4" value="79"/><column index="5" value="113"/><column index="6" value="107"/><column index="7" value="84"/><column index="8" value="140"/><column index="9" value="111"/><column index="10" value="114"/><column index="11" value="105"/><column index="12" value="112"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="296"/><column index="3" value="117"/><column index="4" value="126"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="257"/><column index="3" value="234"/><column index="4" value="156"/><column index="5" value="154"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">SELECT * FROM customer 
+WHERE customer_last_name LIKE '%os%a%'
+LIMIT 100;
+--Selecting only 100 customers--
+
+SELECT DISTINCT customer_purchases.customer_id FROM customer_purchases
+
+SELECT *
+	,CASE WHEN customer_last_name LIKE &quot;%'%&quot;
+	THEN 'Has apos'
+	ELSE 'No'
+	END AS [has apostrophe]
+FROM customer;
+
+SELECT * FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
+
+SELECT * FROM customer_purchases cp
+WHERE 
+cp.product_id in (4,9)
+;
+
+/*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
+filtered by vendor IDs between 8 and 10 (inclusive) using either:
+	1.  two conditions using AND
+	2.  one condition using BETWEEN */
+
+SELECT *
+,([cost_to_customer_per_qty] * [quantity]) [price]
+FROM customer_purchases cp 
+WHERE cp.vendor_id &gt;=8 AND cp.vendor_id &lt;= 10;
+
+SELECT *
+,([cost_to_customer_per_qty] * [quantity]) [price]
+FROM customer_purchases cp 
+WHERE cp.vendor_id BETWEEN 8 AND 10;
+
+PRAGMA table_info(vendor)</sql><sql name="assignment1.sql" filename="C:/Users/shafa/sql/02_activities/assignments/assignment1.sql">-- Reference to file &quot;C:/Users/shafa/sql/02_activities/assignments/assignment1.sql&quot; (not supported by this version) --</sql><current_tab id="1"/></tab_sql></sqlb_project>
