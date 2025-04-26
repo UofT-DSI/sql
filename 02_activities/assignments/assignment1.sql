@@ -29,13 +29,6 @@ OR
 product_id = 9;
 
 
-/* query rows with the conditions*/
-
-SELECT * ;
-FROM product_id;
-WHERE product_id = 4 OR product_id = 9;
-
-
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
 filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
