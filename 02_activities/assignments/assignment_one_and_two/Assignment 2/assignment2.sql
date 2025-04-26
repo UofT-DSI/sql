@@ -211,7 +211,9 @@ This table will contain only products where the `product_qty_type = 'unit'`.
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
 
-CREATE TABLE product_units1 AS
+DROP TABLE IF EXISTS product_units;
+
+CREATE TABLE product_units AS
 SELECT 
     *,
     CURRENT_TIMESTAMP AS snapshot_timestamp
@@ -219,10 +221,12 @@ FROM product
 WHERE product_qty_type = 'unit';
 
 
+
+
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 
-INSERT INTO product_units1 (
+INSERT INTO product_units (
     product_id, 
     product_name, 
     product_size, 
@@ -246,7 +250,7 @@ VALUES (
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
-DELETE FROM product_units1
+DELETE FROM product_units
 WHERE product_name = 'Apple Pie'
   AND snapshot_timestamp < (
       SELECT MAX(snapshot_timestamp)
@@ -258,17 +262,17 @@ WHERE product_name = 'Apple Pie'
 /* 1.We want to add the current_quantity to the product_units table. 
 First, add a new column, current_quantity to the table using the following syntax. */
 
-ALTER TABLE product_units1
+ALTER TABLE product_units
 ADD current_quantity INT;
 
 
 
 /*  Then, using UPDATE, change the current_quantity equal to the last quantity value from the vendor_inventory details. */
-UPDATE product_units1
+UPDATE product_units
 SET current_quantity = (
     SELECT COALESCE(quantity, 0)
     FROM vendor_inventory vi
-    WHERE vi.product_id = product_units1.product_id
+    WHERE vi.product_id = product_units.product_id
     ORDER BY market_date DESC, vendor_id DESC
     LIMIT 1
 )
@@ -285,7 +289,6 @@ Third, SET current_quantity = (...your select statement...), remembering that WH
 Finally, make sure you have a WHERE statement to update the right row, 
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
-
 
 
 
