@@ -12,18 +12,11 @@ SELECT * FROM customer;
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
 sorted by customer_last_name, then customer_first_ name. */
 
-/* display all columns */
 SELECT * FROM customer;
-
-/* query 10 rows */
 SELECT *
 FROM customer
+ORDER BY customer_last_name ASC, customer_first_name ASC
 LIMIT 10;
-
-/* sort by customer_last_name, then customer_first_name */
-SELECT c1, c2, c3, c4, c5, c6, c7, c8, c9, c10
-FROM customer
-ORDER BY customer_last_name ASC, customer_first_name ASC;
 
 
 --WHERE
