@@ -45,8 +45,56 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+BOOK
+
+BookID (PK), Title, Author, Genre, Price, StockQuantity, ISBN, PublishDate
+
+CUSTOMER
+
+CustomerID (PK), FirstName, LastName, Email, PhoneNumber
+
+EMPLOYEE
+
+EmployeeID (PK), FirstName, LastName, StartDate, Position, Email, PhoneNumber
+
+ORDER
+
+OrderID (PK), CustomerID (FK), OrderDate, OrderStatus, EmployeeID (FK)
+
+SALES
+
+SalesID (PK), OrderID (FK), BookID (FK), Quantity, SalePrice
+
+DATE_DIMENSION
+
+DateID (PK), Date, DayOfWeek, Month, Quarter, Year
+
+Relationships:
+ORDER has many SALES.
+
+CUSTOMER can have many ORDERS.
+
+EMPLOYEE can assist with many ORDERS.
+
+BOOK appears in many SALES.
+
+DATE_DIMENSION connects to ORDER.OrderDate.
+
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+New Table:
+
+SHIFT
+
+ShiftID (PK), ShiftName (e.g., AM, PM), StartTime, EndTime
+
+Modify EMPLOYEE table or create an assignment table:
+
+EMPLOYEE_SHIFT
+
+EmployeeShiftID (PK), EmployeeID (FK),ShiftID (FK), ShiftDate (tie it to a day)
+
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -54,9 +102,29 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
+Table: CUSTOMER_ADDRESS_HISTORY
+
+CustomerAddressID (PK)
+
+CustomerID (FK)
+
+StreetAddress
+
+City
+
+State
+
+PostalCode
+
+Country
+
+StartDate
+
+EndDate
+
 Your answer...
 ```
-
+/var/folders/db/hpfj4gsd2gj7nffmyz4y0c380000gn/T/TemporaryItems/NSIRD_screencaptureui_lRnPjs/Screen Shot 2025-04-26 at 12.36.24.png
 ***
 
 ## Section 2:
