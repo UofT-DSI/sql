@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="10382"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="customer_purchases" custom_title="0" dock_id="2" table="4,18:maincustomer_purchases"/><dock_state state="000000ff00000000fd0000000100000002000002d300000234fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000000003ee0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000002d30000012700ffffff000002d30000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="111"/><column index="2" value="133"/><column index="3" value="300"/><column index="4" value="88"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="95"/><column index="2" value="157"/><column index="3" value="154"/><column index="4" value="168"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="84"/><column index="2" value="77"/><column index="3" value="97"/><column index="4" value="96"/><column index="5" value="66"/><column index="6" value="196"/><column index="7" value="126"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="84"/><column index="2" value="300"/><column index="3" value="114"/><column index="4" value="155"/><column index="5" value="132"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">--Select 1
+SELECT * 
+FROM customer;
+
+--Select 2
+SELECT * FROM customer
+ORDER by customer_last_name, customer_first_name
+LIMIT 10;
+
+--Where 1
+--option 1
+SELECT * 
+FROM customer_purchases
+WHERE product_id = 4 OR product_id = 9;
+
+--option 2
+SELECT *
+FROM customer_purchases
+WHERE product_id IN (4, 9);
+
+--Where 2
+--option 1
+SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE vendor_id &gt;= 8 AND vendor_id &lt;= 10;
+
+--option2
+SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE vendor_id BETWEEN 8 AND 10;
+
+--CASE
+--#1
+SELECT product_id, product_name,
+    CASE 
+        WHEN product_qty_type = 'unit' 
+		THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed
+FROM product;
+
+--#2
+SELECT product_id, product_name,
+    CASE 
+        WHEN product_qty_type = 'unit' 
+		THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed,
+	CASE
+		WHEN LOWER (product_name) LIKE '%pepper%'
+		THEN 1
+		ELSE 0
+	END AS pepper_flag
+FROM product;
+
+-- TRY AGAIN
+SELECT product_id, product_name,
+    CASE 
+        WHEN product_qty_type = 'unit' 
+		THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed,
+    CASE 
+        WHEN LOWER(product_name) LIKE '%pepper%' THEN 1
+        ELSE 0
+    END AS pepper_flag
+FROM product;
+
+
+
+
+
+
+
+
+
+
+
+
+</sql><sql name="SQL 2*">/* which vendor has sold products to a customer AND which product was it AND to whom was it sold ? */
+SELECT DISTINCT vendor_id, 
+product_id, 
+--customer_id -- this is dissatisfying...let's have a name!
+customer_first_name,
+customer_last_name
+
+FROM customer_purchases as cp
+INNER JOIN customer as c
+	ON cp.customer_id = c.customer_id;
+	
+-- Counting
+
+-- # of products
+
+SELECT COUNT (product_id) 
+FROM product;
+
+SELECT product_qty_type, COUNT (product_category_id) AS num_of_product
+FROM PRODUCT
+GROUP BY product_qty_type;
+
+-- how many products per type and size
+SELECT  product_size, product_qty_type,  COUNT (product_id) AS num_of_product
+FROM product
+group by product_size, product_qty_type;
+
+-- how many unique products bought?
+SELECT COUNT (DISTINCT product_id) AS BOUGHT_PRODUCTS
+FROM customer_purchases;
+
+-- Sum-Ave
+SELECT
+market_date,
+customer_id
+FROM
+customer_purchases
+
+
+
+
+
+
+
+</sql><current_tab id="1"/></tab_sql></sqlb_project>
