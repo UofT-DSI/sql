@@ -55,6 +55,78 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+
+Here's my proposal for two CUSTOMER_ADDRESS tables:
+
+TYPE 1 - This would overwrite changes to the customer address directly, it would not retain history, but would keep table record counts lean.
+
+In practice, a customer would have 1 record (not showing all fields):
+__________________________________
+| customer_id | customer_address | 
+|-------------|------------------|
+| 123         |Address1          | 
+
+
+When a new address is added (for example Address 2), the existing records is updated via UPDATE statement on the applicable address/country/postal etc. fields.
+
+
+After the update, it would look like:
+__________________________________
+| customer_id | customer_address | 
+|-------------|------------------|
+| 123         |Address2          | 
+
+
+The table itself would be:
+- customer_id (int)
+- customer_address (varchar (255))
+- customer_address_unit (varchar(80))
+- postal_zip (varchar(14))
+- state_province (varchar(3))
+- country (varchar(80))
+- country_code (varchar (3))
+
+
+
+TYPE 2 - This would add a new row/record for every new address a customer has. This would maintain existing rows for historical purposes. Compared to Type 1 proposition, this has two additional fields:
+    - effective_date would show when the new address is added
+    - current_flag would indicate if that records is the current address of the customer
+
+In practice, a customer could have 3 addresses (not showing all fields):
+__________________________________________________________________
+| customer_id | customer_address | effective_date | current_flag |
+|-------------|------------------|----------------|--------------|
+| 123         |Address1          | 2024-01-01     | NULL         |
+| 123         |Address2          | 2024-02-01     | NULL         |   
+| 123         |Address3          | 2025-01-01     | Y            |
+
+When a new address is added (for example Address 4):
+1. The existing current_flag would be changed to NULL for address 3
+2. A new record is inserted for customer 123 with Address 4, today's date, and current_flag = 'Y'
+
+After the update, it would look like:
+__________________________________________________________________
+| customer_id | customer_address | effective_date | current_flag |
+|-------------|------------------|----------------|--------------|
+| 123         |Address1          | 2024-01-01     | NULL         |
+| 123         |Address2          | 2024-02-01     | NULL         |   
+| 123         |Address3          | 2025-01-01     | NULL         |
+| 123         |Address4          | 2025-04-27     | Y            |
+
+
+The table itself would be:
+- customer_id (int)
+- customer_address (varchar (255))
+- customer_address_unit (varchar(80))
+- postal_zip (varchar(14))
+- state_province (varchar(3))
+- country (varchar(80))
+- country_code (varchar (3))
+- effective_date (date)
+- current_flag (varchar(1))
+
+
+
 ```
 
 ***
