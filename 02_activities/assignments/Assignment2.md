@@ -55,9 +55,10 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 To manage customer addresses, I propose two different architectures depending on whether the store wants to overwrite changes or retain address history. 
-    1. The first option is a simple design where each customer has one current address record, and any update to their address simply overwrites the existing information. This is known as a Type 1 Slowly Changing Dimension (SCD). It is straightforward, uses minimal storage, and does not retain historical address data. 
 
-    2. The second option involves creating a new record every time a customer changes their address, allowing the system to maintain a full history of all addresses associated with a customer. Each address entry would include additional fields such as a start date, end date, and a current indicator. This method is referred to as a Type 2 Slowly Changing Dimension (SCD). Although it requires more storage and slightly more complex management, it is valuable for maintaining a detailed record of a customers address history over time. 
+1. The first option is a simple design where each customer has one current address record, and any update to their address simply overwrites the existing information. This is known as a Type 1 Slowly Changing Dimension (SCD). It is straightforward, uses minimal storage, and does not retain historical address data. 
+
+2. The second option involves creating a new record every time a customer changes their address, allowing the system to maintain a full history of all addresses associated with a customer. Each address entry would include additional fields such as a start date, end date, and a current indicator. This method is referred to as a Type 2 Slowly Changing Dimension (SCD). Although it requires more storage and slightly more complex management, it is valuable for maintaining a detailed record of a customers address history over time. 
 ```
 
 ***
