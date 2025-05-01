@@ -124,6 +124,33 @@ EndDate
 
 Your answer...
 ```
+--Overwrite Old Data
+INSERT INTO CUSTOMER_ADDRESS (CustomerID, StreetAddress, City, State, PostalCode, Country)
+VALUES (101, '123 Main St', 'Springfield', 'IL', '62704', 'USA');
+
+UPDATE CUSTOMER_ADDRESS
+SET StreetAddress = '456 Elm St',
+    City = 'Chicago',
+    State = 'IL',
+    PostalCode = '60616',
+    Country = 'USA'
+WHERE CustomerID = 101
+
+
+--Retain Full History
+INSERT INTO CUSTOMER_ADDRESS_HISTORY (CustomerAddressID, CustomerID, StreetAddress, City, State, PostalCode, Country, StartDate, EndDate)
+VALUES (1, 101, '123 Main St', 'Springfield', 'IL', '62704', 'USA', '2024-01-01', NULL);
+
+UPDATE CUSTOMER_ADDRESS_HISTORY
+SET EndDate = '2025-04-29'
+WHERE CustomerID = 101 AND EndDate IS NULL;
+
+INSERT INTO CUSTOMER_ADDRESS_HISTORY (CustomerAddressID, CustomerID, StreetAddress, City, State, PostalCode, Country, StartDate, EndDate)
+VALUES (2, 101, '456 Elm St', 'Chicago', 'IL', '60616', 'USA', '2025-04-30', NULL);
+
+
+
+
 /var/folders/db/hpfj4gsd2gj7nffmyz4y0c380000gn/T/TemporaryItems/NSIRD_screencaptureui_lRnPjs/Screen Shot 2025-04-26 at 12.36.24.png
 ***
 
