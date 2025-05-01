@@ -24,7 +24,6 @@ SELECT
   product_name || ', ' || COALESCE(product_size, '') || ' (' || COALESCE(product_qty_type, 'unit') || ')'
 FROM product;
 
-
 --Windowed Functions
 /* 1. Write a query that selects from the customer_purchases table and numbers each customer’s  
 visits to the farmer’s market (labeling each market date with a different number). 
