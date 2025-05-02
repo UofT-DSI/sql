@@ -54,7 +54,10 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Two architectures for CUSTOMER_ADDRESS
+1.	SCD Type 1 – Overwrite Address – the address of the customer is updated in place when changed. No history is saved. 
+2.	SCD Type 2 – Track Address History – every time the customer address changes, a new row is added. The history is saved.  
+
 ```
 
 ***
