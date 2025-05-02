@@ -54,7 +54,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+SDC Type 1 is the model that will be overwritten. In Type 1, One customer will only have one address ID and it will be continuously overwritten as it is updated. In such case the customer ID is the primary key of the table.
+SDC Type 2 is the model that will retain old addresses. On Type 2, multiple address IDs could be tied to one customer. In this case the address ID is the primary key of the table.
+
 ```
 
 ***
