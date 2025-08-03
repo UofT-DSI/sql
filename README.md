@@ -11,6 +11,7 @@
 * [Requirements](#requirements)
 * [Resources](#resources)
   + [Concept Map](#concept-map)
+  + [Self Assessments](#self-assessments)
   + [Documents](#documents)
   + [Videos](#videos)
 * [Folder Structure](#folder-structure)
@@ -99,6 +100,11 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 
 ### Concept Map
 ![sql-concept-map.jpeg](https://github.com/UofT-DSI/sql/blob/main/SQL-concept-maps.jpg)
+
+### Self Assessments 
+- [Chinook DB](https://github.com/UofT-DSI/sql/blob/main/02_activities/self_assessment/chinook.db)
+- [Self Assessment 1](https://www.shinyapps.io/admin/#/application/14506790)
+- [Self Assessment 2](https://www.shinyapps.io/admin/#/application/14519703)
 
 ### Documents
 - [Cheatsheet](https://www.sqlitetutorial.net/sqlite-cheat-sheet/)
