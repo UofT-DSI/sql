@@ -10,6 +10,7 @@
 * [Schedule](#schedule)
 * [Requirements](#requirements)
 * [Resources](#resources)
+  + [Concept Map](#concept-map)
   + [Documents](#documents)
   + [Videos](#videos)
 * [Folder Structure](#folder-structure)
@@ -52,10 +53,10 @@ There are two assignments.
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
-  * **James Li** (he/him)  
-  [james.zefang.li@gmail.com](mailto:james.zefang.li@gmail.com)
-  * **Laura MacKew** (she/her)  
-  [lauramackew@gmail.com](mailto:lauramackew@gmail.com)
+  * **Edward Chen** (he/him)  
+  [edwardty.chen@utoronto.ca](mailto:edwardty.chen@utoronto.ca)
+  * **Moniz Chan** (she/her)  
+  [moniz.chan@utoronto.ca](mailto:moniz.chan@utoronto.ca)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
 
@@ -95,7 +96,9 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 * We encourage participants to default to having their camera on at all times, and turning the camera off only as needed. This will greatly enhance the learning experience for all participants and provides real-time feedback for the instructional team. 
 
 ## Resources
-Feel free to use the following as resources:
+
+### Concept Map
+![sql-concept-map.jpeg](https://github.com/UofT-DSI/sql/blob/main/SQL-concept-maps.jpg)
 
 ### Documents
 - [Cheatsheet](https://www.sqlitetutorial.net/sqlite-cheat-sheet/)
