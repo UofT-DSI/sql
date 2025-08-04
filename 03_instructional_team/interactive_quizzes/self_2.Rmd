@@ -71,6 +71,7 @@ quiz(
   answer("`...WHERE LastName EXISTS 'Mitch'`")
   ,allow_retry = TRUE
   ,random_answer_order = TRUE
+  ,correct = "Correct! It's worth mentioning that `LIKE '%Mitch'` works with the current set of names, but might be wrong in the future, if a 'McMitch' or similar were hired!"
   ),
   question("Which of the following WHERE clauses correctly filters results to show employees with a salary between $92,000 and $117,500?",
   answer("`...WHERE Salary BETWEEN 92000 AND 117500`", correct = TRUE),
@@ -91,7 +92,7 @@ quiz(
   question("Which of the following CASE statements are syntactically correct?",
   answer("`...CASE WHEN condition THEN result END`", correct = TRUE),
   answer("`...CASE result WHEN condition THEN END`"),
-  answer("`...CASE WHEN condition THEN result ELSE alternative_condition END`", correct = TRUE),
+  answer("`...CASE WHEN condition THEN result ELSE alternative_result END`", correct = TRUE),
   answer("`...CASE WHEN condition THEN result`"),
   answer("`...CASE condition WHEN result THEN END`")
   ,allow_retry = TRUE
