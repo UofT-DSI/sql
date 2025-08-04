@@ -33,34 +33,32 @@ $ echo "Data Sciences Institute"
 - Transitioned to Data Engineer at Plan Canada
 - Pursued Master of Information at UofT for R and Python focus
 - Currently working on AI Governance and Ethics at Dataiku
-- **_Have a 3 year old Samoyed named Alto who takes up a lot of my free time 👉_**
+- **_Have a 4 year old Samoyed named Alto who takes up a lot of my free time 👉_**
 
 ![bg right:40% w:350](./images/01_happy_alto.png)
 
 ---
 
-# About Us (James)
+# About Us (Edward)
 
-- UofT Engineering undergrad and master 🦫
-- Licensed engineer in an oil & gas company sending robots into pipelines 🤘
-- DSI cohort 3
-- Self-taught woodworking hobbyist 🪚
-- Real hobbies: motorcycle 🛵, leisure skating ⛸️, camping ⛺️
+- Graduated from the Master of Science in Applied Computing program at UofT
+- Currently working as a Research Analyst at the University Health Network
+- Will start PhD in Medical Biophysics at UofT in September
+- Have worked on creating course material for data science and machine learning at UofT
+- Hobbies: Gaming, Crochet, Archery
 
-![bg right:35% w:350](./images/01_james.png)
+![bg right:35% w:350](./images/01_edward.png)
 
 ---
 
-# About Us (Laura)
+# About Us (Moniz)
 
-- Over four years of experience in Full Stack Development creating database models and schemas as well as optimizing high-volume data workflows
-- Worked as a Teaching Assistant at York University in Statistics breaking down complex concepts and providing one-on-one support for technical challenges
-- Honours BSc in Psychology and survived a Web Development Bootcamp
-- DSI cohort 5
-- 7 years as a Research Analyst at the Centre for Addiction and Mental Health coordinating research studies, analyzing large datasets as well as created visualizations for clinical research (and co-authored a paper or 3)
-- Cat lover, research nerd and hairstyle chameleon 
+- Master in Biomedical Engineering 🎓
+- Project and Data Coordinator in Healthcare setting 🏥
+- DSI cohort 3 📈
+- Hobbies: camping 🏕️ travelling ✈️ and see the world
 
-![bg right:35% w:350](./images/01_laura.png)
+![bg right:35% w:350](./images/01_moniz.png)
 
 ---
 
@@ -97,7 +95,7 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_April2025): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Aug2025): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -169,7 +167,7 @@ $ echo "Data Sciences Institute"
 - Assignment 2: 70% of mark
 - Review rubrics for full details
 
-- Class Attendance: *not graded this cohort, come anyways!*
+- Class Attendance: *not graded, come anyways!*
   - Let myself or course support know if you are unable to attend a lesson
   - Code along!! Best way to learn.
 ---
@@ -584,7 +582,7 @@ multiple lines
       - *orders* refer to *products* that exist
   - Deleted records don't make data elsewhere meaningless
       - *customers* who have had *orders* can't be deleted without deleting the orders first
-      - *orders* referring to *products* can't be deleted without deleting the products first
+      - *products* associated with *orders* can't be deleted without deleting the orders first
 - The PK-FK relationship can sometimes feel a bit backwards: by establishing an FK we are determining what is allowed to happen!
 
 ---
@@ -858,7 +856,7 @@ We can create additional Many-to-Many relationships if we created a table includ
 - Add additional detail to the logical model by adding key type and column data type
 - Our (partial) Farmers Market database: 
   - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
-  - product_id (int) is a FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
+  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
   - market_date (date) is the PK for vendor_inventory
       - **why?** 💭💬 **Think, Pair, Share**
 

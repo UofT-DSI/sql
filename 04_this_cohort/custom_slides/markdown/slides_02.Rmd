@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2025 AS this_year, 'April' AS this_month`
+  - `SELECT 2025 AS this_year, 'August' AS this_month`
 
 <br>
 --

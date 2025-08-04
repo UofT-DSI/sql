@@ -32,7 +32,7 @@ $ echo "Data Sciences Institute"
 
 Prior to this, we've focused solely on retrieving values from tables:
 - Tables can also be manipulated with `INSERT`, `UPDATE`, and/or `DELETE`
-- _A word of warning...these commands are challening to undo and can be PERMANENT_ 😱
+- _A word of warning...these commands are challenging to undo and can be PERMANENT_ 😱
   - Generally, follow a policy that avoids altering data 
   - Make backups of tables before you run a query
   - Never hurts to test on a temporary table first!
@@ -468,6 +468,32 @@ No complex query is complete without at least one `CROSS JOIN`
     FROM people e
     LEFT JOIN people m ON e.manager_id = m.id
 ```    
+
+---
+
+# Self Joins
+
+| emp_id | name | manager_id  |
+|--------|------|-------------|
+| 1      | Peter Gibbons | 3  |
+| 2      | Michael Bolton | 1 |
+| 3      | Bill Lumbergh  |   | 
+| 4      | Milton Waddams | 3 |
+
+---
+
+# Self Joins
+
+| emp_id | name     | manager_name        |
+|--------|----------|---------------------|
+| 1      | Peter Gibbons | Bill Lumbergh  |
+| 2      | Michael Bolton | Peter Gibbons |
+| 3      | Bill Lumbergh  | null          | 
+| 4      | Milton Waddams | Bill Lumbergh |
+
+*Bill is Peter and Milton's boss.*
+
+*Peter is Michael's boss.* 📄📌📎🗃️
 
 ---
 

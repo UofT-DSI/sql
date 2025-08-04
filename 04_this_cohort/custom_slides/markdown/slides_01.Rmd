@@ -1,6 +1,6 @@
 ---
 title: |
-  ![](imgs/mrpotatocode_banner.png){width=7in}  
+  ![](imgs/mrpotatocode_banner_10.png){width=7in}  
 subtitle: "Introduction to Data Access and Storage"
 author: "Thomas Rosenthal - DSI @ UofT" 
 date: "Session 01"
@@ -98,12 +98,12 @@ class: left, top, inverse
   - SQL seemed like it was on its way out...NOPE, I was just wrong
 - Reluctant Data Scientist (*do we even need this model?*) 
   - Currently doing AI Governance and Ethics implementation at Dataiku
-- Have a 3 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
+- Have a 4 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
 ]
 
 .pull-right[
 
-<img src="imgs/happy_alto.png"
+<img src="imgs/fern_alto.png"
      height="500px"
      style="position:absolute; right:100px; top:130px;">
 
@@ -112,18 +112,18 @@ class: left, top, inverse
 ---
 
 class: left, top, inverse
-# About Us (James)
+# About Us (Edward)
 .pull-left[
-- UofT Engineering undergrad and master `r structure("\U1F9AB", class = "emoji")`
-- Licensed engineer in an oil & gas company sending robots into pipelines `r structure("\U1F918", class = "emoji")`
-- DSI cohort 3
-- Self-taught woodworking hobbyist `r structure("\U1FA9A", class = "emoji")`
-- Real hobbies: motorcycle `r structure("\U1F6F5", class = "emoji")`, leisure skating `r structure("\U26F8", class = "emoji")`, camping `r structure("\U26FA", class = "emoji")`
+- Graduated from the Master of Science in Applied Computing program at UofT
+- Currently working as a Research Analyst at the University Health Network
+- Will start PhD in Medical Biophysics at UofT in September
+- Have worked on creating course material for data science and machine learning at UofT
+- Hobbies: Gaming, Crochet, Archery
 ]
 
 .pull-right[
 
-<img src="imgs/james.png"
+<img src="imgs/edward.png"
      height="450px"
      style="position:absolute; right:100px; top:130px;">
 
@@ -132,20 +132,18 @@ class: left, top, inverse
 ---
 
 class: left, top, inverse
-# About Us (Laura)
+# About Us (Moniz)
 .pull-left[
-- Over four years of experience in Full Stack Development creating database models and schemas as well as optimizing high-volume data workflows
-- Worked as a Teaching Assistant at York University in Statistics breaking down complex concepts and providing one-on-one support for technical challenges
-- Honours BSc in Psychology and survived a Web Development Bootcamp
-- DSI cohort 5
-- 7 years as a Research Analyst at the Centre for Addiction and Mental Health coordinating research studies, analyzing large datasets as well as created visualizations for clinical research (and co-authored a paper or 3)
-- Cat lover, research nerd and hairstyle chameleon 
+- Master in Biomedical Engineering 🎓
+- Project and Data Coordinator in Healthcare setting 🏥
+- DSI cohort 3 📈
+- Hobbies: camping 🏕️ travelling ✈️ and see the world
 ]
 
 .pull-right[
 
-<img src="imgs/laura.png"
-     height="375px"
+<img src="imgs/moniz.png"
+     height="450px"
      style="position:absolute; right:100px; top:130px;">
 
 ]
@@ -203,7 +201,7 @@ class: left, top, inverse
 ### Course Tools
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_April2025): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Aug2025): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*

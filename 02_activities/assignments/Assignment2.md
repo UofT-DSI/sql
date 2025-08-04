@@ -3,7 +3,7 @@
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 #### Submission Parameters:
-* Submission Due Date: `April 27, 2025`
+* Submission Due Date: `August 17, 2025`
 * Weight: 70% of total grade
 * The branch name for your repo should be: `assignment-two`
 * What to submit for this assignment:
@@ -82,7 +82,7 @@ FROM product
 ```
 
 But wait! The product table has some bad data (a few NULL values). 
-Find the NULLs and then using COALESCE, replace the NULL with a blank for the first problem, and 'unit' for the second problem. 
+Find the NULLs and then using COALESCE, replace the NULL with a blank for the first column with nulls, and 'unit' for the second column with nulls. 
 
 **HINT**: keep the syntax the same, but edited the correct components with the string. The `||` values concatenate the columns into strings. Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. All the other rows will remain the same.
 
