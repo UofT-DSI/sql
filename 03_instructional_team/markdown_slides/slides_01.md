@@ -39,7 +39,7 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (James)
+# About Us (Edward)
 
 - Graduated from the Master of Science in Applied Computing program at UofT
 - Currently working as a Research Analyst at the University Health Network
@@ -51,7 +51,7 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Laura)
+# About Us (Moniz)
 
 - Master in Biomedical Engineering 🎓
 - Project and Data Coordinator in Healthcare setting 🏥
