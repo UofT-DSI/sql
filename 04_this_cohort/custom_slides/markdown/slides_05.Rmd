@@ -633,6 +633,7 @@ class: middle, center, inverse
 class: upper, left, inverse
 # Self Joins
 
+.pull-left.w45[
 - Self Joins are somewhat uncommon, but are the last type of possible join
 
 - They are useful for comparison:
@@ -641,8 +642,8 @@ class: upper, left, inverse
   
 - They can help with hierarchy
   - Child-to-Parent relationships 
-  
---
+
+<br>
 
 - The syntax is as we might expect:
 
@@ -654,6 +655,36 @@ class: upper, left, inverse
     FROM people e
     LEFT JOIN people m ON e.manager_id = m.id
 ```    
+]
+
+--
+
+.pull-right.w55[
+
+
+| emp_id | name | manager_id  |
+|--------|------|-------------|
+| 1      | Peter Gibbons | 3  |
+| 2      | Michael Bolton | 1 |
+| 3      | Bill Lumbergh  |   | 
+| 4      | Milton Waddams | 3 |
+
+<br>
+
+| emp_id | name     | manager_name        |
+|--------|----------|---------------------|
+| 1      | Peter Gibbons | Bill Lumbergh  |
+| 2      | Michael Bolton | Peter Gibbons |
+| 3      | Bill Lumbergh  | null          | 
+| 4      | Milton Waddams | Bill Lumbergh |
+
+.pull-right.w70[
+*Bill is Peter and Milton's boss.*
+
+*Peter is Michael's boss.* 📄📌📎🗃️
+]
+
+]
 
 ---
 
@@ -669,5 +700,8 @@ class: middle, center, inverse
 ```{r echo=FALSE}
 #library(renderthis)
 #renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_05.Rmd")
+
+##April 2025, Rmd render not working, use html instead
+#renderthis::to_pdf("~/Documents/GitHub/02-intro_sql/04_this_cohort/custom_slides/markdown/slides_05.html")
 
 ```
