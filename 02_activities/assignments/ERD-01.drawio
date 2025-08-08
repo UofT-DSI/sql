@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.7">
+  <diagram name="Page-1" id="wVqoXy-dvgbrVmqmg898">
+    <mxGraphModel dx="925" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oKOKhQD7-OJcF7SCPOgU-1" value="customer" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="160" y="220" width="160" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="oKOKhQD7-OJcF7SCPOgU-2" value="&lt;div&gt;customer ID, PK&lt;/div&gt;&lt;div&gt;customer name, NULL&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;address, NULL&lt;/span&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="oKOKhQD7-OJcF7SCPOgU-1" vertex="1">
+          <mxGeometry y="50" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="oKOKhQD7-OJcF7SCPOgU-3" value="&lt;span style=&quot;color: rgb(31, 35, 40); font-family: &amp;quot;Monaspace Neon&amp;quot;, ui-monospace, SFMono-Regular, &amp;quot;SF Mono&amp;quot;, Menlo, Consolas, &amp;quot;Liberation Mono&amp;quot;, monospace; font-size: 13.6px; text-align: start; white-space-collapse: break-spaces; background-color: rgba(129, 139, 152, 0.12);&quot;&gt;customer_purchases&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;snapToPoint=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="230" width="180" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="oKOKhQD7-OJcF7SCPOgU-4" value="&lt;div&gt;product ID, FK, NOT NULL&lt;/div&gt;&lt;div&gt;customer ID, NOT NULL&lt;/div&gt;&lt;div&gt;transaction date, NOT NULL&lt;/div&gt;&lt;div&gt;transaction time, NOT NULL&lt;/div&gt;&lt;div&gt;quantity, NOT NULL&lt;/div&gt;&lt;div&gt;unit price, NOT NULL&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="oKOKhQD7-OJcF7SCPOgU-3" vertex="1">
+          <mxGeometry y="50" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q7WGcW0kNlbvszsN_YS7-1" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;rounded=0;entryX=0.003;entryY=0.083;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.033;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="q7WGcW0kNlbvszsN_YS7-7" target="oKOKhQD7-OJcF7SCPOgU-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="264" y="290" as="sourcePoint" />
+            <mxPoint x="455" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q7WGcW0kNlbvszsN_YS7-6" value="&lt;font style=&quot;font-size: 25px; color: rgb(0, 0, 255);&quot;&gt;&lt;b&gt;Farmer&#39;s Market Logical Data Model&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="650" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="q7WGcW0kNlbvszsN_YS7-7" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="320" y="260" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q7WGcW0kNlbvszsN_YS7-8" value="0:Many" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="415" y="260" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
