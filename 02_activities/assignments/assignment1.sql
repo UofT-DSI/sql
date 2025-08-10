@@ -4,18 +4,27 @@
 
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
+SELECT*
+FROM customer;
 
 
 
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
 sorted by customer_last_name, then customer_first_ name. */
+SELECT*
+FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
 
 
 
 --WHERE
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. */
 -- option 1
+SELECT*
 
+FROM customer_purchases
+WHERE product_id=4 OR product_id=9;
 
 -- option 2
 
@@ -30,6 +39,18 @@ filtered by vendor IDs between 8 and 10 (inclusive) using either:
 
 
 -- option 2
+SELECT
+product_id,
+vendor_id,
+market_date,
+customer_id,
+quantity,
+cost_to_customer_per_qty,
+transaction_time,
+quantity*cost_to_customer_per_qty AS price
+FROM customer_purchases
+
+WHERE vendor_id BETWEEN 8 AND 10;
 
 
 
@@ -39,17 +60,42 @@ Using the product table, write a query that outputs the product_id and product_n
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
 
+SELECT product_id, product_name, 
+CASE 
+	WHEN product_qty_type ='unit' THEN 'unit'
+	ELSE 'bulk'
+END AS prod_qty_type_condensed
+
 
 
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
+,CASE
+	WHEN product_name LIKE '%pepper%' THEN '1'
+	ELSE '0'
+END AS pepper_flag
+
+FROM product;
 
 
 
 --JOIN
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
+SELECT
+vendor_name,
+vendor_type,
+vendor_owner_first_name,
+vendor_owner_last_name,
+booth_number,
+market_date
+
+FROM vendor
+INNER JOIN vendor_booth_assignments 
+ON vendor.vendor_id=vendor_booth_assignments.vendor_id
+
+ORDER BY vendor_name, market_date;
 
 
 
@@ -60,6 +106,11 @@ vendor_id field they both have in common, and sorts the result by vendor_name, t
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 
+SELECT 
+vendor_id,
+COUNT(vendor_id) AS vendor_booth_rent_times
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
@@ -67,6 +118,25 @@ sticker to everyone who has ever spent more than $2000 at the market. Write a qu
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
+SELECT
+customer_last_name,
+customer_first_name,
+customer_postal_code,
+x.amount_spent /*x indicated condensed customer_purchases based on the amount each customer has ever spent */
+
+FROM customer
+INNER JOIN(
+
+SELECT
+customer_id,
+SUM(quantity*cost_to_customer_per_qty) AS amount_spent
+
+FROM customer_purchases
+
+GROUP BY customer_id
+HAVING amount_spent > 2000.0) x
+ON customer.customer_id=x.customer_id
+ORDER BY customer_last_name, customer_first_name;
 
 
 
@@ -81,6 +151,22 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
+
+-- if a table named new_vendor exists, delete it, other do NOTHING
+
+DROP TABLE IF EXISTS temp.new_vendor;
+
+
+--make the TABLE
+CREATE TABLE temp.new_vendor AS
+
+-- definition of the TABLE
+SELECT * 
+
+FROM vendor
+
+INSERT INTO new_vendor(vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name) VALUES (10, 'Thomass_Superfood_Store', 'Fresh_Focused_store', 'Thomas', 'Rosenthal');
+
 
 
 
