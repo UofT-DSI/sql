@@ -25,7 +25,9 @@ FROM customer_purchases
 WHERE product_id = 4 OR product_id = 9;
 
 -- option 2
-
+SELECT *
+FROM customer_purchases
+WHERE product_id IN (4,9);
 
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
@@ -36,25 +38,23 @@ filtered by vendor IDs between 8 and 10 (inclusive) using either:
 -- option 1
 SELECT *, (quantity * cost_to_customer_per_qty) AS price
 FROM customer_purchases
-WHERE (vendor_id >= 8 AND vendor_id <= 10)
-GROUP BY *;
+WHERE (vendor_id >= 8 AND vendor_id <= 10);
 
 -- option 2
 
 SELECT *, (quantity * cost_to_customer_per_qty) AS price
 FROM customer_purchases
-WHERE vendor_id BETWEEN 8 AND 10
-GROUP BY *;
+WHERE vendor_id BETWEEN 8 AND 10;
 
 --CASE
 /* 1. Products can be sold by the individual unit or by bulk measures like lbs. or oz. 
 Using the product table, write a query that outputs the product_id and product_name
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
-SELECT product_id, product_name 
+SELECT product_id, product_name, 
 	CASE
 		WHEN product_qty_type = 'unit' THEN 'unit'
-		WHEN product_qty_type = 'bulk' THEN 'bulk'
+		ELSE 'bulk'
 	END AS prod_qty_type_condensed
 FROM product;
 
@@ -62,18 +62,20 @@ FROM product;
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
-SELECT product_id, product_name, prod_qty_type_condensed
+SELECT product_id, product_name,
 	CASE 
-	WHEN product_name 
+		WHEN product_name LIKE '%pepper%' THEN 1
+		ELSE 0
 	END AS pepper_flag
+FROM product
 
 
 --JOIN
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by vendor_name, then market_date. */
 SELECT *
-FROM vendor
-INNER JOIN vendor_booth_assignments USING vendor_id
+FROM vendor AS v
+INNER JOIN vendor_booth_assignments AS vba ON  v.vendor_id = vba.vendor_id
 ORDER BY vendor_name, market_date;
 
 
@@ -94,12 +96,12 @@ of customers for them to give stickers to, sorted by last name, then first name.
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 
-SELECT c.customer_first_name, c.customer_last_name, cp.customer_id, SUM(cp.quantity * cp.cost_to_customer_per_qty) AS total_purchases, 
+SELECT customer_first_name, customer_last_name, SUM(quantity * cost_to_customer_per_qty) AS spent_over_2K
 FROM customer_purchases AS cp
-INNER JOIN customers AS c USING customer_id
-GROUP BY c.customer_first_name. c.customer_last_name, cp.customer_id
-HAVING total_purchases > 2000
-ORDER BY c.customer_last_name, c.customer_first_name
+INNER JOIN customer AS c ON c.customer_id = cp.customer_id
+GROUP BY customer_first_name, customer_last_name
+HAVING spent_over_2K > 2000
+ORDER BY customer_last_name, customer_first_name;
 
 
 
@@ -114,6 +116,15 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
+
+DROP TABLE IF EXISTS temp.new_vendor;
+
+CREATE TABLE temp.new_vendor AS
+SELECT *
+FROM vendor;
+
+INSERT INTO temp.new_vendor
+VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
 
 
 
