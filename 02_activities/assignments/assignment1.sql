@@ -98,7 +98,12 @@ sticker to everyone who has ever spent more than $2000 at the market. Write a qu
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
-
+SELECT customer_last_name, customer_first_name, SUM(quantity * cost_to_customer_per_qty) AS total_spent
+	FROM customer c
+		LEFT JOIN customer_purchases cp ON c.customer_id = cp.customer_id
+	GROUP BY c.customer_id
+	HAVING total_spent > 2000
+	ORDER BY customer_last_name, customer_first_name;		
 
 
 --Temp Table
@@ -112,7 +117,10 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
-
+CREATE TABLE temp.new_vendor AS
+	SELECT * FROM vendor;
+INSERT INTO temp.new_vendor (vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+	VALUES (10, 'Thomas Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
 
 
 -- Date
