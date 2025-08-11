@@ -48,7 +48,7 @@ By default, DB Browser for SQLite has three windows, with four tabs in the main 
 	- Switch this to DB Schema tab (very bottom)
 
 Your screen should look like this (or very similar)
-![db_browser_for_sqlite.png](./images/01_db_browser_for_sqlite.png)
+
 
 #### 3) The farmersmarket.db
 There are 10 tables in the Main Window:
@@ -104,9 +104,8 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- These are the tables that are connected
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
-
 ***
-
+file:///C:/Users/Omega7/Desktop/sql_1/assignment1/sql/SQL%201.pdf
 ## Section 2:
 You can start this section following *session 2*.
 
@@ -120,28 +119,67 @@ Steps to complete this part of the assignment:
 
 #### SELECT
 1. Write a query that returns everything in the customer table.
+SELECT *
+FROM customer;
 2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
-
+SELECT *
+FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
 <div align="center">-</div>
 
 #### WHERE
 1. Write a query that returns all customer purchases of product IDs 4 and 9.
+SELECT *
+FROM customer_purchases
+WHERE product_id IN (4, 9);
+
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
+SELECT *
+FROM vendor_inventory
+WHERE quantity>5 and original_price>5;
 
+SELECT customer_id
+FROM customer_purchases
+WHERE quantity>2.5 and cost_to_customer_per_qty>2.5;
+
+SELECT customer_id
+FROM customer_purchases
+WHERE quantity BETWEEN 2.5 AND 3.5;
 <div align="center">-</div>
 
 #### CASE
 1. Products can be sold by the individual unit or by bulk measures like lbs. or oz. Using the product table, write a query that outputs the `product_id` and `product_name` columns and add a column called `prod_qty_type_condensed` that displays the word “unit” if the `product_qty_type` is “unit,” and otherwise displays the word “bulk.”
-
+SELECT product_id,product_name,
+ CASE WHEN product_qty_type = 'unit' THEN 'unit'
+      ELSE 'bulk'
+ END AS prod_qty_type_condensed
+FROM product;
 2. We want to flag all of the different types of pepper products that are sold at the market. Add a column to the previous query called `pepper_flag` that outputs a 1 if the product_name contains the word “pepper” (regardless of capitalization), and otherwise outputs 0.
-
+ELECT product_id,product_name,
+CASE WHEN LOWER(product_name) LIKE '%pepper%' THEN 1
+        ELSE 0
+END AS pepper_flag
+FROM product;
 <div align="center">-</div>
 
 #### JOIN
 1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `vendor_name`, then `market_date`.
 
+SELECT   v.vendor_name,
+    vba.market_date,
+   
+    v.*,
+    vba.*
+FROM
+    vendor v
+INNER JOIN
+    vendor_booth_assignments vba ON v.vendor_id = vba.vendor_id
+ORDER BY
+    v.vendor_name ASC,
+    vba.market_date ASC;
 ***
 
 ## Section 3:
@@ -157,9 +195,28 @@ Steps to complete this part of the assignment:
 
 #### AGGREGATE
 1. Write a query that determines how many times each vendor has rented a booth at the farmer’s market by counting the vendor booth assignments per `vendor_id`.
+
+SELECT vendor_id,
+    COUNT(*) AS booth_rental_count
+FROM vendor_booth_assignments
+GROUP BY vendor_id
+ORDER BY booth_rental_count DESC;
+
 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list of customers for them to give stickers to, sorted by last name, then first name.
    
 **HINT**: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword.
+
+SELECT 
+    c.customer_id,
+    SUM(cp.quantity) AS TotalSpent
+FROM customer AS c
+JOIN customer_purchases AS cp
+    ON c.customer_id = cp.customer_id
+GROUP BY 
+    c.customer_id
+HAVING TotalSpent > 2000
+ORDER BY 
+    c.customer_id;
 
 <div align="center">-</div>
 
@@ -176,8 +233,19 @@ To insert the new row use VALUES, specifying the value you want for each column:
 #### Date
 1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
    
+   CREATE TABLE temp.new_vendor AS
+SELECT *
+FROM vendor;
+INSERT INTO temp.new_vendor (vendor_id, vendor_name, vendor_type, owner_first_name, owner_last_name)
+VALUES (10, 'Thomass Superfood Store', 'Fresh Focused store', 'Thomas', 'Rosenthal');
+	
 **HINT**: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month and year are!
 
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
    
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
+SELECT 
+    customer_id,
+    strftime('%m', purchase_date) AS month,
+    strftime('%Y', purchase_date) AS year
+FROM customer_purchases;
