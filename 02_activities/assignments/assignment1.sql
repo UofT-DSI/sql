@@ -96,11 +96,11 @@ of customers for them to give stickers to, sorted by last name, then first name.
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 
-SELECT customer_first_name, customer_last_name, SUM(quantity * cost_to_customer_per_qty) AS spent_over_2K
+SELECT cp.customer_id, customer_first_name, customer_last_name, SUM(quantity * cost_to_customer_per_qty) AS spent_over_2K
 FROM customer_purchases AS cp
 INNER JOIN customer AS c ON c.customer_id = cp.customer_id
-GROUP BY customer_first_name, customer_last_name
-HAVING spent_over_2K > 2000
+GROUP BY cp.customer_id, customer_first_name, customer_last_name
+HAVING SUM(quantity * cost_to_customer_per_qty) > 2000
 ORDER BY customer_last_name, customer_first_name;
 
 
