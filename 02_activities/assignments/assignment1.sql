@@ -76,8 +76,8 @@ CASE WHEN product_qty_type = 'unit' THEN 'unit'
 	ELSE 'bulk'
 END AS product_qty_type_condensed,
 
-CASE WHEN product_name LIKE '%pepper%' THEN '1'
-	ELSE '0'
+CASE WHEN LOWER(product_name) LIKE '%pepper%' THEN 1
+	ELSE 0
 END AS pepper_flag
 	
 FROM product;
@@ -124,13 +124,13 @@ of customers for them to give stickers to, sorted by last name, then first name.
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 SELECT 
 	cp.customer_id,
-	c.customer_last_name,
 	c.customer_first_name,
+	c.customer_last_name,
 	ROUND (SUM (cp.quantity * cp.cost_to_customer_per_qty),2) AS customer_spending
 FROM customer_purchases AS cp
 INNER JOIN customer AS c
 	ON cp.customer_id = c.customer_id
-GROUP BY cp.customer_id, c.customer_last_name, c.customer_last_name
+GROUP BY cp.customer_id, c.customer_first_name, c.customer_last_name
 HAVING customer_spending > 2000
 ORDER BY customer_last_name ASC, customer_first_name ASC;
 
@@ -181,4 +181,5 @@ Remember that money spent is quantity*cost_to_customer_per_qty.
 
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement!! */
+
 
