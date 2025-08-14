@@ -55,7 +55,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 type 1 = overwrite
+-- Updates the dimension record with the new value, overwriting the old value, does not save the old values
 type 2 = keep full history
+-- Inserts a new record for each change, preserving the old one. Full history retained
 ```
 
 ***
