@@ -106,22 +106,35 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 "best day" and "worst day"; 
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
-DROP  TABLE IF EXISTS temp_sales;
-CREATE  TEMP TABLE temp_sales AS
+WITH 
+daily_sales AS (
 	SELECT 
-		*,
-		SUM(quantity * cost_to_customer_per_qty) as sales
+		market_date,
+		SUM(quantity * cost_to_customer_per_qty) as sales_per_day
 	FROM customer_purchases
-	GROUP BY market_date;
+	GROUP BY market_date
+	),
+ best_worst_daily_sales AS (
+	SELECT
+		market_date,
+		sales_per_day,
+		RANK() OVER (ORDER BY sales_per_day DESC) as best_rank,
+		RANK() OVER (ORDER BY sales_per_day ASC) as worst_rank
+	FROM daily_sales
+)
 SELECT
-	*,
-	MAX(sales) as best_sales
-FROM temp_sales
-UNION
+	market_date,
+	sales_per_day,
+	'best day' as sales_day_quantifier
+FROM best_worst_daily_sales
+WHERE best_rank = 1
+UNION ALL
 SELECT
-	*,
-	MIN(sales) as worst_sales
-FROM temp_sales;
+	market_date,
+	sales_per_day,
+	'worst day' as sales_day_quantifier
+FROM best_worst_daily_sales
+WHERE worst_rank = 1;
 
 /* SECTION 3 */
 
@@ -135,18 +148,27 @@ Remember, CROSS JOIN will explode your table rows, so CROSS JOIN should likely b
 Think a bit about the row counts: how many distinct vendors, product names are there (x)?
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
+WITH
+customer_count AS
+(SELECT 
+	count(*) as customers
+FROM customer
+),
+vendor_product_price AS
+(SELECT 
+	DISTINCT vendor_id, product_id, original_price
+FROM vendor_inventory
+)
+SELECT 
+	v.vendor_name, 
+	p.product_name, 
+	(vpp.original_price * 5 * customers) as sold
+FROM vendor_product_price as vpp
+JOIN product as p on vpp.product_id = p.product_id
+JOIN vendor as v on vpp.vendor_id = v.vendor_id
+CROSS JOIN customer_count
 
-SELECT v.vendor_name, p.product_name, SUM(vic.original_price * 5 )as sold
-FROM	
-	(SELECT 
-		DISTINCT vendor_id, product_id, original_price, customer_id
-	FROM vendor_inventory
-	CROSS JOIN customer) as vic
-JOIN product as p on vic.product_id = p.product_id
-JOIN vendor as v on vic.vendor_id = v.vendor_id
-GROUP BY v.vendor_name, p.product_name;
 
--- INSERT
 /*1.  Create a new table "product_units". 
 This table will contain only products where the `product_qty_type = 'unit'`. 
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
