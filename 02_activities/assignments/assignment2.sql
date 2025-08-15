@@ -20,6 +20,9 @@ The `||` values concatenate the columns into strings.
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
 All the other rows will remain the same.) */
 
+SELECT 
+product_name || ', ' || coalesce(product_size, '')|| ' (' || coalesce(product_qty_type, 'unit') || ')'
+FROM product;
 
 
 --Windowed Functions
@@ -32,18 +35,47 @@ each new market date for each customer, or select only the unique market dates p
 (without purchase details) and number those visits. 
 HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 
+SELECT 
+	customer_id,
+	market_date,
+	dense_rank() OVER (
+		PARTITION BY customer_id
+		ORDER BY market_date
+		) AS visit_number
+FROM customer_purchases
+ORDER BY customer_id, market_date;
+
+
 
 
 /* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
 only the customer’s most recent visit. */
-
+SELECT 
+	customer_id,
+	market_date,
+	dense_rank() OVER (
+		PARTITION BY customer_id
+		ORDER BY market_date
+		) AS visit_number
+FROM customer_purchases
+ORDER BY customer_id, market_date DESC;
 
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
-
-
+SELECT 
+	customer_id,
+	product_id,
+	market_date,
+	quantity,
+	COUNT (*) OVER (
+		PARTITION BY customer_id, product_id
+	) AS times_purchased
+		
+		
+FROM customer_purchases
+ORDER BY customer_id, market_date;
 
 -- String manipulations
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
@@ -56,6 +88,15 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 | Habanero Peppers - Organic | Organic     |
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
+
+SELECT 
+    product_name,
+    CASE 
+        WHEN INSTR(product_name, '-') > 0 
+        THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') + 1))
+        ELSE NULL
+    END AS description
+FROM product;
 
 
 
@@ -70,7 +111,31 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
 
+WITH daily_sales AS (
+	SELECT
+		market_date,
+		SUM(quantity * cost_to_customer_per_qty) AS total_sales
+	FROM customer_purchases
+),
+ranked_sales AS (
+	SELECT
+		market_date,
+		total_sales,
+		RANK() OVER (ORDER BY total_sales DESC) AS best_rank,
+		RANK() OVER (ORDER BY total_sales ASC) AS worst_rank
+	FROM daily_sales
+)
 
+SELECT market_date, total_sales, 'Best Day' AS label
+FROM ranked_sales
+WHERE best_rank = 1
+
+UNION
+
+-- Lowest sales day
+SELECT market_date, total_sales, 'Worst Day' AS label
+FROM ranked_sales
+WHERE worst_rank = 1;
 
 
 /* SECTION 3 */
@@ -88,11 +153,13 @@ Before your final group by you should have the product of those two queries (x*y
 
 
 
+
 -- INSERT
 /*1.  Create a new table "product_units". 
 This table will contain only products where the `product_qty_type = 'unit'`. 
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
+
 
 
 
