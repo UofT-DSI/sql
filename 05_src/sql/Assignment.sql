@@ -43,7 +43,9 @@ FROM product;
 -- JOIN Q1
 SELECT vendor_name, market_date FROM vendor
 INNER JOIN vendor_booth_assignments
-ON vendor.vendor_id = vendor_booth_assignments.vendor_id;
+ON vendor.vendor_id = vendor_booth_assignments.vendor_id
+-- added sorting after @monzchan comment on assignment 1
+ORDER BY vendor_name,market_date; 
 
 
 -- -----------------ASSIGNMENT SECTION 3-------------------------
