@@ -332,3 +332,5 @@ WHERE EXISTS (
     FROM last_qty
     WHERE last_qty.product_id = product_units.product_id
 );
+
+--
