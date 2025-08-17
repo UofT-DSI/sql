@@ -56,6 +56,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+Type 1 overwrites existing data while Type 2 adds a new row for each change preserving history.
 
 ***
 
