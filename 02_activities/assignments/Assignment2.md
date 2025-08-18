@@ -55,6 +55,27 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+
+Option 1 – Overwrite
+
+One record per customer in CUSTOMER_ADDRESS.
+
+When a customer changes their address, the row is updated with the new information.
+
+No history of previous addresses is kept.
+
+This is Type 1 Slowly Changing Dimension 
+
+Option 2 – Retain Changes (History)
+
+Multiple records per customer in CUSTOMER_ADDRESS.
+
+Each address has start_date and end_date columns.
+
+When a customer moves, a new record is inserted with the new address, and the old record is marked inactive by setting end_date.
+
+This is Type 2 Slowly Changing Dimension.
+
 ```
 
 ***
