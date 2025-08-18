@@ -120,15 +120,46 @@ Steps to complete this part of the assignment:
 
 #### SELECT
 1. Write a query that returns everything in the customer table.
-2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
 
+SELECT *
+FROM customer;
+2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
+SELECT *
+FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
 <div align="center">-</div>
 
 #### WHERE
 1. Write a query that returns all customer purchases of product IDs 4 and 9.
+
+SELECT *
+FROM customer_purchases
+WHERE product_id IN (4, 9);
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
+	SELECT 
+    customer_id,
+    product_id,
+    vendor_id,
+    quantity,
+    cost_to_customer_per_qty,
+    (quantity * cost_to_customer_per_qty) AS price
+FROM purchases
+WHERE vendor_id >= 8
+  AND vendor_id <= 10;
+
+
 	2.  one condition using BETWEEN
+SELECT 
+    customer_id,
+    product_id,
+    vendor_id,
+    quantity,
+    cost_to_customer_per_qty,
+    (quantity * cost_to_customer_per_qty) AS price
+FROM purchases
+WHERE vendor_id BETWEEN 8 AND 10;
 
 <div align="center">-</div>
 
@@ -141,6 +172,17 @@ Steps to complete this part of the assignment:
 
 #### JOIN
 1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `vendor_name`, then `market_date`.
+SELECT 
+    v.vendor_id,
+    v.vendor_name,
+    vb.market_date,
+    vb.booth_number
+FROM vendor v
+INNER JOIN vendor_booth_assignments vb
+    ON v.vendor_id = vb.vendor_id
+ORDER BY 
+    v.vendor_name,
+    vb.market_date;
 
 ***
 
@@ -160,6 +202,12 @@ Steps to complete this part of the assignment:
 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list of customers for them to give stickers to, sorted by last name, then first name.
    
 **HINT**: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword.
+SELECT 
+    vendor_id,
+    COUNT(*) AS booth_rentals
+FROM vendor_booth_assignments
+GROUP BY vendor_id
+ORDER BY booth_rentals DESC;
 
 <div align="center">-</div>
 
@@ -170,6 +218,11 @@ Steps to complete this part of the assignment:
 
 To insert the new row use VALUES, specifying the value you want for each column:  
 `VALUES(col1,col2,col3,col4,col5)`
+CREATE TABLE temp.new_vendor AS
+SELECT *
+FROM vendor;
+INSERT INTO temp.new_vendor (vendor_id, vendor_name, store_type, owner_name, other_column)
+VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas Rosenthal', NULL);
 
 <div align="center">-</div>
 
@@ -177,7 +230,33 @@ To insert the new row use VALUES, specifying the value you want for each column:
 1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
    
 **HINT**: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month and year are!
+SELECT 
+    customer_id,
+    CASE strftime('%m', purchase_date)
+        WHEN '01' THEN 'January'
+        WHEN '02' THEN 'February'
+        WHEN '03' THEN 'March'
+        WHEN '04' THEN 'April'
+        WHEN '05' THEN 'May'
+        WHEN '06' THEN 'June'
+        WHEN '07' THEN 'July'
+        WHEN '08' THEN 'August'
+        WHEN '09' THEN 'September'
+        WHEN '10' THEN 'October'
+        WHEN '11' THEN 'November'
+        WHEN '12' THEN 'December'
+    END AS purchase_month,
+    strftime('%Y', purchase_date) AS purchase_year
+FROM customer_purchases;
 
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
    
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
+SELECT 
+    customer_id,
+    SUM(quantity * cost_to_customer_per_qty) AS total_spent
+FROM customer_purchases
+WHERE strftime('%Y', purchase_date) = '2022'
+  AND strftime('%m', purchase_date) = '04'
+GROUP BY customer_id
+ORDER BY total_spent DESC;
