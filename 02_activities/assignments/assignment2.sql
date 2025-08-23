@@ -59,9 +59,6 @@ Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR w
 
 
 
-/* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
-
-
 
 -- UNION
 /* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
