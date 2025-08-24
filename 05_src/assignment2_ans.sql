@@ -69,11 +69,9 @@ ORDER by customer_id;
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
-SELECT cp.customer_id, cp.product_id, cp.market_date, count(DISTINCT date(cp2.market_date)) as total_customer_purchases
-FROM customer_purchases cp
-JOIN customer_purchases cp2
-ON cp.customer_id = cp2.customer_id AND cp.product_id = cp2.product_id
-GROUP BY cp.customer_id, cp.product_id, cp.market_date;
+SELECT customer_id, product_id, market_date, COUNT(*) OVER (PARTITION BY customer_id, product_id) AS total_customer_purchases
+FROM customer_purchases;
+
 
 -- String manipulations
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
@@ -147,8 +145,7 @@ How many customers are there (y).
 Before your final group by you should have the product of those two queries (x*y).  */
 
 
-SELECT v.vendor_name, p.product_name, 
-coalesce(v2.original_price,0) * 5 * (SELECT count(*) FROM customer) AS revenue
+SELECT v.vendor_name, p.product_name, sum(coalesce(v2.original_price,0) * 5) AS revenue
 FROM vendor_inventory v2
 JOIN vendor v ON v.vendor_id = v2.vendor_id
 JOIN product p ON p.product_id = v2.product_id
@@ -172,7 +169,7 @@ FROM product_units;
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 INSERT INTO product_units
-VALUES (10, 'Eggs', '1 dozen', 6, 'unit', '2025-08-17 22:44:08');
+VALUES (10, 'Eggs', '1 dozen', 6, 'unit', CURRENT_TIMESTAMP);
 
 
 -- DELETE
@@ -181,7 +178,7 @@ VALUES (10, 'Eggs', '1 dozen', 6, 'unit', '2025-08-17 22:44:08');
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 DELETE FROM product_units
 WHERE product_name = 'Eggs'
-AND ( SELECT  MIN(snapshot_timestamp)
+AND snapshot_timestamp = ( SELECT  MIN(snapshot_timestamp)
 FROM product_units	
 WHERE product_name ='Eggs');
 
