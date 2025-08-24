@@ -99,8 +99,9 @@ SELECT DISTINCT
 	product_id,
 	product_bought_number
 FROM CTE_product;
+
 --====================================================================================================================
--- End of solution COUNT
+-- End of solution COUNt
 --====================================================================================================================
 -- String manipulations
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
