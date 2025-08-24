@@ -22,16 +22,9 @@ All the other rows will remain the same.) */
 --====================================================================================================================
 -- Solution COALESCE.
 --====================================================================================================================
-WITH CTE_no_null AS (
-	SELECT
-		*,
-		COALESCE(product_size, '') as product_size_nonull,
-		COALESCE(product_qty_type, 'unit') as product_qty_type_nonull
-	FROM product
-)
 SELECT 
-	product_name || ', ' || product_size_nonull|| ' (' || product_qty_type_nonull || ')'
-FROM CTE_no_null;
+  COALESCE(product_name, '') || ', ' || product_size || ' (' || COALESCE(product_qty_type, 'unit') || ')'
+FROM product;
 
 --====================================================================================================================
 -- End of solution COALESCE.
@@ -49,7 +42,7 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 --====================================================================================================================
 -- Solution windowed functions number 1.
 --====================================================================================================================
-WITH CTE_visit_number AS(
+WITH CTE_visit_number AS ( 
 	SELECT 
 		customer_id,
 		market_date,
@@ -72,7 +65,7 @@ only the customer’s most recent visit. */
 --====================================================================================================================
 -- Solution windowed functions number 2.
 --====================================================================================================================
-WITH CTE_visit_number AS(
+WITH CTE_visit_number AS (
 	SELECT 
 		customer_id,
 		market_date,
@@ -80,10 +73,11 @@ WITH CTE_visit_number AS(
 	FROM customer_purchases
 )
 
-SELECT DISTINCT 
-	customer_id,
-	market_date AS recent_visit
-FROM CTE_visit_number
+SELECT 
+    customer_id,
+    market_date,
+    visit_number
+FROM CTE_reverse_visit_number
 WHERE visit_number = 1;
 --====================================================================================================================
 -- End of solution windowed functions number 2.
