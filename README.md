@@ -103,8 +103,8 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 
 ### Self Assessments 
 - [Chinook DB](https://github.com/UofT-DSI/sql/blob/main/02_activities/self_assessment/chinook.db)
-- [Self Assessment 1](https://www.shinyapps.io/admin/#/application/14506790)
-- [Self Assessment 2](https://www.shinyapps.io/admin/#/application/14519703)
+- [Self Assessment 1](https://mrpotatocode.shinyapps.io/Self-Assessment-Session-1/)
+- [Self Assessment 2](https://mrpotatocode.shinyapps.io/Self-Assessment-Session-2/)
 
 ### Documents
 - [Cheatsheet](https://www.sqlitetutorial.net/sqlite-cheat-sheet/)

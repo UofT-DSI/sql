@@ -128,6 +128,7 @@ SELECT
 		ELSE product_name
 	END AS product_name,
 
+<<<<<<< HEAD
 	CASE
 		WHEN LENGTH(product_name_clear) > 0 THEN TRIM(SUBSTR(product_name, INSTR(product_name, '- ') + 2), -1)
 		ELSE ''
@@ -147,6 +148,11 @@ WHERE product_size REGEXP '\d';
 --====================================================================================================================
 -- End of solution string manipulation number 2.
 --====================================================================================================================
+=======
+
+
+
+>>>>>>> 13ea50bee14e2d70d843287064b166add9c253da
 -- UNION
 /* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
 
