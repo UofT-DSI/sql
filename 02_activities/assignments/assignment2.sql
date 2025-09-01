@@ -21,7 +21,7 @@ Edit the appropriate columns -- you're making two edits -- and the NULL rows wil
 All the other rows will remain the same.) */
 
 SELECT 
-product_name || ', ' || coalesce(product_size, ' ')|| ' (' || coalesce(product_qty_type, 'unit') || ')' as 'Detailed Product List'
+product_name || ', ' || coalesce(product_size, ' ')|| ' (' || coalesce(product_qty_type, 'unit') || ')' as "Detailed Product List"
 FROM product;
 
 --Windowed Functions
@@ -64,7 +64,7 @@ customer_id,
 product_id,
 market_date,
 quantity,
-COUNT(*) OVER (PARTITION BY customer_id, product_id) AS 'totalPurchases'
+COUNT(*) OVER (PARTITION BY customer_id, product_id) AS totalPurchases
 FROM customer_purchases;
 
 -- String manipulations
@@ -194,7 +194,7 @@ SELECT
     product_id,
     product_name,
     product_size,
-	product_category_id,
+    product_category_id,
     product_qty_type,
     CURRENT_TIMESTAMP AS snapshot_timestamp
 FROM product
@@ -226,11 +226,16 @@ VALUES (
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
 DELETE FROM product_units
-WHERE product_name = 'Matcha latte'
-AND snapshot_timestamp = (
-    SELECT MIN(snapshot_timestamp)
-    FROM product_units
-    WHERE product_name = 'Matcha latte');
+WHERE rowid IN (
+    SELECT pu.rowid
+    FROM product_units pu
+    JOIN (
+        SELECT MIN(snapshot_timestamp) AS min_snapshot
+        FROM product_units
+        WHERE product_name = 'Matcha latte'
+    ) sub ON pu.snapshot_timestamp = sub.min_snapshot
+    WHERE pu.product_name = 'Matcha latte'
+);
 
 -- UPDATE
 /* 1.We want to add the current_quantity to the product_units table. 
