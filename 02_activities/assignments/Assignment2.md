@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [y] Create a branch called `assignment-two`.
+- [y] Ensure that the repository is public.
+- [y] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [y] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack at `#cohort-6-help`. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -30,7 +30,7 @@ Steps to complete this part of the assignment:
 - Design a logical data model
 - Duplicate the logical data model and add another table to it following the instructions
 - Write, within this markdown file, an answer to Prompt 3
-
+git
 
 ###  Design a Logical Model
 
@@ -55,6 +55,40 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
+# keep customer addresses. Proposal 1 - retain changes (type 2)
+
+# Behavior: Each address change creates a new row. Historical addresses are preserved with effective / end dates or a current flag.
+# Use to audit past addresses or track historical address.
+
+
+CREATE TABLE customer_address_type2 (
+  address_sk       BIGINT PRIMARY KEY AUTOINCREMENT,
+  customer_id      INT,
+  street           VARCHAR(200),
+  city             VARCHAR(100),
+  state            VARCHAR(50),
+  postal_code      VARCHAR(20),
+  country          VARCHAR(50),
+  effective_from   DATE NOT NULL,
+  effective_to     DATE,
+  is_current       BOOLEAN DEFAULT 1,
+  created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+# keep customer addresses. Proposal 1 - overwrite changes (type 1)
+
+# Behavior: New address values replace the old values in-place. No history is kept.
+# Use when your objective is to keep the most current address.
+
+CREATE TABLE customer_address_type1 (
+  customer_id      INT PRIMARY KEY,
+  street           VARCHAR(200),
+  city             VARCHAR(100),
+  state            VARCHAR(50),
+  postal_code      VARCHAR(20),
+  country          VARCHAR(50),
+  updated_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
 ***
