@@ -55,41 +55,6 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Your answer...
--- keep customer addresses. Proposal 1 - retain changes (type 2)
-
--- Behavior: Each address change creates a new row. Historical addresses are preserved with effective / end dates or a current flag.
--- Use when you must audit past addresses or track analysis by historical address.
--- Example schema (multiple rows per customer; surrogate pk):
-
-CREATE TABLE customer_address_type2 (
-  address_sk       BIGINT PRIMARY KEY AUTOINCREMENT,
-  customer_id      INT,
-  street           VARCHAR(200),
-  city             VARCHAR(100),
-  state            VARCHAR(50),
-  postal_code      VARCHAR(20),
-  country          VARCHAR(50),
-  effective_from   DATE NOT NULL,
-  effective_to     DATE,
-  is_current       BOOLEAN DEFAULT 1,
-  created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- keep customer addresses. Proposal 1 - overwrite changes (type 1)
-
--- Behavior: New address values replace the old values in-place. No history is kept.
--- Use when you only care about the current address.
-
-CREATE TABLE customer_address_type1 (
-  customer_id      INT PRIMARY KEY,
-  street           VARCHAR(200),
-  city             VARCHAR(100),
-  state            VARCHAR(50),
-  postal_code      VARCHAR(20),
-  country          VARCHAR(50),
-  updated_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 ```
 
 ***
