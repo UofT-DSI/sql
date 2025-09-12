@@ -126,6 +126,7 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 ├── 04_this_cohort
 ├── 05_src
 ├── LICENSE
+├── SETUP.md
 └── README.md
 ```
 
@@ -137,5 +138,6 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 * **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
 * **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
 * **LICENSE**: The license for this repository.
+* **SETUP.md**: Contains the instructions for following the steps required to complete the SQL onboarding tasks.
 * **README**: This file.
 

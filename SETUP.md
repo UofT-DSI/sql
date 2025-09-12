@@ -8,6 +8,8 @@ Before using this repo, make sure you’ve completed the [environment setup guid
 
 ## DB Browser for SQLite
 Additionally, make sure to install DB Browser for SQLite. 
+This setup only needs to be done **once**.
+
 
 [👉 You can find it here 👈](https://sqlitebrowser.org/dl//)
 
