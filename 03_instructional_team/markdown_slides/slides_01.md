@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: xaringan-themer
+theme: dsi_certificates_theme
 _class: invert
 paginate: true
 ---
