@@ -2,3 +2,4 @@
 .vscode/
 .sqbpro
 *.db-journal
+.venv
