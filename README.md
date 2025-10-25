@@ -78,9 +78,9 @@ There are two assignments.
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff:
-  * **Anjali Shrivastava** ()
+  * **Anjali Shrivastava** (she/her)  
   [anju_shrivastava@yahoo.com](mailto:anju_shrivastava@yahoo.com)
-  * **Sergii Khomych** ()
+  * **Sergii Khomych** ()  
   [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
