@@ -123,6 +123,7 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 ||Day 1|Day 2|Day 3|
 |---|---|---|---|
 |Week 2|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT |Work Period|
+
 ||Day 1|Day 2|
 |---|---|---|
 |Week 3|Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views |Work Period|
