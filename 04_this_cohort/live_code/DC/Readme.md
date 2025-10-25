@@ -1,4 +1,4 @@
-## Live Code is uploaded into respective folders at the end of each session:
+## DC Live Code is uploaded into respective folders at the end of each session:
 
 - [Module 2](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/DC/module_2)
 - [Module 3](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/DC/module_3)
