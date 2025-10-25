@@ -73,7 +73,7 @@ product_id,
 quantity,
 quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
-WHERE customer_id IN (4, 9)
+WHERE product_id IN (4, 9)
  ```
 
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by vendor IDs between 8 and 10 (inclusive) using either:
@@ -89,8 +89,8 @@ product_id,
 quantity,
 quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
-WHERE vendor_id >= 8
-AND vendor_id <= 10
+WHERE customer_id >= 8
+AND customer_id <= 10
 ```
 
 ```
@@ -102,7 +102,7 @@ product_id,
 quantity,
 quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
-WHERE vendor_id BETWEEN 8 AND 10
+WHERE customer_id BETWEEN 8 AND 10
 ORDER BY market_date, vendor_id, product_id
  ```
 

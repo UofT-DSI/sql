@@ -14,15 +14,11 @@ sorted by customer_last_name, then customer_first_ name. */
 
 --WHERE
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. */
--- option 1
-
-
--- option 2
 
 
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
-filtered by vendor IDs between 8 and 10 (inclusive) using either:
+filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
 */
