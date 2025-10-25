@@ -20,9 +20,9 @@ There are two styles of SQL slides, HTML and PDF. Both are generated from R-mark
 
 ### DC
 
-For Modules 2—5, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/DC/live_code) is saved to these folders at the conclusion of class*. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
+For Modules 2—5, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/DC) is saved to these folders at the conclusion of class*. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
 
 ### Cohort 8
 
-For Modules 2—6, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/Cohort_8/live_code) is saved to these folders at the conclusion of class*. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
+For Modules 2—6, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/Cohort_8) is saved to these folders at the conclusion of class*. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
 
