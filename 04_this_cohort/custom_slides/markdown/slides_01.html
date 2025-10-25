@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# <p><img src="imgs/mrpotatocode_banner_10.png" style="width:7in" /></p>
+# <p><img src="imgs/mrpotatocode_banner.png" style="width:7in" /></p>
 ]
 .subtitle[
 ## Introduction to Data Access and Storage
@@ -100,18 +100,19 @@ class: left, top, inverse
 ---
 
 class: left, top, inverse
-# About Us (Edward)
+# About Us (Anjali)
 .pull-left[
-- Graduated from the Master of Science in Applied Computing program at UofT
-- Currently working as a Research Analyst at the University Health Network
-- Will start PhD in Medical Biophysics at UofT in September
-- Have worked on creating course material for data science and machine learning at UofT
-- Hobbies: Gaming, Crochet, Archery
+- Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
+- IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
+- DSI Cohort 3 and LS for subsequent cohorts
+- Experienced in Agile environments, mentoring, and fostering collaborative, solution-driven work cultures.
+- Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
+- Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
 ]
 
 .pull-right[
 
-&lt;img src="imgs/edward.png"
+&lt;img src="imgs/anjali.png"
      height="450px"
      style="position:absolute; right:100px; top:130px;"&gt;
 
@@ -119,24 +120,6 @@ class: left, top, inverse
 
 ---
 
-class: left, top, inverse
-# About Us (Moniz)
-.pull-left[
-- Master in Biomedical Engineering 🎓
-- Project and Data Coordinator in Healthcare setting 🏥
-- DSI cohort 3 📈
-- Hobbies: camping 🏕️ travelling ✈️ and see the world
-]
-
-.pull-right[
-
-&lt;img src="imgs/moniz.png"
-     height="450px"
-     style="position:absolute; right:100px; top:130px;"&gt;
-
-]
-
----
 
 class: left, top, inverse
 # About Us (Niyaz)
@@ -162,6 +145,27 @@ class: left, top, inverse
 ]
 
 ---
+
+class: left, top, inverse
+# About Us (Sergii)
+.pull-left[
+- Solution Architect with a PhD in Engineering
+- Have national and international awards
+- DSI cohort 5
+- Over 25 years in the IT industry across diverse domains
+- Proficient in multiple programming languages
+]
+
+.pull-right[
+
+&lt;img src="imgs/sergii.png"
+     height="450px"
+     style="position:absolute; right:100px; top:130px;"&gt;
+
+]
+
+---
+
 
 class: middle, center, inverse
 # Welcome
@@ -189,7 +193,7 @@ class: left, top, inverse
 ### Course Tools
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Aug2025): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS_Oct2025): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -1031,7 +1035,7 @@ class: top, left, inverse
 
 Table 1: Country — Table 2: Capital City
 
-.pull-left.w53[
+.pull-left.w56[
 
 
 | Table 1:Country |     | Table 2:Capital |
@@ -1262,21 +1266,45 @@ class: top, left, inverse
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-.pull-left.w40[
+.pull-left.w37[
 
 - Our (partial) Farmers Market database: 
-  - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
-  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
-  - market_date (date) is the PK for vendor_inventory
-      - **why?** 💭💬**Think, Pair, Share**
+  - product_category_id (int) is the PK for product_category, which shares a One-to-Many relationship with product on product_category_id (FK)
+  
+  - product_id (id) is the PK for product
 
 ]
 
 .pull-right[
 &lt;img src="imgs/farmers_market_pm.png"
-     height="200px";
-     style="position:absolute; right:50px; top:250px;"&gt;
+     height="225px";
+     style="position:absolute; right:50px; top:350px;"&gt;
 ]
+
+---
+
+class: top, left, inverse
+# Data Modelling
+
+### Physical Models
+
+.pull-left.w40[
+
+- Our (partial) Farmers Market database: 
+  - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
+  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
+  
+  - vendor_inventory requires a composite key!
+      - **why? which columns are required?** &lt;br&gt; 💭💬**Think, Pair, Share**
+
+]
+
+.pull-right[
+&lt;img src="imgs/farmers_market_composite_key.png"
+     height="200px";
+     style="position:absolute; right:50px; top:350px;"&gt;
+]
+
 
 ---
 
