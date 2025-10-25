@@ -110,6 +110,8 @@ You can either display all rows in the customer_purchases table, with the counte
 
 **HINT**: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. 
 
+2. Filter the query to show any product_size value that contain a number with REGEXP. 
+
 <div align="center">-</div>
 
 #### UNION
