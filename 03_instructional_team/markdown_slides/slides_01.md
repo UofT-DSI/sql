@@ -188,7 +188,7 @@ $ echo "Data Sciences Institute"
 
 # Quick Technical Check
 
-MMake sure to install DB Browser for SQLite by our next session.
+Make sure to install DB Browser for SQLite by our next session.
 
 Installation instructions can be found in your email or [SETUP.md on Github](https://github.com/UofT-DSI/sql/blob/main/SETUP.md)
 
