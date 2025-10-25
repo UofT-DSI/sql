@@ -39,26 +39,17 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Edward)
+# About Us (Anjali)
 
-- Graduated from the Master of Science in Applied Computing program at UofT
-- Currently working as a Research Analyst at the University Health Network
-- Will start PhD in Medical Biophysics at UofT in September
-- Have worked on creating course material for data science and machine learning at UofT
+- Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
+- IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
+- DSI Cohort 3 and LS for subsequent cohorts
+- Experienced in Agile environments, mentoring, and fostering collaborative, solution-driven work cultures.
+- Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
+- Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
 - Hobbies: Gaming, Crochet, Archery
 
-![bg right:35% w:350](./images/01_edward.png)
-
----
-
-# About Us (Moniz)
-
-- Master in Biomedical Engineering 🎓
-- Project and Data Coordinator in Healthcare setting 🏥
-- DSI cohort 3 📈
-- Hobbies: camping 🏕️ travelling ✈️ and see the world
-
-![bg right:35% w:350](./images/01_moniz.png)
+![bg right:35% w:350](./images/01_anjali.png)
 
 ---
 
@@ -74,6 +65,19 @@ $ echo "Data Sciences Institute"
 ![bg right:35% w:350](./images/01_niyaz.png)
 
 ---
+
+# About Us (Sergii)
+
+- Solution Architect with a PhD in Engineering
+- Have national and international awards
+- DSI cohort 5
+- Over 25 years in the IT industry across diverse domains
+- Proficient in multiple programming languages
+
+![bg right:35% w:350](./images/01_sergii.png)
+
+---
+
 
 # Welcome / Course Content
 
@@ -95,7 +99,7 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Aug2025): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS_Oct2025): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -186,19 +190,30 @@ $ echo "Data Sciences Institute"
 
 Make sure to install DB Browser for SQLite by our next session.
 
-- If you haven't already, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/).
+Installation instructions can be found in your email or [SETUP.md on Github](https://github.com/UofT-DSI/sql/blob/main/SETUP.md)
+
+If you haven't already, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/). 
+
 
 For live coding:
-- Please download/fork the FarmersMarket.db from our GH repo:
-  - [FarmersMarket.db](../../05_src/sql/farmersmarket.db)
+- Please download/clone the FarmersMarket.db from our GH repo:
+  - [https://github.com/UofT-DSI/sql/blob/main/05_src/sql/farmersmarket.db](https://github.com/UofT-DSI/sql/blob/main/05_src/sql/farmersmarket.db)
 - Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
 
 ---
 
 
-# **Install Issues?**
+# Quick Technical Check
 
-**If yes, please message your course support**
+Check out our [post-installation videos](https://drive.proton.me/urls/SNKJ5KR6TM#A6l8phhXgTHd):
+- Changing you DB Browser for SQLite Preferences
+- How to Open a Database
+- What is the Execute SQL Window
+- How to use SQLite Projects
+
+*Did you have Install Issues?*
+
+**If yes, please come to office hours tomorrow before class to resolve**
 
 ---
 
@@ -850,20 +865,32 @@ We can create additional Many-to-Many relationships if we created a table includ
 
 ---
 
-
 # Physical Models
 
 - Add additional detail to the logical model by adding key type and column data type
 - Our (partial) Farmers Market database: 
-  - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
-  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
-  - market_date (date) is the PK for vendor_inventory
-      - **why?** 💭💬 **Think, Pair, Share**
+  - product_category_id (int) is the PK for product_category, which shares a One-to-Many relationship with product on product_category_id (FK)
+  
+  - product_id (id) is the PK for product
 
 ---
 
-
 ![bg w:1000](images/01_farmers_market_pm.png)
+
+---
+
+# Physical Models
+
+- Our (partial) Farmers Market database: 
+  - vendor_id (int) is the PK for vendor, which shares a One-to-Many relationship with vendor_inventory on vendor_id (FK)
+  - product_id (int) is an FK for vendor_inventory (*so elsewhere in this diagram, we'd connect this to a PK of another table*)
+  - vendor_inventory requires a composite key!
+      - **why? which columns are required?** 💭💬 **Think, Pair, Share**
+
+---
+
+![bg w:1000](images/01_farmers_market_composite_key.png)
+
 
 
 ---
@@ -894,7 +921,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 *HINTS*:
 - You will need to use the Browse Data tab in the main window to figure out the relationship types.
-- You can't diagram tables that don't share a common column (see )
+- You can't diagram tables that don't share a common column (see conceptual model)
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ---
