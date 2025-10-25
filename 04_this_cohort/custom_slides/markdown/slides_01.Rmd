@@ -319,22 +319,30 @@ class: left, top, inverse
 
 Make sure to install DB Browser for SQLite by our next session.
 
+Installation instructions can be found in your email or [SETUP.md on Github](https://github.com/UofT-DSI/sql/blob/main/SETUP.md)
+
 If you haven't already, please download it here: [https://sqlitebrowser.org/dl//](https://sqlitebrowser.org/dl/). 
 
 --
-<br><br><br>
 
 For live coding:
-- Please download/fork the FarmersMarket.db from our GH repo:
+- Please download/clone the FarmersMarket.db from our GH repo:
   - [https://github.com/UofT-DSI/sql/blob/main/05_src/sql/farmersmarket.db](https://github.com/UofT-DSI/sql/blob/main/05_src/sql/farmersmarket.db)
 - Open it in SQLite with the "Open Database" button and navigate to wherever you have saved it
 
 --
 
-<br><br><br>
-*Install Issues?**
+Check out our [post-installation videos](https://drive.proton.me/urls/SNKJ5KR6TM#A6l8phhXgTHd):
+- Changing you DB Browser for SQLite Preferences
+- How to Open a Database
+- What is the Execute SQL Window
+- How to use SQLite Projects
 
-**If yes, please message your course support**
+--
+
+*Did you have Install Issues?*
+
+**If yes, please come to office hours tomorrow before class to resolve**
 
 ---
 
