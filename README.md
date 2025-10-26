@@ -25,6 +25,21 @@ Participants are introduced to data modelling and how to think about the structu
 ## Learning Outcomes
 By the end of the module, participants will be able to:
 
+
+### DC
+**Week 1:**
+* Describe the structure of a database.
+* Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
+
+**Week 2:**
+* Use advanced techniques such as String Manipulation, and NULL Management to manipulate results.
+
+**Week 3:**
+* Use an export command to save and transport data in CSV and JSON file formats.
+
+
+### Cohort 8
+
 **Week 1:**
 * Describe the structure of a database.
 * Use an export command to save and transport data in CSV and JSON file formats.
@@ -42,25 +57,44 @@ Participants should review the [Assignment Submission Guide](https://github.com/
 
 There are two assignments.
 
-1. [Assignment 1](./02_activities/assignments/Assignment1.md)
-1. [Assignment 2](./02_activities/assignments/Assignment2.md)
+🚨ATTENTION! During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort as **the assignment are not the same**.
+
+### DC
+1. [Assignment 1](./02_activities/assignments/DC/Assignment1.md)
+2. [Assignment 2](./02_activities/assignments/DC/Assignment2.md)
+
+### Cohort 8
+1. [Assignment 1](./02_activities/assignments/Cohort_8/Assignment1.md)
+2. [Assignment 2](./02_activities/assignments/Cohort_8/Assignment2.md)
 
 ## Contacts
 
 **Questions can be submitted to the #questions channel on Slack**
+
+### DC
+
+* Technical Facilitator:   
+  * **Thomas Rosenthal** (he/him)  
+    [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
+
+* Learning Support Staff:
+  * **Anjali Shrivastava** (she/her)  
+  [anju_shrivastava@yahoo.com](mailto:anju_shrivastava@yahoo.com)
+  * **Sergii Khomych** ()  
+  [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
+  * **Niyaz Nazari** (she/her)  
+  [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
+
+### Cohort 8
 
 * Technical Facilitator:   
   * **Thomas Rosenthal** (he/him)  
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
-  * **Edward Chen** (he/him)  
-  [edwardty.chen@utoronto.ca](mailto:edwardty.chen@utoronto.ca)
-  * **Moniz Chan** (she/her)  
-  [moniz.chan@utoronto.ca](mailto:moniz.chan@utoronto.ca)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
-
+  * tbd
 
 
 ## Delivery of the Learning Module
@@ -79,9 +113,27 @@ Participants should follow along with the coding, interact with the study materi
 
 Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md)
 
+
+### DC
+
+||Day 1|Day 2|Day 3|
+|---|---|---|---|
+|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures|Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs |Work Period|
+
+||Day 1|Day 2|Day 3|
+|---|---|---|---|
+|Week 2|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions|Live Learning Session 4 Advanced Techniques: NULL Management, Windowed Functions, String Manipulation, UNION & UNION ALL, INTERSECT & EXCEPT |Work Period|
+
+||Day 1|Day 2|
+|---|---|---|
+|Week 3|Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views |Work Period|
+
+
+### Cohort 8 
+
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|
-|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures |Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |No Work Period|Work Period 2|
+|Week 1|Live Learning Session 1 Introduction: Data Modelling, Schema Design, Data Structures |Live Learning Session 2 Building Queries: SELECT, FROM, WHERE, CASE, DISTINCT, JOINs|Live Learning Session 3 Essential Techniques: Aggregation Functions, Subqueries, Temporary Tables, CTEs, Datetime Functions |Work Period 1|Work Period 2|
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|

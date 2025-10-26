@@ -92,7 +92,7 @@ $ echo "Data Sciences Institute"
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2025 AS this_year, 'August' AS this_month`
+  - `SELECT 2025 AS this_year, 'October' AS this_month`
 - When selecting columns, they need to exist in the table!
 
 ---
@@ -466,11 +466,11 @@ Source: Image: Teate, Chapter 5
 ```
     SELECT *
     FROM table_1
-    {INNER | LEFT | FULL JOIN table_2
+    {INNER | LEFT | FULL JOIN} table_2
       ON table_1.key = table_2.key
-    {INNER | LEFT | FULL JOIN table_3
+    {INNER | LEFT | FULL JOIN} table_3
       ON {table_1 | table_2}.key = table_3.key
-    {INNER | LEFT | FULL JOIN table_n
+    {INNER | LEFT | FULL JOIN} table_n
       ON {table_1 | table_2 | table_3}.key = table_n.key
 
 ```
