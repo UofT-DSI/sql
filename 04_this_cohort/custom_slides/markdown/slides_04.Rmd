@@ -152,7 +152,7 @@ class: left, upper, inverse
 
 - Because it is NULL producing, it can be useful in combination with `COALESCE`
   - Consider comparing average budgets from year to year: 
-      - `SELECT AVG(COALESCE(NULLIF(current_year, previous_year), 0.00)) FROM budgets`
+      - `SELECT AVG(NULLIF(COALESCE(current_year, previous_year), 0.00)) FROM budgets`
  
 <br> 
 --

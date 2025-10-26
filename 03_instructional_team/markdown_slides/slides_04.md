@@ -72,7 +72,7 @@ Handling NULLs effectively:
 
 - Because it is NULL producing, it can be useful in combination with `COALESCE`
   - Consider comparing average budgets from year to year: 
-      - `SELECT AVG(COALESCE(NULLIF(current_year, previous_year), 0.00)) FROM budgets`
+      - `SELECT AVG(NULLIF(COALESCE(current_year, previous_year), 0.00)) FROM budgets`
 - `NULLIF` can also help capture empty strings and turn them into NULLs
   - `NULLIF(col_with_blanks,'')`
 
