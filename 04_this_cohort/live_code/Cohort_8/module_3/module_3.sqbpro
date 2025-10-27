@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/thomas/Documents/GitHub/02-intro_sql/05_src/sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="4" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">/* MODULE 3 */
+/* COUNT */
+
+
+/* 1. Count the number of products */
+ 
+
+ 
+/* 2. How many products per product_qty_type */
+
+
+
+/* 3. How many products per product_qty_type and per their product_size */
+
+
+
+/* COUNT DISTINCT 
+    4. How many unique products were bought */
+
+
+</sql><sql name="SQL 10">/* MODULE 3 */
+/* SUM &amp; AVG */
+
+
+/* 1. How much did customers spend each day */
+
+ 
+
+/* 2. How much does each customer spend on average */
+
+
+</sql><sql name="SQL 11">/* MODULE 3 */
+/* MIN &amp; MAX */
+
+
+/* 1. What is the most expensive product 
+...pay attention to how it doesn't handle ties very well
+*/
+ 
+
+/* 2. Prove that max is working */
+
+
+
+/* 3. Find the minimum price per each product_qty_type */
+
+
+
+/* 4. Prove that min is working */
+
+
+
+/* 5. Min/max on a string 
+... not particularly useful? */
+
+
+</sql><sql name="SQL 12">/* MODULE 3 */
+/* Arithmitic */
+
+
+/* 1. power, pi(), ceiling, division, integer division, etc */
+SELECT 
+
+
+/* 2. Every even vendor_id with modulo */
+
+
+
+/* 3. What about every third?  */
+
+</sql><sql name="SQL 13">/* MODULE 3 */
+/* HAVING */
+
+
+/* 1. How much did a customer spend on each day?
+Filter to customer_id between 1 and 5 and total_cost &gt; 50 
+... What order of execution occurs?*/
+ 
+
+
+/* 2. How many products were bought?
+Filter to number of purchases between 300 and 500  */
+
+</sql><sql name="SQL 13">/* MODULE 3 */
+/* Subquery FROM */
+
+
+/*1. Simple subquery in a FROM statement, e.g. for inflation
+...we could imagine joining this to a more complex query perhaps */
+
+
+
+
+/* 2. What is the single item that has been bought in the greatest quantity?*/
+
+
+</sql><sql name="SQL 14">/* MODULE 3 */
+/* Subquery WHERE */
+
+
+/* 1. How much did each customer spend at each vendor for each day at the market WHEN IT RAINS */
+
+
+
+
+/* 2. What is the name of the vendor who sells pie */
+
+</sql><sql name="SQL 15">/* MODULE 3 */
+/* Common Table Expression (CTE) */
+
+
+/* 1. Calculate sales per vendor per day */
+SELECT 
+
+
+
+
+
+/* ... re-aggregate the daily sales for each WEEK instead now  */
+
+</sql><sql name="SQL 16">/* MODULE 3 */
+/* Temp Tables */
+
+
+/* 1. Put our inflation query into a temp table, e.g. as temp.new_vendor_inventory*/
+
+/* some structural code */
+/* ...heads up, sometimes this query can be finnicky -- it's good to try highlighting different sections to help it succeed...*/
+
+-- if a table named new_vendor_inventory exists, delete it, other do NOTHING
+DROP TABLE IF EXISTS temp.new_vendor_inventory;
+
+--make the table
+CREATE TABLE temp.new_vendor_inventory AS
+
+-- definition of the table
+
+
+
+
+
+/* 2. put the previous table into another temp table, e.g. as temp.new_new_vendor_inventory  */
+
+
+</sql><sql name="SQL 18">/* MODULE 3 */
+/* Date functions */
+
+
+/* 1. now */
+SELECT 
+
+
+/* 2. strftime */
+
+
+
+/* 3. adding dates, e.g. last date of the month */
+
+
+
+/* 4. difference between dates, 
+ a. number of days between now and each market_date
+ b. number of YEARS between now and market_date
+ c. number of HOURS bewtween now and market_date
+ */
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
