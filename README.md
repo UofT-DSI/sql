@@ -60,8 +60,8 @@ There are two assignments.
 🚨ATTENTION! During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort as **the assignment are not the same**.
 
 ### DC
-1. [Assignment 1](./02_activities/assignments/DC/Assignment1.md)
-2. [Assignment 2](./02_activities/assignments/DC/Assignment2.md)
+1. [Assignment 1](./02_activities/assignments/DC_Cohort/Assignment1.md)
+2. [Assignment 2](./02_activities/assignments/DC_Cohort/Assignment2.md)
 
 ### Cohort 8
 1. [Assignment 1](./02_activities/assignments/Cohort_8/Assignment1.md)
