@@ -80,10 +80,10 @@ There are two assignments.
 * Learning Support Staff:
   * **Anjali Shrivastava** (she/her)  
   [anju_shrivastava@yahoo.com](mailto:anju_shrivastava@yahoo.com)
-  * **Sergii Khomych** ()  
-  [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
+  * **Sergii Khomych** (he/him)  
+  [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
 
 ### Cohort 8
 
