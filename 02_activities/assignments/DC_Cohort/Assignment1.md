@@ -197,7 +197,7 @@ Steps to complete this part of the assignment:
 Read: Qadri, R. (2021, November 11). _When Databases Get to Define Family._  Wired. <br>
     https://www.wired.com/story/pakistan-digital-database-family-design/
 
-Link if you encounter a paywall: https://web.archive.org/web/20240422105834/https://www.wired.com/story/pakistan-digital-database-family-design/
+Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive.org/web/20240422105834/https://www.wired.com/story/pakistan-digital-database-family-design/
 
 **What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
 
