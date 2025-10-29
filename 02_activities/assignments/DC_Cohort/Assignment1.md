@@ -107,6 +107,9 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ***
+Completed diagram here (sorry it is > 2, I had fun diagramming this)
+
+<img src="./images/A1_P1.drawio.png" width="600">
 
 ## Section 2:
 You can start this section following *session 2*.
@@ -184,7 +187,7 @@ To insert the new row use VALUES, specifying the value you want for each column:
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
 
 *** 
-
+See assignment1.sql for completed document :)
 ## Section 4:
 You can start this section anytime.
 
@@ -205,5 +208,10 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+I was recently on exchange for a semester in France, and found myself coming up against some unexpected roadblocks in data systems. It was interesting to view these systems from a perspective of someone who is new to a country, as I have never needed stay for extended periods of time outside of Canada. For example, I was unable to purchase a transit pass on the online application due to needing a French phone number for two-factor authentication. In order to get a phone number, I needed to be set up with a French bank, which then required proof of residency in France (which I did not have due to my short term stay). It was additionally difficult to secure housing without a job offer (as I did not fit the exact definitions of a short-term worker either due to my student status). Due to the housing shortage in Paris, much like in many other metropolitan cities, supply is limited and demand is high, which resulted in less choice and higher prices for my housing options.
+
+Firsthand, I saw how a lot of social systems are constructed on the expectation of having of checking boxes like having identification documentation, a permanent address, and proof of employment, all of which can easily come and go, especially in the current socioeconomic climate, in a database. It is easy then to extrapolate to how these requirements can lead to amplifications of difficulties already disproportionately effecting  marginalized groups being: how are you supposed to get a place to live so you can get employment without getting proof of employment first? While this is less "digital" phenomenon than in the case of Pakistan, there are parallels to be drawn - a circular system requiring certain rigorous requirements to be 
+fulfilled to gain access to basic services and rights.
+
+I am of the opinion that these data systems which society functions upon _need_ to have the proper flexibility to accommodate alternative cases. I like the way that Jehangir Amjad proposes the solution, which is not to predict all the ways in which there can be exceptions, but inherently include in the architecture of these systems (digital and otherwise) to be modular. I like to think of these systems as self contained "streams", in which there is usually one expected entry (e.g., somewhere upstream). There should be creeks that allow entry into the body of water without needing to originate directly upstream - checks and balances to make sure that non-conventional "entry methods" to the system are supported. I can see this happening slowly already in day-to-day life (see: COVID vaccine availability without citizenship and irregardless of immigration status). People who can take care of their health will naturally be able to better support themselves. It's a start, but definitely moving in the right direction. 
 ```
