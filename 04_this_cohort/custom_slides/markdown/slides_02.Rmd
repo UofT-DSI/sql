@@ -448,7 +448,7 @@ class: middle, center, inverse
 class: top, left, inverse
 # Putting Things Together with JOIN
 
-- Joins are used to combine data stored in different tables into a single table
+- Joins are used to combine data stored in different tables into a single result set
 
 --
 
