@@ -204,6 +204,12 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
-```
-Your thoughts...
-```
+When I immigrated to Canada four years ago, I didn’t realize how much of my new identity would be defined by databases. Getting my Social Insurance Number felt like an ordinary step in settling down. But when my bank tried to check my credit report, something strange happened — the credit agency sent back someone else’s file. Their report showed a large mortgage and long financial history, while I was new to the country with almost no record. Each time the bank retried, it linked me to the same stranger. It took weeks of calls and paperwork to fix it, and no one could clearly explain how it happened.
+
+I suspect it came from how these systems query their data — using bundles of identifiers like SIN, name, address, and date of birth — and relying on fuzzy matching algorithms to “guess” the right person. But in that process, the system treated a statistical coincidence as truth. The algorithm decided that I was someone else, and every institution that relied on the credit bureau accepted that decision as reality. For a while, my existence didn’t align with the database’s version of me. It made me realize that in a data-driven society, identity isn’t only legal or social — it’s algorithmic. A simple mismatch in a database can erase your legitimacy. The system values efficiency and risk management more than fairness or personal context.
+
+I also see similar patterns in my research life. In my lab, I work with a sequencing data database that was designed entirely by a computational scientist with no wet-lab experience. The structure is rigid and repetitive: I have to log the same parameters manually for every experiment, even though dozens share the same setup. At the same time, the database lacks fields for the subtle but important experimental details — small differences in reagent quality, sample handling, or instrument drift. I end up attaching those notes separately because the system provides no space for them.
+
+This shows that even scientific databases reflect value systems. The database prioritizes computational consistency over experimental context, and machine readability over human expertise. It encodes an assumption that “structured” data is always better than flexible description, even when that structure hides meaningful variation.
+
+Both experiences remind me that databases don’t just store information — they define what counts as real. Whether in finance or science, the architecture of data systems reflects who designed them and what they value. Seeing that helps me be more critical, both as a researcher and as a person living inside the networks of data that now define modern life.
