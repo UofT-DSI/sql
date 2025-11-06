@@ -1,22 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004ee0000034afc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000004ee0000012f00fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012f00fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000004ee0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="row_rank_dense" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="72"/><column index="2" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="IFNULL_NULLIF">/* MODULE 4 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="customer_purchases" custom_title="0" dock_id="2" table="4,18:maincustomer_purchases"/><dock_state state="000000ff00000000fd000000010000000200000546000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000005460000012000fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012000fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000005460000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="103"/><column index="2" value="94"/><column index="3" value="118"/><column index="4" value="119"/><column index="5" value="80"/><column index="6" value="242"/><column index="7" value="155"/></column_widths><filter_values><column index="3" value="22"/><column index="2" value="2022-12-20"/></filter_values><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="IFNULL_NULLIF*">/* MODULE 4 */
 /* NULL Management */
 
 
 /* 1. IFNULL: Missing product_size, missing product_qty_type */ 
-
+SELECT *
+,IFNULL(product_size,'Unknown') as new_product_size
+--replace with another column
+,IFNULL(product_size,product_qty_type) as silly_replacement
 
 /* 2. Coalesce */
+,coalesce(product_size,product_qty_type,'missing') as more_replacements -- if the first value is null, then the second value, ... if the second value is null, then &quot;missing&quot;
+,coalesce(product_qty_type,product_size,'missing') as more_replacements -- if the first value is null, then the second value, ... if the second value is null, then &quot;missing&quot;
 
+,IFNULL(IFNULL(product_size,product_qty_type),'missing') as equiv_replacements -- if the first value is null, then the second value, ... if the second value is null, then &quot;missing&quot;
+
+
+FROM product;
 
 
 /* 3. NULLIF
 finding values in the product_size column that are &quot;blank&quot; strings and setting them to NULL if they are blank */
+SELECT *
+--,IFNULL(product_size, 'Unknown')
+--,NULLIF(product_size,'') 
+,coalesce(NULLIF(product_size,''),'Unknown') replaced_values
 
+FROM product;
 
 
 /* 4. NULLIF 
 filtering which rows are null or blank */
 
+SELECT *
+FROM product
+
+WHERE NULLIF(product_size,'') IS NULL
 
 </sql><sql name="budget_coalesce_NULLIF">/* MODULE 4 */
 /* NULLIF Budget (example from the slides) */
@@ -59,13 +77,33 @@ FROM budgets
 https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sql?view=sql-server-ver17
 */
 
-</sql><sql name="ROW_NUMBER">/* MODULE 4 */
+</sql><sql name="ROW_NUMBER*">/* MODULE 4 */
 /* Windowed functions: row_number */
 
 
 /* 1. What product is the highest price per vendor */
+--outer query 
+SELECT x.*
+,product_name
 
+-- inner query 
+FROM 
+(
+	SELECT 
+	vendor_id
+	,product_id
+	,original_price
+	,market_date
+	,ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price DESC) as price_rank
+	-- if we add product_id we could potentially track the time where original_price changed
+	,ROW_NUMBER() OVER(PARTITION BY vendor_id,product_id ORDER BY original_price DESC)
+	
+	FROM vendor_inventory
+) x
+INNER JOIN product p
+	ON x.product_id = p.product_id
 
+WHERE x.price_rank = 1;
 
 /* See how this varies from using max due to the group by 
 SELECT vendor_id,
@@ -76,8 +114,25 @@ FROM vendor_inventory
 GROUP BY vendor_id--,product_id
 
 */
+ -- highest single purchase in a day per customer
+ 
+ SELECT * 
+ 
+ FROM (
+	 
+	 SELECT
+	 customer_id
+	 ,product_id
+	 ,market_date
+	 ,quantity
+	 ,quantity*cost_to_customer_per_qty as cost
+	 ,ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY quantity*cost_to_customer_per_qty DESC) as sales_rank
+	 
+	 FROM customer_purchases
+) x
+WHERE x.sales_rank = 1
 
-</sql><sql name="row_rank_dense">/* MODULE 4 */
+ORDER BY cost desc</sql><sql name="row_rank_dense*">/* MODULE 4 */
 /* Windowed functions: dense_rank, rank, row_number */
 
 
@@ -102,16 +157,29 @@ VALUES
 (7, 230000),
 (8, 100000),
 (9, 165000),
-(10, 100000);
+(10, 100000),
+(11, 90000);
+
+SELECT *
+,ROW_NUMBER() OVER(ORDER BY salary DESC) as [row_number]
+,RANK() OVER(ORDER BY salary DESC) as [rank]
+,DENSE_RANK() OVER(ORDER BY salary DESC) as [dense_rank]
 
 
-</sql><sql name="NTILE">/* MODULE 4 */
+FROM row_rank_dense
+
+
+</sql><sql name="NTILE*">/* MODULE 4 */
 /* Windowed functions: NTILE */
 
 
-/* 1. Calculate quartile, quntiles, and percentiles from vendor daily sales */
+/* 1. Calculate quartile, quintiles, and percentiles from vendor daily sales */
+SELECT *
+,NTILE(4) OVER (PARTITION BY vendor_name ORDER BY sales ASC) as [quartile]
+,NTILE(5) OVER (PARTITION BY vendor_name ORDER BY sales ASC) as [quintile]
+,NTILE(100) OVER (PARTITION BY vendor_name ORDER BY sales ASC) as [percentile]
 
-
+FROM (
 -- vendor daily sales 
 	SELECT 
 	md.market_date
@@ -127,27 +195,64 @@ VALUES
 	JOIN vendor AS v
 		ON v.vendor_id = cp.vendor_id
 		
-	GROUP BY cp.market_date, v.vendor_id</sql><sql name="string_manipulations">/* MODULE 4 */
+	GROUP BY cp.market_date, v.vendor_id
+) x</sql><sql name="string_manipulations*">/* MODULE 4 */
 /* String Manipulations */
 
 
 /* 1. ltrim, rtrim, trim*/
 SELECT
+LTRIM('                      THOMAS ROSENTHAL                  ') as [ltrim]
+,RTRIM('                      THOMAS ROSENTHAL                  ') as [rtrim]
+,TRIM('                      THOMAS ROSENTHAL                  ') as [trim]
+,LTRIM(RTRIM('                      THOMAS ROSENTHAL                  ')) as [both]
+
 
 /* 2. replace*/
+,REPLACE('THOMAS ROSENTHAL',' ',' WILLIAM ') as full_name -- adding my middle name between first and last name
+,REPLACE('THOMAS ROSENTHAL','A','E') as a_to_e
+,REPLACE('THOMAS ROSENTHAL','A','') as no_a
+,customer_first_name
+,REPLACE(customer_first_name,'a','e') as cust_a_to_e
+,REPLACE(customer_first_name,'a',customer_last_name) as chaos
 
 /* 3. upper, lower*/
+,UPPER(customer_first_name) as [upper]
 
 /* 4. concat with || */
+,customer_first_name || ' ' || customer_last_name as customer_name
+,LOWER(customer_first_name) || ' ' || UPPER(customer_last_name) || ' ' || customer_postal_code as cust_deets
+
+
+FROM customer;
 
 /* 5. substr */
+SELECT DISTINCT
+customer_last_name
+,SUBSTR(customer_last_name,4) as [4] -- any length from the 4th character
+,SUBSTR(customer_last_name,4,2) as [4,2]
+,SUBSTR(customer_last_name, -5,4) as [count_right] -- counting from the right
 
 /* 6. length */
+,LENGTH(customer_last_name) as len
 
 /* 7. unicode, char */
+,'THOMAS
+
+ROSENTHAL' as bad_space_name
+
+,replace('THOMAS
 
 
-/* 8. REGEXP in a WHERE statement */</sql><sql name="substr_instr_together">/* MODULE 4 */
+ROSENTHAL',char(10),' ') as better_linebreak -- removes all instances of the line break from the string
+
+
+FROM customer
+
+/* 8. REGEXP in a WHERE statement */
+
+WHERE customer_last_name REGEXP '(a)$' -- filtering to cust last name ending in a
+</sql><sql name="substr_instr_together">/* MODULE 4 */
 /* Substring &amp; instring together */
 
 
