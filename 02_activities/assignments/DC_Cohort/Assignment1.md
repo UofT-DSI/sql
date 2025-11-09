@@ -106,6 +106,8 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
+## embedding my diagram here
+![conceptual model between customer purchases and customer](farmersmarket.drawio.png)
 ***
 
 ## Section 2:
@@ -204,6 +206,13 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
+
 ```
 Your thoughts...
+one value system I can think of is the social structure of race. This can be found often when filling out legal, government, or medical forms.
+Like gender mentioned in the article, often race categories that we have to select from are too 'binary'. Many people are mixed race but are
+forced to choose one option to identify as in these documents which can be confusing and creating unnecessary biases when interacting with the 
+people/administrators that have access to these forms. For example, someones appearance may not match another peoples preconceived idea
+of what they should look like. As well, I feel that it may force people to unconsciously to identify with a single category rather than embracing 
+who they are and their diverse background.
 ```
