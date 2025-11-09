@@ -92,10 +92,12 @@ There are two assignments.
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff: 
+  * **Edward Chen** (he/him)  
+  [edwardty.chen@utoronto.ca](mailto:edwardty.chen@utoronto.ca)
+  * **Moniz Chan** (she/her)  
+  [moniz.chan@utoronto.ca](mailto:moniz.chan@utoronto.ca)
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
-  * tbd
-
 
 ## Delivery of the Learning Module
 
