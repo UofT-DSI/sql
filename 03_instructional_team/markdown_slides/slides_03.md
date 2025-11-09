@@ -48,7 +48,7 @@ For example, a query wanting to know the number of days in each month:
     ,months
 
     FROM calendar
-    GROUP by months
+    GROUP BY months
 ```
 
 - `GROUP BY` comes after a `WHERE` clause
@@ -71,7 +71,7 @@ For example, a query wanting to know the number of days in each month:
     ,years
 
     FROM calendar
-    GROUP by years
+    GROUP BY years
 ```
 
 ---
@@ -117,7 +117,7 @@ For example, a query wanting to know the number of days in each month:
 
 - `SUM` performs the sum total of any numeric column
   - Be wary, SQLite may be more permissive for columns with numbers; it's best practice to coerce (`CAST`) these values into numbers before summing to be certain of their validity
-    - e.g. `CAST(SUM(column1) AS INTEGER) AS column1`
+    - e.g. `SUM(CAST(column1 AS INTEGER)) AS column1`
 - SUM can accommodate multiple columns using the plus `+` operator
   - e.g. `SUM(column1 + column2)`
 

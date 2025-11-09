@@ -39,17 +39,26 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Anjali)
+# About Us (Edward)
 
-- Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
-- IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
-- DSI Cohort 3 and LS for subsequent cohorts
-- Experienced in Agile environments, mentoring, and fostering collaborative, solution-driven work cultures.
-- Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
-- Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
+- Graduated from the Master of Science in Applied Computing program at UofT
+- Currently working as a Research Analyst at the University Health Network
+- Will start PhD in Medical Biophysics at UofT in September
+- Have worked on creating course material for data science and machine learning at UofT
 - Hobbies: Gaming, Crochet, Archery
 
-![bg right:35% w:350](./images/01_anjali.png)
+![bg right:35% w:350](./images/01_edward.png)
+
+---
+
+# About Us (Moniz)
+
+- Master in Biomedical Engineering 🎓
+- Project and Data Coordinator in Healthcare setting 🏥
+- DSI cohort 3 📈
+- Hobbies: camping 🏕️ travelling ✈️ and see the world
+
+![bg right:35% w:350](./images/01_moniz.png)
 
 ---
 
@@ -63,18 +72,6 @@ $ echo "Data Sciences Institute"
 - I always enjoy helping others learn while continuously learning myself
 
 ![bg right:35% w:350](./images/01_niyaz.png)
-
----
-
-# About Us (Sergii)
-
-- Solution Architect with a PhD in Engineering
-- Have national and international awards
-- DSI cohort 5
-- Over 25 years in the IT industry across diverse domains
-- Proficient in multiple programming languages
-
-![bg right:35% w:350](./images/01_sergii.png)
 
 ---
 
