@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="INSERT_UPDATE_DELETE">/* MODULE 5 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004a4000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004a40000012300ffffff000004a40000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="INSERT_UPDATE_DELETE*">/* MODULE 5 */
 /* INSERT UPDATE DELETE */
 
 
@@ -45,28 +45,6 @@ CREATE TEMP TABLE product_expanded AS
 
 
 
-</sql><sql name="update_statements_for_view">/* MODULE 5 */
-/* UPDATE statements for view */
-
-
-/* 1. SET market_date equal to today for new_customer_purchases */
-
-
-
-
-/* 2. Add today's info to the market_date_info 
-
-we need to add 
-1. today's date
-2. today's day
-3. today's week number
-4. today's year
-
-INSERT INTO market_date_info
-VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Summer','25','28',0,0);
-
-*/
- 
 </sql><sql name="dynamic_view">/* MODULE 5 */
 /* DYNAMIC VIEW */
 
@@ -105,6 +83,28 @@ VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Su
 
 
 
+</sql><sql name="update_statements_for_view">/* MODULE 5 */
+/* UPDATE statements for view */
+
+
+/* 1. SET market_date equal to today for new_customer_purchases */
+
+
+
+
+/* 2. Add today's info to the market_date_info 
+
+we need to add 
+1. today's date
+2. today's day
+3. today's week number
+4. today's year
+
+INSERT INTO market_date_info
+VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Summer','25','28',0,0);
+
+*/
+ 
 </sql><sql name="CROSS_JOIN">/* MODULE 5 */
 /* CROSS  JOIN */
 
