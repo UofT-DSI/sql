@@ -11,14 +11,15 @@ SELECT
 product_name || ', ' || product_size|| ' (' || product_qty_type || ')'
 FROM product
 
-But wait! The product table has some bad data (a few NULL values). 
-Find the NULLs and then using COALESCE, replace the NULL with a 
-blank for the first problem, and 'unit' for the second problem. 
 
-HINT: keep the syntax the same, but edited the correct components with the string. 
+But wait! The product table has some bad data (a few NULL values). 
+Find the NULLs and then using COALESCE, replace the NULL with a blank for the first column with
+nulls, and 'unit' for the second column with nulls. 
+
+**HINT**: keep the syntax the same, but edited the correct components with the string. 
 The `||` values concatenate the columns into strings. 
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
-All the other rows will remain the same.) */
+All the other rows will remain the same. */
 
 
 
