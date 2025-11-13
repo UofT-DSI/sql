@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [√] Create a branch called `assignment-two`.
+- [√] Ensure that the repository is public.
+- [√] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [√] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -54,7 +54,38 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Two distinct architectures for CUSTOMER_ADDRESS
+
+Type 1 SCD overwrites current address only
+Purpose keep only the latest address for operations
+Grain one row per customer
+
+Attributes are:
+customer_id (primary key)
+address_line1
+address_line2
+city
+state_province
+postal_code
+country_code
+updated_at
+
+Type 2 SCD retains full change history
+Purpose preserve every change with effective dating for reporting
+Grain one row per address period
+
+Attributes are:
+customer_address_sk surrogate primary key
+customer_id foreign key to CUSTOMER
+address_line1
+address_line2
+city
+state_province
+postal_code
+country_code
+effective_date_key foreign key to DATE
+end_date_key foreign key to DATE
+is_current boolean with one current row per customer
 ```
 
 ***
@@ -183,5 +214,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+I learned machine learning is never purely mechanical—it is profoundly human. Behind every dataset and algorithm lies extensive human labor: people who label, define, and classify data so that machines can learn patterns. This hidden work exposes the illusion of automation. Machines do not understand. They replicate the logics and biases of the humans who build and train them.
+
+The piece also made me think about how difficult it is to construct a solid logical model that mirrors human reasoning. Even when models seem systematic, the definitions and boundaries of categories — what counts as a “hot dog,” a “face,” or a “happy person” — remain fluid and contested. These blurred boundaries introduce ethical risks because every labeling decision carries cultural and political assumptions. As Boykis shows, the ImageNet controversy revealed how easily offensive or harmful classifications can emerge from unexamined human inputs.
+
+The proliferation of large language models extends both the promise and the risk of this human–machine entanglement. On one hand, AI can free humans from repetitive work; on the other, it amplifies the consequences of our mistakes and blind spots. Especially when technology intersects with social contexts—law, education, identity—the model’s errors can reproduce harm at scale. This reflection leaves me convinced that ethical AI requires continuous auditing, transparency about data origins, and recognition that intelligence, even artificial, is still “people all the way down.”
 ```
