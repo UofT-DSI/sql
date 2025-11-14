@@ -54,7 +54,27 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1
+CUSTOMER_ADDRESS
+customer_id (PK, FK)
+street
+city
+province
+postal_code
+country
+This will maintain 1 customer_id will only have 1 address, it won't keep old record.
+
+Type 2
+CUSTOMER_ADDRESS
+address_id(PK)
+customer_id(FK)
+street
+city
+province
+postal_code
+country
+When adding a new row address_id, each address will get unique id and stored, 1 customer can be linked to multiple address.
+
 ```
 
 ***
@@ -183,5 +203,5 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+I'm  thinking of two ethical issues. First as AI is not completely neutral, it was driven by human annotation and previous human behaviour, which means someone ultimately decides what is “correct,” “acceptable,” or “true.” It raises the question of who gets to have the authority and voice in shaping these systems.. Second is under different time era, different region, different culture background, the exact same thing can be sharply different. Because AI inevitably reflects these cultural biases, they must be carefully monitored, disclosed, and taken into account so AI systems do not unintentionally marginalize certain groups or impose a single cultural viewpoint.
 ```
