@@ -53,8 +53,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
-```
-Your answer...
+`Answer
+The type 1 version, the customer_address table keeps only the customer’s most recent address. If the customer moves, we update the existing row and the old address is gone. Any change replaces what was there before, and no history is kept.
+For type 2 version, the customer_address table keeps every address a customer has ever used. Each time the address changes, we add a new row. This type keeps a full record of address changes over time.
 ```
 
 ***
@@ -183,5 +184,7 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+One of the big ethical issues in this story is the way human error and bias sit at the root of the data we treat as objective and are used in making decisions. The article makes it clear that even the largest datasets and the some of the most advanced algorithms are built on work done by people, people who have moods, limitations, personal beliefs, and blind spots. In fields like health care, where algorithms influence diagnosis and treatment, this becomes especially concerning. If the data itself reflects the biases or mistakes of the people who collected or labeled it, then the systems built on that data naturally reproduce those same problems. So when these tools are later used to make decisions about people’s lives, it raises serious questions about fairness, accuracy, and whether the technology is really helping or harming.
+Another important issue is labor, specifically, the invisible labor that goes into creating and maintaining datasets. The article shows how much of machine learning relies on poorly compensated and undervalued people who are responsible for collecting,  labeling, and classifying data. If people are underpaid or treated as replaceable, it affects the quality of their work and, ultimately, the quality of the systems built on top of that work. For me, this brings up questions around fairness not only in the data but also in how we treat the workers behind it. It also points to the need for stronger policies within research spaces and institutions to guide how data is collected, managed, and used. If we begin by setting ethical standards in the places where data work actually starts, then those practices will ripple outward into the broader society and help reduce biases in the technology we depend on.
+
 ```
