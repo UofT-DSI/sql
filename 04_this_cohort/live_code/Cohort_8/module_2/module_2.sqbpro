@@ -1,100 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/armit/Downloads/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="vendor" custom_title="0" dock_id="2" table="4,6:mainvendor"/><dock_state state="000000ff00000000fd00000001000000020000024800000213fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000002480000011700ffffff000002480000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="257"/><column index="3" value="234"/><column index="4" value="156"/><column index="5" value="154"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SELECT">/* MODULE 2 */
 /* SELECT */
 
 
 /* 1. Select everything in the customer table */
-SELECT 
+SELECT  * FROM customer;
 
 /* 2. Use sql as a calculator */
 
-
+SELECT 1+1 as [2], pi() as [pi];
 
 /* 3. Add order by and limit clauses */
 
-
+SELECT * FROM customer 
+ORDER BY customer_last_name DESC --z&gt;a
+LIMIT 5; -- only 5 row
 
 /* 4. Select multiple specific columns */
+SELECT product_name, product_size, product_qty_type
+FROM product;
 
 
+/* 5. Add a static value in a column */
+SELECT '2025' as [this_year],
+vendor_name,
+vendor_type
+FROM vendor;
 
-/* 5. Add a static value in a column */</sql><sql name="WHERE">/* MODULE 2 */
+SELECT * FROM vendor</sql><sql name="WHERE*">/* MODULE 2 */
 /* WHERE */
 
 /* 1. Select only customer 1 from the customer table */
 SELECT * 
 FROM customer
-WHERE 
+WHERe customer_id = 1;
 
 
 /* 2. Differentiate between AND and OR */
-
+SELECT * 
+FROM customer
+WHERE customer_id = 1
+OR customer_id = 2; --1 or 2
+--AND will return nothing
 
 
 /* 3. IN */
 
-
+SELECT * FROM customer
+WHERE customer_id IN (3,4,5,6); -- only customer 3,4,5,6
 
 /* 4. LIKE */
-
-
+SELECT *
+FROM product
+WHERE product_name LIKE '%pepper%';
+
+SELECT * FROM customer
+WHERE customer_last_name LIKE 'a%';
 
 /* 5. Nulls and Blanks*/
+SELECT * FROM product
+WHERE product_size IS NULL --missing NUK values
+OR product_size='';
 
 
-
-/* 6. BETWEEN x AND y */</sql><sql name="CASE">/* MODULE 2 */
+/* 6. BETWEEN x AND y */
+
+SELECT * FROM market_date_info
+WHERE market_date BETWEEN '2022-03-01' AND '2022-05-31';</sql><sql name="CASE*">/* MODULE 2 */
 /* CASE */
 
+SELECT *
 
-SELECT * 
 /* 1. Add a CASE statement declaring which days vendors should come */
-
+CASE WHEN vendor_type='Fresh Focused' THEN 'Wednesday'
+WHEN vendor_type= 'Pepared Foods' WHEN 'Thursday'
+	ELSE'Saturday'
+	END as day_of_speciality
 
 /* 2. Add another CASE statement for Pie Day */
-
+CASE WHEN vendor_name= &quot;Annie's Pies&quot;
+	THEN &quot;Annie is the best&quot;
+	END as  annie_is_queen
 
 
 /* 3. Add another CASE statement with an ELSE clause to handle rows evaluating to False */
 
-
+CASE WHEN vendor_name LIKE '%pie%'
+THEN 'Wednesday'
+ELSE 'Friday'
+END AS pie_day
 
 /* 4. Experiment with selecting a different column instead of just a string value */
+CASE WHEN vendor_type= 'Fresh Focused' THEN vendor_owner_first_name
+WHEN vendor_type= 'Eggs &amp; Meats' THEN vendor_owner_last_name
+END as first_or_last
 
-
-FROM vendor</sql><sql name="DISTINCT">/* MODULE 2 */
+FROM vendor</sql><sql name="DISTINCT*">/* MODULE 2 */
 /* DISTINCT */
 
 
 /* 1. Compare how many customer_ids are the customer_purchases table, one select with distinct, one without */
 
 -- 4221 rows
-SELECT customer_id FROM customer_purchases 
-
+SELECT customer_id FROM customer_purchases;
+
+--26 rows
+SELECT DISTINCT customer_id FROM customer_purchases;
 
 
 /* 2. Compare the difference between selecting market_day in market_date_info, with and without distinct:
  what do these difference mean?*/
 
- 
+ SELECT market_day FROM market_date_info;
+ 
+ SELECT DISTINCT market_day FROM market_date_info;
 
 /* 3. Which vendor has sold products to a customer */
-
+SELECT DISTINCT vendor_id
+FROM customer_purchases;
 
 
 /* 4. Which vendor has sold products to a customer ... and which product was it */
 
-
+SELECT DISTINCT vendor_id, product_id
+FROM customer_purchases;
 
 /* 5. Which vendor has sold products to a customer 
 ... and which product was it? 
-... AND to whom was it sold*/
+... AND to whom was it sold*/
+
+SELECT DISTINCT vendor_id, product_id, customer_id
+FROM customer_purchases
+ORDER by customer_id ASC, product_id DESC --200 rows
 
-</sql><sql name="INNER_JOIN">/* MODULE 2 */
+</sql><sql name="INNER_JOIN*">/* MODULE 2 */
 /* INNER JOIN */
 
 
 /* 1. Get product names (from product table) alongside customer_purchases 
  ... use an INNER JOIN to see only products that have been purchased */
+ 
+ SELECT
+ product_name,
+ vendor_id,
+ market_date,
+ customer_id,
+ customer_purchases.customer_id
+ 
+ FROM  product INER JOIN customer_purchases
+	ON product.product_id = customer_purchases.customer_id;
  
 -- without table aliases
 
@@ -157,4 +210,4 @@ LEFT JOIN product AS p
 
 Why do we have more rows now?*/
 
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+</sql><current_tab id="4"/></tab_sql></sqlb_project>
