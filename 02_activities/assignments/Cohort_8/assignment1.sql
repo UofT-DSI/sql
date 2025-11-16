@@ -148,7 +148,12 @@ When inserting the new vendor, you need to appropriately align the columns to be
 VALUES(col1,col2,col3,col4,col5) 
 */
 
+CREATE TABLE temp.new_vendor AS
+SELECT *
+FROM vendor;
 
+INSERT INTO temp.new_vendor (vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+VALUES (10,  "Thomas Superfood Store", 'Fresh Focused', 'Rosenthal', 'Thomas');
 
 -- Date
 /*1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
