@@ -105,19 +105,6 @@ Filter to number of purchases between 300 and 500  */
 
 /* 2. What is the name of the vendor who sells pie */
 
-</sql><sql name="CTE">/* MODULE 3 */
-/* Common Table Expression (CTE) */
-
-
-/* 1. Calculate sales per vendor per day */
-SELECT 
-
-
-
-
-
-/* ... re-aggregate the daily sales for each WEEK instead now  */
-
 </sql><sql name="temp_table">/* MODULE 3 */
 /* Temp Tables */
 
@@ -140,6 +127,21 @@ CREATE TABLE temp.new_vendor_inventory AS
 
 
 /* 2. put the previous table into another temp table, e.g. as temp.new_new_vendor_inventory  */
+
+
+</sql><sql name="CTE">/* MODULE 3 */
+/* Common Table Expression (CTE) */
+
+
+/* 1. Calculate sales per vendor per day */
+SELECT 
+
+
+
+
+
+/* ... re-aggregate the daily sales for each WEEK instead now  */
+
 
 
 </sql><sql name="dates">/* MODULE 3 */
