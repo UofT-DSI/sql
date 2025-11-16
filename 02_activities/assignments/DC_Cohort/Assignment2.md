@@ -54,8 +54,49 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
+***
+
+Architecture 1 - Overwrite Customer Address 
+
+Table: CUSTOMER_ADDRESS_T1
+
+customer_id
+street
+city
+state_province
+postal_code
+country
+
+// Behavior:
+There is only one row per customer.
+When the customer moves, you update this row, overwriting the old address.
+No historical addresses are kept. // 
+
+
+
+Architecture 2 - Keep Address History (multiple rows per customer) 
+Table: CUSTOMER_ADDRESS_T2
+
+customer_address_id
+customer_id 
+street
+city
+state_province
+postal_code
+country
+effective_start_date 
+effective_end_date
+is_current (Y/N)
+
+Behavior:
+
+When the customer moves, you do not overwrite.
+
+You:
+
+Set effective_end_date (and is_current = 'N') on the old row.
+Insert a new row with the new address and is_current = 'Y'.
+Keep full history of addresses over time.
 
 ***
 
@@ -183,5 +224,12 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+When I think about the ethical issues raised in this story, the main thing that stands out is how the entire world of “machine learning” is quietly built on human labour—labour that is usually hidden, undervalued, or erased. The piece starts with something as mundane as sewing pajama pants, but it immediately sets the tone: tasks that seem simple to automate are often far beyond what machines can realistically do. Sewing a pair of pants is trivial for a person and nearly impossible for a robot. And the author uses that example to make a parallel argument about AI: what looks like automated intelligence on the surface is actually powered by massive amounts of human judgment and manual work underneath.
+
+That’s the first ethical issue—invisible labour. Most people who use AI systems assume that the data just “exists,” like it grows on trees. But datasets like ImageNet were created by armies of Mechanical Turk workers clicking on pictures for pennies. Before them, researchers and grad students were building linguistic resources like WordNet and the Brown Corpus by hand. These are not just technical projects; they involve thousands of hours of human sorting, classifying, and deciding what counts as what. It’s work that is essential to the entire field of machine learning, but it’s work that is rarely acknowledged or fairly compensated. Instead, companies and researchers build profitable tools on top of it and present the technology as if it emerged directly from an algorithmic vacuum.
+
+This leads into a second ethical issue—bias, which isn’t accidental but built into the foundation of these systems. Every layer of the AI pipeline reflects human assumptions: how people define categories, decide what images belong together, and describe the world. WordNet, for example, encodes particular linguistic and cultural views of what words “mean,” and that structure then shapes how ImageNet classifies objects. When ImageNet Roulette labeled people as “orphan” or “swot,” it wasn’t the AI being quirky—it was the system faithfully reproducing the choices embedded in its underlying taxonomies. The point the article makes is that these hierarchies are not neutral; they are political. They carry biases about identity, race, gender, class, and normality. And when millions of people use AI-powered tools, these biases get amplified and normalized.
+
+A related issue is how responsibility gets diffused in these systems. When something goes wrong—like mislabeling a person with an offensive category—it’s easy to say “the algorithm did it.” But the story shows that there is no clean boundary between the algorithm and the people who built the datasets, defined the categories, approved the labeling instructions, or coded the rules. Neural networks aren’t independent agents; they reflect accumulated human decisions. That means ethical responsibility can’t be outsourced to the machine. Designers, curators, researchers, and corporations all share responsibility for the social consequences of their models.
+
 ```
