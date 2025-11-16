@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Assigment2-section1.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2089"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Order_Line" custom_title="0" dock_id="1" table="4,10:mainOrder_Line"/><dock_state state="000000ff00000000fd000000010000000200000226000002f1fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000002260000010100ffffff000002260000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Book" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="61"/><column index="2" value="34"/><column index="3" value="51"/><column index="4" value="69"/><column index="5" value="117"/><column index="6" value="70"/><column index="7" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Customer" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="89"/><column index="2" value="79"/><column index="3" value="76"/><column index="4" value="43"/><column index="5" value="49"/><column index="6" value="116"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Date" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="57"/><column index="2" value="101"/><column index="3" value="37"/><column index="4" value="57"/><column index="5" value="50"/><column index="6" value="32"/><column index="7" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Employee" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="79"/><column index="3" value="76"/><column index="4" value="43"/><column index="5" value="49"/><column index="6" value="62"/><column index="7" value="91"/><column index="8" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Order" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="63"/><column index="2" value="91"/><column index="3" value="92"/><column index="4" value="101"/><column index="5" value="91"/><column index="6" value="81"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Order_Line" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="56"/><column index="3" value="62"/><column index="4" value="62"/><column index="5" value="75"/><column index="6" value="69"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">CREATE TABLE &quot;Date&quot; (
+  date_id        INT PRIMARY KEY,
+  calendar_date  DATE NOT NULL,
+  year           INT  NOT NULL,
+  quarter        INT  NOT NULL CHECK (quarter BETWEEN 1 AND 4),
+  month          INT  NOT NULL CHECK (month BETWEEN 1 AND 12),
+  day            INT  NOT NULL CHECK (day BETWEEN 1 AND 31),
+  is_weekend     BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE Employee (
+  employee_id    INT PRIMARY KEY,
+  first_name     VARCHAR(50)  NOT NULL,
+  last_name      VARCHAR(50)  NOT NULL,
+  email          VARCHAR(50) UNIQUE,
+  phone          VARCHAR(50),
+  job_title      VARCHAR(50),
+  hire_date_id   INT REFERENCES &quot;Date&quot;(date_id),
+  active_flag    BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE Customer (
+  customer_id     INT PRIMARY KEY,
+  first_name      VARCHAR(50)  NOT NULL,
+  last_name       VARCHAR(50)  NOT NULL,
+  email           VARCHAR(50) UNIQUE,
+  phone           VARCHAR(50),
+  created_date_id INT REFERENCES &quot;Date&quot;(date_id)
+);
+
+CREATE TABLE Book (
+  book_id          INT PRIMARY KEY,
+  title            VARCHAR(255) NOT NULL,
+  author           VARCHAR(255),
+  publisher        VARCHAR(255),
+  publication_year INT,
+  list_price       NUMERIC(10,2),
+  active_flag      BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE &quot;Order&quot; (
+  order_id       INT PRIMARY KEY,
+  customer_id    INT NOT NULL REFERENCES Customer(customer_id),
+  employee_id    INT NOT NULL REFERENCES Employee(employee_id),
+  order_date_id  INT NOT NULL REFERENCES &quot;Date&quot;(date_id),
+  order_status   VARCHAR(30) NOT NULL DEFAULT 'OPEN',
+  order_total    NUMERIC(12,2) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE Order_Line (
+  order_id   INT NOT NULL REFERENCES &quot;Order&quot;(order_id) ON DELETE CASCADE,
+  line_no    INT NOT NULL,
+  book_id    INT NOT NULL REFERENCES Book(book_id),
+  quantity   INT NOT NULL CHECK (quantity &gt; 0),
+  unit_price NUMERIC(10,2) NOT NULL CHECK (unit_price &gt;= 0),
+  line_total NUMERIC(12,2) GENERATED ALWAYS AS (quantity * unit_price) STORED,
+  PRIMARY KEY (order_id, line_no)
+);
+
+CREATE TABLE Sales (
+  sale_id        INT PRIMARY KEY,
+  order_id       INT UNIQUE REFERENCES &quot;Order&quot;(order_id) ON DELETE CASCADE,
+  sale_date_id   INT NOT NULL REFERENCES &quot;Date&quot;(date_id),
+  subtotal       NUMERIC(12,2) NOT NULL DEFAULT 0,
+  tax_amount     NUMERIC(12,2) NOT NULL DEFAULT 0,
+  discount_amount NUMERIC(12,2) NOT NULL DEFAULT 0,
+  total_amount   NUMERIC(12,2) NOT NULL DEFAULT 0,
+  payment_method VARCHAR(20) 
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
