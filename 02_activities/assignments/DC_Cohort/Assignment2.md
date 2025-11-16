@@ -47,16 +47,14 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
-
+![ERD_Assignment2_FG](images/ERD_Assignment2_FG.png)
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
-
+Type 1 overwrites old address data; Type 2 retains each change as a new historical record.
 ***
 
 ## Section 2:
@@ -183,5 +181,11 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+
+Vicky Boikis's thesis reveals the human foundations of artificial intelligence, pointing out that “machine learning” is neither autonomous nor purely mechanical, it is built upon layers upon layers of human labor, judgment, and bias. Beneath every neural network lies a vast, invisible workforce: those who tag images, clean data, and define linguistic categories. From the low-wage workers on Amazon Mechanical Turk who annotated millions of photos for ImageNet to the graduate students who compiled the Brown Corpus decades ago, the birth of so-called “intelligent” systems relies on people performing repetitive and under-recognized labor. This invisible workforce constitutes a new form of digital piecework—globalized, precarious, and indispensable—raising ethical dilemmas about fair compensation, labor recognition, and working conditions in the age of automation.
+
+Boykis also reveals how bias is deeply embedded within the data itself. Every decision to classify an image or define a word carries human worldviews, which often reflect cultural and societal prejudices. When such biases are amplified through massive datasets, the resulting systems, whether facial recognition, content moderation, or recommendation algorithms—replicate stereotypes and inflict real-world harm. For instance, the offensive labels in the ImageNet roulette scandal exposed how classification politics infiltrate supposedly objective technologies. The subsequent attempts by ImageNet's creators to remove “unsafe” or “offensive” categories underscore that AI's ethical accountability is ongoing and cannot be solely entrusted to code.
+
+More broadly, Boikis' story connects industrial sewing labor with the cognitive labor of data annotation: both represent human dexterity that machines struggle to replicate yet depend upon. This narrative dismantles the automation myth by revealing that technology does not eliminate human labor—it merely conceals it. Ethically, this recognition demands transparency about AI system contributors, safeguards against exploitative digital labor, and strengthened accountability for the societal impacts of biased data. Ultimately, Boikis reminds us that neural networks are not self-sufficient machines but products of collective human creation. Respecting those who build, maintain, and are affected by them lies at the heart of constructing a vision for responsible artificial intelligence.
+
 ```
