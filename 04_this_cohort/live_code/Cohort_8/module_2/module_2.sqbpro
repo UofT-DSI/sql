@@ -1,1 +1,297 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000495000003a2fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004950000012300ffffff000004950000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SELECT.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/SELECT.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/SELECT.sql&quot; (not supported by this version) --</sql><sql name="WHERE.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/WHERE.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/WHERE.sql&quot; (not supported by this version) --</sql><sql name="CASE_WHEN.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/CASE_WHEN.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/CASE_WHEN.sql&quot; (not supported by this version) --</sql><sql name="DISTINCT.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/DISTINCT.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/DISTINCT.sql&quot; (not supported by this version) --</sql><sql name="INNER_JION.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/INNER_JION.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/INNER_JION.sql&quot; (not supported by this version) --</sql><sql name="LEFT_JOIN.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/LEFT_JOIN.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/LEFT_JOIN.sql&quot; (not supported by this version) --</sql><sql name="multiple_table_joins.sql" filename="/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/multiple_table_joins.sql">-- Reference to file &quot;/Users/thomas/Documents/GitHub/02-intro_sql/04_this_cohort/live_code/Cohort_8/module_2/multiple_table_joins.sql&quot; (not supported by this version) --</sql><current_tab id="6"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd00000001000000020000044600000348fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004460000012300ffffff000004460000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+/* SELECT */
+
+
+/* 1. Select everything in the customer table */
+SELECT * FROM customer;
+
+
+/* 2. Use sql as a calculator */
+SELECT 1+1 as [2], pi() as [pi];
+
+
+/* 3. Add order by and limit clauses */
+SELECT * FROM customer
+ORDER BY customer_last_name DESC -- z-&gt;a
+LIMIT 5; -- only 5 rows
+
+
+
+/* 4. Select multiple specific columns */
+SELECT product_name, 
+product_size,
+product_qty_type
+
+FROM product;
+
+
+/* 5. Add a static value in a column */
+SELECT '2025' as [this_year], -- persist the value 2025 across all rows that we returnm a static value
+vendor_name,
+vendor_type
+
+FROM vendor;
+
+</sql><sql name="WHERE*">/* MODULE 2 */
+/* WHERE */
+
+/* 1. Select only customer 1 from the customer table */
+SELECT * 
+FROM customer
+WHERE customer_id = 1;
+
+
+/* 2. Differentiate between AND and OR */
+SELECT * 
+FROM customer
+WHERE customer_id = 1
+OR customer_id = 2; -- 1 or 2
+--AND customer_id -- returns nothing
+
+
+/* 3. IN */
+SELECT * FROM customer
+WHERE customer_id IN (3,4,5,6); -- only customers 3,4,5,6
+
+
+/* 4. LIKE */
+SELECT * 
+FROM product
+WHERE product_name LIKE '%pepper%';
+
+SELECT * 
+FROM customer
+WHERE customer_last_name LIKE 'a%'; -- starting with a
+
+
+/* 5. Nulls and Blanks*/
+SELECT * 
+FROM product
+WHERE product_size IS NULL -- missing, null VALUES
+OR product_size = ''; -- two single quotes '' not a double quote &quot;
+
+
+/* 6. BETWEEN x AND y */
+SELECT * FROM market_date_info
+WHERE market_date BETWEEN '2022-03-01' AND '2022-05-31' -- works well with dates or numbers!
+</sql><sql name="CASE*">/* MODULE 2 */
+/* CASE */
+
+
+SELECT *,
+/* 1. Add a CASE statement declaring which days vendors should come */ 
+CASE WHEN vendor_type = 'Fresh Focused' THEN 'Wednesday'
+	WHEN vendor_type = 'Prepared Foods' THEN 'Thursday'
+	ELSE 'Saturday'
+	END as day_of_specialty
+
+/* 2. Add another CASE statement for Pie Day */
+,CASE WHEN vendor_name = &quot;Annie's Pies&quot; -- double quotes will work just this once 
+	THEN 'Annie is the best'
+	END AS annie_is_queen
+
+
+/* 3. Add another CASE statement with an ELSE clause to handle rows evaluating to False */
+,CASE WHEN vendor_name LIKE '%pie%'
+THEN 'Wednesday'
+ELSE 'Friday' -- with this else, we get values for all the FALSE statements
+END AS pie_day
+
+
+/* 4. Experiment with selecting a different column instead of just a string value */
+,CASE WHEN vendor_type = 'Fresh Focused' THEN vendor_owner_first_name
+	WHEN vendor_type = 'Eggs &amp; Meats' THEN vendor_owner_last_name
+	END as first_or_last
+
+
+FROM vendor</sql><sql name="DISTINCT*">/* MODULE 2 */
+/* DISTINCT */
+
+
+/* 1. Compare how many customer_ids are the customer_purchases table, 
+one select with distinct, one without */
+
+-- 4221 rows
+SELECT customer_id FROM customer_purchases;
+
+-- 26 rows
+SELECT DISTINCT customer_id FROM customer_purchases;
+
+
+/* 2. Compare the difference between selecting market_day in market_date_info, with and without distinct:
+ what do these difference mean?*/
+ 
+ -- 150 rows...days that market was open
+ SELECT market_day FROM market_date_info;
+ 
+-- the market is only open on wed and saturday
+ SELECT DISTINCT market_day FROM market_date_info;
+ 
+
+/* 3. Which vendor has sold products to a customer */
+SELECT DISTINCT vendor_id
+FROM customer_purchases; -- 3rows
+
+
+/* 4. Which vendor has sold products to a customer ... and which product was it */
+SELECT DISTINCT vendor_id, product_id
+FROM customer_purchases; -- 8 rows
+
+
+/* 5. Which vendor has sold products to a customer 
+... and which product was it? 
+... AND to whom was it sold*/
+SELECT DISTINCT vendor_id, product_id, customer_id
+FROM customer_purchases
+ORDER BY customer_id ASC, product_id DESC -- 200 rows
+
+</sql><sql name="INNER_JOIN*">/* MODULE 2 */
+/* INNER JOIN */
+
+
+/* 1. Get product names (from product table) alongside customer_purchases 
+ ... use an INNER JOIN to see only products that have been purchased */
+ 
+-- without table aliases
+SELECT 
+product_name, -- coming from product TABLE
+vendor_id, -- coming from the customer_purchase table (and all below)
+market_date,
+customer_id,
+customer_purchases.product_id
+
+FROM product
+INNER JOIN customer_purchases
+	ON product.product_id = customer_purchases.product_id;
+
+
+
+/* 2. Using the Query #5 from DISTINCT earlier 
+    (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
+
+    Add customers' first and last names with an INNER JOIN  */
+
+-- using table aliases
+SELECT DISTINCT 
+vendor_id,
+ product_id, 
+ c.customer_id, -- from the customer table!
+ customer_first_name,
+ customer_last_name
+
+ FROM customer_purchases as cp
+INNER JOIN customer as c
+	ON c.customer_id = cp.customer_id 
+
+</sql><sql name="LEFT_JOIN*">/* MODULE 2 */
+/* LEFT  JOIN */
+
+
+/* 1. There are products that have been bought
+... but are there products that have not been bought? 
+Use a LEFT JOIN to find out*/
+SELECT DISTINCT
+p.product_id,
+cp.product_id as [cp.product_id],
+product_name
+
+FROM product as p
+LEFT JOIN customer_purchases as cp
+	ON p.product_id = cp.product_id
+	
+WHERE cp.product_id IS NULL; -- only shows the product_ids that have been sold 
+
+
+/* 2. Directions of LEFT JOINs matter ...*/
+-- this shows only products that have been sold...no products in cp that aren't in product table
+SELECT DISTINCT
+p.product_id,
+cp.product_id as [cp.product_id],
+product_name
+
+FROM customer_purchases as cp
+LEFT JOIN product as p
+	ON p.product_id = cp.product_id;
+
+
+
+/* 3. As do which values you filter on ... */
+SELECT DISTINCT 
+pc.product_category_id
+,p.product_category_id as [product_product_category_id]
+
+FROM product_category as pc
+LEFT JOIN product as p
+	ON pc.product_category_id = p.product_category_id
+
+--WHERE pc.product_category_id BETWEEN 1 AND 6 -- 6 rows
+WHERE p.product_category_id BETWEEN 1 AND 6 -- 5 rows
+
+
+/* 4. Without using a RIGHT JOIN, make this query return the RIGHT JOIN result set
+...**Hint, flip the order of the joins** ...
+
+SELECT *
+
+FROM product_category AS pc
+LEFT JOIN product AS p
+	ON pc.product_category_id = p.product_category_id
+	ORDER by pc.product_category_id
+
+...Note how the row count changed from 24 to 23
+*/	
+SELECT *
+
+FROM product AS p
+LEFT JOIN product_category AS pc
+	ON pc.product_category_id = p.product_category_id
+	ORDER by pc.product_category_id
+
+</sql><sql name="multiple_table_joins*">/* MODULE 2 */
+/* Multiple Table JOINs */
+
+
+/* 1. Using the Query #5 from DISTINCT earlier 
+    (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
+
+    Replace all the IDs (customer, vendor, and product) with the names instead*/ 
+SELECT DISTINCT 
+--vendor_id, 
+vendor_name,
+--product_id, 
+product_name,
+--customer_id
+customer_first_name,
+customer_last_name
+
+FROM customer_purchases as cp
+INNER JOIN vendor as v
+	ON v.vendor_id = cp.vendor_id
+INNER JOIN product as p
+	ON p.product_id = cp.product_id
+INNER JOIN customer as c
+	ON c.customer_id = cp.customer_id;
+
+
+
+/* 2. Select product_category_name, everything from the product table, and then LEFT JOIN the customer_purchases table
+... how does this LEFT JOIN affect the number of rows? 
+
+Why do we have more rows now?*/
+SELECT 
+product_category_name
+,p.*
+,cp.product_id as [cp.product_id]
+
+FROM product_category as pc
+INNER JOIN product as p
+	ON p.product_category_id = pc.product_category_id
+LEFT JOIN customer_purchases as cp -- inner join is 4221, but left join adds 15 rows (4236 rows) for unsold products
+	ON cp.product_id = p.product_id
+	
+ORDER BY cp.product_id
+
+
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
