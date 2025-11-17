@@ -1,124 +1,257 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="4" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="COUNT">/* MODULE 3 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="4" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="COUNT*">/* MODULE 3 */
 /* COUNT */
 
 
 /* 1. Count the number of products */
- 
+ SELECT COUNT(product_id) as num_of_prods
+ FROM product;
 
  
-/* 2. How many products per product_qty_type */
-
+/* 2. How many products per/by product_qty_type */
+SELECT product_qty_type
+,COUNT(product_id) as num_of_prods
+FROM product
+GROUP BY product_qty_type;
 
 
 /* 3. How many products per product_qty_type and per their product_size */
+SELECT product_size
+,product_qty_type
+,COUNT(product_id) as num_of_prods
 
+FROM product
+GROUP BY product_size, product_qty_type;
 
 
 /* COUNT DISTINCT 
     4. How many unique products were bought */
+    
+ SELECT count(DISTINCT product_id) as bought_products
+ FROM customer_purchases;
 
 
-</sql><sql name="SUM_AVG">/* MODULE 3 */
+</sql><sql name="SUM_AVG*">/* MODULE 3 */
 /* SUM &amp; AVG */
 
 
 /* 1. How much did customers spend each day */
+SELECT
+market_date
+,customer_id
+,SUM(quantity*cost_to_customer_per_qty) as total_cost
 
+FROM customer_purchases
+GROUP BY market_date, customer_id;
  
 
 /* 2. How much does each customer spend on average */
+SELECT 
+customer_first_name
+,customer_last_name
+,customer_postal_code
+,ROUND(AVG(quantity*cost_to_customer_per_qty),2) as total_cost
 
+FROM customer_purchases as cp
+INNER JOIN customer as c
+	ON c.customer_id = cp.customer_id
 
-</sql><sql name="MIN_MAX">/* MODULE 3 */
+GROUP BY c.customer_id -- this represents the single row that customer_first and customer_last_name are using
+
+</sql><sql name="MIN_MAX*">/* MODULE 3 */
 /* MIN &amp; MAX */
 
 
 /* 1. What is the most expensive product 
 ...pay attention to how it doesn't handle ties very well
 */
+SELECT 
+product_name
+,max(original_price) as most_expensive
+
+FROM product p
+INNER JOIN vendor_inventory vi
+	ON p.product_id = vi.product_id;
  
 
 /* 2. Prove that max is working */
+SELECT DISTINCT
+product_name
+,original_price
 
+FROM product p 
+INNER JOIN vendor_inventory vi
+	ON p.product_id = vi.product_id
+ORDER BY original_price DESC;
 
 
 /* 3. Find the minimum price per each product_qty_type */
+SELECT 
+product_name
+,product_qty_type
+,min(original_price) as least_expensive
 
+FROM product p 
+INNER JOIN vendor_inventory vi
+	ON p.product_id = vi.product_id
+GROUP BY product_qty_type
+
+ORDER BY product_qty_type ASC, original_price ASC;
 
 
 /* 4. Prove that min is working */
+SELECT DISTINCT 
+product_name
+,product_qty_type
+,original_price 
 
+FROM product p 
+INNER JOIN vendor_inventory vi
+	ON p.product_id = vi.product_id
+
+ORDER BY product_qty_type ASC, original_price ASC;
 
 
 /* 5. Min/max on a string 
 ... not particularly useful? */
+SELECT min(customer_first_name)
+FROM customer
 
 
-</sql><sql name="arithmitic">/* MODULE 3 */
+</sql><sql name="arithmitic*">/* MODULE 3 */
 /* Arithmitic */
 
 
 /* 1. power, pi(), ceiling, division, integer division, etc */
 SELECT 
-
+power(2,3) as [power]
+,pi() as [pi]
+,10.0 / 3.0 as division
+,cast(10.0 as INT) / cast(3.0 as int) as integer_division
+,ceiling(4.5) as [ceilign];
 
 /* 2. Every even vendor_id with modulo */
+SELECT *
 
+FROM vendor
+WHERE vendor_id % 2 = 0;
 
 
 /* 3. What about every third?  */
+SELECT *
 
-</sql><sql name="HAVING">/* MODULE 3 */
+FROM vendor
+WHERE vendor_id % 3 = 1;
+</sql><sql name="HAVING*">/* MODULE 3 */
 /* HAVING */
 
 
 /* 1. How much did a customer spend on each day?
 Filter to customer_id between 1 and 5 and total_cost &gt; 50 
 ... What order of execution occurs?*/
+
+SELECT  -- fifth
+market_date
+,customer_id
+,SUM(quantity*cost_to_customer_per_qty) as total_spend 
+
+FROM customer_purchases -- first
+WHERE customer_id BETWEEN 1 AND 5 --filtering the non-aggregated values, second
+
+GROUP BY market_date, customer_id -- third
+HAVING total_spend &gt; 50; -- filtering the aggreated values (total spend), fourth
  
 
 
 /* 2. How many products were bought?
 Filter to number of purchases between 300 and 500  */
+SELECT 
+count(product_id) as number_of_products
+,product_id
 
-</sql><sql name="subquery_joins">/* MODULE 3 */
+FROM customer_purchases
+
+GROUP BY product_id
+HAVING count(product_id) BETWEEN 300 AND 500 
+
+
+</sql><sql name="subquery_joins*">/* MODULE 3 */
 /* Subquery FROM */
 
 
 /*1. Simple subquery in a FROM statement, e.g. for inflation
 ...we could imagine joining this to a more complex query perhaps */
 
+SELECT DISTINCT product_id, inflation
 
+FROM (
+
+	SELECT product_id
+	,cost_to_customer_per_qty
+	,CASE 
+		WHEN cost_to_customer_per_qty &lt; '1.00' 
+		THEN cost_to_customer_per_qty*5
+		ELSE cost_to_customer_per_qty END as inflation
+	
+	FROM customer_purchases
+);
 
 
 /* 2. What is the single item that has been bought in the greatest quantity?*/
+SELECT product_name
+,max(quantity_purchased)
 
+FROM product p
+INNER JOIN (
+	SELECT product_id
+	,COUNT(quantity) as quantity_purchased
+	
+	FROM customer_purchases
+	GROUP BY product_id
 
-</sql><sql name="subquery_where">/* MODULE 3 */
+) x ON p.product_id = x.product_id
+
+</sql><sql name="subquery_where*">/* MODULE 3 */
 /* Subquery WHERE */
 
 
 /* 1. How much did each customer spend at each vendor for each day at the market WHEN IT RAINS */
 
+SELECT 
+market_date
+,customer_id
+,vendor_id
+,SUM(quantity*cost_to_customer_per_qty) as total_cost
 
+FROM customer_purchases
+WHERE market_date IN
+	(
+	SELECT market_date
+	FROM market_date_info
+	WHERE market_rain_flag = 1
+	)
+	
+GROUP BY 
+market_date
+,customer_id
+,vendor_id;
 
 
 /* 2. What is the name of the vendor who sells pie */
+SELECT DISTINCT vendor_name
 
-</sql><sql name="CTE">/* MODULE 3 */
-/* Common Table Expression (CTE) */
+FROM vendor v
+INNER JOIN vendor_inventory vi
+	ON v.vendor_id = vi.vendor_id
+
+WHERE product_id IN (
+	SELECT product_id
+	FROM product
+	WHERE product_name LIKE '%pie%'
+)
 
 
-/* 1. Calculate sales per vendor per day */
-SELECT 
 
-
-
-
-
-/* ... re-aggregate the daily sales for each WEEK instead now  */
-
-</sql><sql name="temp_table">/* MODULE 3 */
+</sql><sql name="temp_table*">/* MODULE 3 */
 /* Temp Tables */
 
 
@@ -134,12 +267,67 @@ DROP TABLE IF EXISTS temp.new_vendor_inventory;
 CREATE TABLE temp.new_vendor_inventory AS
 
 -- definition of the table
+SELECT *
+,original_price * 5 as inflation
+FROM vendor_inventory;
 
-
+SELECT * FROM new_vendor_inventory;
 
 
 
 /* 2. put the previous table into another temp table, e.g. as temp.new_new_vendor_inventory  */
+
+DROP TABLE IF EXISTS temp.new_new_vendor_inventory;
+
+CREATE TABLE temp.new_new_vendor_inventory AS
+SELECT *
+,inflation*2 as super_inflation
+
+FROM new_vendor_inventory;
+
+SELECT * FROM new_new_vendor_inventory
+
+</sql><sql name="CTE*">/* MODULE 3 */
+/* Common Table Expression (CTE) */
+
+
+/* 1. Calculate sales per vendor per day */
+
+WITH vendor_daily_sales AS (
+	SELECT 
+	md.market_date,
+	market_day,
+	market_week,
+	market_year,
+	vendor_name,
+	SUM(quantity*cost_to_customer_per_qty) as sales
+	
+	
+	FROM customer_purchases cp
+	INNER JOIN market_date_info md
+		ON cp.market_date = md.market_date
+	INNER JOIN vendor v
+		ON v.vendor_id = cp.vendor_id
+		
+	GROUP BY md.market_date, v.vendor_id
+),
+ 
+ -- if we want another CTE .... add a comma but not another WITH
+new_customer_result AS (
+	SELECT * FROM customer
+)
+ 
+
+/* ... re-aggregate the daily sales for each WEEK instead now  */
+SELECT
+market_year
+,market_week
+,vendor_name
+,SUM(sales)
+
+FROM vendor_daily_sales
+
+GROUP BY market_year, market_week, vendor_name
 
 
 </sql><sql name="dates">/* MODULE 3 */
