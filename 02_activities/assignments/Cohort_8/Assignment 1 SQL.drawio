@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="oH4Y2PW4sKq2dIMwHLLV">
+    <mxGraphModel dx="1075" dy="641" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-1" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;vendor&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;vendor_id&lt;/div&gt;&lt;div&gt;vendor_name&lt;/div&gt;&lt;div&gt;vendor_type&lt;/div&gt;&lt;div&gt;vendor_owner_first_name&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="240" y="90" width="150" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-2" value="&lt;div&gt;&lt;b&gt;vendor_inventory&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;market_date&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;quantity&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;vendor_id&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;product_id&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;original_price&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="80" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-3" value="&lt;div&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;booth&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;booth_number&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;booth_price_level&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;booth_description&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;booth_type&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="PuaZt_3I-PPpU4sfePy0-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-4" value="&lt;div&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;vendor_booth_assignments&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;vendor_id&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;booth_number&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;market_date&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="240" y="250" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-11" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=1;right=1;left=1;top=0;fillColor=none;routingCenterX=-0.5;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="132.5" y="172.5" width="155" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-14" value="" style="edgeStyle=isometricEdgeStyle;endArrow=none;html=1;elbow=vertical;rounded=0;exitX=1;exitY=0.32;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="PuaZt_3I-PPpU4sfePy0-1" target="PuaZt_3I-PPpU4sfePy0-2">
+          <mxGeometry width="50" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="130" as="sourcePoint" />
+            <mxPoint x="490" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-16" value="" style="edgeStyle=isometricEdgeStyle;endArrow=none;html=1;elbow=vertical;rounded=0;exitX=1;exitY=0.32;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="PuaZt_3I-PPpU4sfePy0-3">
+          <mxGeometry width="50" height="100" relative="1" as="geometry">
+            <mxPoint x="420" y="297" as="sourcePoint" />
+            <mxPoint x="530" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-17" value="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="100" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-18" value="&lt;div class=&quot;CM8kHf j86kh&quot; data-hveid=&quot;CDEQAQ&quot;&gt;&lt;div data-expression=&quot;∞&quot;&gt;&lt;div data-xpm-copy-root=&quot;&quot; style=&quot;position: relative; direction: ltr;display: inline-flex; max-width: 100%; overflow-x: auto; vertical-align: -0.25em;&quot; tabindex=&quot;-1&quot;&gt;&lt;img aria-hidden=&quot;true&quot; data-xpm-latex=&quot;\infty&quot; draggable=&quot;false&quot; role=&quot;presentation&quot; src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==&quot; style=&quot;pointer-events: none; position: absolute; height: 100%; width: 100%; left: 0; top: 0;&quot; data-csiid=&quot;U28bacqEB6ih5NoPurmv2Qg_6&quot; data-atf=&quot;1&quot;&gt;&lt;div style=&quot;inset: 0px; opacity: 0.001; overflow: hidden; position: absolute; user-select: none;&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;∞&lt;/mo&gt;infinity&lt;/math&gt;&lt;/div&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; aria-hidden=&quot;true&quot; direction=&quot;ltr&quot; width=&quot;0.926em&quot; height=&quot;1em&quot; viewBox=&quot;0 -0.75 0.926 1&quot; style=&quot;vertical-align: -0.25em; overflow: visible; user-select: none;&quot;&gt;&lt;text fill=&quot;#FFFFFF&quot; style=&quot;font-family: XITSMath-Regular; font-size: 1px&quot; transform=&quot;translate(0,0)&quot;&gt;∞&lt;/text&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="260" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-20" value="&lt;div class=&quot;CM8kHf j86kh&quot; data-hveid=&quot;CDEQAQ&quot;&gt;&lt;div data-expression=&quot;∞&quot;&gt;&lt;div data-xpm-copy-root=&quot;&quot; style=&quot;position: relative; direction: ltr;display: inline-flex; max-width: 100%; overflow-x: auto; vertical-align: -0.25em;&quot; tabindex=&quot;-1&quot;&gt;&lt;img aria-hidden=&quot;true&quot; data-xpm-latex=&quot;\infty&quot; draggable=&quot;false&quot; role=&quot;presentation&quot; src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==&quot; style=&quot;pointer-events: none; position: absolute; height: 100%; width: 100%; left: 0; top: 0;&quot; data-csiid=&quot;U28bacqEB6ih5NoPurmv2Qg_6&quot; data-atf=&quot;1&quot;&gt;&lt;div style=&quot;inset: 0px; opacity: 0.001; overflow: hidden; position: absolute; user-select: none;&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;∞&lt;/mo&gt;infinity&lt;/math&gt;&lt;/div&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; aria-hidden=&quot;true&quot; direction=&quot;ltr&quot; width=&quot;0.926em&quot; height=&quot;1em&quot; viewBox=&quot;0 -0.75 0.926 1&quot; style=&quot;vertical-align: -0.25em; overflow: visible; user-select: none;&quot;&gt;&lt;text fill=&quot;#FFFFFF&quot; style=&quot;font-family: XITSMath-Regular; font-size: 1px&quot; transform=&quot;translate(0,0)&quot;&gt;∞&lt;/text&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="110" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-21" value="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="100" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-22" value="&lt;div class=&quot;CM8kHf j86kh&quot; data-hveid=&quot;CDEQAQ&quot;&gt;&lt;div data-expression=&quot;∞&quot;&gt;&lt;div data-xpm-copy-root=&quot;&quot; style=&quot;position: relative; direction: ltr;display: inline-flex; max-width: 100%; overflow-x: auto; vertical-align: -0.25em;&quot; tabindex=&quot;-1&quot;&gt;&lt;img aria-hidden=&quot;true&quot; data-xpm-latex=&quot;\infty&quot; draggable=&quot;false&quot; role=&quot;presentation&quot; src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==&quot; style=&quot;pointer-events: none; position: absolute; height: 100%; width: 100%; left: 0; top: 0;&quot; data-csiid=&quot;U28bacqEB6ih5NoPurmv2Qg_6&quot; data-atf=&quot;1&quot;&gt;&lt;div style=&quot;inset: 0px; opacity: 0.001; overflow: hidden; position: absolute; user-select: none;&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;∞&lt;/mo&gt;infinity&lt;/math&gt;&lt;/div&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; aria-hidden=&quot;true&quot; direction=&quot;ltr&quot; width=&quot;0.926em&quot; height=&quot;1em&quot; viewBox=&quot;0 -0.75 0.926 1&quot; style=&quot;vertical-align: -0.25em; overflow: visible; user-select: none;&quot;&gt;&lt;text fill=&quot;#FFFFFF&quot; style=&quot;font-family: XITSMath-Regular; font-size: 1px&quot; transform=&quot;translate(0,0)&quot;&gt;∞&lt;/text&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="265" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PuaZt_3I-PPpU4sfePy0-23" value="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
