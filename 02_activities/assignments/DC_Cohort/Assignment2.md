@@ -44,6 +44,12 @@ Additionally, include a date table.
 There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
+**relation ship of my tables ***
+customer to order   1-to-many
+employee to order   1-to-many
+order to Sales      1-to-many
+book to sales       1-to-many
+date to order       1-to-many
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
@@ -51,11 +57,18 @@ We want to create employee shifts, splitting up the day into morning and evening
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
-**HINT:** search type 1 vs type 2 slowly changing dimensions. 
+**HINT:** search type 1 vs type 2 slowly changing dimensions (SCD). 
 
 ```
 Your answer...
 ```
+
+'''Type 1 SCD- is a type of architecture that overwrites the old CUSTOMER_ADDRESS information. This type of architecture only retains the current address inputed. Therefore, it does not save the cutomers address permanently. one can use this SCD type to collect information like shipping address.
+
+WHILE 
+
+Type 2 SCD - the architecture here retains changes in the CUSTOMER_ADDRESS because a unique Id is assigned to each address input. it keeps all previous addresses and everytime time an address changes, a new record is added with effective dates. Therfore, you can see historical addresses.'''
+
 
 ***
 
