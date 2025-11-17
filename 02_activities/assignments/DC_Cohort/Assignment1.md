@@ -205,5 +205,9 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+
+I dont' really encounter many databases on the day-to-day basis beyond my own neuroscience research. In general there could be that demographic information could help understand socioeconomic structures in clinical settings when looking at different groups of patients, which can be used to see if certain racial groups are disadvantaged or not receiving the right amount of medical care. I could also expect to see this census data, when looking a job disparities between various groups and how resources are allocated to serve different communities based on their specific needs. How we code in demographic information such as sex, gender, age, race, nationality and immigration status can impact how resources are distributed to different communities. If we do not have enough comprehensive distinctions between certain groups, then it may be difficult to get the targeted needs met for certain groups that require more assistance.
+
+
+
 ```
