@@ -47,7 +47,7 @@ SELECT product_id,
 product_name,
 CASE WHEN product_qty_type = 'unit' THEN 'unit'
 	ELSE 'bulk'
-	END AS product_qty_type
+	END AS prod_qty_type_condensed
 FROM product;
 
 
