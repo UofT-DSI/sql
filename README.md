@@ -57,7 +57,7 @@ Participants should review the [Assignment Submission Guide](https://github.com/
 
 There are two assignments.
 
-🚨ATTENTION! During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort as **the assignment are not the same**.
+🚨ATTENTION! During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort as **the assignments are not the same**.
 
 ### DC
 1. [Assignment 1](./02_activities/assignments/DC_Cohort/Assignment1.md)
@@ -103,7 +103,7 @@ There are two assignments.
 
 This module will include live learning sessions and optional, asynchronous work periods. During live learning sessions, the Technical Facilitator will introduce and explain key concepts and demonstrate core skills. Learning is facilitated during this time. Before and after each live learning session, the instructional team will be available for questions related to the core concepts of the module. Optional work periods are to be used to seek help from peers, the Learning Support team, and to work through the assignments in the learning module, with access to live help. Content is not facilitated, but rather this time should be driven by participants. We encourage participants to come to these work periods with questions and problems to work through. 
  
-Participants are encouraged to engage actively during the learning module. They key to developing the core skills in each learning module is through practice. The more participants engage in coding along with the instructional team, and applying the skills in each module, the more likely it is that these skills will solidify. 
+Participants are encouraged to engage actively during the learning module. The key to developing the core skills in each learning module is through practice. The more participants engage in coding along with the instructional team, and applying the skills in each module, the more likely it is that these skills will solidify. 
 
 This module will use a dedicated _Etherboard_ for student collaboration. The link will be provided in the first class. New content will be added by the Technical Facilitator before each session. Each session will consist of slides to introduce topics, live coding to demonstrate the topics, and occasional breakout rooms/live polls to reinforce the topics.  
 
@@ -147,7 +147,7 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 * Participants are encouraged to ask questions, and collaborate with others to enhance their learning experience.
 * Participants must have a computer and an internet connection to participate in online activities.
 * Participants must not use generative AI such as ChatGPT to generate code in order to complete assignments. It should be used as a supportive tool to seek out answers to questions you may have.
-* We expect Participants to have completed the instructions mentioned in the [onboarding repo](https://github.com/UofT-DSI/onboarding/blob/main/environment_setup/README.md).
+* We expect participants to have completed the instructions mentioned in the [onboarding repo](https://github.com/UofT-DSI/onboarding/blob/main/environment_setup/README.md).
 * We encourage participants to default to having their camera on at all times, and turning the camera off only as needed. This will greatly enhance the learning experience for all participants and provides real-time feedback for the instructional team. 
 
 ## Resources
@@ -189,8 +189,8 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 * **activities**: Contains self-assessments, graded assignments, and rubrics for evaluating assignments.
 * **instructional_team**: Resources for the instructional team.
 * **this_cohort**: Additional materials and resources for this cohort.
-* **src**: Source code, databases, logs, and required dependencies (requirements.txt) needed during the module.
-* **.gitignore**: Files to exclude from this folder, specified by the Technical Facilitator
+* **src**: Source code, databases, logs, and required dependencies needed during the module.
+* **.gitignore**: Files to exclude from this repository, specified by the Technical Facilitator.
 * **LICENSE**: The license for this repository.
 * **SETUP.md**: Contains the instructions for following the steps required to complete the SQL onboarding tasks.
 * **README.md**: This file.
