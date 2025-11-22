@@ -47,7 +47,14 @@ WHERE customer_id BETWEEN 8 AND 10;
 /* @@ -35,35 +51,71 @@ Using the product table, write a query that outputs the product_id and product_n
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
-
+SELECT
+    product_id,
+    product_n,
+    CASE 
+        WHEN product_qty_type = 'unit' THEN 'unit'
+        ELSE 'bulk'
+    END AS prod_qty_type_condensed
+FROM product;
 
 
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
