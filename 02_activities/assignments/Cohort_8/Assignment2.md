@@ -14,8 +14,8 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
+- [x] Create a branch called `assignment-two`.
+- [x] Ensure that the repository is public.
 - [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
 - [ ] Verify that the link is accessible in a private browser window.
 
@@ -46,13 +46,13 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 **HINT:** You do not need to create any data for this prompt. This is a logical model (ERD) only. 
 
 ```
-See assignment2_erd_logic.png. Relationships are indicated by line connectors, where || means one and the branched symbol means many. PK = primary key, FK = foreign key. Table and relationship additions for Prompt 2 are indicated in red. 
+See assignment2_erd_logic.png. Relationships are indicated by line connectors, where || means one and the branched symbol means many. PK = primary key, FK = foreign key. Table and relationship additions for Prompt 2 are indicated in red. Table and relationship additions for Prompt 3 are indicated in blue.
 ```
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
 ```
-See assignment2_erd_logic.png. Relationships are indicated by line connectors, where || means one and the branched symbol means many. PK = primary key, FK = foreign key. Table and relationship additions for Prompt 2 are indicated in red. 
+See assignment2_erd_logic.png. Relationships are indicated by line connectors, where || means one and the branched symbol means many. PK = primary key, FK = foreign key. Table and relationship additions for Prompt 2 are indicated in red. Table and relationship additions for Prompt 3 are indicated in blue.
 ```
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -64,7 +64,9 @@ Type 1 updates a record (overwrites old value) and Type 2 creates a new record (
 
 Architecture 1 (Type 1): Allow only one address per customer, keeping only the most recent address by overwriting the old one in the CUSTOMER_ADDRESS table. Create CUSTOMER_ADDRESS table containing a record for each customer_id, using customer_id as PK & FK. Since no history of changes can be tracked, including a last_updated date column in the table may be desirable.  
 
-Architecture 2 (Type 2): Allow multiple addresses per customer_id, but only one address is active at a time. Create CUSTOMER_ADDRESS table containing a record for each address for each customer_id, using address_id as the PK, customer_id, start_date, and end_date as FKs, and a boolean flag indicating is_active. When querying specify WHERE is_active = TRUE. 
+Architecture 2 (Type 2): Allow multiple addresses per customer_id, but only one address is active at a time. Create CUSTOMER_ADDRESS table containing a record for each address for each customer_id, using address_id as the PK, customer_id, start_date, and end_date as FKs, and a boolean flag indicating is_active. When querying, specify WHERE is_active = TRUE. 
+
+Table and relationship additions for Prompt 3 implementation of Type 2 approach to managing slowly changing dimensions (SCDs) are indicated in blue.
 ```
 
 ***
