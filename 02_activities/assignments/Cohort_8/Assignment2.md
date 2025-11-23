@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [X] Create a branch called `assignment-two`.
+- [X] Ensure that the repository is public.
+- [X] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [X] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -54,7 +54,10 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 slowly changing dimension (SCD) does not preserve history, and the purpose is only to retain the most current information, so Type 1 will overwrite (update) changes. Type 2 SCD preserves and tracks history and enables time-based analysis.
+To store customer addresses in a CUSTOMER_ADDRESS table, the address fields in the current CUSTOMER table can be removed. A separate CUSTOMER_ADDRESS table can be created where ADDR_ID is the PK, and CUSTOMER_ID is the FK to the CUSTOMER table. 
+In the CUSTOMER_ADDRESS table, to implement SCD Type 2, start_date and end_date columns can be added (in addition to address, postal code etc.) that track where a customer resided previously in the event that a customer changed an address; if a customer changes an address, a new row gets created, the end_date column for the previous entry gets updated, and the start_date column of the current entry gets updated, with the end_date for the current entry being NULL. 
+To implement SCD Type 1, where the address is to be updated, you don't need the start_date and end_date columns, you can just have the usual address, postal code etc. columns to store the address details, and these columns would get updated when an address changes. 
 ```
 
 ***
