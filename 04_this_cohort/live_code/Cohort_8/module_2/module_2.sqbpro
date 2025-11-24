@@ -1,54 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/dsi/sql/sql/05_src/sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="7" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd00000001000000020000044c000002aefc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f007700730065003201000000000000043b0000000000000000fb000000160064006f0063006b00420072006f007700730065003701000000000000044c0000015c00ffffff0000044c0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SELECT">/* MODULE 2 */
 /* SELECT */
 
 
 /* 1. Select everything in the customer table */
-SELECT 
+SELECT * from customer;
+
 
 /* 2. Use sql as a calculator */
 
-
+select 1*1 aa ;
 
 /* 3. Add order by and limit clauses */
 
-
+Select * from customer
+order by 2 desc
+Limit 5;
 
 /* 4. Select multiple specific columns */
 
+select product_name,product_qty_type
+from product;
 
-
-/* 5. Add a static value in a column */</sql><sql name="WHERE">/* MODULE 2 */
+/* 5. Add a static value in a column */
+select 2025 as &quot;This Year&quot; ,
+       vendor_name,
+	   vendor_owner_first_name,
+	   vendor_owner_last_name
+	   from vendor;
+	   
+	   </sql><sql name="WHERE">/* MODULE 2 */
 /* WHERE */
 
 /* 1. Select only customer 1 from the customer table */
 SELECT * 
 FROM customer
-WHERE 
+WHERE customer_id=1;
 
 
 /* 2. Differentiate between AND and OR */
-
+select *
+ from customer
+ where customer_id=1
+ or customer_id=2;
 
 
 /* 3. IN */
 
-
+select * from customer
+where customer_id in(3,4,5,6);
 
 /* 4. LIKE */
+select * from product
+where product_name like '%pepp%';
 
+select * from customer
+where customer_first_name like 'a%';
 
 
 /* 5. Nulls and Blanks*/
 
+select * from product
+where product_size is null
+or product_size='';
 
+/* 6. BETWEEN x AND y */
 
-/* 6. BETWEEN x AND y */</sql><sql name="CASE">/* MODULE 2 */
+select * from market_date_info
+where market_date between '2022-03-01' and '2022-05-31';</sql><sql name="CASE">/* MODULE 2 */
 /* CASE */
 
 
-SELECT * 
+SELECT * ,
 /* 1. Add a CASE statement declaring which days vendors should come */
-
+CASE when vendor_type='Fresh focused' then 'wednesday'
+     when vendor_type='pepper food' then 'Thursday'
+	 else 'sataurday'
+	 End as Day-of0sp
 
 /* 2. Add another CASE statement for Pie Day */
 
@@ -89,7 +116,7 @@ SELECT customer_id FROM customer_purchases
 ... and which product was it? 
 ... AND to whom was it sold*/
 
-</sql><sql name="INNER_JOIN">/* MODULE 2 */
+</sql><sql name="INNER_JOIN*">/* MODULE 2 */
 /* INNER JOIN */
 
 
@@ -99,17 +126,25 @@ SELECT customer_id FROM customer_purchases
 -- without table aliases
 
 
-
+select product_name,product.product_id from product
+Inner join customer_purchases
+on product.product_id = customer_purchases.product_id;
 
 /* 2. Using the Query #4 from DISTINCT earlier 
-    (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
+    (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
+	
 
     Add customers' first and last names with an INNER JOIN  */
 
--- using table aliases
+-- using table aliases
+select distinct vendor_id,product_id
+from customer_purchases as cp
+inner join customer  as c
+on c.customer_id = cp.customer_id;
 
 
-</sql><sql name="LEFT_JOIN">/* MODULE 2 */
+
+</sql><sql name="LEFT_JOIN*">/* MODULE 2 */
 /* LEFT  JOIN */
 
 
@@ -121,10 +156,30 @@ Use a LEFT JOIN to find out*/
 /* 2. Directions of LEFT JOINs matter ...*/
 
 
+SELECT 
+product_name, -- coming from product TABLE
+vendor_id, -- coming from the customer_purchase table (and all below)
+market_date,
+customer_id,
+customer_purchases.product_id
+
+FROM product
+INNER JOIN customer_purchases
+	ON product.product_id = customer_purchases.product_id;
 
 
 /* 3. As do which values you filter on ... */
 
+SELECT DISTINCT 
+vendor_id,
+ product_id, 
+ c.customer_id, -- from the customer table!
+ customer_first_name,
+ customer_last_name
+
+ FROM customer_purchases as cp
+INNER JOIN customer as c
+	ON c.customer_id = cp.customer_id 
 
 
 
@@ -141,7 +196,7 @@ LEFT JOIN product AS p
 ...Note how the row count changed from 24 to 23
 */	
 
-</sql><sql name="multiple_table_joins">/* MODULE 2 */
+</sql><sql name="multiple_table_joins*">/* MODULE 2 */
 /* Multiple Table JOINs */
 
 
@@ -149,7 +204,14 @@ LEFT JOIN product AS p
     (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
 
     Replace all the IDs (customer, vendor, and product) with the names instead*/ 
-
+select c.* from 
+customer_purchases as c
+inner join  product p 
+on p.product_id =c.product_id
+inner join vendor as v
+on v.vendor_id = c.vendor_id
+inner join customer as cu
+on cu.customer_id =c.customer_id;
 
 
 /* 2. Select product_category_name, everything from the product table, and then LEFT JOIN the customer_purchases table
@@ -157,4 +219,4 @@ LEFT JOIN product AS p
 
 Why do we have more rows now?*/
 
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+</sql><current_tab id="6"/></tab_sql></sqlb_project>

@@ -5,16 +5,21 @@
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
 
-
+Select 
 
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
 sorted by customer_last_name, then customer_first_ name. */
 
 
-
---WHERE
+select * 
+  from customer
+ where rownum <= 10
+ order by customer_last_name, customer_first_name;
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. */
-
+select * 
+  from customer_purchases
+ where product_id = 4 
+    or product_id = 9;
 
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
@@ -23,10 +28,22 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 	2.  one condition using BETWEEN
 */
 -- option 1
-
+Select CP.*,(quantity * cost_to_customer_per_qty) price
+  from customer_purchases CP,
+	   customer C
+ where customer_id >= 8
+   and customer_id <= 10
+   and CP.customer_id = C.customer_id
+   and CP.customer_id is not null
+   
 
 -- option 2
-
+Select CP.*,(quantity * cost_to_customer_per_qty) price
+  from customer_purchases CP,
+	   customer C
+	    where customer_id between 8 and 10
+		and CP.customer_id = C.customer_id
+		and CP.customer_id is not null;
 
 
 --CASE
