@@ -59,22 +59,23 @@ SELECT
 	customer_id,
 	market_date,
 	ROW_NUMBER() OVER(
-		PARTITION BY customer_id 
+		PARTITION BY customer_id  --apply window function grouped by customer_id
 		ORDER BY market_date ASC
 		) AS visit_number
 
-FROM (
-	SELECT DISTINCT market_date, customer_id 
+FROM ( -- apply to subset of data 
+	SELECT DISTINCT market_date, customer_id -- de-duplicate dates per customer 
 	FROM customer_purchases 
 ); 
 
 	
 /* DENSE_RANK() approach:
 display all rows in the customer_purchases table, with the counter changing on
-each new market date for each customer */
+each new market date for each customer 
+	- dense_rank() assigns continuous numbering*/
 SELECT *,
-DENSE_RANK() OVER(
-	PARTITION BY customer_id 
+DENSE_RANK() OVER( 
+	PARTITION BY customer_id -- apply dense_rank() over entire dataset, grouped by customer_id 
 	ORDER BY market_date ASC
 	) AS visit_number
 
@@ -128,13 +129,13 @@ FROM customer_purchases AS cp;
 
 --METHOD 1b: WINDOWED + CTE ; de-duplicate first 
 WITH distinct_counts AS (
-	SELECT DISTINCT customer_id, product_id, market_date
+	SELECT DISTINCT customer_id, product_id, market_date -- de-duplicate
 	FROM customer_purchases
-) -- de-duplicate
+) 
 , counts AS (
 	SELECT *,
 		COUNT(*) OVER(
-			PARTITION BY customer_id, product_id
+			PARTITION BY customer_id, product_id -- apply count over distinct customer_id, product_id
 			) AS total_products
 	FROM distinct_counts
 )
@@ -162,13 +163,13 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 SELECT *,
 	CASE WHEN INSTR(product_name,'-') > 0 -- if hyphen exists trim
-			THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') +1))
-			ELSE NULL 
+			THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') +1)) -- +1 for : 
+			ELSE NULL -- only entries with - are assigned to description column 
 	END AS description
 FROM product
 
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
-WHERE product_size REGEXP '.*[0-9].*'; -- contains any numbers anywhere
+WHERE product_size REGEXP '.*[0-9].*'; -- contains any numbers [0-9] anywhere .*
 
 
 -- UNION
@@ -180,7 +181,7 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 "best day" and "worst day"; 
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
-WITH daily_sales AS (
+WITH daily_sales AS ( -- get total per market date 
 	SELECT 
 		market_date,
 		ROUND(SUM(quantity*cost_to_customer_per_qty),2) AS daily_total
@@ -189,14 +190,14 @@ WITH daily_sales AS (
 ),
 ranked_sales AS (
 	SELECT *,
-		RANK() OVER(ORDER BY daily_total DESC) AS rnk
+		RANK() OVER(ORDER BY daily_total DESC) AS rnk -- append rank over daily sales table 
 	FROM daily_sales 
 )
 SELECT market_date, daily_total FROM ranked_sales 
 WHERE rnk = 1 -- highest
 UNION 
 SELECT market_date, daily_total FROM ranked_sales 
-WHERE rnk = (SELECT MAX(rnk) FROM ranked_sales); -- lowest
+WHERE rnk = (SELECT MAX(rnk) FROM ranked_sales); -- lowest; MAX() bc rank order DESC 
 
 /*we don't really need UNION at all though...
 WITH daily_sales AS (
@@ -208,8 +209,8 @@ WITH daily_sales AS (
 ),
 x AS (
 	SELECT *, 
-		MIN(daily_total) OVER() AS min_sales, 
-		MAX(daily_total) OVER() AS max_sales 
+		MIN(daily_total) OVER() AS min_sales,  -- lowest across daily_sales
+		MAX(daily_total) OVER() AS max_sales -- highest across daily_sales 
 	FROM daily_sales
 )
 SELECT market_date, daily_total FROM x
@@ -231,12 +232,45 @@ Think a bit about the row counts: how many distinct vendors, product names are t
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
 
-SELECT 
-	v.vendor_name,
+/*************************************************
+ INFO GATHERING
+		- simulating vendor sales (5/prod) to every customer (CROSS)
+		- revenue per product = 5 * price * number of customers 
+		- revenue per vendor = sum of revenue across products 
+ 		- need distinct: vendor_ids, product_ids, customer_ids 
+		- assumptions: price of product is constant across vendor & date */
+
+-- What & how many distinct customers are there? (26)
+--SELECT DISTINCT customer_id FROM customer ORDER BY customer_id;  
+--SELECT COUNT(DISTINCT customer_id) AS total_customers FROM customer;
+
+-- What & how many distinct products does each vendor in vendor_invenstory sell? (8)
+--SELECT DISTINCT vendor_id, product_id FROM vendor_inventory ORDER BY vendor_id;
+--SELECT COUNT (*)  AS distinct_vp FROM (SELECT DISTINCT vendor_id, product_id FROM vendor_inventory);
+
+-- How many rows in the CROSS JOIN per vendor?  (total should be 208)*/
+/*SELECT vi.vendor_id,
+    COUNT(DISTINCT vi.product_id) * (SELECT COUNT(*) FROM customer) AS cross_join_rows
+FROM vendor_inventory vi
+GROUP BY vi.vendor_id; */
+
+-- Show the CROSS JOIN visually (208 ROWS)
+/*WITH vp AS (SELECT DISTINCT vi.vendor_id, vi.product_id FROM vendor_inventory AS vi)
+SELECT vp.vendor_id, vp.product_id, c.customer_id FROM vp
+CROSS JOIN customer AS c
+ORDER BY vp.vendor_id, vp.product_id, c.customer_id;	
+*//*************************************************
+
+
+/* TOTAL REVENUE PER VENDOR-PRODUCT  (8 ROWS) */
+-- METHOD: no CTE + 1 aggregation + cross join 
+		-- NB: all other methods (using CTE, window, etc) are longer; not included		
+SELECT  -- return only names + revenue
+	v.vendor_name, 
 	p.product_name,
-	SUM(5 * vi.original_price * c.num_cust) AS vendor_revenue
+	SUM(5 * vi.original_price * c.num_cust) AS vendor_revenue -- c from cross join 
 FROM (
-	SELECT DISTINCT 
+	SELECT DISTINCT -- unique only 
 		vendor_id, 
 		product_id, 
 		original_price 
@@ -244,8 +278,8 @@ FROM (
 ) AS vi
 INNER JOIN product AS p ON p.product_id = vi.product_id
 INNER JOIN vendor AS v ON v.vendor_id = vi.vendor_id 
-CROSS JOIN (SELECT COUNT(*) AS num_cust FROM customer) AS c
-GROUP BY vi.vendor_id, vi.product_id 
+CROSS JOIN (SELECT COUNT(*) AS num_cust FROM customer) AS c -- aggregation to avoid CTE
+GROUP BY vi.vendor_id, vi.product_id -- per distinct vendor-product paring 
 ORDER BY vi.vendor_id;
 
 
