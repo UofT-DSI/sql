@@ -26,7 +26,7 @@ SELECT
 	|| ', ' || 
 	COALESCE(product_size,'') 
 	|| ' (' || 
-	COALESCE(product_qty_type,'unit') -- seems arbitrary?
+	COALESCE(product_qty_type,'unit') 
 --	COALESCE(product_qty_type, CASE WHEN RANDOM() < 0.5  THEN 'lbs' ELSE 'unit' END) -- let fate decide!
 	|| ')' AS 'List of Products'
 FROM product;
@@ -56,12 +56,12 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 select only the unique market dates per customer (without purchase details)
 and number those visits */
 SELECT
-customer_id,
-market_date,
-ROW_NUMBER() OVER(
-	PARTITION BY customer_id 
-	ORDER BY market_date ASC
-	) AS visit_number
+	customer_id,
+	market_date,
+	ROW_NUMBER() OVER(
+		PARTITION BY customer_id 
+		ORDER BY market_date ASC
+		) AS visit_number
 
 FROM (
 	SELECT DISTINCT market_date, customer_id 
@@ -115,10 +115,8 @@ ORDER BY customer_id;
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
-/****************************************************************/
-/* COUNT HOW MANY TIMES EACH CUSTOMER HAS BOUGHT EACH PRODUCT ****/
-/* ASSUMPTIONS: count distinct transactions; append totals to customer_purchases*/
-/****************************************************************/
+/* COUNT HOW MANY TIMES EACH CUSTOMER HAS BOUGHT EACH PRODUCT  */
+
 -- METHOD 1a: WINDOWED FUNCTION; distinct transactions 
 SELECT *, -- cp.*, p.product_name,
 	COUNT(*) OVER(
@@ -233,6 +231,22 @@ Think a bit about the row counts: how many distinct vendors, product names are t
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
 
+SELECT 
+	v.vendor_name,
+	p.product_name,
+	SUM(5 * vi.original_price * c.num_cust) AS vendor_revenue
+FROM (
+	SELECT DISTINCT 
+		vendor_id, 
+		product_id, 
+		original_price 
+	FROM vendor_inventory
+) AS vi
+INNER JOIN product AS p ON p.product_id = vi.product_id
+INNER JOIN vendor AS v ON v.vendor_id = vi.vendor_id 
+CROSS JOIN (SELECT COUNT(*) AS num_cust FROM customer) AS c
+GROUP BY vi.vendor_id, vi.product_id 
+ORDER BY vi.vendor_id;
 
 
 -- INSERT
@@ -241,19 +255,38 @@ This table will contain only products where the `product_qty_type = 'unit'`.
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
 
+DROP TABLE IF EXISTS temp.product_units;
+CREATE TEMP TABLE product_units AS 
+	SELECT 
+		p.*,
+		CURRENT_TIMESTAMP AS snapshot_timestamp
+	FROM product AS p
+	WHERE product_qty_type = 'unit';
 
-
+	
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
+-- SELECT * FROM product_units 
 
+INSERT INTO product_units
+--SELECT * FROM product_units 
+VALUES(15, 'Oreos', '440 g', 2, 'unit', CURRENT_TIMESTAMP);
 
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
-
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
+DELETE FROM product_units
+WHERE product_id = 15;
 
-
+/*-- assuming there was a reason we added a new timestamp...
+DELETE FROM product_units
+--SELECT * FROM product_units
+WHERE snapshot_timestamp = (
+	SELECT MAX(snapshot_timestamp) 
+	FROM product_units
+	)
+*/
 
 -- UPDATE
 /* 1.We want to add the current_quantity to the product_units table. 
@@ -272,6 +305,72 @@ Finally, make sure you have a WHERE statement to update the right row,
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
 
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+/* APPROACH 1 - closest match to instructions */
+/*
+-- get most recent quantity per product 
+WITH latest_qty AS (
+	SELECT 
+		vi.product_id, 
+		vi.quantity
+	FROM vendor_inventory AS vi
+	INNER JOIN (
+		SELECT 
+			product_id, 
+			MAX(market_date) AS last_sold
+		FROM vendor_inventory
+		GROUP BY product_id
+	) AS mx
+		ON mx.product_id = vi.product_id
+		AND mx.last_sold = vi.market_date
+)
+UPDATE product_units
+SET current_quantity = (
+	COALESCE(
+		(SELECT lq.quantity 
+		FROM latest_qty AS lq
+		WHERE lq.product_id = product_units.product_id)
+	, 0)
+);
+
+/* APPROACH 2 - best practice */
+	WITH latest_qty AS (
+    SELECT
+        product_id,
+        quantity,
+        ROW_NUMBER() OVER (
+            PARTITION BY product_id ORDER BY market_date DESC
+        ) AS rn
+    FROM vendor_inventory
+)
+UPDATE product_units
+SET current_quantity = (
+    SELECT COALESCE(quantity, 0) -- not all products have been sold, assign entries without quantity as 0
+    FROM latest_qty
+    WHERE product_units.product_id = latest_qty.product_id
+      AND rn = 1
+);
 
 
+/* APPROACH 3 - simplest */
+/* 
+UPDATE product_units
+SET current_quantity = COALESCE((
+    SELECT quantity
+    FROM vendor_inventory AS vi
+    WHERE vi.product_id = product_units.product_id
+    ORDER BY market_date DESC
+    LIMIT 1
+), 0);
+*/
 
+-- display updated result
+SELECT 
+	pu.product_name, pu.product_size,
+	pc.product_category_name,
+	pu.product_qty_type, pu.current_quantity
+FROM product_units AS pu
+INNER JOIN product_category AS pc
+	ON pu.product_category_id = pc.product_category_id;
