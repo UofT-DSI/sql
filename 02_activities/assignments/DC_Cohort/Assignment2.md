@@ -54,8 +54,33 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
+Type 1 SCD: overwrites existing address data when a customer's address changes and does not store historical records. When a customer relocates, the new address is updated and the old address is permanently lost. 
+
+CUSTOMER_ADDRESS (Type 1):
+- address_id
+- customer_id
+- street_address
+- city
+- province
+- postal_code
+- country
+- last_updated
+
+Type 2 SCD: retains a complete history of address changes by creating new records. 
+
+CUSTOMER_ADDRESS (Type 2):
+- address_id (PK)
+- customer_id (FK)
+- street_address
+- city
+- province
+- postal_code
+- country
+- effective_date
+- end_date
+- current (boolean flag)
+
+When a customer's address changes, the existing record's end_date is filled in and current is set to FALSE. The new address is inputted by having current = TRUE, and end_date = NULL.
 
 ***
 
@@ -183,5 +208,8 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
-```
+An ethical issue is the inherent bias embedded within machine learning systems. Since machine learning models learn from humans, their infratructure is influenced by the assumptions and values of the people who built and labeled that data. These biases can subconsciously guide how we perceive events, identities, and social issues. This can stereotypes, distort reality, and propogate throughout society without the public being cognizant of this affect.
+
+In order to ethically integrate machine learning into society, public education and transparency are critical. People need to learn that the information machine learning models output are not unbiased facts, but instead are perceptions shaped by human interpretations of data and personal opinions. As a society, we cannot become fully dependent on these systems or assume they are always correct. Instead, we must actively verify, question, and synthesize the information they output.
+
+As a result, we need to work in partnership with machine learning tools versus surrendering our judgment to them. Retaining our autonomy to research, explain, and strategize independently of machine learning models ensures that we are working in harmony with these tools versus being replaced by them.```

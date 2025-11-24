@@ -204,6 +204,18 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
+
 ```
 Your thoughts...
+
+The importance of data systems encountered in daily life is often overlooked, yet they inherently embed value systems reflecting social, economic, and political climates. As a researcher in drug design and pharmaceuticals, clinical trial databases show how this embedding of values influences how drugs are designed, tested, and approved.
+
+Clinical trial databases focus on standardization, which shapes the concept of the 'ideal' patient. The 'ideal' patient is often thought of as young, male, and from majority ethnic groups, while excluding those with complex health conditions. This reflects a value system favoring simplicity and control over the outliers of real-world biological diversity. Fixed categories, such as binary sex or broad racial classifications, simplify complex identities but complicate individual variations essential to personalized medicine.
+
+Economic advantages govern which diseases and populations receive focus, often privileging those with financial viability while underrepresenting rare diseases and marginalized communities. Additionally, risk management values lead to excluding participants who could complicate data clarity, potentially reducing the applicability of trial outcomes to broader patient groups.
+
+Moreover, clinical trial data systems define 'meaningful' evidence primarily through quantifiable endpoints like biomarker levels, while not valuing subjective patient experiences. These design choices reflect broader data systems that prioritize efficiency, standardization, and legibility, potentially marginalizing those who don't fit dominant norms.
+
+Overall, clinical trial databases do not simply record data; they also construct realities, shaping patient inclusion, scientific discoveries, and ultimately, who benefits from medical innovation. Recognizing these embedded value systems is vital for designing more inclusive and ethically responsible data infrastructures that serve all patients equitably. This aligns with the insights from Qadri’s article on the social shaping of databases, emphasizing the importance of acknowledging and addressing the values embedded in our data systems.
+
 ```
