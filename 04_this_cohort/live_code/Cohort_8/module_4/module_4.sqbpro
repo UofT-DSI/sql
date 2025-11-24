@@ -1,23 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004ee0000034afc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000004ee0000012f00fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012f00fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000004ee0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="row_rank_dense" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="72"/><column index="2" value="80"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="IFNULL_NULLIF">/* MODULE 4 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004ee0000034afc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000004ee0000012300fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012300fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000004ee0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="IFNULL_NULLIF*">/* MODULE 4 */
 /* NULL Management */
 
 
 /* 1. IFNULL: Missing product_size, missing product_qty_type */ 
 
+SELECT * 
+,IFNULL(product_size, 'Unknown') as new_product_size
+,IFNULL(product_size,product_qty_type) as both_null
 
 /* 2. Coalesce */
+,coalesce(product_size,product_qty_type) as still_both_null
+,coalesce(product_size, product_qty_type, 'missing') as new_col -- if the first value is null, then the second value, if that is null, then missing
 
+FROM product;
 
 
 /* 3. NULLIF
 finding values in the product_size column that are &quot;blank&quot; strings and setting them to NULL if they are blank */
-
-
+SELECT *
+,coalesce(product_size, 'Unknown') as new_product_size
+,NULLIF(product_size,'') as nullif_check
+,coalesce(NULLIF(product_size,''),'Unknown') as better_product_size
 
 /* 4. NULLIF 
 filtering which rows are null or blank */
 
+FROM product
 
+WHERE NULLIF(product_size,'') IS NULL
 </sql><sql name="budget_coalesce_NULLIF">/* MODULE 4 */
 /* NULLIF Budget (example from the slides) */
 
@@ -59,12 +69,29 @@ FROM budgets
 https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sql?view=sql-server-ver17
 */
 
-</sql><sql name="ROW_NUMBER">/* MODULE 4 */
+</sql><sql name="ROW_NUMBER*">/* MODULE 4 */
 /* Windowed functions: row_number */
 
 
 /* 1. What product is the highest price per vendor */
+SELECT 
+x.*, product_name
 
+FROM (
+	--inner QUERY
+	SELECT 
+	vendor_id,
+	market_date,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price DESC) as price_rank
+
+	FROM vendor_inventory
+) x
+INNER JOIN product p
+	ON x.product_id = p.product_id
+
+WHERE price_rank = 1
 
 
 /* See how this varies from using max due to the group by 
@@ -77,7 +104,7 @@ GROUP BY vendor_id--,product_id
 
 */
 
-</sql><sql name="row_rank_dense">/* MODULE 4 */
+</sql><sql name="row_rank_dense*">/* MODULE 4 */
 /* Windowed functions: dense_rank, rank, row_number */
 
 
@@ -102,15 +129,37 @@ VALUES
 (7, 230000),
 (8, 100000),
 (9, 165000),
-(10, 100000);
+(10, 100000),
+(11, 90000);
+
+SELECT *
+,ROW_NUMBER() OVER(ORDER BY salary desc) as [row_number]
+,RANK() OVER(ORDER BY salary desc) as [rank]
+,DENSE_RANK() OVER(ORDER BY salary desc) as [dense_rank]
+
+FROM row_rank_dense
 
 
-</sql><sql name="NTILE">/* MODULE 4 */
+
+
+
+
+
+
+
+
+
+</sql><sql name="NTILE*">/* MODULE 4 */
 /* Windowed functions: NTILE */
 
 
 /* 1. Calculate quartile, quntiles, and percentiles from vendor daily sales */
+SELECT *
+,NTILE(4) OVER(PARTITION BY vendor_name ORDER BY sales) as [quartile]
+,NTILE(5) OVER(PARTITION BY vendor_name ORDER BY sales) as [quintile]
+,NTILE(100) OVER(PARTITION BY vendor_name ORDER BY sales) as [percentile]
 
+FROM (
 
 -- vendor daily sales 
 	SELECT 
@@ -127,27 +176,58 @@ VALUES
 	JOIN vendor AS v
 		ON v.vendor_id = cp.vendor_id
 		
-	GROUP BY cp.market_date, v.vendor_id</sql><sql name="string_manipulations">/* MODULE 4 */
+	GROUP BY cp.market_date, v.vendor_id
+	
+) x</sql><sql name="string_manipulations*">/* MODULE 4 */
 /* String Manipulations */
 
 
 /* 1. ltrim, rtrim, trim*/
-SELECT
+SELECT DISTINCT
+LTRIM('                      THOMAS ROSENTHAL                  ') as [ltrim]
+,RTRIM('                      THOMAS ROSENTHAL                  ') as [rtrim]
+,TRIM('                      THOMAS ROSENTHAL                  ') as [trim]
 
 /* 2. replace*/
+,REPLACE('THOMAS ROSENTHAL','A','') as [not_my_name]
+,customer_first_name
+,REPLACE(customer_first_name,'a','') as new_customer_names
+,REPLACE(REPLACE(customer_first_name,'a',''),'e','') as more_cust_names
+,REPLACE(customer_first_name,'A','') as new_customer_names
 
 /* 3. upper, lower*/
 
 /* 4. concat with || */
+,UPPER(customer_first_name) || ' ' || LOWER(customer_last_name) as FULL_name
+,NULL || customer_first_name as [always_null] -- if you have nulls in a column with concat...you will have an issue
 
 /* 5. substr */
+,customer_first_name
+,SUBSTR(customer_first_name,1,4) as first_four
+,SUBSTR(customer_first_name,-5,4) as five_four
 
 /* 6. length */
+,LENGTH(customer_last_name) as last_name_length
 
 /* 7. unicode, char */
+,'
 
+THOMAS 
+ROSENTHAL
 
-/* 8. REGEXP in a WHERE statement */</sql><sql name="substr_instr_together">/* MODULE 4 */
+' as linebreak
+,TRIM(REPLACE('
+
+THOMAS 
+ROSENTHAL
+
+',char(10), ' ')) as better_line_break
+
+FROM customer
+
+/* 8. REGEXP in a WHERE statement */
+
+WHERE customer_first_name REGEXP '(a)$' -- filtering to only end in A ... must be valid regex</sql><sql name="substr_instr_together">/* MODULE 4 */
 /* Substring &amp; instring together */
 
 
@@ -167,10 +247,53 @@ SELECT
     INSTR('FirstWord, SecondWord, ThirdWord',',')+1))
   ,',') + 
   INSTR('FirstWord, SecondWord, ThirdWord',',')+1) AS ThirdDelim
-</sql><sql name="UNION_UNION_ALL">/* MODULE 4 */
+</sql><sql name="UNION_UNION_ALL*">/* MODULE 4 */
 /* UNION */
 
 /* 1. Find the most and least expensive product by vendor with UNION (and row_number!) */
+
+
+SELECT  
+vendor_id
+,product_id
+,original_price
+,rn_max as [row_number]
+
+FROM (
+
+	SELECT DISTINCT
+	vendor_id,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price DESC) as rn_max
+	
+	FROM vendor_inventory
+
+)
+where rn_max = 1
+
+UNION  -- UNION, 5 rows; duplicate value for vendor_id 4 product_id 16, UNION ALL returned 6 rows with the duplicate
+
+SELECT  
+vendor_id
+,product_id
+,original_price
+,rn_min
+
+FROM (
+
+	SELECT DISTINCT
+	vendor_id,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION BY vendor_id ORDER BY original_price ASC) as rn_min
+	
+	FROM vendor_inventory
+
+)
+where rn_min = 1
+
+
 
 </sql><sql name="FULL_OUTER_JOIN_UNION">/* MODULE 4 */
 /* UNION */
@@ -184,9 +307,9 @@ quantity INT
 );
 
 INSERT INTO temp.store1
-VALUES(&quot;tiger&quot;,6),
-        (&quot;elephant&quot;,2),
-        (&quot;princess&quot;, 4);
+VALUES("tiger",6),
+        ("elephant",2),
+        ("princess", 4);
 
 
 DROP TABLE IF EXISTS temp.store2;
@@ -197,25 +320,68 @@ quantity INT
 );
 
 INSERT INTO temp.store2
-VALUES(&quot;tiger&quot;,2),
-	(&quot;dancer&quot;,7),
-	(&quot;superhero&quot;, 5);</sql><sql name="INTERSECT_EXCEPT">/* MODULE 4 */
+VALUES("tiger",2),
+	("dancer",7),
+	("superhero", 5);
+	
+SELECT s1.costume, s1.quantity as store1_quantity, s2.quantity as store2_quantity, 'top query' as location
+FROM store1 s1
+LEFT JOIN store2 s2
+	ON s1.costume = s2.costume
+
+UNION ALL -- allow for duplicates, because a FULL OUTER join would ALSO allow for duplicates
+
+SELECT s2.costume, s1.quantity , s2.quantity, 'bottom query' 
+FROM store2 s2
+LEFT JOIN store1 s1
+	ON s1.costume = s2.costume
+WHERE s1.costume IS NULL
+
+
+</sql><sql name="INTERSECT_EXCEPT">/* MODULE 4 */
 /* INTERSECT &amp; EXCEPT */
 
 /* 1. Find products that have been sold (e.g. are in customer purchases AND product) */ 
-
+SELECT product_id
+FROM product
+INTERSECT
+SELECT product_id
+FROM customer_purchases;
 
 
 /* 2. Find products that have NOT been sold (e.g. are NOT in customer purchases even though in product) */
+SELECT product_name, x.product_id
 
-
+FROM (
+	SELECT product_id
+	FROM product
+	EXCEPT
+	SELECT product_id
+	FROM customer_purchases
+) x
+INNER JOIN product p on x.product_id = p.product_id;
 
 /* 3. Directions matter... if we switch the order here:
 products that do not exist, because no products purchased are NOT in the product table (e.g. are NOT in product even though in customer purchases)*/
 
+SELECT product_id
+FROM customer_purchases
+EXCEPT
+SELECT product_id
+FROM product;
 
 
 /* 4. We can remake the intersect with a WHERE subquery for more details ...  */
+
+SELECT * FROM product
+WHERE product_id IN (
+	SELECT product_id
+	FROM product
+	INTERSECT
+	SELECT product_id
+	FROM customer_purchases
+)
+
 
 
 </sql><current_tab id="0"/></tab_sql></sqlb_project>

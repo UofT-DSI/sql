@@ -9,17 +9,38 @@ CREATE TEMP TABLE product_expanded AS
 --SELECT * FROM product_expanded
 
 /* 1. add a product to the temp table */
+--INSERT
+INSERT INTO product_expanded
+VALUES(24, 'Almonds', '1 lbs', 3, 'lbs');
 
-
+SELECT * FROM product_expanded;
 
 /* 2. change the product_size for THAT product */
+--UPDATE
+--change the product_size for almonds to 1/2 kg
+UPDATE product_expanded
+SET product_size = '1/2 kg', product_qty_type = 'kg'
+--SELECT * FROM product_expanded
+WHERE product_id = 24;
+
+SELECT * FROM product_expanded;
+
+/* 3. delete the newly added product */
+--DELETE
+DELETE FROM product_expanded
+--SELECT * FROM product_expanded -- write this first, it can help you to determine you are looking at the right rows before deleting
+WHERE product_id = 24;
+
+SELECT * FROM product_expanded;
 
 
-
-/* 3. delete the newly added product */</sql><sql name="vendor_daily_sales_view">/* MODULE 5 */
+</sql><sql name="vendor_daily_sales_view*">/* MODULE 5 */
 /* VIEW */
 
 /* 1. Create a vendor daily sales view */
+
+DROP VIEW IF EXISTS vendor_daily_sales;
+CREATE VIEW IF NOT EXISTS vendor_daily_sales AS 
 
 	SELECT 
 	md.market_date
@@ -37,19 +58,55 @@ CREATE TEMP TABLE product_expanded AS
 		ON cp.vendor_id = v.vendor_id
 		
 	GROUP BY cp.market_date, v.vendor_id;
+	
+SELECT * FROM vendor_daily_sales
 
-</sql><sql name="view_in_another_query">/* MODULE 5 */
+</sql><sql name="view_in_another_query*">/* MODULE 5 */
 /* VIEW in another query */
 
 /* 1. Transform the daily sales view into a sales by vendor per week result */
 
+SELECT
+market_year
+,market_week
+,vendor_name
+,SUM(sales) as sales
 
+FROM vendor_daily_sales
 
-</sql><sql name="dynamic_view">/* MODULE 5 */
+GROUP BY 
+market_date
+,market_week
+,vendor_name
+
+</sql><sql name="dynamic_view*">/* MODULE 5 */
 /* DYNAMIC VIEW */
 
+DROP VIEW IF EXISTS todays_vendor_daily_sales;
+CREATE VIEW IF NOT EXISTS todays_vendor_daily_sales AS
 
-
+	SELECT 
+	md.market_date
+	,market_day
+	,market_week
+	,market_year
+	,vendor_name 
+	,SUM(quantity*cost_to_customer_per_qty) as sales
+	
+	
+	FROM market_date_info md -- days the market is open ...
+	INNER JOIN (
+		SELECT * FROM customer_purchases 
+		UNION 
+		SELECT * FROM new_customer_purchases
+		) cp
+		ON md.market_date = cp.market_date
+	INNER JOIN vendor v
+		ON cp.vendor_id = v.vendor_id
+		
+	WHERE md.market_date =  DATE('now','localtime') -- &quot;today&quot;, if the timezone is not to localtime
+	
+	GROUP BY cp.market_date, v.vendor_id;
 
 
 
@@ -65,30 +122,26 @@ CREATE TEMP TABLE product_expanded AS
 
 
 
-
-
-
-
-
-
-
-
-
 -- THIS ONLY WORKS IF YOU HAVE DONE THE PROPER STEPS FOR IMPORTING 
 -- 1) update new_customer_purchases to today
 -- 2) add the union 
 -- 3) add the where statement
 -- 4) update the market_date_info to include today
 
+SELECT * FROM todays_vendor_daily_sales
 
 
 
-</sql><sql name="update_statements_for_view">/* MODULE 5 */
+
+</sql><sql name="update_statements_for_view*">/* MODULE 5 */
 /* UPDATE statements for view */
 
 
 /* 1. SET market_date equal to today for new_customer_purchases */
+UPDATE new_customer_purchases
+SET market_date = '2025-11-19';
 
+SELECT * FROM new_customer_purchases
 
 
 
@@ -104,8 +157,11 @@ INSERT INTO market_date_info
 VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Summer','25','28',0,0);
 
 */
+
+INSERT INTO market_date_info
+VALUES('2025-11-19','Wednesday','47','2025','8:00 AM','2:00 PM','nothing interesting','Winter','1','-6',0,0);
  
-</sql><sql name="CROSS_JOIN">/* MODULE 5 */
+</sql><sql name="CROSS_JOIN*">/* MODULE 5 */
 /* CROSS  JOIN */
 
 
@@ -122,8 +178,13 @@ VALUES('small'),
 SELECT * FROM TEMP.sizes;
 
 
+SELECT product_id, product_name, size
+FROM temp.sizes
+CROSS JOIN product
 
-</sql><sql name="SELF_JOIN">/* MODULE 5 */
+
+
+</sql><sql name="SELF_JOIN*">/* MODULE 5 */
 /* SELF JOIN */
 
 
@@ -144,4 +205,9 @@ VALUES(1,'Thomas',3)
 ,(4, 'Jennie',3);
 
 SELECT * FROM TEMP.employees;
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+
+SELECT e.emp_name,m.emp_name as mgr_name
+FROM temp.employees e
+LEFT JOIN temp.employees m
+	ON e.mgr_id = m.emp_id
+</sql><current_tab id="6"/></tab_sql></sqlb_project>
