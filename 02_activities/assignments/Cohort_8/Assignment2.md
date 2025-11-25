@@ -54,7 +54,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+type 1 is to simple have an adress column in employees or customers table and everytime their address changes when can just updated to show the most upto date address.
+
+type 2 method needs to create a seperate table for address and then we add a foreign key to the table that have associated address to them. we can keep track address as which person it belong to by checking the the foreign key in adress column and having a is_current flag in the address table. 
 ```
 
 ***
