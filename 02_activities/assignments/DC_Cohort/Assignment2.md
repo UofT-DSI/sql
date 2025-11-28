@@ -45,6 +45,7 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
@@ -54,7 +55,10 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+One simple design for `CUSTOMER_ADDRESS` is to store only the current address for each customer. In this version, the primary key is `customer_id`, and the table might have columns like: `customer_id`, `street`, `city`, `postal_code`, `country`. When a customer moves, we run an `UPDATE` on that row and overwrite the old address with the new one. This is a Type 1 (slowly changing dimension): the table always shows the latest state and does not preserve history.
+
+A second design keeps a full address history. Here we allow multiple rows per customer by adding a surrogate key and validity information, e.g. `address_id` (PK), `customer_id` (FK), `street`, `city`, `postal_code`, `country`, `effective_start_date`, `effective_end_date`, and maybe an `is_current` flag. When an address changes, we insert a new row with a new `address_id` and close out the previous row by setting its `effective_end_date`. This is a **Type 2 slowly changing dimension**: old addresses are retained so past orders can still be linked to the correct historical address.
+
 ```
 
 ***
@@ -183,5 +187,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Reading Boykis’ piece, what struck me most is how she makes the labour behind neural networks visible again. We often talk about these systems as if they arise fully formed from math, but underneath every polished model are layers of human effort: people filtering toxic content, annotating images for hours, or constructing datasets that silently endorse particular worldviews. I relate to this more than I expected. During my master’s, I spent an absurd amount of time manually annotating brain volumes so we could train a neural network to segment cortical structures (https://arxiv.org/abs/1807.03440). It was incredibly tedious work, and yet the model depended entirely on those annotations. Seeing that at a small scale made it easier to recognize how much invisible, repetitive labour goes into the massive datasets used today.
+
+Boykis also highlights how LLMs inherit the social and cultural groundwork embedded in their data. When training corpora are overwhelmingly Western, English-speaking, and shaped by platform moderation dynamics, models end up encoding those norms as defaults. Everyone outside that default has to work harder, whether by rephrasing queries, avoiding culturally ambiguous terms, or navigating outputs that flatten minority identities. It feels similar to how bureaucratic schemas implicitly define what kinds of people fit into a system.
+
+The ethical concern isn’t just bias in the narrow technical sense but the way these systems crystallize particular value systems while obscuring the labour and assumptions behind them. If we want AI that serves real societal diversity, we have to treat dataset design, annotation practices, and content moderation not as side chores but as central ethical decisions shaping who these models ultimately work for.
 ```
