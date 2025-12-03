@@ -138,7 +138,7 @@ for markdown_file in $markdown_files; do
     file_name=$(basename -- "$markdown_file")
     base_name="${file_name%.md}"
     echo "- Processing '$file_name'..."
-    output_file="$folder_output/$base_name"
+    output_file="$folder_output$base_name"
 
     if [ "$output_type" = "--html" ]; then
         # Generate HTML
