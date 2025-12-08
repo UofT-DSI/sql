@@ -34,29 +34,14 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 */
 -- option 1
 # logic of price is added line 41
-SELECT 
-	customer_id,
-	cp.product_id,
-	(quantity * cost_to_customer_per_qty),
-	product_name
-FROM customer_purchases as cp
-	INNER JOIN product as p
-	ON cp.product_id = p.product_id
-	WHERE customer_id >= 8 AND customer_id <= 10
-ORDER BY customer_id
+SELECT *, ROUND((quantity * cost_to_customer_per_qty), 2) AS price 
+FROM customer_purchases 
+WHERE customer_id >= 8 AND customer_id <= 10;
 
 -- option 2
-# used range as between
-SELECT 
-	customer_id,
-	cp.product_id,
-	(quantity * cost_to_customer_per_qty),
-	product_name
-FROM customer_purchases as cp
-	INNER JOIN product as p
-	ON cp.product_id = p.product_id
-	WHERE customer_id BETWEEN 8 AND 10
-ORDER BY customer_id
+SELECT *, ROUND((quantity * cost_to_customer_per_qty), 2) AS price 
+FROM customer_purchases 
+WHERE customer_id BETWEEN 8 AND 10;
 
 
 --CASE
