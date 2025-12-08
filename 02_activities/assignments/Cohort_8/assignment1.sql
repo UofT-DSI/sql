@@ -81,7 +81,7 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 SELECT
 product_name,
 CASE
-	WHEN LOWER (product_name) LIKE %pepper% then '1'
+	WHEN LOWER (product_name) LIKE '%pepper%' then '1'
 	ELSE '0'
 END AS pepper_flag
 FROM product
