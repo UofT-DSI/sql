@@ -170,14 +170,14 @@ You can start this section anytime.
 
 Steps to complete this part of the assignment:
 - Read the article
-- Write, within this markdown file, <1000 words.
+- Write, within this markdown file, between 250 and 1000 words. No additional citations/sources are required.
 
 ### Ethics
 
 Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way down._ Normcore Tech. <br>
     https://vicki.substack.com/p/neural-nets-are-just-people-all-the
 
-**What are the ethical issues important to this story?**
+**What are some of the ethical issues important to this story?**
 
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 

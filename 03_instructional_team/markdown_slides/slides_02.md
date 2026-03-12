@@ -1,7 +1,6 @@
 ---
 marp: true
 theme: dsi_certificates_theme
-_class: invert
 paginate: true
 ---
 # Building Queries: An Exploration

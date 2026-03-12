@@ -1,7 +1,6 @@
 ---
 marp: true
 theme: dsi_certificates_theme
-_class: invert
 paginate: true
 ---
 # Introduction to Data Access and Storage
@@ -149,7 +148,6 @@ $ echo "Data Sciences Institute"
   - Section 1 focuses on database design
   - Sections 2 and 3 on SQL writing
 - Each sections states about when you can start working on the answers
-- Review questions/answers in Office Hours course support
 - Database design sections are more time consuming
   - Especially Assignment 2. **Do not put this off too much.**
 - SQL sections are designed to be relatively easy (with a couple of hard questions)

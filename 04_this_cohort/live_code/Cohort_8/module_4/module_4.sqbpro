@@ -335,8 +335,11 @@ SELECT s2.costume, s1.quantity , s2.quantity, 'bottom query'
 FROM store2 s2
 LEFT JOIN store1 s1
 	ON s1.costume = s2.costume
-WHERE s1.costume IS NULL</sql><sql name="INTERSECT_EXCEPT">/* MODULE 4 */
-/* INTERSECT & EXCEPT */
+WHERE s1.costume IS NULL
+
+
+</sql><sql name="INTERSECT_EXCEPT">/* MODULE 4 */
+/* INTERSECT &amp; EXCEPT */
 
 /* 1. Find products that have been sold (e.g. are in customer purchases AND product) */ 
 SELECT product_id
