@@ -17,7 +17,11 @@ SELECT
 
 
 
-/* 5. Add a static value in a column */</sql><sql name="WHERE">/* MODULE 2 */
+/* 5. Add a static value in a column */
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="WHERE">/* MODULE 2 */
 /* WHERE */
 
 /* 1. Select only customer 1 from the customer table */
@@ -42,7 +46,11 @@ WHERE
 
 
 
-/* 6. BETWEEN x AND y */</sql><sql name="CASE">/* MODULE 2 */
+/* 6. BETWEEN x AND y */
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="CASE">/* MODULE 2 */
 /* CASE */
 
 
@@ -61,7 +69,11 @@ SELECT *
 /* 4. Experiment with selecting a different column instead of just a string value */
 
 
-FROM vendor</sql><sql name="DISTINCT">/* MODULE 2 */
+FROM vendor
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="DISTINCT">/* MODULE 2 */
 /* DISTINCT */
 
 
@@ -89,6 +101,8 @@ SELECT customer_id FROM customer_purchases
 ... and which product was it? 
 ... AND to whom was it sold*/
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="INNER_JOIN">/* MODULE 2 */
 /* INNER JOIN */
 
@@ -109,6 +123,8 @@ SELECT customer_id FROM customer_purchases
 -- using table aliases
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="LEFT_JOIN">/* MODULE 2 */
 /* LEFT  JOIN */
 
@@ -141,6 +157,9 @@ LEFT JOIN product AS p
 ...Note how the row count changed from 24 to 23
 */	
 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="multiple_table_joins">/* MODULE 2 */
 /* Multiple Table JOINs */
 
