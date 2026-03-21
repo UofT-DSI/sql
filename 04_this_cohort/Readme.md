@@ -1,10 +1,8 @@
-# "This Cohort"
+## "This Cohort"
 
 Welcome to your cohort folder! SQL slides presented in class are found in this folder as well as copies of our in-class code from live-coding sessions.
 
-🚨**ATTENTION!** During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort for live code. 
-
-## Custom Slides
+### Custom Slides
 
 There are two styles of SQL slides, HTML and PDF. Both are generated from R-markdown xarigan files. Below are links to the PDFs:
 - [Slides 01](https://github.com/UofT-DSI/sql/blob/main/04_this_cohort/custom_slides/pdf/slides_01.pdf)
@@ -14,15 +12,10 @@ There are two styles of SQL slides, HTML and PDF. Both are generated from R-mark
 - [Slides 05](https://github.com/UofT-DSI/sql/blob/main/04_this_cohort/custom_slides/pdf/slides_05.pdf)
 - [Slides 06](https://github.com/UofT-DSI/sql/blob/main/04_this_cohort/custom_slides/pdf/slides_06.pdf)
 
-**Note: For the DC Cohort, we will not use slides 06, however, the content may still be of interest for further self-learning.**
+### Live Code
 
-## Live Code
+For Modules 2—6, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code) is saved to these folders at the conclusion of class*. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
 
-### DC
 
-For Modules 2—5, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/DC) is saved to these folders at the conclusion of class. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
 
-### Cohort 8
-
-For Modules 2—6, [in-class live-code](https://github.com/UofT-DSI/sql/tree/main/04_this_cohort/live_code/Cohort_8) is saved to these folders at the conclusion of class. Please use this code instead of any code shared during class in zoom chats, codeshare, etc.
-
+*give or take a few minutes! :) 
