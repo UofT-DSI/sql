@@ -91,7 +91,7 @@ $ echo "Data Sciences Institute"
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2025 AS this_year, 'October' AS this_month`
+  - `SELECT 2026 AS this_year, 'March' AS this_month`
 - When selecting columns, they need to exist in the table!
 
 ---
@@ -371,7 +371,10 @@ A couple of notes:
 
 ![bg right:50% w:500](./images/02_inner_join.png)
 
-Source: Image: Teate, Chapter 5
+
+![bg vertical w:200](./images/02_colours_inner_join.png)
+
+Source: Image: Teate, Chapter 5 (+annotations by me)
 
 ---
 
@@ -402,9 +405,11 @@ A quick note on table aliasing:
   - Generally, OUTER seems to be excluded, but both are correct
 - LEFT _is not_ optional; there is no "OUTER JOIN"
 
-![bg right:50% w:500](./images/02_left_join.png)
+![bg right:40% w:500](./images/02_left_join.png)
 
-Source: Image: Teate, Chapter 5
+![bg vertical w:200](./images/02_colours_left_join.png)
+
+Source: Image: Teate, Chapter 5 (+annotations by me)
 
 ---
 
@@ -421,8 +426,10 @@ Source: Image: Teate, Chapter 5
   - Generally, OUTER seems to be excluded, but both are correct
 
 ![bg right:40% w:500](./images/02_right_join.png)
+
+![bg vertical w:200](./images/02_colours_right_join.png)
      
-Source: Image: Teate, Chapter 5
+Source: Image: Teate, Chapter 5 (+annotations by me)
 
 ---
 
@@ -432,6 +439,7 @@ Source: Image: Teate, Chapter 5
 
 ![bg right:40% w:500](./images/02_right_join.png)
      
+
 Source: Image: Teate, Chapter 5
 
 ---
@@ -440,6 +448,8 @@ Source: Image: Teate, Chapter 5
 - `FULL OUTER JOIN` does not filter either "left" or "right" table
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
+
+![bg right:40% w:500](./images/02_colours_full_join.png)
 
 ---
 
@@ -456,6 +466,8 @@ Source: Image: Teate, Chapter 5
     WHERE {table_1.key IS NULL | table_2.key IS NULL | 
            table_1.key IS NULL OR table_2.key IS NULL}
 ```
+
+![bg right 40% w:300](./images/02_colours_anti_join.png)
 
 ---
 
@@ -478,7 +490,7 @@ Source: Image: Teate, Chapter 5
 
 # Multiple Table Joins
 
-- The order and type of joins will have significant effect on the final table
+- The order and type of joins will have significant effect on the final result set
 - It's important to determine which table should be the `FROM` table
 - Sometimes you have to experiment a bit to get things right
 - **Can you imagine scenarios based on your knowledge of different `JOIN` types that result in significantly different outputs?**

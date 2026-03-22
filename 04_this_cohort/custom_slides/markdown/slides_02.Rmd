@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2025 AS this_year, 'October' AS this_month`
+  - `SELECT 2026 AS this_year, 'March' AS this_month`
 
 <br>
 --
@@ -537,11 +537,20 @@ class: top, left, inverse
 - `INNER JOIN` is the "default" join
   - i.e. queries do not need to specify "INNER", though it's good practice to write INNER 
 
-.center[ 
-<img src="imgs/inner_join.png"
+.pull-left.w60[ 
+<img src="imgs/02_inner_join.png"
      height="300px";>
-     
-<sup><sup> Image: Teate, Chapter 5 </sup></sup>
+]
+
+.pull-right.w39[
+.center[
+<img src="imgs/02_colours_inner_join.png"
+     height="300px";>
+     ]
+]
+
+.center[     
+<sup><sup> Image: Teate, Chapter 5 (+annotations by me) </sup></sup>
 ]
 
 ---
@@ -591,11 +600,20 @@ class: top, left, inverse
   - Generally, OUTER seems to be excluded, but both are correct
 - LEFT _is not_ optional; there is no "OUTER JOIN"
 
-.center[ 
-<img src="imgs/left_join.png"
+.pull-left.w60[ 
+<img src="imgs/02_left_join.png"
      height="300px";>
-     
-<sup><sup> Image: Teate, Chapter 5 </sup></sup>
+]
+
+.pull-right.w39[
+.center[
+<img src="imgs/02_colours_left_join.png"
+     height="300px";>
+     ]
+]
+
+.center[     
+<sup><sup> Image: Teate, Chapter 5 (+annotations by me) </sup></sup>
 ]
 
 ---
@@ -631,13 +649,21 @@ class: top, left, inverse
 - `RIGHT JOIN` is somewhat frowned upon, but sometimes they make sense
   - Often your query can be reorganized to use a `LEFT JOIN` instead
 
-.center[ 
-<img src="imgs/right_join.png"
+.pull-left.w60[ 
+<img src="imgs/02_right_join.png"
      height="300px";>
-     
-<sup><sup> Image: Teate, Chapter 5 </sup></sup>
 ]
 
+.pull-right.w39[
+.center[
+<img src="imgs/02_colours_right_join.png"
+     height="300px";>
+     ]
+]
+
+.center[     
+<sup><sup> Image: Teate, Chapter 5 (+annotations by me) </sup></sup>
+]
 
 ---
 
@@ -662,8 +688,17 @@ class: top, left, inverse
 - Expect `NULL` values to be produced from a `FULL OUTER JOIN`
 - My experience has been to write `FULL OUTER JOIN` rather than `FULL JOIN` but this is personal preference
 
---
 
+.center[
+<img src="imgs/02_colours_full_join.png"
+     height="300px";>
+     
+     
+]
+
+---
+
+class: top, left, inverse
 ### Filtering a FULL (OUTER) JOIN
 - All OUTER JOIN syntax can be filtered to exclude the _matching_ criteria
   - Often called an ANTI JOIN, i.e. what's _not_ in the other table
@@ -676,6 +711,13 @@ class: top, left, inverse
     WHERE {table_1.key IS NULL | table_2.key IS NULL | 
            table_1.key IS NULL OR table_2.key IS NULL}
 ```
+
+
+.center[
+<img src="imgs/02_colours_anti_join.png"
+     height="300px";>
+     
+]
 
 ---
 
@@ -717,7 +759,7 @@ class: top, left, inverse
 
 --
 
-- The order and type of joins will have significant effect on the final table
+- The order and type of joins will have significant effect on the final result set
 - It's important to determine which table should be the `FROM` table
 
 <br>
