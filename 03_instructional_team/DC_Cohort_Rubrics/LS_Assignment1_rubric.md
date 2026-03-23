@@ -63,6 +63,7 @@ LIMIT 10
 
 ### WHERE
 1. Write a query that returns all customer purchases of product IDs 4 and 9.
+Limit to 25 rows of output.
 
 ```
 SELECT
@@ -74,11 +75,13 @@ quantity,
 quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
 WHERE product_id IN (4, 9)
+LIMIT 25
  ```
 
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
 1.  two conditions using AND
 2.  one condition using BETWEEN
+Limit to 25 rows of output.
 
 ```
 SELECT
@@ -91,6 +94,7 @@ quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
 WHERE customer_id >= 8
 AND customer_id <= 10
+LIMIT 25
 ```
 
 ```
@@ -104,6 +108,7 @@ quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
 WHERE customer_id BETWEEN 8 AND 10
 ORDER BY market_date, vendor_id, product_id
+LIMIT 25
  ```
 
 ### CASE
@@ -130,14 +135,15 @@ FROM product
 ```
 
 ### JOIN
-1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_` assignments table on the `vendor_id` field they both have in common, and sorts the result by `vendor_name`, then `market_date`.
+1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_` assignments table on the `vendor_id` field they both have in common, and sorts the result by `market_date` then `vendor_name`. Limit to 24 rows of output. 
 
 ```
 SELECT *
 FROM vendor AS v
 INNER JOIN vendor_booth_assignments AS vba
     ON v.vendor_id = vba.vendor_id
-ORDER BY v.vendor_name, vba.market_date
+ORDER BY vba.market_date, v.vendor_name
+LIMIT 24
 ```
 
 ## Section 3 answers
@@ -191,6 +197,7 @@ VALUES (10, "Thomass Superfood Store" , "Fresh Focused", "Thomas", "Rosenthal")
 # Date
 1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
 **HINT**: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month and year are!
+Limit to 25 rows of output. 
 
 ```
 SELECT customer_id,
@@ -198,12 +205,15 @@ STRFTIME('%m',market_date) AS purchase_month,
 STRFTIME('%Y', market_date) AS purchase_year
 
 FROM customer_purchases
+LIMIT 25
 ```
 
 
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
 
-**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
+**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
+AND be sure you remove the LIMIT from the previous query before aggregating!! 
+
 ```
 SELECT customer_id,
 STRFTIME('%m',market_date) AS purchase_month,

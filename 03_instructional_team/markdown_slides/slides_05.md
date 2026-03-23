@@ -20,8 +20,7 @@ $ echo "Data Sciences Institute"
 
 ## Importing and Exporting Data
 
-## CROSS & Self Joins
-
+## Two Final Joins
 
 
 ---
@@ -102,7 +101,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 ## Importing and Exporting Data
 
-## CROSS & Self Joins
+## Two Final Joins
 
 
 ---
@@ -168,7 +167,7 @@ Prior to this, we've focused solely on retrieving values from tables:
 
 ## $\rightarrow$ Importing and Exporting Data
 
-## CROSS & Self Joins
+## Two Final Joins
 
 ---
 
@@ -400,7 +399,7 @@ FROM (...{subquery goes here}...)
 
 ## Importing and Exporting Data
 
-## $\rightarrow$ CROSS & Self Joins
+## $\rightarrow$ Two Final Joins
 
 ---
 

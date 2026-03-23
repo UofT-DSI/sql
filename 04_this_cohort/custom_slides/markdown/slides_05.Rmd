@@ -49,7 +49,7 @@ class: middle, center, inverse
 
 ## Importing and Exporting Data
 
-## CROSS & Self Joins
+## Two Final Joins
 
 
 
@@ -64,7 +64,7 @@ class: middle, center, inverse
 
 ## Importing and Exporting Data
 
-## CROSS & Self Joins
+## Two Final Joins
 
 
 
@@ -187,7 +187,7 @@ class: middle, center, inverse
 
 ## Importing and Exporting Data
 
-## CROSS & Self Joins
+## Two Final Joins
 
 
 ---
@@ -259,7 +259,7 @@ class: middle, center, inverse
 
 ## **Importing and Exporting Data**
 
-## CROSS & Self Joins
+## Two Final Joins
 
 ---
 
@@ -582,7 +582,16 @@ class: middle, center, inverse
 
 ## Views
 
-## **CROSS & Self Joins**
+## **Two Final Joins**
+
+---
+
+class: middle, center, inverse
+# Two Final Joins
+
+## **CROSS JOIN**
+
+## Self Joins
 
 ---
 
@@ -627,6 +636,15 @@ class: top, left, inverse
 
 class: middle, center, inverse
 **What questions do you have about CROSS JOIN?**
+
+---
+
+class: middle, center, inverse
+# Two Final Joins
+
+## CROSS JOIN
+
+## **Self Joins**
 
 ---
 

@@ -16,7 +16,11 @@ CREATE TEMP TABLE product_expanded AS
 
 
 
-/* 3. delete the newly added product */</sql><sql name="vendor_daily_sales_view">/* MODULE 5 */
+/* 3. delete the newly added product */
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="vendor_daily_sales_view">/* MODULE 5 */
 /* VIEW */
 
 /* 1. Create a vendor daily sales view */
@@ -38,6 +42,9 @@ CREATE TEMP TABLE product_expanded AS
 		
 	GROUP BY cp.market_date, v.vendor_id;
 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="view_in_another_query">/* MODULE 5 */
 /* VIEW in another query */
 
@@ -45,6 +52,8 @@ CREATE TEMP TABLE product_expanded AS
 
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="dynamic_view">/* MODULE 5 */
 /* DYNAMIC VIEW */
 
@@ -83,6 +92,8 @@ CREATE TEMP TABLE product_expanded AS
 
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="update_statements_for_view">/* MODULE 5 */
 /* UPDATE statements for view */
 
@@ -105,6 +116,9 @@ VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Su
 
 */
  
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="CROSS_JOIN">/* MODULE 5 */
 /* CROSS  JOIN */
 
@@ -123,6 +137,8 @@ SELECT * FROM TEMP.sizes;
 
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="SELF_JOIN">/* MODULE 5 */
 /* SELF JOIN */
 

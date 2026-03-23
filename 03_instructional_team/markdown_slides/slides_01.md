@@ -34,43 +34,45 @@ $ echo "Data Sciences Institute"
 - Currently working on AI Governance and Ethics at Dataiku
 - **_Have a 4 year old Samoyed named Alto who takes up a lot of my free time 👉_**
 
-![bg right:40% w:350](./images/01_happy_alto.png)
+![bg right:40% w:350](./images/01_snow_alto.png)
 
 ---
 
-# About Us (Edward)
+# About Us (Anjali)
 
-- Graduated from the Master of Science in Applied Computing program at UofT
-- Currently working as a Research Analyst at the University Health Network
-- Will start PhD in Medical Biophysics at UofT in September
-- Have worked on creating course material for data science and machine learning at UofT
-- Hobbies: Gaming, Crochet, Archery
+- Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
+- IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
+- DSI Cohort 3 and LS for subsequent cohorts
+- Experienced in Agile environments, mentoring, and fostering collaborative, solution-driven work cultures.
+- Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
+- Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
 
-![bg right:35% w:350](./images/01_edward.png)
-
----
-
-# About Us (Moniz)
-
-- Master in Biomedical Engineering 🎓
-- Project and Data Coordinator in Healthcare setting 🏥
-- DSI cohort 3 📈
-- Hobbies: camping 🏕️ travelling ✈️ and see the world
-
-![bg right:35% w:350](./images/01_moniz.png)
+![bg right:30% w:350](./images/01_anjali.png)
 
 ---
 
-# About Us (Niyaz)
+# About Us (Dmytro)
 
-- Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
-- 15 years of experience in software development, database design, and query optimization
-- DSI cohort 2
-- Co-founder of a company offering web design, SEO, and Google Ads services in Canada
-- Experienced mentor and facilitator in product development, focusing on code reviews and Agile practices to ensure quality and continuous improvement
-- I always enjoy helping others learn while continuously learning myself
+– Combines business acumen with technical expertise in software development, AI/ML, and system design
+– Holds a Masters degree in Business Administration; IT professional with experience in C#, Python, and modern AI tools, working on real-world and educational projects
+– Has experience in international technology companies such as HP, focusing on business development and client solutions
+– Experienced in project management (IPMA certified) and cross-functional collaboration
+– Hands-on builder with interests in robotics, electronics, and 3D modeling
+– Hobbies: DIY projects, robotics, hockey with kids
 
-![bg right:35% w:350](./images/01_niyaz.png)
+![bg right:30% w:350](./images/01_dmytro.png)
+
+---
+
+# About Us (Sergii)
+
+- Solution Architect with a PhD in Engineering
+- Have national and international awards
+- DSI cohort 5
+- Over 25 years in the IT industry across diverse domains
+- Proficient in multiple programming languages
+
+![bg right:35% w:350](./images/01_sergii.png)
 
 ---
 
@@ -87,7 +89,6 @@ $ echo "Data Sciences Institute"
 - Advanced Techniques
 - Importing and Exporting Data to and from SQL
 - SQL's relationship to the Machine Learning Pipeline
-- Data Stewardship, Ethics, and SQL in the Wild
 
 ---
 
@@ -95,7 +96,7 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS_Oct2025): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS_Mar2026): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -153,7 +154,21 @@ $ echo "Data Sciences Institute"
 - SQL sections are designed to be relatively easy (with a couple of hard questions)
   - Reaffirms what we wrote together
   - Doing work on your own helps reinforce the learning
-- ChatGPT probably won't help you much
+
+---
+
+# Assignments: some thoughts on GenAI
+
+- DSI prohibits the use of Generative AI for assignments
+- Policy aside, there are reasons not to use it during DSI
+  - GenAI doesn't teach you things
+      - In fact, per Microsoft's own research it worsens your critical thinking abilities [[1]](https://www.404media.co/microsoft-study-finds-ai-makes-human-cognition-atrophied-and-unprepared-3/) [[2]](https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf)
+  - You're here to learn how concepts, not regurgitate answers
+      - Assignments are here for reinforcement of skills. They are **generously** graded, so even with limited time to work on them, you will still pass
+  - GenAI will make you think SQL is easy, because the farmersmarket.db is designed to be simple
+      - Real data is almost always really messy
+          - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness, but GenAI won't know what issues exist because its not aware of your actual data
+  - The post-GenAI world is sanitized & boring, factually incorrect, anti-human, deeply biased, erodes trust, worsens privacy, burns the environment, drinks your water, .... /endrant
 
 ---
 
@@ -314,7 +329,11 @@ multiple lines
   - Open source, _free_
   - Similar enough in syntax to learn on
   - Used all over the world and in many applications  
-      - e.g. Firefox uses a SQLite backend to write a user's history locally
+      - Recently, I read there are estimated to be as many a 1 **trillion** SQLite DBs in existence
+      - Firefox, Chrome, Safari use a SQLite backend to write a user's history, bookmarks, cookies locally
+      - SQLite DBs are embedded in home automation devices, smart devices, etc
+      - Both Andriod and iOS apps use SQLite as the default database engine
+      - Completely encrypted when necessary supporting e2e messaging, like Signal/WhatsApp  
       
 ---
 
@@ -355,7 +374,7 @@ multiple lines
 - Relational databases are a collection of tables, views, procedural code, and other SQL-assisting artefacts
   - Generally the data stored in a database will be related to a real-world concept
   - Backends to data-collecting systems are often databases
-      - e.g. CRMs, EMR software, ERPs, web-based applications
+      - e.g. CRM (Customer Relationship Management) software, EMR (Electronic Medical Record) software, ERP (Enterprise Resource Planning) software, web-based applications
   - Usually not connected to other databases unless deemed necessary
   - Often transactional, meaning data is actively being written to by frontend systems
   - Tables are normalized
@@ -415,6 +434,10 @@ multiple lines
   - Lack of documentation, lack of governance, poorly designed Data Lakes become Swamps
   - Avoid building these
 
+
+---
+
+![bg w:600 ](images/01_data-lakehouse-new.png)
 
 ---
 
@@ -809,7 +832,7 @@ Table: Different countries align differently within these definition
 | 002        | ∞:∞ | 12        |
 | 003        | ∞:∞ | 12        |
 
-We can create additional Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
+We can create even more Many-to-Many relationships if we created a table including NATO/UN membership, because many non-European countries are NATO/UN members.
 
 ---
 

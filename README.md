@@ -26,7 +26,7 @@ Participants are introduced to data modelling and how to think about the structu
 By the end of the module, participants will be able to:
 
 
-### DC
+### DC Cohorts
 **Week 1:**
 * Describe the structure of a database.
 * Use SQL querying and data manipulation techniques to formulate queries for a range of purposes.
@@ -38,7 +38,7 @@ By the end of the module, participants will be able to:
 * Use an export command to save and transport data in CSV and JSON file formats.
 
 
-### Cohort 8
+### Microcredential Cohorts
 
 **Week 1:**
 * Describe the structure of a database.
@@ -57,21 +57,19 @@ Participants should review the [Assignment Submission Guide](https://github.com/
 
 There are two assignments.
 
-🚨ATTENTION! During November 2025, both the SGS DC Cohort and Cohort 8 are running in parallel. Please navigate to the appropriate folder for your cohort as **the assignments are not the same**.
+🚨ATTENTION! Please navigate to the appropriate folder for your cohort as **the assignments are not the same**.
 
 ### DC
 1. [Assignment 1](./02_activities/assignments/DC_Cohort/Assignment1.md)
 2. [Assignment 2](./02_activities/assignments/DC_Cohort/Assignment2.md)
 
-### Cohort 8
-1. [Assignment 1](./02_activities/assignments/Cohort_8/Assignment1.md)
-2. [Assignment 2](./02_activities/assignments/Cohort_8/Assignment2.md)
+### Microcredential
+1. [Assignment 1](./02_activities/assignments/Microcredentials_Cohort/Assignment1.md)
+2. [Assignment 2](./02_activities/assignments/Microcredentials_Cohort/Assignment2.md)
 
 ## Contacts
 
 **Questions can be submitted to the #questions channel on Slack**
-
-### DC
 
 * Technical Facilitator:   
   * **Thomas Rosenthal** (he/him)  
@@ -80,24 +78,10 @@ There are two assignments.
 * Learning Support Staff:
   * **Anjali Shrivastava** (she/her)  
   [anju_shrivastava@yahoo.com](mailto:anju_shrivastava@yahoo.com)
-  * **Niyaz Nazari** (she/her)  
-  [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
+  * **Dmytro Bonislavskyi** (he/him)  
+  [dmytro.bonislavskyi@gmail.com](mailto:dmytro.bonislavskyi@gmail.com)
   * **Sergii Khomych** (he/him)  
   [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
-
-### Cohort 8
-
-* Technical Facilitator:   
-  * **Thomas Rosenthal** (he/him)  
-    [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
-
-* Learning Support Staff: 
-  * **Edward Chen** (he/him)  
-  [edwardty.chen@utoronto.ca](mailto:edwardty.chen@utoronto.ca)
-  * **Moniz Chan** (she/her)  
-  [moniz.chan@utoronto.ca](mailto:moniz.chan@utoronto.ca)
-  * **Niyaz Nazari** (she/her)  
-  [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
 
 ## Delivery of the Learning Module
 
@@ -113,7 +97,7 @@ Participants should follow along with the coding, interact with the study materi
 
 ## Schedule 
 
-Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md)
+Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/sqlite_setup/sqlite_setup.md) and watch [pre-class videos](https://drive.proton.me/urls/SNKJ5KR6TM#A6l8phhXgTHd)
 
 
 ### DC
@@ -131,7 +115,7 @@ Before First Live Learning Session: Install & Pre-Session [Setup](./05_src/sql/s
 |Week 3|Live Learning Session 5 Expanding your Database: INSERT, UPDATE, DELETE, Importing & Exporting Data, CROSS & Self Joins, Views |Work Period|
 
 
-### Cohort 8 
+### Microcredential
 
 ||Day 1|Day 2|Day 3|Day 4|Day 5|
 |---|---|---|---|---|---|

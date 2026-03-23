@@ -105,12 +105,15 @@ FROM product
 You can either display all rows in the customer_purchases table, with the counter changing on each new market date for each customer, or select only the unique market dates per customer (without purchase details) and number those visits. 
 **HINT**: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().
 
+Filter the visits to dates before April 29, 2022.
+
 `DENSE_RANK`
 ```
 SELECT cp.*,
 DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY market_date) AS visit_number
 
 FROM customer_purchases AS cp
+WHERE market_date < '2022-04-29'
 
 ORDER BY customer_id, market_date
 ```
@@ -121,12 +124,14 @@ SELECT customer_id, market_date,
 ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY market_date) AS visit_number
 
 FROM customer_purchases
+WHERE market_date < '2022-04-29'
 
 GROUP BY customer_id, market_date
 ORDER BY customer_id, market_date
 ```
 
-2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, then write another query that uses this one as a subquery (or temp table) and filters the results to only the customer’s most recent visit.
+2. Reverse the numbering of the query so each customer’s most recent visit is labeled 1, then write another query that uses this one as a subquery (or temp table) and filters the results to only the customer’s most recent visit.
+**HINT**: Do not use the previous visit dates filter.
 
 `DENSE_RANK`
 ```
@@ -156,11 +161,15 @@ ORDER BY customer_id, market_date
 
 3. Using a COUNT() window function, include a value along with each row of the customer_purchases table that indicates how many different times that customer has purchased that product_id.
 
+You can make this a running count by including an ORDER BY within the PARTITION BY if desired.
+Filter the visits to dates before April 29, 2022.
+
 ```
 SELECT cp.*,
 COUNT(product_id) OVER (PARTITION BY customer_id, product_id) AS
 product_purchase_count
 FROM customer_purchases AS cp
+WHERE market_date < '2022-04-29'
 ORDER BY customer_id, product_id, market_date
 ```
 
@@ -174,9 +183,10 @@ transaction_time,
 count() over (partition by customer_id, 
   product_id 
   order by market_date, 
-           transaction_time asc) as buy_count
+           transaction_time asc) as product_purchase_count
 from customer_purchases
-order by customer_id, product_id, buy_count;
+WHERE market_date < '2022-04-29'
+order by customer_id, product_id, product_purchase_count;
 ```
 
 # String manipulations
