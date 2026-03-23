@@ -137,12 +137,12 @@ class: left, top, inverse
 # About Us (Dmytro)
 
 .pull-left[
-– Combines business acumen with technical expertise in software development, AI/ML, and system design
-– Holds a Masters degree in Business Administration; IT professional with experience in C#, Python, and modern AI tools, working on real-world and educational projects
-– Has experience in international technology companies such as HP, focusing on business development and client solutions
-– Experienced in project management (IPMA certified) and cross-functional collaboration
-– Hands-on builder with interests in robotics, electronics, and 3D modeling
-– Hobbies: DIY projects, robotics, hockey with kids
+- Combines business acumen with technical expertise in software development, AI/ML, and system design
+- Holds a Masters degree in Business Administration; IT professional with experience in C#, Python, and modern AI tools, working on real-world and educational projects
+- Has experience in international technology companies such as HP, focusing on business development and client solutions
+- Experienced in project management (IPMA certified) and cross-functional collaboration
+- Hands-on builder with interests in robotics, electronics, and 3D modeling
+- Hobbies: DIY projects, robotics, hockey with kids
 ]
 
 .pull-right[
@@ -359,7 +359,9 @@ For live coding:
 --
 
 Check out our [post-installation videos](https://drive.proton.me/urls/SNKJ5KR6TM#A6l8phhXgTHd):
+- Using the SQL Etherpad
 - Changing you DB Browser for SQLite Preferences
+- SQLite File Types
 - How to Open a Database
 - What is the Execute SQL Window
 - How to use SQLite Projects
@@ -503,6 +505,8 @@ class: top, left, inverse
 
 --
 
+.pull-left.w68[
+
 - We are using SQLite:
   - Super easy to get setup
   - Requires almost no overhead
@@ -514,6 +518,22 @@ class: top, left, inverse
       - SQLite DBs are embedded in home automation devices, smart devices, etc
       - Both Andriod and iOS apps use SQLite as the default database engine
       - Completely encrypted when necessary supporting e2e messaging, like Signal/WhatsApp  
+
+]
+
+.pull-right.w30[
+.center[
+<img src="imgs/01_sqlite_best.png"
+     height="300px";>
+     ]
+]
+
+.center[     
+<sup><sup><sup><sup> Image: Unknown meme creator </sup></sup></sup></sup>
+]
+
+
+
       
 ---
 
