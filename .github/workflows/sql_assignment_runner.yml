@@ -43,10 +43,10 @@ jobs:
           // and give priority in next order 2, 1 as it quite often happens when students submit
           // PR without following assignments order and git flow. It will to run latest / greatest
           if grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
-            echo "assignment_changed=$(grep -qE '(^|/)assignment1\.sql$')" >> "$GITHUB_OUTPUT"
+            echo "assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt)" >> "$GITHUB_OUTPUT"
           fi
           if grep -qE '(^|/)assignment2\.sql$' changed_files.txt; then
-            echo "assignment_changed=$(grep -qE '(^|/)assignment2\.sql$')" >> "$GITHUB_OUTPUT"
+            echo "assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Run tests
