@@ -3,14 +3,14 @@ name: SQL Unit Tests
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches:
-       - assignment-**
+
 permissions:
   contents: read
   pull-requests: write
 
 jobs:
   run-assignment-queries:
+    if: startsWith(github.head_ref, 'assignment-')
     runs-on: ubuntu-latest
     permissions:
       contents: read
