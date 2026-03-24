@@ -39,14 +39,20 @@ jobs:
       
           echo "Changed files:"
           cat changed_files.txt
-          // The goal here to search for a file modified during PR that is match to a pattern
-          // and give priority in next order 2, 1 as it quite often happens when students submit
-          // PR without following assignments order and git flow. It will to run latest / greatest
-          if grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
-            echo "assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt)" >> "$GITHUB_OUTPUT"
-          fi
+          # The goal here to search for a file modified during PR that is match to a pattern
+          # and give priority in next order 2, 1 as it quite often happens when students submit
+          # PR without following assignments order and git flow. It will to run latest / greatest
+          assignment_changed=""
+          
+          # Priority: assignment2 > assignment1
           if grep -qE '(^|/)assignment2\.sql$' changed_files.txt; then
-            echo "assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt)" >> "$GITHUB_OUTPUT"
+            assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt | head -n1)
+          elif grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
+            assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt | head -n1)
+          fi
+          
+          if [ -n "$assignment_changed" ]; then
+            echo "assignment_changed=$assignment_changed" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Run tests
