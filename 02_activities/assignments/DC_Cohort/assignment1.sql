@@ -26,6 +26,12 @@ sorted by customer_last_name, then customer_first_ name. */
 --WHERE
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. 
 Limit to 25 rows of output. */
+--QUERY 3
+
+
+
+
+--END QUERY
 
 
 
@@ -35,7 +41,7 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 	2.  one condition using BETWEEN
 Limit to 25 rows of output.
 */
---QUERY 3
+--QUERY 4
 
 
 
@@ -48,7 +54,7 @@ Limit to 25 rows of output.
 Using the product table, write a query that outputs the product_id and product_name
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
---QUERY 4
+--QUERY 5
 
 
 
@@ -59,7 +65,7 @@ if the product_qty_type is “unit,” and otherwise displays the word “bulk.�
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
---QUERY 5
+--QUERY 6
 
 
 
@@ -71,7 +77,7 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by market_date, then vendor_name.
 Limit to 24 rows of output. */
---QUERY 6
+--QUERY 7
 
 
 
@@ -85,7 +91,7 @@ Limit to 24 rows of output. */
 -- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
---QUERY 7
+--QUERY 8
 
 
 
@@ -98,7 +104,7 @@ sticker to everyone who has ever spent more than $2000 at the market. Write a qu
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
---QUERY 8
+--QUERY 9
 
 
 
@@ -117,7 +123,7 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
---QUERY 9
+--QUERY 10
 
 
 
@@ -131,7 +137,7 @@ VALUES(col1,col2,col3,col4,col5)
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
 and year are! 
 Limit to 25 rows of output. */
---QUERY 10
+--QUERY 11
 
 
 
@@ -145,7 +151,7 @@ Remember that money spent is quantity*cost_to_customer_per_qty.
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! */
---QUERY 11
+--QUERY 12
 
 
 
