@@ -209,5 +209,5 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Databases might seem like just a technical tool for storing information, but after reading this article, I started to realize they actually reflect certain values and assumptions. For example, the system described in the article assumes that everyone fits into a traditional family structure, which is not true for many people. Because of this, some individuals were excluded or faced difficulties when the database could not recognize their situation. This made me think that databases can create unfairness, even if that is not the intention. In my everyday life, I also see similar situations, like when filling out forms that only allow limited options for gender or family background. These systems simplify people’s identities, but in doing so, they may ignore important differences and experiences. As someone new to this topic, I am beginning to understand that technology is not neutral, and the way databases are designed can shape how people are treated in society.
 ```
