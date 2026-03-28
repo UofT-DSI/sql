@@ -67,17 +67,17 @@ def test_assignment(sqlite_db, file_path):
     run_assignment(sqlite_db, file_path)
 
 def run_assignment(sqlite_db, file_path):
-    json_file = open("test-results.json", "w")
-    queries = load_queries(file_path)
-    test_result = []
-    for parsed_query in queries:
-        try:
-            rows = run_query(sqlite_db, parsed_query['query'])
-            test_result.append( { "number": parsed_query['number'], "query": parsed_query['query'], "result": rows[0:3] })
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-    json.dump(test_result, json_file, indent=2)
-    json_file.close()
-    assert True,  "test execution query {} result {}".format(queries, test_result)
+    with open("test-results.json", "w") as json_file:
+        queries = load_queries(file_path)
+        test_result = []
+        for parsed_query in queries:
+            try:
+                rows = run_query(sqlite_db, parsed_query['query'])
+                test_result.append( { "number": parsed_query['number'], "query": parsed_query['query'], "result": rows[0:3] })
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+        json.dump(test_result, json_file, indent=2)
+    # The purpose of it to have report in the future in case DSI will want to go with unit testing style.
+    # assert True,  "test execution query {} result {}".format(queries, test_result)
 
 

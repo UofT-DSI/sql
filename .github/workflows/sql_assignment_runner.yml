@@ -99,11 +99,13 @@ jobs:
             let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
             body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>`
             for (const result of results) {
-                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
-                const table = jsonToMarkdownTable(result.result)
-                body +=  `${table} \n`
-                body += `\n`
-                body += `-------------------------------------------------------- \n` 
+                if (result.result.trim().length > 0) {
+                  body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
+                  const table = jsonToMarkdownTable(result.result)
+                  body +=  `${table} \n`
+                  body += `\n`
+                  body += `-------------------------------------------------------- \n` 
+              }
             }
             body += `</details>`
             
