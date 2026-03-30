@@ -1,13 +1,12 @@
-# DC Assignment 1: Meet the farmersmarket.db and Basic SQL
+# Assignment 1: Meet the farmersmarket.db and Basic SQL
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 #### Submission Parameters:
-* Submission Due Date: `March 31, 2026`
+* Submission Due Date: `November 17, 2025`
 * Weight: 30% of total grade
 * The branch name for your repo should be: `assignment-one`
 * What to submit for this assignment:
-    * This markdown (Assignment1.md) with written responses in Section 4
     * One Entity-Relationship Diagram (preferably in a pdf, jpeg, png format).
     * One .sql file 
 * What the pull request link should look like for this assignment: `https://github.com/<your_github_username>/sql/pulls/<pr_id>`
@@ -115,7 +114,7 @@ Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
-- Complete each question, by writing responses between the QUERY # and END QUERY blocks
+- Complete each question
 
 ### Write SQL
 
@@ -126,11 +125,10 @@ Steps to complete this part of the assignment:
 <div align="center">-</div>
 
 #### WHERE
-1. Write a query that returns all customer purchases of product IDs 4 and 9. Limit to 25 rows of output.
+1. Write a query that returns all customer purchases of product IDs 4 and 9.
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
-Limit to 25 rows of output.
 
 <div align="center">-</div>
 
@@ -142,7 +140,7 @@ Limit to 25 rows of output.
 <div align="center">-</div>
 
 #### JOIN
-1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `market_date` then `vendor_name`. Limit to 24 rows of output. 
+1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `vendor_name`, then `market_date`.
 
 ***
 
@@ -153,7 +151,7 @@ Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
-- Complete each question, by writing responses between the QUERY # and END QUERY blocks
+- Complete each question
 
 ### Write SQL
 
@@ -180,34 +178,36 @@ To insert the new row use VALUES, specifying the value you want for each column:
    
 **HINT**: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month and year are!
 
-Limit to 25 rows of output. 
-
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
    
-**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
-AND be sure you remove the LIMIT from the previous query before aggregating!! 
-
-*** 
-
-## Section 4:
-You can start this section anytime.
-
-Steps to complete this part of the assignment:
-- Read the article
-- Write, within this markdown file, between 250 and 1000 words. No additional citations/sources are required.
-
-### Ethics
-
-Read: Qadri, R. (2021, November 11). _When Databases Get to Define Family._  Wired. <br>
-    https://www.wired.com/story/pakistan-digital-database-family-design/
-
-Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive.org/web/20240422105834/https://www.wired.com/story/pakistan-digital-database-family-design/
-
-**What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
-
-Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
+**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
 
 
-```
-Your thoughts...
-```
+
+
+## Section 4: What values systems are embedded in databases and data systems you encounter in your day-to-day life?
+
+I would suggest that the values that one encounters in databases and data systems in the quotidian are either unassuming/uncritical, and or naively determined. By the latter, I imply that most value systems, with their varying hermeneutical destinations, are not simply willed or agenticaly assumed, but rather possessive and deterministic. One does not chose which ideas or indexes to follow, one simply deploys oneself with these not in mind. One can read, on can study, however, behaviour tends not to follow the fantasies and the petulations, whether intellectual or political, that one may entertain. Rather, one is compelled to act with what is in engraved in what counts as the actions and the decisions that are actually relevant, that is those that are done in the horizon of fear and uncertainty. I believe, that what is considered as a "technical worker", those professionals in either the hard sciences or in the digital professions, such as as Computer Science or Data Science, are not nearly unaware of the unassuming values. More emphatically I deem that they are either untrained in carrying critical injunctions, and more affirmatively the shouldn't. To use an analogy to stress my point, a knife is a "piece" of technology. A good knife is defined by its ability to cut properly. One can use as knife to cut bread or to stab someone. The knife itself is not bad, it is good because it cuts and its stab. Stabbing is normatively negative and punishable. Therefore the function of the knife, as the function of database/data system, is contingent on the user, not the maker of the knife. A technical maker (the creator of the database as the creator of the knife) cannot "code" in a function into the knife, he or she can only strive to make it sharp. In that regard, whatever system of values is coded into the tool is naively determined. At the end of the day, the function of database/data system is determined by the barer, not by the maker. In that, whatever values are "embedded" in databases sufferer in their irrelevance, from the naiveté of their designer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

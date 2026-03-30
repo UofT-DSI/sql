@@ -1,5 +1,4 @@
 /* ASSIGNMENT 2 */
---Please write responses between the QUERY # and END QUERY blocks
 /* SECTION 2 */
 
 -- COALESCE
@@ -21,12 +20,7 @@ nulls, and 'unit' for the second column with nulls.
 The `||` values concatenate the columns into strings. 
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
 All the other rows will remain the same. */
---QUERY 1
 
-
-
-
---END QUERY
 
 
 --Windowed Functions
@@ -37,39 +31,19 @@ Each customer’s first visit is labeled 1, second visit is labeled 2, etc.
 You can either display all rows in the customer_purchases table, with the counter changing on
 each new market date for each customer, or select only the unique market dates per customer 
 (without purchase details) and number those visits. 
-HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). 
-Filter the visits to dates before April 29, 2022. */
---QUERY 2
+HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 
 
 
-
---END QUERY
-
-
-/* 2. Reverse the numbering of the query so each customer’s most recent visit is labeled 1, 
+/* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
-only the customer’s most recent visit.
-HINT: Do not use the previous visit dates filter. */
---QUERY 3
+only the customer’s most recent visit. */
 
-
-
-
---END QUERY
 
 
 /* 3. Using a COUNT() window function, include a value along with each row of the 
-customer_purchases table that indicates how many different times that customer has purchased that product_id. 
+customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
-You can make this a running count by including an ORDER BY within the PARTITION BY if desired.
-Filter the visits to dates before April 29, 2022. */
---QUERY 4
-
-
-
-
---END QUERY
 
 
 -- String manipulations
@@ -83,21 +57,11 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 | Habanero Peppers - Organic | Organic     |
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
---QUERY 5
 
-
-
-
---END QUERY
 
 
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
---QUERY 6
 
-
-
-
---END QUERY
 
 
 -- UNION
@@ -109,12 +73,7 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 "best day" and "worst day"; 
 3) Query the second temp table twice, once for the best day, once for the worst day, 
 with a UNION binding them. */
---QUERY 7
 
-
-
-
---END QUERY
 
 
 
@@ -130,12 +89,7 @@ Remember, CROSS JOIN will explode your table rows, so CROSS JOIN should likely b
 Think a bit about the row counts: how many distinct vendors, product names are there (x)?
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
---QUERY 8
 
-
-
-
---END QUERY
 
 
 -- INSERT
@@ -143,34 +97,19 @@ Before your final group by you should have the product of those two queries (x*y
 This table will contain only products where the `product_qty_type = 'unit'`. 
 It should use all of the columns from the product table, as well as a new column for the `CURRENT_TIMESTAMP`.  
 Name the timestamp column `snapshot_timestamp`. */
---QUERY 9
 
-
-
-
---END QUERY
 
 
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
---QUERY 10
 
-
-
-
---END QUERY
 
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
---QUERY 11
 
-
-
-
---END QUERY
 
 
 -- UPDATE
@@ -189,12 +128,7 @@ Third, SET current_quantity = (...your select statement...), remembering that WH
 Finally, make sure you have a WHERE statement to update the right row, 
 	you'll need to use product_units.product_id to refer to the correct row within the product_units table. 
 When you have all of these components, you can run the update statement. */
---QUERY 12
 
-
-
-
---END QUERY
 
 
 
