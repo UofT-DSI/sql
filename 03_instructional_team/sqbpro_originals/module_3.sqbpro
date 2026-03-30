@@ -100,6 +100,7 @@ Filter to number of purchases between 300 and 500  */
 /* 2. What is the single item that has been bought in the greatest quantity?*/
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="subquery_where">/* MODULE 3 */
 /* Subquery WHERE */
 
@@ -122,7 +123,7 @@ Filter to number of purchases between 300 and 500  */
 /* some structural code */
 /* ...heads up, sometimes this query can be finnicky -- it's good to try highlighting different sections to help it succeed...*/
 
--- if a table named new_vendor_inventory exists, delete it, other do NOTHING
+-- if a table named new_vendor_inventory exists, delete it, otherwise do NOTHING
 DROP TABLE IF EXISTS temp.new_vendor_inventory;
 
 --make the table

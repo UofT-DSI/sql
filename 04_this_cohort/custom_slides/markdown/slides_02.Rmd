@@ -699,7 +699,7 @@ class: top, left, inverse
 ---
 
 class: top, left, inverse
-### Filtering a FULL (OUTER) JOIN
+# Filtering a FULL (OUTER) JOIN
 - All OUTER JOIN syntax can be filtered to exclude the _matching_ criteria
   - Often called an ANTI JOIN, i.e. what's _not_ in the other table
 
