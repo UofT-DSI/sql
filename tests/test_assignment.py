@@ -57,27 +57,68 @@ def load_queries(sql_file):
 
     return queries
 
+#def run_query(conn, query):
+#    cursor = conn.cursor()
+#    cursor.execute(query)
+#    rows = cursor.fetchall()
+#    return [dict(row) for row in rows]
 def run_query(conn, query):
     cursor = conn.cursor()
-    cursor.execute(query)
-    rows = cursor.fetchall()
-    return [dict(row) for row in rows]
+    try:
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        return [dict(row) for row in rows]
+    
+    except sqlite3.ProgrammingError as e:
+        if "one statement at a time" in str(e).lower():
+            # fallback: handle multiple statements
+            statements = [s.strip() for s in query.split(";") if s.strip()]
+            
+            if len(statements) == 0:
+                return []
+            
+            for stmt in statements[:-1]:
+                cursor.execute(stmt)
+            
+            cursor.execute(statements[-1])
+            rows = cursor.fetchall()
+            return [dict(row) for row in rows]
+        
+        else:
+            raise
+
 
 def test_assignment(sqlite_db, file_path):
     run_assignment(sqlite_db, file_path)
 
 def run_assignment(sqlite_db, file_path):
-    json_file = open("test-results.json", "w")
-    queries = load_queries(file_path)
-    test_result = []
-    for parsed_query in queries:
-        try:
-            rows = run_query(sqlite_db, parsed_query['query'])
-            test_result.append( { "number": parsed_query['number'], "query": parsed_query['query'], "result": rows[0:3] })
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-    json.dump(test_result, json_file, indent=2)
-    json_file.close()
-    assert True,  "test execution query {} result {}".format(queries, test_result)
+    with open("test-results.json", "w") as json_file:
+        queries = load_queries(file_path)
+        test_result = []
+        for parsed_query in queries:
+            try:
+                rows = run_query(sqlite_db, parsed_query["query"])
+                test_result.append({
+                    "number": parsed_query["number"],
+                    "query": parsed_query["query"],
+                    "result": rows[0:3],
+                    "error": None
+                })
+            except Exception as e:
+                test_result.append({
+                    "number": parsed_query["number"],
+                    "query": parsed_query["query"],
+                    "result": [],
+                    "error": str(e)
+                })
+        json.dump(test_result, json_file, indent=2)
 
+    # The purpose of it to have report in the future in case DSI will want to go with unit testing style.
+    # assert True, "test execution query {} result {}".format(queries, test_result)
 
+if __name__ == "__main__":
+    print("running tests...")
+    conn = sqlite3.connect("05_src/sql/farmersmarket.db")
+    conn.row_factory = sqlite3.Row
+    run_assignment(conn, "02_activities/assignments/DC_Cohort/assignment1.sql")
+    
