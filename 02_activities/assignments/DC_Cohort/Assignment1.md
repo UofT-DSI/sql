@@ -209,5 +209,17 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+One data system I encounter in my day-to-day life is a medical record. These records include patient information such as name, sex, marital status, work
+place, place of residence, health card number, and emergency contacts (these would typically be family members). They also include medical history 
+of a patient such as past immunizations, surgeries, doctor visits, lab test results, and referrals. On top of that, they record family history of 
+illnesses and mental health conditions. If a doctor is unsure of why a patient has certain symptoms (sometimes the lab results and subjective description 
+of patient's symptoms do not match), the doctor may visit the family history data and test the patient for those conditions that run in the family that 
+closely resemble the symptoms. It is important for doctors to have access to family records of a patient to identify risks and test for them. However,
+those with weak or without family ties such as orphans, would have incomplete family medical records, making it harder to identify risk factors and 
+diagnose. Another interesting aspect is culture. In many cultures, certain conditions (especially related to mental health) are considered to be 
+embarrassing or "not real"; for this reason, they wouldn't report this information to their doctor and the family history data would be incomplete. 
+On the flip side, the doctors may also rely too much on family history information and dismiss patients' thoughts about their own condition, which
+may especially be true for younger patients and recent immigrants who may struggle communicating their thoughts due to language barrier. This way, 
+medical databases and social structures are intertwined. 
+
 ```
