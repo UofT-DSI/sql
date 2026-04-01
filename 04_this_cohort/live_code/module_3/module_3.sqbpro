@@ -356,4 +356,4 @@ FROM market_date_info;
  ,(julianday('now') - julianday(market_date))*24 as hoursbetweenmktdate
  
  FROM market_date_info
- <current_tab id="5"/></tab_sql></sqlb_project>
+ </sql><current_tab id="5"/></tab_sql></sqlb_project>
