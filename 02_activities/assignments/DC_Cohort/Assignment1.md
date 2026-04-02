@@ -105,6 +105,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- These are the tables that are connected
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
+<img width="655" height="453" alt="image" src="https://github.com/user-attachments/assets/91030cf9-4256-48f5-b0a2-1aecd7c01bbc" />
 
 ***
 
@@ -209,5 +210,6 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+It became evident that having two married parents where essential to being recognized by a system from the article. In my everyday life, this is seen all throughout, ranging from banking systems, electronic health records or other identification systems that assume categories. For example, if there is a system that assumes binary gender categories, individuals who do not fit in this norm may face similar issues to the individuals in the article. This, in turn, leads to unequal access to services, leading to fragmentation in systems, reinforcing existing inequalities. This also brings up another point, that binary categories may unintentionally exclude certain groups who do not meet predefined criteria. This highlights how the concept of fairness is embedded within databases, and may fail to account individuals with diverse lived experiences. Even though as a society we have progressed so much, there is still much work to be done to promote fairness and inclusivity. One may not often think that purely technical tools actively participate in the development of these binary categories and therefore some form of exclusion, but they do, and must not fall under the radar.
+
 ```
