@@ -56,8 +56,15 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
+Your answer 
+***
+I think there are two main ways the bookstore could design a CUSTOMER_ADDRESS table, depending on whether it wants to keep only the latest address or keep a history of address changes.
+
+The first option is the simpler one: one row per customer, where the address just gets overwritten whenever the customer moves. In that version, the table could have fields like customer_id, street_address, city, province, postal_code, country, and maybe last_updated_date. If the customer changes address, the old address is replaced in that same row. This approach is easy to manage and works well if the store only cares about the customer’s current mailing address. But the downside is that once the address is updated, the old one is gone. This would be a Type 1 slowly changing dimension, because the new data overwrites the old data.
+
+The second option is to keep address history. In that version, the table would allow multiple address records for the same customer over time. So instead of using customer_id as the primary key, the table could have something like customer_address_id as the primary key, plus customer_id as a foreign key. Then it could also include effective_start_date, effective_end_date, and maybe an is_current flag. Each time the customer moves, a new row would be inserted instead of updating the old one. That means the bookstore can still see previous addresses if it ever needs them for reporting, auditing, or historical analysis. This would be a Type 2 slowly changing dimension, because changes are handled by adding a new record and preserving the old one.
+
+So overall, Type 1 means overwrite the address and keep only the latest version, while Type 2 means insert a new row and retain the address history.
 
 ***
 
@@ -193,3 +200,8 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 ```
 Your thoughts...
 ```
+Reading Neural nets are just people all the way down really shifted how I think about AI. Before this, I often understood AI as something highly technical and distant from ordinary human work, almost as if it were operating on its own. But this article made me realize that behind these systems are many layers of human labour that are often hidden. What looks like “intelligent” output is actually built on people labeling data, filtering harmful content, making judgment calls, and shaping what the model learns. That was one of the biggest ethical issues for me: the invisibility of labour. The article shows that AI is not just a machine process. It depends on human workers, and often those workers do difficult, repetitive, and emotionally harmful tasks without much recognition.
+
+Another issue that stood out to me is bias. If neural nets are trained through human decisions, then they also absorb human assumptions, categories, and inequalities. That means AI does not simply reflect the world neutrally. It can reproduce the social biases already built into society, including racial, cultural, and linguistic hierarchies. As a PhD student in Higher Education at OISE, this made me think about how technologies that seem efficient or innovative can still reinforce exclusion if we do not ask who is designing them, who is labeling the data, and whose standards are treated as normal.
+
+I was also struck by the ethical problem of content moderation. The article reminded me that keeping AI systems “clean” or “safe” often requires humans to be exposed to disturbing material. So the convenience users experience may come at a psychological cost to invisible workers elsewhere. More broadly, this connects AI to society in a very direct way. LLMs are not separate from social systems. They are built through labour, shaped by power, and deployed into unequal worlds. For me, the article was a strong reminder that ethical questions about AI are always also questions about people.
