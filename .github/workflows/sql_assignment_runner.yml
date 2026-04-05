@@ -1,8 +1,13 @@
 name: SQL Unit Tests
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:  # Manual trigger from GitHub UI
+    inputs:
+      branch:
+        description: 'Branch to use to run assignment for, i.e. assignment-one, assignment-2'
+        required: true
+        default: assignment-one
+        type: string
 
 permissions:
   contents: read
@@ -10,7 +15,8 @@ permissions:
 
 jobs:
   run-assignment-queries:
-    if: startsWith(github.head_ref, 'assignment-')
+    # uncomment once a change to PR trigger will be implemented
+    # if: startsWith(github.head_ref, 'assignment-')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,7 +26,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ inputs.branch }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
