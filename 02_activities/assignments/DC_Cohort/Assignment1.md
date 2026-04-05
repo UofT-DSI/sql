@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-one`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-one`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -209,5 +209,13 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Value systems are embedded witihin databases and data systems the average person encounters in their day-to-day life. When Databases Get to Define Family exemplifies several of these value systems. Assumptions of what constitutes a family, gender, and parenthood are all placed within the database, leading to real-world impact on marginalized people (e.g., orphans, widows and widowers, single parents, 2SLGBT+ people).
+
+Within my scholarly and analytics work, similar value systems can emerge. My academic research often involves language assessment. One prominent theory within language assessment is that language is socioculturally defined. In other words, what constitutes acceptable language is based on the perspective of a particular demographic--often the one with power--despite many other alternative interpretations. For example, consider the difference between academic English and African American Vernacular English. An argument could be made that current standardized language testing implicitly values the language of the dominant culture to the detriment of minorities. African American and African Canadian communities are aware of this, and code switch to try to adapt. Different communities across Canada have different dialects, accents, and slang, yet the types of language that are valued within standardized testing implicitly favour a particular type of language. 
+
+Categorizing abstract, socially-constructed variables within databases also implictly rely upon value systems. One typical example is defining the categories of race and ethnicity utilized within a census or questionnaire. Careful consideration should be made for the categories participants are able to select. It is typically considered best practice to allow a "select all that apply" rather than necessitating a single option, allow an open-response "Prefer to self-describe", and incorporate a "prefer not to answer" bucket. While this makes analyzing data notably more challenging, it more accurately captures participants' race and ethnicity, and better aligns with an inclusive value system. 
+
+Within language assessment, another example of defining an abstract, socially-constructed variable involves categorizing and defining the language background of multilingual students. Categorizing students as multilingual relies upon assumptions and value systems. There are a multitude of different labels assigned to students whose mother tongue is not English. Examples of terms include English as an Additional Language (EAL), English Language Learner (ELL), among a multitude of others. Each of these terms has been used in different contexts and carries different connotations and assumptions about the nature of multilingual students.
+
+Within the higher education context, there are also implicit value systems embedded within seemingly objective deinitions of full-time versus part-time university students. At face value, full-time vs part-time status should be easily defined based on course load cutoffs. However, such definitions rest upon a value system that ignores accessibility needs; it assumes all students are neurotypical, and the hourly workload for a course is similar for all students. Among some neurodivergent students, the workload of a single course may correspond to 1.5 or 2 courses when compared to other students. Correspondingly, a course load that would typically be considered part-time for neurotypical students may genuienly reflect a full-time course load for students with additional accessibility needs. Careful consideration of the assumptions and value systems underpinning variables is important to support inclusive and accessible practices.
 ```
