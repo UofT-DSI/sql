@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+=======
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/osahenilawani/DSI_projects/sql/05_src/sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="7306"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000003560000029ffc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000003560000010100ffffff000003560000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+>>>>>>> Stashed changes
 /* SELECT */
 
 
@@ -7,6 +11,7 @@ SELECT * FROM customer;
 
 /* 2. Use sql as a calculator */
 SELECT 1+1 AS addition, 10*5 as multiplication, pi() as pi;
+
 
 
 /* 3. Add order by and limit clauses */
@@ -279,6 +284,7 @@ Why do we have more rows now?*/
 SELECT product_category_name, p.*
 , cp.product_id as productid_in_cust_purchases_table
 
+<<<<<<< Updated upstream
 FROM product_category as pc
 INNER JOIN product as p -- will give us product_name, product_size, product_qty_type
 	ON p.product_category_id = pc.product_category_id
@@ -293,3 +299,6 @@ ORDER by cp.product_id
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 </sql><current_tab id="5"/></tab_sql></sqlb_project>
+=======
+</sql><current_tab id="2"/></tab_sql></sqlb_project>
+>>>>>>> Stashed changes

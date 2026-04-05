@@ -58,6 +58,34 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+/* customer_address_type1 */
+
+customer_address (type 1)
+customer_id (PK, FK) 
+address 
+city 
+province 
+postal_code
+
+
+
+
+/* customer_address_type2 */
+
+
+customer_address (type 2)
+address_id (PK) 
+customer_id (FK) 
+address 
+city 
+province 
+postal_code 
+start_date 
+end_date 
+is_current
+
+
+
 
 ***
 
@@ -193,3 +221,12 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 ```
 Your thoughts...
 ```
+One of the most important ethical issues raised in the article “Neural nets are just people all the way down” is the hidden human input behind AI systems. We usually think of artificial intelligence as fully automated, independent, self-learning, and error free, but this is not the case in reality. Behind the sophisticated interfaces and impressive outputs generated are numerous human workers who handle the data, process content, and fix errors. Most of these workers work several hours, earn low pay, and maybe exposed to disturbing materials and contents. These human inputs are largely invisible, yet they are extremely needed for AI to function efficiently. This then raises important questions about fairness, exploitation, and the value that is placed on human input in a techology-driven world.
+
+The issue of bias is another important source of concern in AI application and operations. Given that humans are the ones who create and label the data that trains AI models, AI could inevitably reflects human prejudices, sometimes amplifying them in ways that can have serious implications. For instance, if training data is skewed toward certain socio-demographic and cultural assumptions, AI may make unfair or discriminatory decisions even in important fields like hiring, policing, financing, healthcare and content moderation. Furthermore, users make the assumption that machine outputs are neutral, while infact these systems mirror the biases and blind spots of their creators. This disturbing occurrence emphasizes the significance of ethical oversight at every stage of it's development and implementation.
+
+The proliferation of large language models also presents ethical challenges to the society. These models can generate contents which have the potential to spread misinformation or manipulate public opinion. While AI can be a tool for creativity and efficiency, its wrongful usage could have wide-reaching societal consequences if checks are not put in place to safeguard against harm arising from its limitations and drawbacks. 
+
+Finally, the article underscores the broader intersection of technology and society. AI is not developed in isolation, in reality it is shaped by economic incentives, corporate priorities, and social structures. Ethical concerns cannot be separated from these contexts. Therefore, companies should not prioritize speed, profit, and user engagement over fairness, equity or worker well-being as this can lead to outcomes that are harmful.
+
+In summary, AI is not totally autonomous but rather deeply human at every level. Therefore, recognizing the human work and ethical responsibility behind these systems is essential if we want to develop technology that is equitable, accountable, and socially responsible. Addressing human labor conditions, bias, and transparency is not just about improving AI, it’s about respecting the people and society that make AI possible.

@@ -211,3 +211,16 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 ```
 Your thoughts...
 ```
+# "Reflection on “When Databases Get to Define Family”#
+
+The article by Rida Qadri discusses how technology can impact varoius aspects of people’s lives in multi-dimentional ways. It focuses on how a national database in Pakistan defines what “family” is, and how this can result in problems regarding fariness, inequality, social structures and marginalization for people whose lives do not fit into the strict definitions and pre-speecifications applied.
+
+One of the main message or learning point from the article is that real-life relationships are complicated, but databases try to simplify them into fixed categories. For instance, not all family system have the same structure or genealogy. Some situations may include extended relatives, informal guardians, or other non-traditional family types. When a database is structured to only allows certain types of relationships, people who fall outside those categories may not be appropriately categorized. This have have serious implications, especially if access to social services or legal rights depends on how the system classify individuals.
+
+Another important and very valid issue is the lack of control that individuals have over their own personal, social demographic and health data. The database described in the article has the authority to decide who belongs to a family. This approach results in imbalance of power (inequality), where individuals are forced to fit into the system rather than the system adapting to real life. I believe that this is unfair, especially when errors in the database can affect important aspects of people's lives.
+
+The article also illustrates that databases are not neutral tools. They may seem like simple systems for storing data, but they shape how we understand and define social concepts like family. Therefore, the people who design these databases and technologies have a lot of responsibilities inorder to capture different social and cultural realities so they do not unintentionally exclude certain groups of people.
+
+Privacy is another concerning issue. Storing detailed personal and family information in one database can be risky if the data is not properly protected. People may be unaware of how their information is being used or who has access to it. This raises important questions about consent, confidentiality and data security.
+
+Overall, this article highlights that technology can have real social impacts. Databases should be designed to be more flexible and inclusive, so they reflect the diversity of people’s lives instead of limiting them. I believe that involving communities and individuals in the design process and allowing systems to be updated or corrected easily would make them more ethical and fairer.
