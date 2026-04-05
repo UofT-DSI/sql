@@ -35,7 +35,7 @@ jobs:
         id: changes
         run: |
           git fetch
-          git diff --name-only origin/main  > changed_files.txt
+          git diff --name-only origin/main > changed_files.txt
       
           echo "Changed files:"
           cat changed_files.txt
@@ -84,7 +84,7 @@ jobs:
               );
               
               return [headerRow, separatorRow, ...rows].join('\n');
-              }
+            }
               
             function formatValue(value) {
               if (value === null || value === undefined) return '';
@@ -95,18 +95,26 @@ jobs:
             const fs = require('fs')
             const file_read_result = fs.readFileSync('test-results.json', 'utf8')
             const results = JSON.parse(file_read_result)
-            // Format PR comment
+
             let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
-            body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>`
+            body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>\n\n`
+
             for (const result of results) {
-                if (result.result && result.result.trim().length > 0) {
-                  body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
-                  const table = jsonToMarkdownTable(result.result)
-                  body +=  `${table} \n`
-                  body += `\n`
-                  body += `-------------------------------------------------------- \n` 
+              const isArrayResult = Array.isArray(result.result);
+
+              if (result.error) {
+                body += `❌ Query ${result.number}: \n\n *${result.query}*, \n\n **Error**:  \n${result.error}\n\n`
+              } else if (isArrayResult && result.result.length === 0) {
+                body += `⚪ Query ${result.number}: \n\n *${result.query}*, \n\n No rows returned \n\n`
+              } else if (isArrayResult && result.result.length > 0) {
+                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
+                const table = jsonToMarkdownTable(result.result)
+                body += `${table} \n\n`
               }
+
+              body += `-------------------------------------------------------- \n`;
             }
+
             body += `</details>`
             
             await github.rest.issues.createComment({
@@ -115,4 +123,3 @@ jobs:
               issue_number: context.issue.number,
               body
             })
-
