@@ -210,4 +210,5 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 ```
 Your thoughts...
+The value systems embeded in databases (e.g., health care records, social media etc) I encountr every day include the efficiency, visibility etc. Designing system should also consider the flexibility to reflect the real worlds reality to aovid turning for example complex diversity into technical issues as shown in this article.    
 ```
