@@ -237,9 +237,23 @@ SELECT length(customer_last_name) as len
 FROM customer
 
 /* 7. unicode, char */
+SELECT 
+,'THOMAS
+
+ROSENTHAL' as bad_space_name
+
+,replace('THOMAS
+
+
+ROSENTHAL',char(10),' ') as better_linebreak -- removes all instances of the line break from the string
+
 
 
 /* 8. REGEXP in a WHERE statement */
+
+SELECT * 
+FROM customer
+WHERE customer_last_name REGEXP '(a)$' -- filtering to cust last name ending in a
 
 
 
@@ -274,6 +288,37 @@ SELECT
 /* 1. Find the most and least expensive product by vendor with UNION (and row_number!) */
 
 
+--most expensive products first
+SELECT vendor_id, original_price, rn_max as [row_number]
+
+FROM (
+	SELECT 
+	vendor_id,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION by vendor_id ORDER BY original_price DESC) as rn_max
+	
+	FROM vendor_inventory
+	) 
+WHERE rn_max = 1
+
+UNION -- union returned 5 rows UNION ALL returned 6 rows because vendor #4 was duplicated
+
+SELECT vendor_id, original_price, rn_min
+
+FROM (
+	SELECT 
+	vendor_id,
+	product_id,
+	original_price,
+	ROW_NUMBER() OVER(PARTITION by vendor_id ORDER BY original_price ASC) as rn_min -- switching this from ASC to DESC
+	
+	FROM vendor_inventory
+	) 
+WHERE rn_min = 1
+
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="FULL_OUTER_JOIN_UNION">/* MODULE 4 */
@@ -305,6 +350,19 @@ VALUES(&quot;tiger&quot;,2),
 	(&quot;dancer&quot;,7),
 	(&quot;superhero&quot;, 5);
 
+SELECT s1.costume, s1.quantity as store1_quantity, s2.quantity as store2_quantity
+FROM store1 s1
+LEFT JOIN store2 s2
+	ON s1.costume = s2.costume
+	
+UNION ALL
+	
+SELECT 
+s2.costume, s1.quantity, s2.quantity	
+FROM store2 s2
+LEFT JOIN store1 s1
+	ON s1.costume = s2.costume
+WHERE s1.costume IS NULL	
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -312,19 +370,33 @@ VALUES(&quot;tiger&quot;,2),
 /* INTERSECT &amp; EXCEPT */
 
 /* 1. Find products that have been sold (e.g. are in customer purchases AND product) */ 
-
+SELECT product_id FROM product
+INTERSECT
+SELECT product_id FROM customer_purchases;
 
 
 /* 2. Find products that have NOT been sold (e.g. are NOT in customer purchases even though in product) */
-
+SELECT product_id FROM product
+EXCEPT
+SELECT product_id FROM customer_purchases;
 
 
 /* 3. Directions matter... if we switch the order here:
 products that do not exist, because no products purchased are NOT in the product table (e.g. are NOT in product even though in customer purchases)*/
-
+SELECT product_id FROM customer_purchases
+EXCEPT
+SELECT product_id FROM product; -- results in nothing, no products in cust_pur that arent in product
 
 
 /* 4. We can remake the intersect with a WHERE subquery for more details ...  */
+
+SELECT * FROM product
+WHERE product_id IN 
+	(SELECT product_id FROM product
+	INTERSECT
+	SELECT product_id FROM customer_purchases)
+
+
 
 
 </sql><current_tab id="5"/></tab_sql></sqlb_project>

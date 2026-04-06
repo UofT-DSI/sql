@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004a4000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000004a40000012300ffffff000004a40000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="INSERT_UPDATE_DELETE*">/* MODULE 5 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="todays_vendor_daily_sales" custom_title="0" dock_id="8" table="4,25:maintodays_vendor_daily_sales"/><table title="new_customer_purchases" custom_title="0" dock_id="9" table="4,22:mainnew_customer_purchases"/><table title="market_date_info" custom_title="0" dock_id="10" table="4,16:mainmarket_date_info"/><table title="new_customer_purchases" custom_title="0" dock_id="7" table="4,22:mainnew_customer_purchases"/><table title="product_category" custom_title="0" dock_id="2" table="4,16:mainproduct_category"/><table title="temp.new_json" custom_title="0" dock_id="11" table="4,8:tempnew_json"/><dock_state state="000000ff00000000fd000000010000000200000586000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000005860000015b00fffffffa000000050100000006fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00fffffffb000000160064006f0063006b00420072006f00770073006500370100000000ffffffff0000013e00fffffffb000000160064006f0063006b00420072006f00770073006500380100000000ffffffff0000012000fffffffb000000160064006f0063006b00420072006f00770073006500390100000000ffffffff0000013e00fffffffb000000180064006f0063006b00420072006f007700730065003100300100000000ffffffff0000013a00fffffffb000000180064006f0063006b00420072006f007700730065003100310100000000ffffffff0000011b00ffffff000005860000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="market_date_info" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="118"/><column index="2" value="111"/><column index="3" value="124"/><column index="4" value="118"/><column index="5" value="170"/><column index="6" value="161"/><column index="7" value="129"/><column index="8" value="176"/><column index="9" value="167"/><column index="10" value="172"/><column index="11" value="156"/><column index="12" value="168"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="new_customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="103"/><column index="2" value="94"/><column index="3" value="118"/><column index="4" value="116"/><column index="5" value="80"/><column index="6" value="242"/><column index="7" value="155"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product_category" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="189"/><column index="2" value="279"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="temp" name="new_json" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="260"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="todays_vendor_daily_sales" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="118"/><column index="2" value="111"/><column index="3" value="124"/><column index="4" value="118"/><column index="5" value="309"/><column index="6" value="95"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="CROSS_JOIN*">/* MODULE 5 */
+/* CROSS  JOIN */
+
+
+/* 1. CROSS JOIN sizes with product*/
+
+DROP TABLE IF EXISTS TEMP.sizes;
+CREATE TEMP TABLE IF NOT EXISTS TEMP.sizes (size TEXT);
+
+INSERT INTO TEMP.sizes
+VALUES('small'),
+('medium'),
+('large');
+
+SELECT * FROM TEMP.sizes;
+
+SELECT product_name, product_qty_type, size
+FROM product  -- 23 rows
+CROSS JOIN temp.sizes -- 3 rows
+-- 3*23 = 69 rows for the cartesian product
+WHERE product_qty_type = 'unit' -- makes a bit more sense to restrict to units only, and will reduce the number of rows
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="SELF_JOIN*">/* MODULE 5 */
+/* SELF JOIN */
+
+
+/* 1. Create a self-joining hierarchy */
+
+DROP TABLE IF EXISTS TEMP.employees;
+CREATE TEMP TABLE TEMP.employees 
+(
+emp_id INT
+,emp_name text
+,mgr_id INT
+);
+
+INSERT INTO TEMP.employees
+VALUES(1,'Thomas',3)
+,(2,'Niyaz', 4)
+,(3,'Rohan', NULL)
+,(4, 'Jennie',3);
+
+SELECT * FROM TEMP.employees;
+
+SELECT e.emp_name, m.emp_name as mgr_name -- rename the column so its possible to understand which is parent/child
+FROM temp.employees e
+LEFT JOIN temp.employees m
+	ON e.mgr_id = m.emp_id -- identifies which id is parent and which id is child
+
+</sql><sql name="INSERT_UPDATE_DELETE*">/* MODULE 5 */
 /* INSERT UPDATE DELETE */
 
 
@@ -9,21 +60,34 @@ CREATE TEMP TABLE product_expanded AS
 --SELECT * FROM product_expanded
 
 /* 1. add a product to the temp table */
+--INSERT
+INSERT INTO product_expanded
+VALUES(24,'Almonds','1 lb',3,'lbs');
 
 
 
 /* 2. change the product_size for THAT product */
-
+--UPDATE
+UPDATE product_expanded
+SET product_name = NULL, product_size = NULL, product_category_id = NULL, product_qty_type = NULL
+WHERE product_id = 24;
 
 
 /* 3. delete the newly added product */
 
+DELETE FROM product_expanded
+--SELECT * FROM product_expanded -- can help you determine you are looking  at the right rows before running a deletion
+WHERE product_id = 24 ;
 
+
+SELECT * FROM product_expanded
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="vendor_daily_sales_view">/* MODULE 5 */
+</sql><sql name="vendor_daily_sales_view*">/* MODULE 5 */
 /* VIEW */
 
 /* 1. Create a vendor daily sales view */
+DROP VIEW IF EXISTS vendor_daily_sales;
+CREATE VIEW IF NOT EXISTS vendor_daily_sales AS
 
 	SELECT 
 	md.market_date
@@ -45,19 +109,52 @@ CREATE TEMP TABLE product_expanded AS
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="view_in_another_query">/* MODULE 5 */
+</sql><sql name="view_in_another_query*">/* MODULE 5 */
 /* VIEW in another query */
 
 /* 1. Transform the daily sales view into a sales by vendor per week result */
 
+SELECT
+market_year
+,market_week
+,vendor_name
+,SUM(sales) as sales
 
+FROM vendor_daily_sales
 
-
+GROUP BY 
+market_year
+,market_week
+,vendor_name
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="dynamic_view">/* MODULE 5 */
+</sql><sql name="dynamic_view*">/* MODULE 5 */
 /* DYNAMIC VIEW */
 
+DROP VIEW IF EXISTS todays_vendor_daily_sales;
+CREATE VIEW IF NOT EXISTS todays_vendor_daily_sales AS
 
+	SELECT 
+	md.market_date
+	,market_day
+	,market_week
+	,market_year
+	,vendor_name 
+	,SUM(quantity*cost_to_customer_per_qty) as sales
+	
+	
+	FROM market_date_info md
+	INNER JOIN
+		(SELECT * FROM customer_purchases
+		UNION 
+		SELECT * FROM new_customer_purchases
+		) cp
+		ON md.market_date = cp.market_date
+	INNER JOIN vendor v
+		ON cp.vendor_id = v.vendor_id
+		
+	WHERE md.market_date = DATE('now','localtime') -- if the timezone isnt set in your settings
+	
+	GROUP BY cp.market_date, v.vendor_id
 
 
 
@@ -94,12 +191,13 @@ CREATE TEMP TABLE product_expanded AS
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="update_statements_for_view">/* MODULE 5 */
+</sql><sql name="update_statements_for_view*">/* MODULE 5 */
 /* UPDATE statements for view */
 
 
 /* 1. SET market_date equal to today for new_customer_purchases */
-
+UPDATE new_customer_purchases
+SET market_date = DATE('now');
 
 
 
@@ -115,49 +213,46 @@ INSERT INTO market_date_info
 VALUES('....','....','....','....','8:00 AM','2:00 PM','nothing interesting','Summer','25','28',0,0);
 
 */
+INSERT INTO market_date_info
+VALUES('2026-04-06','Monday','15','2026','8:00 AM','2:00 PM','nothing','Spring','0','6',1,0)
  
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="CROSS_JOIN">/* MODULE 5 */
-/* CROSS  JOIN */
+</sql><sql name="JSON TO TABLE*">/* MODULE 5 */
+/* JSON TO TABLE */
 
+-- create a temp table 
+-- insert the json as &quot;long&quot; string, aka BLOB
+-- write a json_each statement
+--use the json_each statement as a subquery with a json_extract to create our column values
 
-/* 1. CROSS JOIN sizes with product*/
-
-DROP TABLE IF EXISTS TEMP.sizes;
-CREATE TEMP TABLE IF NOT EXISTS TEMP.sizes (size TEXT);
-
-INSERT INTO TEMP.sizes
-VALUES('small'),
-('medium'),
-('large');
-
-SELECT * FROM TEMP.sizes;
-
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="SELF_JOIN">/* MODULE 5 */
-/* SELF JOIN */
-
-
-/* 1. Create a self-joining hierarchy */
-
-DROP TABLE IF EXISTS TEMP.employees;
-CREATE TEMP TABLE TEMP.employees 
+DROP TABLE IF EXISTS temp.[new_json];
+CREATE TEMP TABLE IF NOT EXISTS temp.new_json
 (
-emp_id INT
-,emp_name text
-,mgr_id INT
+the_json BLOB -- the column and the column type
 );
 
-INSERT INTO TEMP.employees
-VALUES(1,'Thomas',3)
-,(2,'Niyaz', 4)
-,(3,'Rohan', NULL)
-,(4, 'Jennie',3);
-
-SELECT * FROM TEMP.employees;
+INSERT INTO temp.new_json
+VALUES(
+'[
+    {
+        &quot;country&quot;: &quot;Afghanistan&quot;,
+        &quot;city&quot;: &quot;Kabul&quot;
+    },
+    {
+        &quot;country&quot;: &quot;Albania&quot;,
+        &quot;city&quot;: &quot;Tirana&quot;
+    }]'
+    );
+    
+    
+    SELECT key
+    ,JSON_EXTRACT(value,'$.country') as country
+    ,JSON_EXTRACT(value,'$.city') as city
+    
+  FROM (
+	 SELECT * 
+	 FROM new_json,JSON_EACH(new_json.the_json, '$')
+	 )
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
