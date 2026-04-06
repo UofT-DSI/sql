@@ -8,7 +8,11 @@ on:
         required: true
         default: assignment-one
         type: string
-
+      pr_number:
+        description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
+        required: true
+        type: string
+        default: '1'
 permissions:
   contents: read
   pull-requests: write
@@ -126,6 +130,6 @@ jobs:
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.issue.number,
+              issue_number: ${{ inputs.pr_number }},
               body
             })
