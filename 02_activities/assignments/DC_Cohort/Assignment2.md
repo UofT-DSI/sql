@@ -50,13 +50,17 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
+![02_model_answer.png](./images/02_model_answer.png)
+
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+A Type 2 architecture retains changes by inserting a new row whenever a customer’s address changes, while preserving previous records using effective dates and a current flag. This allows tracking of historical address changes over time.
+
+In contrast, a Type 1 architecture overwrites the existing row whenever a customer's address changes, storing only the most recent value and discarding historical data.
 ```
 
 ***
@@ -191,5 +195,13 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Vicki Boykis’ article "Neural nets are just people all the way down" highlights several important ethical issues about how AI models are built and used. A central concerns is the hidden and undervalued human labor behind modern AI systems. Even though AI is often perceived as automatic, it relies heavily on many people who label data, review content, and help train the models. These workers are often underpaid and overstressed, especially when forced to work with harmful or disturbing content. This raises concerns about fair pay, working conditions, and whether companies are taking proper responsibility for these workers.
+
+Closely related to labor is the issue of bias. Because AI models learn from human-created data, they also learn human biases. This means that unfair patterns, stereotypes, or unequal treatment of certain groups can show up in AI systems. In addition, the people labeling the data may come from different backgrounds than the people using the technology. This can lead to the reinforcement of dominant cultural perspectives while others are marginalized, raising concerns about whose knowledge and experiences are encoded in AI systems. 
+
+The article also points out that AI is not as objective as it seems. Many people think of AI as neutral or purely technical, when it is in fact deeply shaped by human choices at every step. People decide what data to collect, how to label it, and how to design the model. This means the outputs of AI systems reflect human decisions and values, not unbiased facts. This suggests that we should not blindly trust AI results, but rather critically evaluate them.
+
+Another ethical concern is the rapid growth of large language models (LLMs). As these systems become more common, more data and human work are required to maintain them. At the same time, their outputs can spread quickly, influencing public discourse, spreading misinformation, or reproducing harmful stereotypes at scale.
+
+Overall, the article shows that AI systems are not purely technical innovations but rather deeply embedded in human labor and societal structures. Understanding this is essential to address current ethical challenges, including labor conditions, bias, and the broader impact of AI on society.
 ```
