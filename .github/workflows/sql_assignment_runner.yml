@@ -1,0 +1,135 @@
+name: SQL Unit Tests
+
+on:
+  workflow_dispatch:  # Manual trigger from GitHub UI
+    inputs:
+      branch:
+        description: 'Branch to use to run assignment for, i.e. assignment-one, assignment-2'
+        required: true
+        default: assignment-one
+        type: string
+      pr_number:
+        description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
+        required: true
+        type: string
+        default: '1'
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  run-assignment-queries:
+    # uncomment once a change to PR trigger will be implemented
+    # if: startsWith(github.head_ref, 'assignment-')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r ./.github/scripts/requirements.txt
+
+      - name: Get changed files
+        id: changes
+        run: |
+          git fetch
+          git diff --name-only origin/main > changed_files.txt
+      
+          echo "Changed files:"
+          cat changed_files.txt
+          # The goal here to search for a file modified during PR that is match to a pattern
+          # and give priority in next order 2, 1 as it quite often happens when students submit
+          # PR without following assignments order and git flow. It will to run latest / greatest
+          assignment_changed=""
+          
+          # Priority: assignment2 > assignment1
+          if grep -qE '(^|/)assignment2\.sql$' changed_files.txt; then
+            assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt | head -n1)
+          elif grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
+            assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt | head -n1)
+          fi
+          
+          if [ -n "$assignment_changed" ]; then
+            echo "assignment_changed=$assignment_changed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run tests
+        id: pytest
+        run: |
+          pytest tests/test_assignment.py --file_path="${{steps.changes.outputs.assignment_changed}}" --tb=short --disable-warnings \
+                 --junitxml=pytest-report.xml || true
+
+      - name: Post test results to PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            function jsonToMarkdownTable(data) {
+              if (!Array.isArray(data) || data.length === 0) {
+                return 'No data';
+              }
+              
+              const headers = Object.keys(data[0]);
+              
+              // Header row
+              const headerRow = `| ${headers.join(' | ')} |`;
+              
+              // Separator row
+              const separatorRow = `| ${headers.map(() => '---').join(' | ')} |`;
+              
+              // Data rows
+              const rows = data.map(row =>
+                `| ${headers.map(h => formatValue(row[h])).join(' | ')} |`
+              );
+              
+              return [headerRow, separatorRow, ...rows].join('\n');
+            }
+              
+            function formatValue(value) {
+              if (value === null || value === undefined) return '';
+              if (typeof value === 'object') return `\`${JSON.stringify(value)}\``;
+              return String(value);
+            }
+          
+            const fs = require('fs')
+            const file_read_result = fs.readFileSync('test-results.json', 'utf8')
+            const results = JSON.parse(file_read_result)
+
+            let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
+            body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>\n\n`
+
+            for (const result of results) {
+              const isArrayResult = Array.isArray(result.result);
+
+              if (result.error) {
+                body += `❌ Query ${result.number}: \n\n *${result.query}*, \n\n **Error**:  \n${result.error}\n\n`
+              } else if (isArrayResult && result.result.length === 0) {
+                body += `⚪ Query ${result.number}: \n\n *${result.query}*, \n\n No rows returned \n\n`
+              } else if (isArrayResult && result.result.length > 0) {
+                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
+                const table = jsonToMarkdownTable(result.result)
+                body += `${table} \n\n`
+              }
+
+              body += `-------------------------------------------------------- \n`;
+            }
+
+            body += `</details>`
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ inputs.pr_number }},
+              body
+            })
