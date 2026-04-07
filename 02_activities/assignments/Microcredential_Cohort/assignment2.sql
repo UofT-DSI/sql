@@ -107,7 +107,7 @@ This can be any product you desire (e.g. add another record for Apple Pie). */
 
 
 -- DELETE
-/* 1. Delete the older record for the whatever product you added. 
+/* 1. Delete the older record for whatever product you added. 
 
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
