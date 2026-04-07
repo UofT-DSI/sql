@@ -155,7 +155,7 @@ Steps to complete this part of the assignment:
 <div align="center">-</div>
 
 #### DELETE 
-1. Delete the older record for the whatever product you added.
+1. Delete the older record for whatever product you added.
 
 **HINT**: If you don't specify a WHERE clause, [you are going to have a bad time](https://imgflip.com/i/8iq872).
 
