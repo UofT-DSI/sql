@@ -56,7 +56,49 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+To store customer addresses, two different architectures can be used depending on whether historical changes need to be preserved.
+
+**Option 1: Overwrite (Type 1 SCD)**
+
+In this approach, the customer_address table stores only the most recent address for each customer. When a customer updates their address, the existing record is overwritten.
+
+Structure example:
+customer_address
+- address_id (PK)
+- customer_id (FK)
+- street
+- city
+- province
+- postal_code
+- country
+By doing this:
+- Each customer has only one current address
+- No history of previous addresses is stored
+- This approach is simple and efficient, but loses past data
+→ This is Slowly Changing Dimension Type 1, as it replaces old values with new ones.
+
+**Option 2: Historical Tracking (Type 2 SCD)**
+
+In this approach, a new row is inserted whenever a customer’s address changes, allowing historical records to be preserved.
+
+Structure example:
+customer_address
+- address_id (PK)
+- customer_id (FK)
+- street
+- city
+- province
+- postal_code
+- country
+- valid_from (DATE)
+- valid_to (DATE)
+- is_current (BOOLEAN)
+
+By doing this:
+- A customer can have multiple address records over time
+- Only one record is marked as current (is_current = TRUE)
+- Previous addresses are retained for historical analysis
+→ This is Slowly Changing Dimension Type 2, as it preserves changes by adding new records instead of overwriting.
 ```
 
 ***
@@ -191,5 +233,10 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Vicki Boykis’ article pushes back against the idea that AI systems are somehow independent or objective. Instead, she shows that behind every “intelligent” system are layers of human decisions, labor, and judgment. This perspective brings up several important ethical concerns.
+One of the most striking issues is labor. AI systems depend heavily on large amounts of labeled data, and this work is often done by low-paid workers whose contributions are largely invisible. While AI is often described as automation, it actually relies on a hidden workforce to function. This raises questions about fairness, working conditions, and who really benefits from these technologies.
+Another key issue is bias. Since both the data and the models are shaped by people, they inevitably reflect human assumptions and limitations. Decisions about what data to include, how to label it, and what counts as a “correct” output are all subjective. As a result, AI systems can reinforce existing inequalities, even if that was not the intention.
+The article also highlights how responsibility can become blurred. When outcomes are attributed to “the algorithm,” it becomes easy to overlook the people who designed and trained it. This can make it harder to hold anyone accountable when things go wrong, such as when systems produce biased or harmful results.
+Finally, as AI systems like large language models become more widespread, their influence on society grows. They shape how information is created, shared, and moderated, which raises concerns about misinformation and control over public discourse.
+In general, the article reminds us that AI is not separate from society. It reflects human choices at every level, and understanding this is essential if we want to address its ethical implications.
 ```
