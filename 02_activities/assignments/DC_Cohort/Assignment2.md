@@ -56,7 +56,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Two architectures can be used for the CUSTOMER_ADDRESS table. In the first architecture, address changes overwrite the existing record so only the customer’s current address is stored. This approach does not retain history and is a Type 1 Slowly Changing Dimension. In the second architecture, each time a customer’s address changes, a new row is added with effective dates to preserve past addresses. This approach retains historical changes and is a Type 2 Slowly Changing Dimension.
 ```
 
 ***
@@ -191,5 +191,7 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+The article titled “Neural nets are just people all the way down” by Vicki Boykis, discusses the idea that high-tech neural networks all began my humans manually putting something together and making a choice. The article first brough to light, ImageNet, that was developed by Dr. Fei-Fei Li at Stanford University, which became the gold standard in machine learning. ImageNet was created by thousands of people manually identifying pictures through Amazon Mechanical Turk. Following, the author discussed, ImageNet Roulette, which is the mislabelling of various object, people and faces. This includes offensive behaviour that has been introduced into artificial intelligence and how Dr. Fei-Fei Li is working on systematically identifying and remedying the fairness that have been the result of the people in the data collection process. 
+One key ethical issue that is addressed in this article is the invisible human labour and exploitation behind neural networks. For ImageNet, Dr. Fei-Fei Li stated that “Li tried paying Princeton students $10 an hour, but progress was slow going. Then a student asked her if she’d heard of Amazon Mechanical Turk. Suddenly she could corral many workers, at a fraction of the cost”.  Although neural networks are often presented as autonomous, they rely heavily on people to collect data, label training examples, and moderate harmful content. This labour is frequently low‑paid, outsourced, and hidden from users, raising concerns about exploitation and fairness. 
+Another key issue that was addressed in the article was bias. Since humans are involved at every stage of building neural networks, their cultural assumptions and social biases are embedded in the data and models. When these systems are scaled, small human biases can be amplified, reinforcing existing inequalities rather than eliminating them.
 ```
