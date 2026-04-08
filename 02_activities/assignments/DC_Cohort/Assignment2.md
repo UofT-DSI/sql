@@ -58,7 +58,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
-
+Type one: includes customer_id, and address information such as city, state, postal code, and date. This will overwrite with new information.  
+Type two: includes customer_id, and address information such as city, state, postal code, and date. It also includes a field to indicate whether this address is current (current_address: yes/no), start and end dates for address. This will maintain customer's history. 
 ***
 
 ## Section 2:
