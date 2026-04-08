@@ -26,11 +26,15 @@ LIMIT 10;
 --WHERE
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. 
 Limit to 25 rows of output. */
+--QUERY 3
 SELECT *
 FROM customer_purchases
 WHERE product_id = 4
 OR product_id = 9
 LIMIT 25;
+
+--END QUERY
+
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
 filtered by customer IDs between 8 and 10 (inclusive) using either:
@@ -38,7 +42,7 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 	2.  one condition using BETWEEN
 Limit to 25 rows of output.
 */
---QUERY 3
+--QUERY 4
 SELECT *,
 	quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
@@ -53,7 +57,7 @@ LIMIT 25;
 Using the product table, write a query that outputs the product_id and product_name
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
---QUERY 4
+--QUERY 5
 SELECT product_id, product_name,
 	CASE WHEN product_qty_type = 'unit' THEN 'unit'
 		ELSE 'bulk'
@@ -66,7 +70,7 @@ FROM product;
 /* 2. We want to flag all of the different types of pepper products that are sold at the market. 
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
---QUERY 5
+--QUERY 6
 SELECT product_id, product_name,
 	CASE 
 		WHEN product_qty_type = 'unit' THEN 'unit'
@@ -85,7 +89,7 @@ FROM product;
 /* 1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the 
 vendor_id field they both have in common, and sorts the result by market_date, then vendor_name.
 Limit to 24 rows of output. */
---QUERY 6
+--QUERY 7
 SELECT *
 FROM vendor
 INNER JOIN vendor_booth_assignments
@@ -101,7 +105,7 @@ LIMIT 24;
 -- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
---QUERY 7
+--QUERY 8
 SELECT vendor_id,
 	count (*) AS num_booth_assignments
 FROM vendor_booth_assignments
@@ -115,7 +119,7 @@ sticker to everyone who has ever spent more than $2000 at the market. Write a qu
 of customers for them to give stickers to, sorted by last name, then first name. 
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
---QUERY 8
+--QUERY 9
 SELECT customer.customer_id, customer.customer_first_name, customer.customer_last_name,
 	sum(quantity * cost_to_customer_per_qty) as total_spent
 FROM customer
@@ -139,7 +143,7 @@ When inserting the new vendor, you need to appropriately align the columns to be
 -> To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
---QUERY 9
+--QUERY 10
 CREATE TEMPORARY TABLE temp.new_vendor AS 
 SELECT *
 FROM vendor;
@@ -155,7 +159,7 @@ VALUES (10, 'Thomass Superfood Store','a Fresh Focused store','Thomas','Rosentha
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
 and year are! 
 Limit to 25 rows of output. */
---QUERY 10
+--QUERY 11
 SELECT customer_id,
 	strftime('%m',market_date) as Month,
 	strftime ('%Y',market_date) as Year
@@ -171,7 +175,7 @@ Remember that money spent is quantity*cost_to_customer_per_qty.
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! */
---QUERY 11
+--QUERY 12
 SELECT customer_id,
 	sum(quantity * cost_to_customer_per_qty) as total_spent
 FROM customer_purchases
