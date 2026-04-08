@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-two`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -47,6 +47,10 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+```
+See the ERD file for response to prompt 1 and prompt 2.
+```
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
@@ -56,7 +60,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+SCD Type 1 is a database architecture that overwrites results with updated data. This is likely ideal in circumstances where there is minimal need for historical information.
+SCD Type 2 is a database architecture that retains changes by adding additional columns specifying the current value and tracking historical values. This approach seems to be favored within the analytics community for being more thorough.
 ```
 
 ***
@@ -191,5 +196,11 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+There are several ethical issues relevant to the article Neural Nets are Just People All The Way Down. Most prominently, the article details how the resources used to train and develop large language models are based upon decades of open-source work by researchers and volunteers, introducing potential for bias and inaccuracies. Boykis (2019) utilizes the process of training computer vision for neural networks to exemplify this. ImageNet’s picture labels, for instance, are based on a multitude of Mechanical Turk response labels. ImageNet in turn relies on WordNet, which itself relies on the Brown Corpus. The reliance on a multitude of“people-built” systems introduces potential inaccuracies and biases to be perpetuated and learned by machine learning algorithms. 
+
+Concerns of perpetuating biases in human judgement have also been extensively discussed in my academic research area of language assessment. Training machine learning algorithms or fine-tuning LLMs to score students’ language typically requires human-rated scores as a ‘gold-standard’. Unfortunately, any biases in human scores for subgroups of students are often then perpetuated by the algorithm. Paralleling the solution described within the article, often the primary solution to biased human scores is rescoring of student speech after additional rater training. 
+
+The underrepresentation of minority students within training datasets may also contribute to fairness concerns. Student underrepresentation within training data can lead to poorer scoring accuracy are algorithms are trained to optimize accuracy for a different population of students. For instance, some articles have investigated biases in computer vision algorithms among visible minorities. Boykis (2019) alludes to similar concerns in WordNet when stating tools have been developed to rebalance the distribution of images within WordNet. Taken together, there is a clear need to consider fairness when leveraging artificial intelligence.
+
+
 ```
