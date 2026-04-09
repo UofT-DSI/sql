@@ -106,6 +106,8 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
+![Farmers Market Logical Model](./images/Farmers Market Logical Model.PNG)
+
 ***
 
 ## Section 2:
@@ -209,5 +211,68 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Databases reflect the values and assumptions of the people who build them, 
+
+and those choices have consequences for the people they describe.
+
+The article about Pakistan's national database illustrates this notion by defining 
+
+"family" through a patrilineal structure, as the database excluded women and children 
+
+who did not fit that mold. The database did not allow for an alternative or alternate 
+
+version of family structure. This kind of design is not unique to Pakistan and 
+
+appears in databases I encounter as well.
+
+
+In healthcare, databases that store patient information often reflect narrow assumptions 
+
+about family structure too. Fields for "mother" and "father" leave no room for same-sex 
+
+parents, single parents, or non-traditional caregivers. In paediatric settings, 
+
+the question of who counts as a caregiver has direct implications for who gets included in 
+
+treatment decisions. When a  database cannot represent a child's actual family structure, 
+
+it creates gaps in care.
+
+
+In academic systems, similar issues arise. University databases categorize students by 
+
+enrollment status, citizenship, and program type, but not registered accomodation. 
+
+These categories determine access to funding, housing, and support services. 
+
+Students who fall outside standard categories, such as those requiring addition time to 
+
+compelte course work, face additional barriers if they may not have the opportunity to live
+
+closer to campus given their enrollment status (ie., part-time). Anyone who deviates 
+
+from or needs additional support beyond a typial student template is harder to support.
+
+
+In research, databases embed assumptions about who counts as a healthy control versus 
+
+a patient, what symptoms are worth measuring to find desired insights, and which populations 
+
+are worth or valuable to be studying given desired outcomes.These choices shape what gets discovered. 
+
+If a database is built around a narrow demographic, the findings derived from it will only reflect 
+
+that small sub popualtion, and be less generalizable to other populations. Databases therefore 
+
+guide what is normal to be studied given access of information, and this might not impact other 
+
+people who have more complex data collection features, impacting, in the end, what is studied.
+
+
+Overall, when designing or working with data systems, I think it is worth asking who is already 
+
+in the database and who it was built to represent and who the database is leaving out to assess
+
+how inclusive and generalizable the database itself is.
+
 ```
