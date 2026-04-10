@@ -56,7 +56,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Retain changes: make a new category for changed addresses (therefore keeping the old address as well), overwrite address: change original category when an address is updated.
 ```
 
 ***
@@ -191,5 +191,5 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Some ethical issues with this story include the use of the open source database for projects that include as mentioned challenges with moderating content such as the use of vulgar words, and biases regarding gathering information from only what is within the database, potentially missing perspectives and diversity. The concepts of labour ethics as well, I have used MTurk in the past, and the payments for their work is very small therefore there is a very high chance that these workers are not completing the work with as much due diligence as possible. I remember having to put safeguards for attention and robot checks in between survey questions to minimize this effect. Thinking about the intersection of technology and society, it was interesting to watch the robot fold a towel, the way it had to examine different elements and basically learn about the towel before actually doing the folding. It was like watching a baby discover something new. For a while now, there has been talk about how technology is going to eventually take over many human jobs, and in some ways that may be true. But looking at the limitations of what technology can do, especially in physical aspects, ethically technologically will never be able to do all the things humans can. But rather be used as a tool to help make our lives easier. There has to be guidelines in place in order to make sure that we are being thoughtful about the way we gather, use, and interpret information, especially when we make decisions based on the information that effects people’s lives.
 ```
