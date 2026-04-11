@@ -56,7 +56,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 address design overwrites the existing address every time a change has been mae, so only the curent address is kept. No history is preserved. 
+Type 2 address design keeps all addresses that were inputted and tracks which one is current at a given time.
 ```
 
 ***
@@ -191,5 +192,12 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Boykis’s article describes how neural networks are built on layers of human decisions, manual labor, and prior classification systems. Her central argument is that what appears to be automated intelligence is actually grounded in human labor and choices “all the way down,” from data labeling to taxonomy creation to category revision. This matters for health care quality research because many current studies increasingly rely on algorithmic tools to assess, predict, or improve care, often without fully accounting for the human judgments embedded in those systems.
+
+Boykis explains that training datasets such as ImageNet were not simply produced by machines; they were assembled through massive human effort, including workers on Amazon Mechanical Turk manually identifying images (and likely being inadequately compensated). Even deeper than that, the labels used in ImageNet depended on earlier linguistic systems such as WordNet, which were themselves built through human categorization, interpretation, and manual compilation. This layered history suggests that machine learning systems inherit the assumptions and limitations of the people who define categories, collect examples, and decide what counts as correct. Applied to health care quality, this means that algorithmic measures of patient risk, diagnostic classification, or service quality may reflect prior human judgments rather than purely objective reality or accounting for existing inequities.
+
+The article also implies that classification itself is a quality issue. Boykis draws attention to the fact that categories are never natural or self-evident; they are socially constructed. Her discussion of WordNet synsets and ImageNet labels shows that every taxonomy depends on someone deciding what belongs together, what distinctions matter, and which definitions should be used. In health care quality research, this is highly relevant because quality measurement depends on similar classificatory decisions: what counts as a good outcome, which patient experiences are recorded, how adverse events are defined (and in many cases, the omission of near-misses, which are critical opportunities for learning), and whose perspectives are prioritized. If these categories are poorly designed or carry hidden assumptions, then the research built on them may reproduce distortions rather than reveal actual quality problems.
+
+Overall, the article can be applied to healthcare quality research in that AI should be considered as as a sociotechnical system rather than an autonomous machine. Major implications include developing/repairing algorithmic tools in health care by fully understanding and improving human decisions, classifications, and data practices on which those tools depend.
+
 ```
