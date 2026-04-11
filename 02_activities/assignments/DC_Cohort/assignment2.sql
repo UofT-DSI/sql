@@ -30,7 +30,6 @@ FROM product;
 
 
 
-
 --END QUERY
 
 --Windowed Functions
@@ -56,7 +55,6 @@ WHERE market_date < '2022-04-29';
 
 
 
-
 --END QUERY
 
 /* 2. Reverse the numbering of the query so each customer’s most recent visit is labeled 1, 
@@ -72,7 +70,6 @@ PARTITION BY customer_id
 ORDER BY market_date DESC
 ) AS visit_rank
 FROM customer_purchases;
-
 
 
 
@@ -99,7 +96,6 @@ WHERE visit_rank = 1;
 
 
 
-
 --END QUERY
 
 -- String manipulations
@@ -114,7 +110,6 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 --QUERY 5
-
 SELECT 
 customer_id,
 product_id,
@@ -143,7 +138,6 @@ WHERE INSTR(product_name, '-') > 0;
 
 
 
-
 --END QUERY
 
 -- UNION
@@ -162,7 +156,6 @@ WHERE product_size REGEXP '[0-9]';
 
 
 
-
 --END QUERY
 
 /* SECTION 3 */
@@ -178,7 +171,6 @@ Think a bit about the row counts: how many distinct vendors, product names are t
 How many customers are there (y). 
 Before your final group by you should have the product of those two queries (x*y).  */
 --QUERY 8
-
 WITH sales_by_date AS (
 SELECT 
 market_date,
@@ -228,13 +220,11 @@ GROUP BY v.vendor_name, p.product_name;
 
 
 
-
 --END QUERY
 
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 --QUERY 10
-
 DROP TABLE IF EXISTS product_units;
 
 CREATE TABLE product_units AS
@@ -258,7 +248,6 @@ SELECT MAX(snapshot_timestamp)
 FROM product_units
 WHERE product_name = 'Apple Pie'
 );
-
 
 
 
@@ -288,6 +277,18 @@ CREATE TABLE product_units AS
 SELECT *, CURRENT_TIMESTAMP AS snapshot_timestamp
 FROM product
 WHERE product_qty_type = 'unit';
+
+ALTER TABLE product_units
+ADD current_quantity INT;
+
+UPDATE product_units
+SET current_quantity = COALESCE((
+SELECT quantity
+FROM vendor_inventory vi
+WHERE vi.product_id = product_units.product_id
+ORDER BY vi.market_date DESC
+LIMIT 1
+), 0);
 
 ALTER TABLE product_units
 ADD current_quantity INT;
