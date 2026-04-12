@@ -229,7 +229,7 @@ class: left, top, inverse
 - In commercial RDBMs, use execution plans and/or performance dashboards to analyze the underlying engine mechanisms the view uses for instantiation
 
 .center[ 
-<img src="imgs/example_view_optimization.png"
+<img src="imgs/05_example_view_optimization.png"
      height="280px";>
      
 <sup><sup> Image: Yaseen, SQLShack  </sup></sup>
@@ -339,7 +339,7 @@ class: top, left, inverse
 DB Browser for SQLite natively supports CSV importing and exporting for tables:
 
 .center[ 
-<img src="imgs/import_export_menu.png"
+<img src="imgs/05_import_export_menu.png"
      height="300px";>
 ]
 
@@ -551,7 +551,7 @@ class: top, left, inverse
 DB Browser for SQLite natively supports JSON exporting for tables:
 
 .center[ 
-<img src="imgs/export_json.png"
+<img src="imgs/05_export_json.png"
      height="300px";>
 ]
 
