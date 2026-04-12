@@ -190,6 +190,5 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
 
-```
-Your thoughts...
+```AI is not replacing human work but change the content or type of human work. Importantly, a ethics question would be that AI outputs really depends on human judgment eventually, in that case, some bias is not inevitable. Therefore, AI are not outputing accurate final answers, so the role of human in interprating thoese answers actually as importnat as providing valid original data and careful criteria at the very beinging. 
 ```
