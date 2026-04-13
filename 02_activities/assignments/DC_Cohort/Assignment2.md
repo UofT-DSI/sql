@@ -50,13 +50,16 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
-#### Prompt 3
+#### Prompt 3e
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+The two architectures for slowly changing dimensions (SCD) are type I and type II:
+type I: overwrites the existing record
+type II: retains historial changes by inserting a new row for each change
+type I SCD will be more suitable for a book store as it stores only the current address for purposes of billing, delivery, verfication, etc. This architecture will keep the design simple, and avoids unnecessary complexity when historical tracking is not required.
 ```
 
 ***
@@ -191,5 +194,5 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+This is extremely interesting because the same type of concenpt/ initiative is being implemented in my line of work. With the explosion of AI into different sector, the intial wave of interest/ effort was concentrated on exploring different algorithms and models, but many would run into the bottleneck of insufficient training data. My thesis work is in small molecule drug discovery, which has also been over-taken by machine learning. Interestingly, the organization of which I work under, recently secured a massive funding for generating high-quality small molecule-protein interaction data to enable a ML model for predicting small molecule-protein binding- the same principle that the enormous amount of organized, high-quality, experimentally validated protein structural data enabled the discovery of AlphaFold for predicting protein folding. As exciting as it is, it creatainly creates an uneasy feeling for trainees like myself, who is contributing to the establishment of this ML model, which yet might replace us some day. The difficult part is that, like the "Turks" who were clicking images of pandas, labour seems incredibly dispensable, another gradaute student could easily be hired and get trained in under several months to perform the same task. The story the invisibility of human work that underpins AI systems, invisibility of human work that underpins AI systems, however, I do not see how this can be overcame. The expliotation of labour is also closely tied to the issue of power and inequality. Often times, individuals performing this invisible work are geographically and economically marginalized, while the benefits of AI systems are concentrated among large technology companies. This imbalance raises ethical questions about who profits from AI and who bears its burdens. This type of imbalance has always existed in socieities, but the intensive needs for labour for data generation behind AI systems definitely exacerbated this issue. Another issue id bias, which stems from the fact that neural networks are trained on human-generated data. As suggested in the article, AI systems are not neutral tools, but reflections of the societies that produce them. This has significant ethical implications, especially as AI systems are increasingly used in decision-making contexts like hiring, policing, and healthcare. In the case of drug discovery, to minimize bias and to accelerate exploration of the "chemical space", self-driving labs are being increasingly implemented, however, this brings in a different conversations as to whether we are ready to completely eliminate the involvement of humans in data generation. Understanding that LLM and neural neural networks are "people all the way down" challenges the idea that AI is a clean break from human systems, but instead process all the biases, flaws, inequalities that inherently exist within our societies. 
 ```
