@@ -91,7 +91,7 @@ $ echo "Data Sciences Institute"
   - `SELECT 1 + 1`
   - `SELECT 10*5, cos(2), pi()`
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2026 AS this_year, 'March' AS this_month`
+  - `SELECT 2026 AS this_year, 'April' AS this_month`
 - When selecting columns, they need to exist in the table!
 
 ---

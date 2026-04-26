@@ -38,7 +38,7 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Anjali)
+# About Us (Niyaz)
 
 - Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
 - IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
@@ -51,28 +51,16 @@ $ echo "Data Sciences Institute"
 
 ---
 
-# About Us (Dmytro)
+# About Us (Kasra)
 
-– Combines business acumen with technical expertise in software development, AI/ML, and system design
-– Holds a Masters degree in Business Administration; IT professional with experience in C#, Python, and modern AI tools, working on real-world and educational projects
-– Has experience in international technology companies such as HP, focusing on business development and client solutions
-– Experienced in project management (IPMA certified) and cross-functional collaboration
-– Hands-on builder with interests in robotics, electronics, and 3D modeling
-– Hobbies: DIY projects, robotics, hockey with kids
+- MSc in Statistics and Math at McGill University
+- Former Learner Recruitment Officer at UofT DSI 
+- Learner support across several cohorts at DSI
+- Former Statistician at Sanofi for their Manufacturing technology Data Sciences Team
+- Have two cats (Coal and Kaloud)
+- Loves Basketball
 
-![bg right:30% w:350](./images/01_dmytro.png)
-
----
-
-# About Us (Sergii)
-
-- Solution Architect with a PhD in Engineering
-- Have national and international awards
-- DSI cohort 5
-- Over 25 years in the IT industry across diverse domains
-- Proficient in multiple programming languages
-
-![bg right:35% w:350](./images/01_sergii.png)
+![bg right:30% w:350](./images/01_kasra.png)
 
 ---
 
@@ -96,7 +84,7 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_SGS_Mar2026): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Apr2026): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -161,14 +149,14 @@ $ echo "Data Sciences Institute"
 
 - DSI prohibits the use of Generative AI for assignments
 - Policy aside, there are reasons not to use it during DSI
-  - GenAI doesn't teach you things
-      - In fact, per Microsoft's own research it worsens your critical thinking abilities [[1]](https://www.404media.co/microsoft-study-finds-ai-makes-human-cognition-atrophied-and-unprepared-3/) [[2]](https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf)
-  - You're here to learn how concepts, not regurgitate answers
-      - Assignments are here for reinforcement of skills. They are **generously** graded, so even with limited time to work on them, you will still pass
-  - GenAI will make you think SQL is easy, because the farmersmarket.db is designed to be simple
-      - Real data is almost always really messy
-          - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness, but GenAI won't know what issues exist because its not aware of your actual data
-  - The post-GenAI world is sanitized & boring, factually incorrect, anti-human, deeply biased, erodes trust, worsens privacy, burns the environment, drinks your water, .... /endrant
+- GenAI doesn't teach you things
+    - In fact, per Microsoft's own research it worsens your critical thinking abilities [[1]](https://www.404media.co/microsoft-study-finds-ai-makes-human-cognition-atrophied-and-unprepared-3/) [[2]](https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf)
+- You're here to learn how concepts, not regurgitate answers
+    - Assignments are here for reinforcement of skills. They are **generously** graded, so even with limited time to work on them, you will still pass
+- GenAI will make you think SQL is easy, because the farmersmarket.db is designed to be simple
+    - Real data is almost always really messy
+        - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness, but GenAI won't know what issues exist because its not aware of your actual data
+- The post-GenAI world is sanitized & boring, factually incorrect, anti-human, deeply biased, erodes trust, worsens privacy, burns the environment, drinks your water, .... /endrant
 
 ---
 
@@ -377,7 +365,7 @@ multiple lines
       - e.g. CRM (Customer Relationship Management) software, EMR (Electronic Medical Record) software, ERP (Enterprise Resource Planning) software, web-based applications
   - Usually not connected to other databases unless deemed necessary
   - Often transactional, meaning data is actively being written to by frontend systems
-  - Tables are normalized
+  - Tables are denormalized
 
 
 ---
@@ -398,7 +386,7 @@ multiple lines
   - Data has been centralized
       - Often with the assistance of ETL (Extract, Transform, Load) tools
   - Have a lot of overhead, require governance, and strict rigidity
-  - Tables are denormalized
+  - Tables are normalized
   - Very common for enterprises, but losing traction in many industries
 
 
@@ -409,7 +397,7 @@ multiple lines
 - Data Marts are created from Data Warehouses to focus on a single subject 
   - Designed to make Data Warehouses easier to use
   - Data is structured, but flexibility is driven by the purpose of the Data Mart
-  - Some denormalized tables may be normalized or undergo even greater normalization
+  - Some normalized tables may be denormalized or undergo even greater normalization
       - _The subject/purpose of the Data Mart might drive these types of decisions_
   - Common for enterprises that have Data Warehouses
 

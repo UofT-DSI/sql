@@ -2,7 +2,6 @@
 
 ## General
   - Weight: *70 points*
-  - Criteria: Participant Name on Assignment
   - Criteria: Assignment is free of noticeable typos
   - Criteria: Written content for Section 1 is no longer than two pages
   - Criteria: Two ERDs exist

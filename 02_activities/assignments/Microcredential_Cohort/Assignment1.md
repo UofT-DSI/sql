@@ -1,9 +1,9 @@
-# Assignment 1: Meet the farmersmarket.db and Basic SQL
+# Microcredential Assignment 1: Meet the farmersmarket.db and Basic SQL
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 #### Submission Parameters:
-* Submission Due Date: `November 17, 2025`
+* Submission Due Date: `May 4, 2026`
 * Weight: 30% of total grade
 * The branch name for your repo should be: `assignment-one`
 * What to submit for this assignment:
@@ -114,7 +114,7 @@ Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
-- Complete each question
+- Complete each question, by writing responses between the QUERY # and END QUERY blocks
 
 ### Write SQL
 
@@ -125,10 +125,11 @@ Steps to complete this part of the assignment:
 <div align="center">-</div>
 
 #### WHERE
-1. Write a query that returns all customer purchases of product IDs 4 and 9.
+1. Write a query that returns all customer purchases of product IDs 4 and 9. Limit to 25 rows of output.
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
+Limit to 25 rows of output.
 
 <div align="center">-</div>
 
@@ -140,7 +141,7 @@ Steps to complete this part of the assignment:
 <div align="center">-</div>
 
 #### JOIN
-1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `vendor_name`, then `market_date`.
+1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `market_date` then `vendor_name`. Limit to 24 rows of output. 
 
 ***
 
@@ -151,7 +152,7 @@ Steps to complete this part of the assignment:
 - Open the assignment1.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment1.sql)
 	- or, from your local forked repository  
-- Complete each question
+- Complete each question, by writing responses between the QUERY # and END QUERY blocks
 
 ### Write SQL
 
@@ -178,6 +179,9 @@ To insert the new row use VALUES, specifying the value you want for each column:
    
 **HINT**: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month and year are!
 
+Limit to 25 rows of output. 
+
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
    
-**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement!!
+**HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
+AND be sure you remove the LIMIT from the previous query before aggregating!! 

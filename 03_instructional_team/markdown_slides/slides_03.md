@@ -84,13 +84,13 @@ For example, a query wanting to know the number of days in each month:
 
 | vendor_id | product_id | market_date |
 |-----------|------------|-------------|
-| 1         | 1          | 2025-01-01  |
-| 1         | 1          | 2025-01-02  |
-| 1         | 2          | 2025-01-01  |
-| 1         | 2          | 2025-01-02  |
-| 1         | 2          | 2025-01-03  |
-| 1         | 3          | 2025-01-02  |
-| 1         | 4          | 2025-01-02  |
+| 1         | 1          | 2026-01-01  |
+| 1         | 1          | 2026-01-02  |
+| 1         | 2          | 2026-01-01  |
+| 1         | 2          | 2026-01-02  |
+| 1         | 2          | 2026-01-03  |
+| 1         | 3          | 2026-01-02  |
+| 1         | 4          | 2026-01-02  |
 
 
 ---
@@ -387,14 +387,14 @@ Image: Joseph Ferrer, KDnuggets
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2026-03
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2026-04
   
 ---
 
 # STRFTIME
 
 - `STRFTIME` also allows modification to date dynamically
-  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2026-03-30', 'start of month')`
+  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2026-04-30', 'start of month')`
   - **How do we go about subtracting dates rather than adding them?**
 - Modifiers include:
   - +/- N years/months/days/hours/minutes/seconds
@@ -415,9 +415,9 @@ Image: Joseph Ferrer, KDnuggets
 - SQLite supports two means of adding increments of time to a date:
   - `STRFTIME` as mentioned previously
   - Using `DATE` 
-      - e.g. `SELECT DATE('2025-03-30', 'start of month')`
+      - e.g. `SELECT DATE('2026-04-30', 'start of month')`
 - Both of these methods allow you to chain modifiers
-  - e.g. `SELECT DATE('2025-03-30', 'start of month', '-1 day')`
+  - e.g. `SELECT DATE('2026-04-30', 'start of month', '-1 day')`
 
 **What do we see as the difference between these?**
 

@@ -1,151 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd000000010000000200000536000003a5fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000000005360000012300ffffff000005360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="136"/><column index="2" value="164"/><column index="3" value="300"/><column index="4" value="108"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SELECT*">/* MODULE 2 */
 /* SELECT */
 
 
 /* 1. Select everything in the customer table */
-SELECT * FROM customer;
+SELECT 
 
 /* 2. Use sql as a calculator */
-SELECT 1+1 AS addition, 10*5 as multiplication, pi() as pi;
+
 
 
 /* 3. Add order by and limit clauses */
-SELECT *
-FROM customer
-ORDER BY customer_first_name
-LIMIT 10;
+
 
 
 /* 4. Select multiple specific columns */
-SELECT customer_first_name,customer_last_name 
-FROM customer;
 
 
 
 /* 5. Add a static value in a column */
-SELECT 2026 as this_year, 'March' as this_month, customer_id
-FROM customer
 
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="WHERE*">/* MODULE 2 */
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="WHERE">/* MODULE 2 */
 /* WHERE */
 
 /* 1. Select only customer 1 from the customer table */
 SELECT * 
 FROM customer
-WHERE customer_id = 1;
+WHERE 
 
 
 /* 2. Differentiate between AND and OR */
-SELECT * 
-FROM customer
-WHERE customer_id = 1 
-OR customer_id = 2; -- OR is two rows, AND is 0 rows
+
 
 
 /* 3. IN */
-SELECT *
-FROM customer
-WHERE customer_id IN (3,4,5,6);
+
 
 
 /* 4. LIKE */
--- all the peppers
-SELECT * FROM product
-WHERE product_name LIKE '%pepper%';
+
 
 
 /* 5. Nulls and Blanks*/
-SELECT *
-FROM product
-WHERE product_size IS NULL -- null
-OR product_size = ''; -- blank, two single quotes not one double quote, different from NULL
+
 
 
 /* 6. BETWEEN x AND y */
-SELECT * 
-FROM customer
-WHERE customer_id BETWEEN 1 AND 20;
---dates
 
-SELECT *
-FROM market_date_info
-WHERE market_date BETWEEN '2022-10-01' AND '2022-10-31'
 
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="CASE*">/* MODULE 2 */
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="CASE">/* MODULE 2 */
 /* CASE */
 
 
 SELECT * 
 /* 1. Add a CASE statement declaring which days vendors should come */
-,CASE WHEN vendor_type = 'Fresh Focused' THEN 'Wednesday'
-	 WHEN vendor_type = 'Eggs &amp; Meats' THEN 'Thursday'
-	 ELSE 'Saturday'
-	 END as day_of_specialty
 
 
 /* 2. Add another CASE statement for Pie Day */
-,CASE WHEN vendor_name = &quot;Annie's Pies&quot; -- double quotes okay here
-	THEN 'Annie is the best'
-	END as pi_day
+
 
 
 /* 3. Add another CASE statement with an ELSE clause to handle rows evaluating to False */
-,CASE WHEN vendor_name LIKE '%pie%'
-	THEN 'Wendesday'
-	ELSE 'Friday'
-	END as another_pie_day
 
-FROM vendor;
+
 
 /* 4. Experiment with selecting a different column instead of just a string value */
 
-SELECT *
-,CASE WHEN cost_to_customer_per_qty &lt; 1.00
-THEN cost_to_customer_per_qty*5
-ELSE cost_to_customer_per_qty
-END AS inflation
 
-FROM customer_purchases
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="DISTINCT*">/* MODULE 2 */
+FROM vendor
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="DISTINCT">/* MODULE 2 */
 /* DISTINCT */
 
 
 /* 1. Compare how many customer_ids are the customer_purchases table, one select with distinct, one without */
 
 -- 4221 rows
-SELECT customer_id FROM customer_purchases ;
-
-SELECT DISTINCT customer_id FROM customer_purchases;
+SELECT customer_id FROM customer_purchases 
 
 
 
 /* 2. Compare the difference between selecting market_day in market_date_info, with and without distinct:
  what do these difference mean?*/
-SELECT market_day
-FROM market_date_info;
 
--- market is only open on 2 days, wed and sat
-SELECT DISTINCT market_day
-FROM market_date_info;
  
 
 /* 3. Which vendor has sold products to a customer */
-SELECT DISTINCT vendor_id
-FROM customer_purchases;
+
 
 
 /* 4. Which vendor has sold products to a customer ... and which product was it */
-SELECT DISTINCT vendor_id, product_id
-FROM customer_purchases;
+
 
 
 /* 5. Which vendor has sold products to a customer 
 ... and which product was it? 
 ... AND to whom was it sold*/
-SELECT DISTINCT vendor_id, product_id, customer_id
-FROM customer_purchases
 
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="INNER_JOIN*">/* MODULE 2 */
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="INNER_JOIN">/* MODULE 2 */
 /* INNER JOIN */
 
 
@@ -153,76 +111,36 @@ FROM customer_purchases
  ... use an INNER JOIN to see only products that have been purchased */
  
 -- without table aliases
-SELECT product_name, -- coming from the product table 
-vendor_id, -- rest of these are coming from the customer_purchases table 
-market_date,
-customer_id,
-customer_purchases.product_id,
-product.product_id
-
-FROM product
-INNER JOIN customer_purchases
-	ON customer_purchases.product_id = product.product_id;
 
 
 
-/* 2. Using the Query #5 from DISTINCT earlier 
+
+/* 2. Using the Query #4 from DISTINCT earlier 
     (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
 
     Add customers' first and last names with an INNER JOIN  */
 
 -- using table aliases
-SELECT DISTINCT 
-vendor_id,  -- coming from cp
-product_id, 
-c.customer_id, -- coming from c
-customer_first_name,
-customer_last_name
 
-FROM customer_purchases AS cp
-INNER JOIN customer AS c
-	ON c.customer_id = cp.customer_id
 
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="LEFT_JOIN*">/* MODULE 2 */
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="LEFT_JOIN">/* MODULE 2 */
 /* LEFT  JOIN */
 
 
 /* 1. There are products that have been bought
 ... but are there products that have not been bought? 
 Use a LEFT JOIN to find out*/
-SELECT  DISTINCT
-p.product_id 
-,cp.product_id as [cp.product_id]
-,product_name
-
-FROM product as p
-LEFT JOIN customer_purchases as cp
-	ON p.product_id = cp.product_id;
 
 
 /* 2. Directions of LEFT JOINs matter ...*/
-SELECT  DISTINCT
-p.product_id 
-,cp.product_id as [cp.product_id]
-,product_name
 
-FROM customer_purchases as cp
-LEFT JOIN product as p
-	ON p.product_id = cp.product_id;
 
 
 
 /* 3. As do which values you filter on ... */
-SELECT  DISTINCT
-p.product_id 
-,cp.product_id as [cp.product_id]
-,product_name
 
-FROM product as p
-LEFT JOIN customer_purchases as cp
-	ON p.product_id = cp.product_id
-
-WHERE p.product_id BETWEEN 1 AND 6  -- if we pick product, 6 rows (1-6) but if we pick cp....only 5 rows because zinnias never existed in customer purchases table
 
 
 
@@ -239,14 +157,10 @@ LEFT JOIN product AS p
 ...Note how the row count changed from 24 to 23
 */	
 
-SELECT * 
-FROM product as p
-LEFT JOIN product_category as pc
-	ON pc.product_category_id = p.product_category_id
-	ORDER by pc.product_category_id
 
 
---------------------------------------------------------------------------------------------------------------------------------------------</sql><sql name="multiple_table_joins">/* MODULE 2 */
+--------------------------------------------------------------------------------------------------------------------------------------------
+</sql><sql name="multiple_table_joins">/* MODULE 2 */
 /* Multiple Table JOINs */
 
 
@@ -254,21 +168,6 @@ LEFT JOIN product_category as pc
     (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
 
     Replace all the IDs (customer, vendor, and product) with the names instead*/ 
-SELECT DISTINCT 
---vendor_id
-vendor_name
-,p.product_id
-,product_name
-,c.customer_id
-,customer_first_name
-,customer_last_name
-FROM customer_purchases as cp
-INNER JOIN vendor as v
-	ON v.vendor_id = cp.vendor_id
-INNER JOIN product as p
-	ON p.product_id = cp.product_id
-INNER JOIN customer as c
-	ON c.customer_id = cp.customer_id;
 
 
 
@@ -276,20 +175,5 @@ INNER JOIN customer as c
 ... how does this LEFT JOIN affect the number of rows? 
 
 Why do we have more rows now?*/
-SELECT product_category_name, p.*
-, cp.product_id as productid_in_cust_purchases_table
 
-FROM product_category as pc
-INNER JOIN product as p -- will give us product_name, product_size, product_qty_type
-	ON p.product_category_id = pc.product_category_id
-LEFT JOIN customer_purchases as cp
-	ON cp.product_id = p.product_id
-	
-	
-ORDER by cp.product_id
-	
-
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-</sql><current_tab id="5"/></tab_sql></sqlb_project>
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

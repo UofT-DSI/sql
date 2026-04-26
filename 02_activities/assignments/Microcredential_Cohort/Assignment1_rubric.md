@@ -2,7 +2,6 @@
 
 ## General
   - Weight: *30 points*
-  - Criteria: Participant Name on Assignment
   - Criteria: Assignment is free of noticeable typos
   - Criteria: One Logical Model exists
     - cannot be a duplicate of my example tables from Session 1 slides
