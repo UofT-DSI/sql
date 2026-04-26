@@ -834,9 +834,9 @@ class: left, upper, inverse
 - SQLite supports two means of adding increments of time to a date:
   - `STRFTIME` as mentioned previously
   - Using `DATE` 
-      - e.g. `SELECT DATE('2026-04-31', 'start of month')`
+      - e.g. `SELECT DATE('2026-04-30', 'start of month')`
 - Both of these methods allow you to chain modifiers
-  - e.g. `SELECT DATE('2026-04-31', 'start of month', '-1 day')`
+  - e.g. `SELECT DATE('2026-04-30', 'start of month', '-1 day')`
 
 **What do we see as the difference between these?**
 

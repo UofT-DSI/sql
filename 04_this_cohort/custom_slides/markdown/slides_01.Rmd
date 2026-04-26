@@ -139,9 +139,12 @@ class: left, top, inverse
 # About Us (Kasra)
 
 .pull-left[
-- 
--
--
+- MSc in Statistics and Math at McGill University
+- Former Learner Recruitment Officer at UofT DSI 
+- Learner support across several cohorts at DSI
+- Former Statistician at Sanofi for their Manufacturing technology Data Sciences Team
+- Have two cats (Coal and Kaloud)
+- Loves Basketball
 ]
 
 .pull-right[
