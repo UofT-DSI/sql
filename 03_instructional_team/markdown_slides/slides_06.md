@@ -84,6 +84,7 @@ But Data Ethics are still an important part of any well-rounded SQL course. We w
 
   https://www.wired.com/story/pakistan-digital-database-family-design/
 
+Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive.org/web/20240422105834/https://www.wired.com/story/pakistan-digital-database-family-design/
 
 ---
 
