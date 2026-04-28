@@ -129,8 +129,8 @@ Steps to complete this part of the assignment:
 1. Write a query that returns all customer purchases of product IDs 4 and 9. Limit to 25 rows of output.
 2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
-	2.  one condition using BETWEEN
-Limit to 25 rows of output.
+	2.  one condition using BETWEEN <br>
+   Limit to 25 rows of output.
 
 <div align="center">-</div>
 
