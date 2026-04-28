@@ -1,9 +1,9 @@
-# Assignment 2: Design a Logical Model and Advanced SQL
+# Microcredential Assignment 2: Design a Logical Model and Advanced SQL
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 #### Submission Parameters:
-* Submission Due Date: `November 24, 2025`
+* Submission Due Date: `May 11, 2026`
 * Weight: 70% of total grade
 * The branch name for your repo should be: `assignment-two`
 * What to submit for this assignment:
@@ -40,10 +40,12 @@ Design a logical model for a small bookstore. 📚
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. 
 
 Additionally, include a date table. 
+A date table (also called a calendar table) is a permanent table containing a list of dates and various components of those dates. Some theory, tips, and commentary can be found [here](https://www.sqlshack.com/designing-a-calendar-table/), [here](https://www.mssqltips.com/sqlservertip/4054/creating-a-date-dimension-or-calendar-table-in-sql-server/) and [here](https://sqlgeekspro.com/creating-calendar-table-sql-server/). 
+Remember, you don't actually need to run any of the queries in these articles, but instead understand *why* date tables in SQL make sense, and how to situate them within your logical models.
 
 There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
 
-**HINT:** You do not need to create any data for this prompt. This is a logical model (ERD) only. 
+**HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
@@ -66,7 +68,7 @@ Steps to complete this part of the assignment:
 - Open the assignment2.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
-- Complete each question
+- Complete each question, by writing responses between the QUERY # and END QUERY blocks
 
 
 ### Write SQL
@@ -95,9 +97,15 @@ You can either display all rows in the customer_purchases table, with the counte
 
 **HINT**: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().
 
-2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, then write another query that uses this one as a subquery (or temp table) and filters the results to only the customer’s most recent visit.
+Filter the visits to dates before April 29, 2022.
+
+2. Reverse the numbering of the query so each customer’s most recent visit is labeled 1, then write another query that uses this one as a subquery (or temp table) and filters the results to only the customer’s most recent visit. 
+**HINT**: Do not use the previous visit dates filter.
 
 3. Using a COUNT() window function, include a value along with each row of the customer_purchases table that indicates how many different times that customer has purchased that product_id.
+
+You can make this a running count by including an ORDER BY within the PARTITION BY if desired.
+Filter the visits to dates before April 29, 2022.
 
 <div align="center">-</div>
 
@@ -128,7 +136,7 @@ Steps to complete this part of the assignment:
 - Open the assignment2.sql file in DB Browser for SQLite:
 	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
-- Complete each question
+- Complete each question, by writing responses between the QUERY # and END QUERY blocks
 
 ### Write SQL
 
@@ -147,7 +155,7 @@ Steps to complete this part of the assignment:
 <div align="center">-</div>
 
 #### DELETE 
-1. Delete the older record for the whatever product you added.
+1. Delete the older record for whatever product you added.
 
 **HINT**: If you don't specify a WHERE clause, [you are going to have a bad time](https://imgflip.com/i/8iq872).
 

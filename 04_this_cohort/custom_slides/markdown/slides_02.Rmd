@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2026 AS this_year, 'March' AS this_month`
+  - `SELECT 2026 AS this_year, 'April' AS this_month`
 
 <br>
 --
@@ -208,7 +208,7 @@ class: top, left, inverse
 <br>
 
 .center[ 
-<img src="imgs/CAPS.png"
+<img src="imgs/02_CAPS.png"
      height="300px";>
      
 <sup><sup><sup><sup> Image: Unknown meme creator </sup></sup></sup></sup>

@@ -230,7 +230,7 @@ class: top, left, inverse
       - This allows you to select the min or max by setting the row number = 1 in the "outer" query (i.e. not the "inner" subquery)
 
 .center[ 
-<img src="imgs/subquery_rownumber.png"
+<img src="imgs/04_subquery_rownumber.png"
      height="200px";>
      
 <sup><sup> Image: Teate, Chapter 7 </sup></sup>
@@ -299,7 +299,7 @@ class: top, left, inverse
 
 
 .center[ 
-<img src="imgs/wf_partitionby.png"
+<img src="imgs/04_wf_partitionby.png"
      height="200px";>
      
 <sup><sup> Image: SQLiteTutorial.net </sup></sup>
@@ -366,7 +366,7 @@ class: top, left, inverse
 - Knowing how and why to use these can make querying a lot easier
 
 .center[ 
-<img src="imgs/wf_types.png"
+<img src="imgs/04_wf_types.png"
      height="300px";>
      
 <sup><sup> Image: SQLiteTutorial.net </sup></sup>
@@ -634,7 +634,7 @@ class: upper, left, inverse
 
 
 .center[ 
-<img src="imgs/sqlite-substr-function.gif"
+<img src="imgs/04_sqlite-substr-function.gif"
      height="200px";>
      
 <sup><sup> Image: www.w3resource.com/sqlite/core-functions-substr.php </sup></sup>

@@ -76,12 +76,10 @@ There are two assignments.
     [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
 
 * Learning Support Staff:
-  * **Anjali Shrivastava** (she/her)  
-  [anju_shrivastava@yahoo.com](mailto:anju_shrivastava@yahoo.com)
-  * **Dmytro Bonislavskyi** (he/him)  
-  [dmytro.bonislavskyi@gmail.com](mailto:dmytro.bonislavskyi@gmail.com)
-  * **Sergii Khomych** (he/him)  
-  [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
+  * **Niyaz Nazari** (she/her)  
+  [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
+  * **Kasra Vakiloroayaei** (he/him)  
+  [vakiloroayaei.kasra@gmail.com](mailto:vakiloroayaei.kasra@gmail.com)
 
 ## Delivery of the Learning Module
 
