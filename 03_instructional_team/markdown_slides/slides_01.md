@@ -877,7 +877,7 @@ We can create even more Many-to-Many relationships if we created a table includi
 - Our (partial) Farmers Market database: 
   - product_category_id (int) is the PK for product_category, which shares a One-to-Many relationship with product on product_category_id (FK)
   
-  - product_id (id) is the PK for product
+  - product_id (int) is the PK for product
 
 ---
 
