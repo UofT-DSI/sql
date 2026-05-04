@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/ll69425/Downloads/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8651"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><table title="customer_purchases" custom_title="0" dock_id="1" table="4,18:maincustomer_purchases"/><dock_state state="000000ff00000000fd0000000100000002000002dc000002c1fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000002dc0000012d00ffffff000002700000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="booth" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="90"/><column index="2" value="108"/><column index="3" value="300"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="customer_purchases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="64"/><column index="3" value="85"/><column index="4" value="79"/><column index="5" value="55"/><column index="6" value="158"/><column index="7" value="103"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="market_date_info" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="85"/><column index="2" value="78"/><column index="3" value="85"/><column index="4" value="79"/><column index="5" value="113"/><column index="6" value="107"/><column index="7" value="84"/><column index="8" value="140"/><column index="9" value="111"/><column index="10" value="114"/><column index="11" value="105"/><column index="12" value="112"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="product" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="69"/><column index="2" value="296"/><column index="3" value="117"/><column index="4" value="126"/><column index="5" value="107"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="257"/><column index="3" value="234"/><column index="4" value="156"/><column index="5" value="154"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_booth_assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="66"/><column index="2" value="92"/><column index="3" value="85"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="vendor_inventory" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="85"/><column index="2" value="55"/><column index="3" value="66"/><column index="4" value="71"/><column index="5" value="85"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">--SECTION 1--
+--Photo of Logical Data Model stored in Assignment Folder.
+
+--SECTION 2--
+--Query # 1
+--1. Write a query that returns everything in the customer table.
+--2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
+SELECT * FROM customer;
+--
+SELECT * FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
+--Query # 2
+--1. Write a query that returns all customer purchases of product IDs 4 and 9. Limit to 25 rows of output.
+--2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
+--i. two conditions using AND
+--ii. one condition using BETWEEN
+--Limit to 25 rows of output.
+SELECT * FROM customer_purchases
+WHERE product_id IN (4, 9)
+LIMIT 25;
+--
+SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE customer_id &gt;= 8
+AND customer_id &lt;= 10
+LIMIT 25;
+--
+SELECT *, quantity * cost_to_customer_per_qty AS price
+FROM customer_purchases
+WHERE customer_id BETWEEN 8 AND 10
+LIMIT 25;
+--
+--Query #3
+--1. Products can be sold by the individual unit or by bulk measures like lbs. or oz. Using the product table, write a query that outputs the product_id and product_name columns and add a column called prod_qty_type_condensed that displays the word “unit” if the product_qty_type is “unit,” and otherwise displays the word “bulk.”
+--2. We want to flag all of the different types of pepper products that are sold at the market. Add a column to the previous query called pepper_flag that outputs a 1 if the product_name contains the word “pepper” (regardless of capitalization), and otherwise outputs 0.
+SELECT product_id, product_name,
+CASE WHEN product_qty_type = 'unit' THEN 'unit'
+ELSE 'bulk'
+END AS product_qty_type_condensed,
+CASE WHEN lower(product_name) like '%pepper%' THEN 1
+ELSE 0
+END AS pepper_flag
+FROM product;
+--
+-- Query # 4
+--1. Write a query that INNER JOINs the vendor table to the vendor_booth_assignments table on the vendor_id field they both have in common, and sorts the result by market_date then vendor_name. Limit to 24 rows of output.
+SELECT * FROM vendor v
+INNER JOIN vendor_booth_assignments vba
+ON	v.vendor_id = vba.vendor_id
+ORDER BY vba.market_date, v.vendor_name
+LIMIT 24;
+--
+--SECTION 3--
+--Query # 1 - Aggregate
+--1. Write a query that determines how many times each vendor has rented a booth at the farmer’s market by counting the vendor booth assignments per vendor_id.
+--2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper sticker to everyone who has ever spent more than $2000 at the market. Write a query that generates a list of customers for them to give stickers to, sorted by last name, then first name.
+SELECT vendor_id, count(*) AS booth_rental_count
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
+--
+SELECT c.customer_id, c.customer_last_name, c.customer_first_name,
+SUM(cp.quantity * cp.cost_to_customer_per_qty) AS total_spent
+FROM customer c
+INNER JOIN customer_purchases cp
+ON c.customer_id = cp.customer_id
+GROUP BY c.customer_id, c.customer_last_name, c.customer_first_name
+HAVING SUM(cp.quantity * cp.cost_to_customer_per_qty) &gt; 2000
+ORDER BY c.customer_last_name, c.customer_first_name;
+--
+--Query # 2 - Temp Table 
+-- 1. Insert the original vendor table into a temp.new_vendor and then add a 10th vendor: Thomass Superfood Store, a Fresh Focused store, owned by Thomas Rosenthal
+
+CREATE TEMP TABLE temp.new_vendor AS
+SELECT *
+FROM vendor;
+INSERT INTO temp.new_vendor ( vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
+--
+--Query # 3 - Date 
+-- 1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
+-- 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is quantity*cost_to_customer_per_qty.
+SELECT customer_id,
+CAST(strftime('%m', market_date) AS INTEGER) AS month,
+CAST(strftime('%Y', market_date) AS INTEGER) AS year
+FROM customer_purchases
+LIMIT 25;
+--
+SELECT customer_id, SUM(quantity * cost_to_customer_per_qty) AS total_spent
+FROM customer_purchases
+WHERE strftime('%Y', market_date) = '2022'
+AND strftime('%m', market_date) = '04'
+GROUP BY customer_id;
+--</sql><current_tab id="0"/></tab_sql></sqlb_project>
