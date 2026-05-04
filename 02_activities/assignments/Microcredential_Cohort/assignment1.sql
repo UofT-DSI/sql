@@ -8,6 +8,7 @@
 --QUERY 1
 SELECT * FROM customer;
 
+
 --END QUERY
 
 /* 2. Write a query that displays all of the columns and 10 rows from the customer table, 
