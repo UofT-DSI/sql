@@ -66,10 +66,12 @@ SELECT *
 
 
 
+FROM vendor
+
 /* 4. Experiment with selecting a different column instead of just a string value */
 
 
-FROM vendor
+
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,7 +79,7 @@ FROM vendor
 /* DISTINCT */
 
 
-/* 1. Compare how many customer_ids are the customer_purchases table, one select with distinct, one without */
+/* 1. Compare how many customer_ids are in the customer_purchases table, one select with distinct, one without */
 
 -- 4221 rows
 SELECT customer_id FROM customer_purchases 
@@ -115,7 +117,7 @@ SELECT customer_id FROM customer_purchases
 
 
 
-/* 2. Using the Query #4 from DISTINCT earlier 
+/* 2. Using the Query #5 from DISTINCT earlier 
     (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
 
     Add customers' first and last names with an INNER JOIN  */
@@ -164,7 +166,7 @@ LEFT JOIN product AS p
 /* Multiple Table JOINs */
 
 
-/* 1. Using the Query #4 from DISTINCT earlier 
+/* 1. Using the Query #5 from DISTINCT earlier 
     (Which vendor has sold products to a customer AND which product was it AND to whom was it sold)
 
     Replace all the IDs (customer, vendor, and product) with the names instead*/ 
