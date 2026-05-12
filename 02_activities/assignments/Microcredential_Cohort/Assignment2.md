@@ -56,7 +56,12 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+
+Description for Customer Address Types
+From an SQL design point of view, Customer Address Type 1 and Customer Address Type 2 represent two different strategies for handli ng changes to a customer's address.	
+Type 1 keeps only the current address by overwriting the previous one, so the table has a single row per customer and no historical tracking, making it simple, fast, however the past data will be lost. 
+Type 2, on the other hand, preserves every address change by inserting a new row each time the customer moves; it uses effective_start_key, effective_end_key, and is_current to mark the active address and maintain a full history. This makes Type2 ideal for analytics, auditing, and time based reporting, while Type 1 is better for operational systems that only need the latest address.
+
 ```
 
 ***
