@@ -56,7 +56,50 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+#### Prompt 3
+The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
+
+**Answer:**
+
+### Architecture 1: Overwrite Existing Address (Type 1 Slowly Changing Dimension)
+In this model, the CUSTOMER_ADDRESS table stores only the customer’s current address.
+
+Suggested columns:
+- customer_address_id
+- customer_id
+- street_address
+- city
+- province
+- postal_code
+- country
+
+When a customer updates their address, the existing record is updated using an UPDATE statement. The previous address is overwritten and not retained.
+
+This is a **Type 1 Slowly Changing Dimension** because historical address data is not preserved.
+
+
+### Architecture 2: Retain Address History (Type 2 Slowly Changing Dimension)
+In this model, the CUSTOMER_ADDRESS table stores both current and historical addresses.
+
+Suggested columns:
+- customer_address_id
+- customer_id
+- street_address
+- city
+- province
+- postal_code
+- country
+- effective_start_date
+- effective_end_date
+- is_current
+
+When a customer changes address:
+1. The previous record is marked with an effective_end_date.
+2. A new row is inserted with the updated address and marked as current.
+
+This preserves address history over time.
+
+This is a **Type 2 Slowly Changing Dimension** because historical changes are retained.
 ```
 
 ***
