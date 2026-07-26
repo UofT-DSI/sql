@@ -1,4 +1,4 @@
-product_id,vendor_id,market_date,customer_id,quantity,cost_to_customer_per_qty,transaction_time
+product_id,vendor_id,market_date,customer_id,quantity,cost_per_quantity,transaction_time
 1,7,2022-07-05,14,0.99,6.99,17:32:00
 1,7,2022-07-05,14,2.18,6.99,18:23:00
 1,7,2022-07-05,15,1.53,6.99,18:41:00
