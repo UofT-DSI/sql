@@ -130,7 +130,7 @@ VALUES
 	,market_week
 	,market_year
 	,vendor_name
-	,SUM(quantity*cost_to_customer_per_qty) AS sales
+	,SUM(quantity*cost_per_quantity) AS sales
 
 	FROM customer_purchases AS cp
 	JOIN market_date_info AS md
