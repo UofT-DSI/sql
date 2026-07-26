@@ -799,8 +799,8 @@ class: upper, left, inverse
 ### UNICODE (ASCII in some flavours)
 - `UNICODE` provides the ASCII value of any given character
   - i.e. the opposite of `CHAR`
-- The usage? I'm a bit unsure! Maybe faster than looking it up online?
-  - e.g. `UNICODE('b')` will result in '98'
+- The usage? Maybe comparing a set of stored values to ensure the input matches what is expected. Some characters may look the same, but would have different `UNICODE` values. 
+  - e.g. `UNICODE('0')` will result in '48' whereas `UNICODE('O')` will result in '79'
 
 ---
 

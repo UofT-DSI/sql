@@ -282,7 +282,7 @@ db_df.to_CSV('database-py.CSV', index=False)
 - JSONs are file formats well designed to store tables, lists, arrays, and nested objects
   - Their syntax follows specific rules:
       - Data is in name/value pairs
-      - Data is separated by columns
+      - Data is separated by commas
       - Curly brackets '{ }' hold objects
       - Square brackets '[ ]' hold arrays
 ---
@@ -494,5 +494,13 @@ No complex query is complete without at least one `CROSS JOIN`
 *Peter is Michael's boss.* 📄📌📎🗃️
 
 ---
+
+
+# Self Joins
+
+(Self Joins live coding)
+
+---
+
 
 # What questions do you have about anything from today?

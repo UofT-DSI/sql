@@ -98,13 +98,13 @@ class: left, top, inverse
   - SQL seemed like it was on its way out...NOPE, I was just wrong
 - Reluctant Data Scientist (*do we even need this model?*) 
   - Currently doing AI Governance and Ethics implementation at Dataiku
-- Have a 4 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
+- Have a 5 year old Samoyed named Alto who takes up a lot of my free time `r structure("\U1F449", class = "emoji")`
 ]
 
 .pull-right[
 
-<img src="imgs/01_snow_alto.png"
-     height="500px"
+<img src="imgs/01_float_alto.png"
+     height="400px"
      style="position:absolute; right:100px; top:130px;">
 
 ]
@@ -183,7 +183,7 @@ class: left, top, inverse
 ### Course Tools
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Apr2026): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jul2026): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -280,7 +280,7 @@ class: left, top, inverse
 --
 - GenAI will make you think SQL is easy, because the farmersmarket.db is designed to be simple
     - Real data is almost always really messy
-        - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness, but GenAI won't know what issues exist because its not aware of your actual data
+        - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness
 
 --
 - The post-GenAI world is sanitized & boring, factually incorrect, anti-human, deeply biased, erodes trust, worsens privacy, burns the environment, drinks your water, .... /endrant
@@ -895,10 +895,10 @@ class: top, left, inverse
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
-| 10      | 42 Wallaby Way     | TR   |
-| 11      | 221B Baker St      | NN   |
-| 12      | 124 Conch St    | JZ   |
-| 13      | 4 Privet Dr     | LM   |
+| 10      | 42 Wallaby Way     | Nemo   |
+| 11      | 221B Baker St      | S.H.   |
+| 12      | 124 Conch St    | SbSp   |
+| 13      | 4 Privet Dr     | H.P.   |
 
 
 ]
@@ -945,7 +945,7 @@ class: top, left, inverse
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
-| 11      | 221B Baker St      | NN   |
+| 11      | 221B Baker St      | S.H.   |
 
 
 ]

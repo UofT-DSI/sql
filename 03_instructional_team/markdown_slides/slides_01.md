@@ -32,9 +32,9 @@ $ echo "Data Sciences Institute"
 - Transitioned to Data Engineer at Plan Canada
 - Pursued Master of Information at UofT for R and Python focus
 - Currently working on AI Governance and Ethics at Dataiku
-- **_Have a 4 year old Samoyed named Alto who takes up a lot of my free time 👉_**
+- **_Have a 5 year old Samoyed named Alto who takes up a lot of my free time 👉_**
 
-![bg right:40% w:350](./images/01_snow_alto.png)
+![bg right:40% w:350](./images/01_float_alto.png)
 
 ---
 
@@ -47,7 +47,7 @@ $ echo "Data Sciences Institute"
 - Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
 - Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
 
-![bg right:30% w:350](./images/01_anjali.png)
+![bg right:30% w:350](./images/01_niyaz.png)
 
 ---
 
@@ -84,7 +84,7 @@ $ echo "Data Sciences Institute"
 
 - [DB Browser for SQLite](https://sqlitebrowser.org/dl/): *Where we will write code*
 - [GitHub](https://github.com/UofT-DSI/sql): *Module Overview*
-- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Apr2026): *Where we will keep track of session progress*
+- [Etherpad](https://pad.riseup.net/p/SQL_DSI_Jul2026): *Where we will keep track of session progress*
   - **Visit and complete the sign in prompt at the start every session**
 - [SQLite documentation](https://www.sqlite.org/index.html): *For SQL specific questions*
 - [DrawIO](https://www.drawio.com/) or [Lucid](https://www.lucidchart.com/pages/): *For Assignments*
@@ -155,7 +155,7 @@ $ echo "Data Sciences Institute"
     - Assignments are here for reinforcement of skills. They are **generously** graded, so even with limited time to work on them, you will still pass
 - GenAI will make you think SQL is easy, because the farmersmarket.db is designed to be simple
     - Real data is almost always really messy
-        - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness, but GenAI won't know what issues exist because its not aware of your actual data
+        - Good SQL'ers know how to handle nuance and introduce complexity to resolve messiness
 - The post-GenAI world is sanitized & boring, factually incorrect, anti-human, deeply biased, erodes trust, worsens privacy, burns the environment, drinks your water, .... /endrant
 
 ---
@@ -612,10 +612,10 @@ multiple lines
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
-| 10      | 42 Wallaby Way     | TR   |
-| 11      | 221B Baker St      | NN   |
-| 12      | 124 Conch St    | JZ   |
-| 13      | 4 Privet Dr     | LM   |
+| 10      | 42 Wallaby Way     | Nemo   |
+| 11      | 221B Baker St      | S.H.   |
+| 12      | 124 Conch St    | SbSp   |
+| 13      | 4 Privet Dr     | H.P.   |
 
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
@@ -657,7 +657,7 @@ multiple lines
 
 | customer_id (PK) | address            | name |
 |---------|--------------------|------|
-| 11      | 221B Baker St      | NN   |
+| 11      | 221B Baker St      | S.H.   |
 
 
 | order_id (PK) | customer_id (FK) | product_id (FK) |
