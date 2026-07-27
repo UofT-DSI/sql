@@ -1,4 +1,4 @@
-product_id,vendor_id,market_date,customer_id,quantity,cost_to_customer_per_qty,transaction_time
+product_id,vendor_id,market_date,customer_id,quantity,cost_per_quantity,transaction_time
 21,3,2024-12-19,11,1,4.99,17:32:00
 21,3,2024-12-19,25,2,4.99,18:23:00
 21,3,2024-12-19,24,2,4.99,18:41:00

@@ -31,7 +31,7 @@ CREATE TEMP TABLE product_expanded AS
 	,market_week
 	,market_year
 	,vendor_name 
-	,SUM(quantity*cost_to_customer_per_qty) as sales
+	,SUM(quantity*cost_per_quantity) as sales
 	
 	
 	FROM market_date_info md

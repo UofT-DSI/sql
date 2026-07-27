@@ -458,7 +458,7 @@ class: top, left, inverse
 - JSONs are file formats well designed to store tables, lists, arrays, and nested objects
   - Their syntax follows specific rules:
       - Data is in name/value pairs
-      - Data is separated by columns
+      - Data is separated by commas
       - Curly brackets '{ }' hold objects
       - Square brackets '[ ]' hold arrays
   -  e.g. `{"first_name":"Ralph", "last_name":"Kimball"}`
@@ -706,9 +706,16 @@ class: upper, left, inverse
 
 ---
 
+class: top, left, inverse
+# Self Joins
+
+(Self Joins live coding)
+
+---
 
 class: middle, center, inverse
 **Quick Mentimeter**
+
 ---
 
 class: middle, center, inverse
