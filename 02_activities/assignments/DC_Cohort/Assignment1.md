@@ -127,7 +127,7 @@ Steps to complete this part of the assignment:
 
 #### WHERE
 1. Write a query that returns all customer purchases of product IDs 4 and 9. Limit to 25 rows of output.
-2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), filtered by customer IDs between 8 and 10 (inclusive) using either:
+2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_per_quantity), filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN <br>
    Limit to 25 rows of output.
@@ -182,7 +182,7 @@ To insert the new row use VALUES, specifying the value you want for each column:
 
 Limit to 25 rows of output. 
 
-2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_to_customer_per_qty`.
+2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_per_quantity`.
    
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! 
