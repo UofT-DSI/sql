@@ -6,6 +6,7 @@
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
 --QUERY 1
+SELECT * FROM customer;
 
 
 
@@ -17,8 +18,9 @@
 sorted by customer_last_name, then customer_first_ name. */
 --QUERY 2
 
-
-
+SELECT * FROM customer
+ORDER By customer_last_name, customer_first_name
+LIMIT 10;
 
 --END QUERY
 
@@ -28,7 +30,9 @@ sorted by customer_last_name, then customer_first_ name. */
 Limit to 25 rows of output. */
 --QUERY 3
 
-
+SELECT * FROM customer_purchases
+WHERE product_id IN (4, 9)
+LIMIT 25;
 
 
 --END QUERY
@@ -42,7 +46,9 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 Limit to 25 rows of output.
 */
 --QUERY 4
-
+SELECT *, quantity*cost_per_quantity As price FROM customer_purchases
+WHERE customer_id BETWEEN 8 AND 10
+LIMIT 25;
 
 
 
@@ -56,6 +62,14 @@ columns and add a column called prod_qty_type_condensed that displays the word �
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
 --QUERY 5
 
+SELECT product_id, product_name,
+CASE
+WHEN product_qty_type = "unit"
+THEN "unit"
+ELSE "bulk"
+END AS product_qty_type_condensed
+FROM product;
+ 
 
 
 
@@ -66,7 +80,13 @@ if the product_qty_type is “unit,” and otherwise displays the word “bulk.�
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
 --QUERY 6
-
+SELECT product_qty_type,product_name,
+CASE
+WHEN lower(product_name) like "%pepper%"
+THEN 1
+ELSE 0
+END As pepper_flag
+FROM product;
 
 
 
@@ -79,7 +99,12 @@ vendor_id field they both have in common, and sorts the result by market_date, t
 Limit to 24 rows of output. */
 --QUERY 7
 
-
+SELECT vendor_booth_assignments.market_date, vendor.vendor_name
+FROM vendor
+INNER JOIN vendor_booth_assignments
+ON vendor.vendor_id = vendor_booth_assignments.vendor_id
+ORDER by vendor_booth_assignments.market_date, vendor.vendor_name
+LIMIT 24;
 
 
 --END QUERY
@@ -93,7 +118,9 @@ Limit to 24 rows of output. */
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 --QUERY 8
 
-
+SELECT vendor_id, count(*) As booth_count
+FROM vendor_booth_assignments
+GROUP By vendor_id;
 
 
 --END QUERY
@@ -106,6 +133,12 @@ of customers for them to give stickers to, sorted by last name, then first name.
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 --QUERY 9
 
+SELECT customer.customer_last_name,customer.customer_first_name, customer.customer_id, 
+sum(quantity*cost_per_quantity) As total_spent FROM customer
+INNER JOIN customer_purchases ON customer.customer_id = customer_purchases.customer_id
+GROUP By customer.customer_id, customer.customer_last_name, customer.customer_first_name
+HAVING total_spent > 2000
+ORDER By customer.customer_last_name, customer.customer_first_name;
 
 
 
@@ -124,9 +157,19 @@ When inserting the new vendor, you need to appropriately align the columns to be
 VALUES(col1,col2,col3,col4,col5) 
 */
 --QUERY 10
+CREATE Temp TABLE new_vendor AS SELECT* FROM vendor;
 
+INSERT INTO new_vendor
+(
+vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name
+)
+VALUES
+(
+10,
+"Thomas Superfood Store", "Fresh Focused", "Thomas", "Rosrnthal"
+);
 
-
+SELECT * FROM new_vendor;
 
 --END QUERY
 
@@ -139,7 +182,9 @@ and year are!
 Limit to 25 rows of output. */
 --QUERY 11
 
-
+SELECT customer_id, strftime('%m', market_date) As month, strftime('%Y', market_date) As year
+FROM customer_purchases
+LIMIT 25;
 
 
 --END QUERY
@@ -153,7 +198,11 @@ but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! */
 --QUERY 12
 
-
+SELECT customer_id, strftime('%m', market_date) As month, strftime('%Y', market_date) As year,
+sum(quantity * cost_per_quantity) As total_spent
+FROM customer_purchases
+WHERE month = '04' AND year = '2022'
+GROUP By customer_id, month, year;
 
 
 --END QUERY
