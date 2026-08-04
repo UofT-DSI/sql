@@ -7,7 +7,7 @@
 /* 1. Write a query that returns everything in the customer table. */
 --QUERY 1
 
-select* from customer
+select* from customer /*/ 
 
 --END QUERY
 
