@@ -209,5 +209,18 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+# 
+
+Rida Qadri’s article about Pakistan’s National Database and Registration Authority (NADRA) shows that databases are not just technical systems used to store information. They are also built based on decisions about what information matters and how people should be categorized. One thing that stood out to me was how NADRA’s database had a specific idea of what a family should look like. People had to fit into the relationships and categories that were already designed in the system. When someone’s real-life situation did not match those categories, the problem was not with the person’s information; the problem was that the database was not designed to represent their reality.
+
+This made me realize that database design is not always neutral. The choices made when creating tables, fields, and relationships can reflect the values and assumptions of the people who build the system. For example, if a database only allows certain options for family relationships, gender, or legal status, it may unintentionally exclude people who do not fit those options. Once these choices become part of a system used by organizations or governments, they can affect people’s access to important services and opportunities.
+
+I can see similar examples in everyday systems I interact with. Many forms I complete for school, banking, healthcare, or other services have fixed categories. For example, a form may ask for marital status, gender, or an emergency contact relationship using a limited list of choices. These categories are usually created to make data easier to organize, but they may not represent everyone’s situation. People who do not fit the available options may have to choose an inaccurate answer, leave information incomplete, or spend extra time explaining their circumstances.
+
+The farmers market database we worked with in this course also shows how database structures involve decisions. For example, the `customer_purchases` table assumes that each purchase is connected to a specific customer through a `customer_id`. The `vendor_booth_assignments` table assumes a clear relationship between vendors, booths, and market dates. These choices make the database organized and useful, but they also represent decisions about how the real world is being modeled. Someone has to decide what information should be stored and how different parts of the data connect.
+
+The biggest lesson I took from Qadri’s article is that the impact of a database is not only measured by whether it works technically. We also need to think about who is included, who might be left out, and whose experiences are not represented. A system can be efficient and still create problems if it is based on assumptions that do not apply to everyone.
+
+As someone learning data science, this is something I want to keep in mind. Building databases and models is not only about writing correct queries or creating efficient systems. It is also about understanding that the way we organize data can influence real people. Even small design choices, like what categories exist in a table or what relationships are allowed, can have meaningful consequences.
+
 ```
