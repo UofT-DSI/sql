@@ -35,7 +35,7 @@ Limit to 25 rows of output. */
 
 
 
-/*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
+/*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_per_quantity), 
 filtered by customer IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND
 	2.  one condition using BETWEEN
@@ -134,7 +134,7 @@ VALUES(col1,col2,col3,col4,col5)
 -- Date
 /*1. Get the customer_id, month, and year (in separate columns) of every purchase in the customer_purchases table.
 
-HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
+HINT: you might need to search for strfrtime modifiers sqlite on the web to know what the modifiers for month 
 and year are! 
 Limit to 25 rows of output. */
 --QUERY 11
@@ -146,7 +146,7 @@ Limit to 25 rows of output. */
 
 
 /* 2. Using the previous query as a base, determine how much money each customer spent in April 2022. 
-Remember that money spent is quantity*cost_to_customer_per_qty. 
+Remember that money spent is quantity*cost_per_quantity. 
 
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement...
