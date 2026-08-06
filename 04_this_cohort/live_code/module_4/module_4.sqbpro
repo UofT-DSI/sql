@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd0000000100000002000004ee0000034afc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000004ee0000012300fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012300fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000004ee0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="IFNULL_NULLIF*">/* MODULE 4 */
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="12168"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="booth" custom_title="0" dock_id="2" table="4,5:mainbooth"/><dock_state state="000000ff00000000fd00000001000000020000046600000352fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc00000000000004660000012300fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000012300fffffffb000000180064006f0063006b00420072006f007700730065003100390000000000ffffffff0000000000000000000004660000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="IFNULL_NULLIF">/* MODULE 4 */
 /* NULL Management */
 
 
@@ -84,7 +84,7 @@ https://learn.microsoft.com/en-us/sql/t-sql/language-elements/nullif-transact-sq
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="ROW_NUMBER*">/* MODULE 4 */
+</sql><sql name="ROW_NUMBER">/* MODULE 4 */
 /* Windowed functions: row_number */
 
 
@@ -123,7 +123,7 @@ GROUP BY vendor_id--,product_id
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="row_rank_dense*">/* MODULE 4 */
+</sql><sql name="row_rank_dense">/* MODULE 4 */
 /* Windowed functions: dense_rank, rank, row_number */
 
 
@@ -162,7 +162,7 @@ FROM row_rank_dense
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="NTILE*">/* MODULE 4 */
+</sql><sql name="NTILE">/* MODULE 4 */
 /* Windowed functions: NTILE */
 
 
@@ -194,29 +194,75 @@ FROM (
 
 ) x
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="string_manipulations">/* MODULE 4 */
+</sql><sql name="string_manipulations*">/* MODULE 4 */
 /* String Manipulations */
 
 
 /* 1. ltrim, rtrim, trim*/
-SELECT
+SELECT 
+LTRIM('                         THOMAS ROSENTHAL                         ') as [ltrim]
+,RTRIM('                         THOMAS ROSENTHAL                         ') as [rtrim]
+,TRIM('                         THOMAS ROSENTHAL                         ') as [trim]
+,LTRIM(RTRIM('                         THOMAS ROSENTHAL                         ')) as [both];
 
 /* 2. replace*/
+SELECT
+customer_first_name
+,REPLACE(customer_first_name,'a','e') as cust_a_to_e
+,REPLACE(customer_first_name,'a',customer_last_name) as chaos
+
+FROM customer;
 
 /* 3. upper, lower*/
 
+SELECT customer_first_name
+,UPPER(customer_first_name) as [upper]
+,LOWER(customer_first_name) as [lower]
+
+FROM customer;
+
+
 /* 4. concat with || */
+SELECT *
+,customer_first_name || ' ' || customer_last_name as customer_name
+,LOWER(customer_first_name) || ' ' || UPPER(customer_last_name) || ' ' || customer_postal_code as customer_details
+,NULL || 'thomas' as always_null
+
+FROM customer;
+
 
 /* 5. substr */
 
+SELECT 
+customer_last_name
+,substr(customer_last_name,4) as [4] -- any length from the 4th character
+,substr(customer_last_name,4,2) as [4,2] -- length of 2 from the 4th character
+,substr(customer_last_name,-5,4) as count_right -- counting from the right 5 characters in 4 out
+FROM customer;
+
 /* 6. length */
+SELECT 
+customer_last_name, length(customer_last_name) as length
+
+FROM customer;
 
 /* 7. unicode, char */
 
+SELECT UNICODE('b') as b;
+
+SELECT 
+'THOMAS
+
+ROSENTHAL' as bad_spaced_name
+
+,replace('THOMAS
+
+ROSENTHAL',char(10),' ') as better_linebreak; -- removes all instances of line break from the string
 
 /* 8. REGEXP in a WHERE statement */
 
-
+SELECT * FROM customer
+WHERE customer_last_name REGEXP '(a)$' -- filtering to customer last names ending in a
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 </sql><sql name="substr_instr_together">/* MODULE 4 */
@@ -243,7 +289,7 @@ SELECT
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="UNION_UNION_ALL*">/* MODULE 4 */
+</sql><sql name="UNION_UNION_ALL">/* MODULE 4 */
 /* UNION */
 
 /* 1. Find the most and least expensive product by vendor with UNION (and row_number!) */
@@ -290,7 +336,7 @@ WHERE rn_min = 1
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="FULL_OUTER_JOIN_UNION*">/* MODULE 4 */
+</sql><sql name="FULL_OUTER_JOIN_UNION">/* MODULE 4 */
 /* UNION */
 
 /* 1. Emulate a FULL OUTER JOIN with a UNION */
@@ -335,7 +381,7 @@ WHERE s1.costume IS NULL
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-</sql><sql name="INTERSECT_EXCEPT*">/* MODULE 4 */
+</sql><sql name="INTERSECT_EXCEPT">/* MODULE 4 */
 /* INTERSECT &amp; EXCEPT */
 
 /* 1. Find products that have been sold (e.g. are in customer purchases AND product) */ 
