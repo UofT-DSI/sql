@@ -55,8 +55,15 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
+
 ```
-Your answer...
+Type 1 Slowly Changing Dimension: Overwire the old address and no historical address is preserved. This is the model I have used in my drawing where addresses are saved on Customer table. 
+
+Type 2 Slowly Chaning Dimension: Preserve the historical changes of address.
+
+In this scenario, I propose type 2 for shipping purposes. If a customer changes their address while product has shipped but hasn't been delivered, this approach will make it possible to track the item upon customer's inquiry and store will be able to keep customer addresses. 
+
+For this scenario, a separate Address table is required and address column can be removed from the Customer table. 
 ```
 
 ***
