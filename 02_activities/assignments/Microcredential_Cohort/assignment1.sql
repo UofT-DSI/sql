@@ -6,7 +6,8 @@
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
 --QUERY 1
-
+SELECT *
+FROM customer;
 
 
 
@@ -16,7 +17,9 @@
 /* 2. Write a query that displays all of the columns and 10 rows from the customer table, 
 sorted by customer_last_name, then customer_first_ name. */
 --QUERY 2
-
+SELECT *
+FROM customer
+LIMIT 10;
 
 
 
@@ -27,7 +30,9 @@ sorted by customer_last_name, then customer_first_ name. */
 /* 1. Write a query that returns all customer purchases of product IDs 4 and 9. 
 Limit to 25 rows of output. */
 --QUERY 3
-
+SELECT *
+FROM customer
+WHERE customer_id = 4 OR customer_id = 9;
 
 
 
@@ -42,7 +47,11 @@ filtered by customer IDs between 8 and 10 (inclusive) using either:
 Limit to 25 rows of output.
 */
 --QUERY 4
-
+SELECT *,
+quantity*cost_per_quantity AS price
+FROM customer_purchases
+WHERE customer_id BETWEEN 8 AND 10
+LIMIT 25;
 
 
 
@@ -55,7 +64,14 @@ Using the product table, write a query that outputs the product_id and product_n
 columns and add a column called prod_qty_type_condensed that displays the word “unit” 
 if the product_qty_type is “unit,” and otherwise displays the word “bulk.” */
 --QUERY 5
+SELECT product_id,
+product_name,
+CASE WHEN product_qty_type = 'unit'
+THEN 'unit'
+ELSE 'bulk'
+END prod_qty_type_condensed
 
+FROM product;
 
 
 
@@ -66,7 +82,18 @@ if the product_qty_type is “unit,” and otherwise displays the word “bulk.�
 add a column to the previous query called pepper_flag that outputs a 1 if the product_name 
 contains the word “pepper” (regardless of capitalization), and otherwise outputs 0. */
 --QUERY 6
+SELECT product_id,
+product_name,
+CASE WHEN product_qty_type = 'unit'
+THEN 'unit'
+ELSE 'bulk'
+END prod_qty_type_condensed,
+CASE WHEN product_name like '%pepper%'
+THEN 1
+ELSE 0
+END pepper_flag
 
+FROM product;
 
 
 
@@ -78,6 +105,15 @@ contains the word “pepper” (regardless of capitalization), and otherwise out
 vendor_id field they both have in common, and sorts the result by market_date, then vendor_name.
 Limit to 24 rows of output. */
 --QUERY 7
+SELECT v.vendor_id,
+market_date,
+vendor_name
+
+FROM vendor AS v
+INNER JOIN vendor_booth_assignments AS vd
+ON v.vendor_id = vd.vendor_id
+
+ORDER BY market_date, vendor_name;
 
 
 
