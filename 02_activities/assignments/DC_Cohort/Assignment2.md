@@ -56,7 +56,24 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+type 1:
+customer_address
+-customer_id
+-customer_address (New address insted of old address)
+-city
+-province
+-customer_postal_code
+
+type 2:
+customer_address
+-customer_id
+-address_id
+-customer_address
+-city
+-province
+-customer_postal_code
+-customer_address_date
+When the customer changes their address, a new row is added and the old address is kept.
 ```
 
 ***
@@ -191,5 +208,5 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+One important ethical issue in this article is the hidden human labor behind machine learning. Machine learning may seem automated, but the article shows that many important parts of these systems are created by people. For example, ImageNet was built using millions of images that had to be labeled by human workers. Many of these workers used Amazon Mechanical Truk and udentified images for very small amounts of money. This shows that important AI systems can depend on large amounts of human work that people may not see or recognize. Another ethical issue is human bias in training data. The people who create datasets make decisions about how objects and people should be categorized. These decisions can affect the machine learning systems that later use the data. The article discusses ImageNet Roulette, which demonstrated that some ImageNet categories for people could be strange, inaccurate or offensive.
 ```
