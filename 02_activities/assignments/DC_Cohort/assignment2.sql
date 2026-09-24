@@ -23,7 +23,11 @@ Edit the appropriate columns -- you're making two edits -- and the NULL rows wil
 All the other rows will remain the same. */
 --QUERY 1
 
-select * from product;
+-- EXPECTED: CORRECT
+SELECT
+    product_name || ', ' || COALESCE(product_size, '') ||
+    ' (' || COALESCE(product_qty_type, 'unit') || ')' AS product_details
+FROM product;
 
 
 --END QUERY
@@ -41,7 +45,16 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().
 Filter the visits to dates before April 29, 2022. */
 --QUERY 2
 
-
+-- EXPECTED: CORRECT
+SELECT
+    customer_id,
+    market_date,
+    DENSE_RANK() OVER (
+        PARTITION BY customer_id
+        ORDER BY market_date
+    ) AS visit_number
+FROM customer_purchases
+WHERE market_date < '2022-04-29';
 
 
 --END QUERY
@@ -53,7 +66,9 @@ only the customer’s most recent visit.
 HINT: Do not use the previous visit dates filter. */
 --QUERY 3
 
-
+-- EXPECTED: INTENTIONAL SQL ERROR
+SELEC customer_id, market_date
+FROM customer_purchases;
 
 
 --END QUERY
@@ -66,7 +81,14 @@ You can make this a running count by including an ORDER BY within the PARTITION 
 Filter the visits to dates before April 29, 2022. */
 --QUERY 4
 
-
+-- EXPECTED: CORRECT
+SELECT
+    customer_purchases.*,
+    COUNT(*) OVER (
+        PARTITION BY customer_id, product_id
+    ) AS product_purchase_count
+FROM customer_purchases
+WHERE market_date < '2022-04-29';
 
 
 --END QUERY
@@ -85,7 +107,11 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 --QUERY 5
 
-
+-- EXPECTED: RUNS, BUT INTENTIONALLY ANSWERS THE QUESTION INCORRECTLY
+SELECT
+    product_name,
+    NULL AS description
+FROM product;
 
 
 --END QUERY
@@ -94,7 +120,10 @@ Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR w
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
 --QUERY 6
 
-
+-- EXPECTED: CORRECT SQL FOR THE ASSIGNMENT, BUT PYTHON SQLITE MAY NOT SUPPORT REGEXP
+SELECT product_size
+FROM product
+WHERE product_size REGEXP '[0-9]';
 
 
 --END QUERY
@@ -111,7 +140,28 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 with a UNION binding them. */
 --QUERY 7
 
-
+-- EXPECTED: CORRECT
+WITH daily_sales AS (
+    SELECT
+        market_date,
+        SUM(quantity * cost_to_customer_per_qty) AS total_sales
+    FROM customer_purchases
+    GROUP BY market_date
+), ranked_sales AS (
+    SELECT
+        market_date,
+        total_sales,
+        RANK() OVER (ORDER BY total_sales DESC) AS highest_rank,
+        RANK() OVER (ORDER BY total_sales ASC) AS lowest_rank
+    FROM daily_sales
+)
+SELECT market_date, total_sales, 'highest' AS sales_type
+FROM ranked_sales
+WHERE highest_rank = 1
+UNION
+SELECT market_date, total_sales, 'lowest' AS sales_type
+FROM ranked_sales
+WHERE lowest_rank = 1;
 
 
 --END QUERY
@@ -132,7 +182,27 @@ How many customers are there (y).
 Before your final group by you should have the product of those two queries (x*y).  */
 --QUERY 8
 
-
+-- EXPECTED: CORRECT
+WITH vendor_products AS (
+    SELECT
+        vendor_id,
+        product_id,
+        AVG(original_price) AS price
+    FROM vendor_inventory
+    GROUP BY vendor_id, product_id
+)
+SELECT
+    vendor.vendor_name,
+    product.product_name,
+    COUNT(customer.customer_id) * 5 * vendor_products.price AS possible_revenue
+FROM vendor_products
+JOIN vendor ON vendor.vendor_id = vendor_products.vendor_id
+JOIN product ON product.product_id = vendor_products.product_id
+CROSS JOIN customer
+GROUP BY
+    vendor.vendor_name,
+    product.product_name,
+    vendor_products.price;
 
 
 --END QUERY
@@ -145,7 +215,13 @@ It should use all of the columns from the product table, as well as a new column
 Name the timestamp column `snapshot_timestamp`. */
 --QUERY 9
 
-
+-- EXPECTED: CORRECT
+CREATE TABLE product_units AS
+SELECT
+    product.*,
+    CURRENT_TIMESTAMP AS snapshot_timestamp
+FROM product
+WHERE product_qty_type = 'unit';
 
 
 --END QUERY
@@ -155,7 +231,17 @@ Name the timestamp column `snapshot_timestamp`. */
 This can be any product you desire (e.g. add another record for Apple Pie). */
 --QUERY 10
 
-
+-- EXPECTED: CORRECT
+INSERT INTO product_units
+SELECT
+    product.*,
+    DATETIME(CURRENT_TIMESTAMP, '+1 second') AS snapshot_timestamp
+FROM product
+WHERE product_id = (
+    SELECT MIN(product_id)
+    FROM product
+    WHERE product_qty_type = 'unit'
+);
 
 
 --END QUERY
@@ -167,7 +253,12 @@ This can be any product you desire (e.g. add another record for Apple Pie). */
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 --QUERY 11
 
-
+-- EXPECTED: CORRECT
+DELETE FROM product_units
+WHERE snapshot_timestamp = (
+    SELECT MIN(snapshot_timestamp)
+    FROM product_units
+);
 
 
 --END QUERY
@@ -191,10 +282,20 @@ Finally, make sure you have a WHERE statement to update the right row,
 When you have all of these components, you can run the update statement. */
 --QUERY 12
 
+-- EXPECTED: CORRECT
+ALTER TABLE product_units
+ADD current_quantity INT;
 
+UPDATE product_units
+SET current_quantity = COALESCE((
+    SELECT vendor_inventory.quantity
+    FROM vendor_inventory
+    WHERE vendor_inventory.product_id = product_units.product_id
+    ORDER BY vendor_inventory.market_date DESC
+    LIMIT 1
+), 0);
 
 
 --END QUERY
-
 
 
