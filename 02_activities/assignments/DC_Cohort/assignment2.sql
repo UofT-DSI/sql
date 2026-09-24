@@ -23,10 +23,8 @@ Edit the appropriate columns -- you're making two edits -- and the NULL rows wil
 All the other rows will remain the same. */
 --QUERY 1
 
--- EXPECTED: CORRECT
-SELECT
-    product_name || ', ' || COALESCE(product_size, '') ||
-    ' (' || COALESCE(product_qty_type, 'unit') || ')' AS product_details
+-- EXPECTED: INTENTIONALLY WRONG
+SELECT product_name AS product_details
 FROM product;
 
 
@@ -45,14 +43,11 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().
 Filter the visits to dates before April 29, 2022. */
 --QUERY 2
 
--- EXPECTED: CORRECT
+-- EXPECTED: INTENTIONALLY WRONG
 SELECT
     customer_id,
     market_date,
-    DENSE_RANK() OVER (
-        PARTITION BY customer_id
-        ORDER BY market_date
-    ) AS visit_number
+    99 AS visit_number
 FROM customer_purchases
 WHERE market_date < '2022-04-29';
 
@@ -66,9 +61,10 @@ only the customer’s most recent visit.
 HINT: Do not use the previous visit dates filter. */
 --QUERY 3
 
--- EXPECTED: INTENTIONAL SQL ERROR
-SELEC customer_id, market_date
-FROM customer_purchases;
+-- EXPECTED: INTENTIONALLY WRONG
+SELECT customer_id, market_date, 99 AS visit_number
+FROM customer_purchases
+WHERE market_date = '2022-04-08';
 
 
 --END QUERY
@@ -81,12 +77,10 @@ You can make this a running count by including an ORDER BY within the PARTITION 
 Filter the visits to dates before April 29, 2022. */
 --QUERY 4
 
--- EXPECTED: CORRECT
+-- EXPECTED: INTENTIONALLY WRONG
 SELECT
     customer_purchases.*,
-    COUNT(*) OVER (
-        PARTITION BY customer_id, product_id
-    ) AS product_purchase_count
+    99 AS product_purchase_count
 FROM customer_purchases
 WHERE market_date < '2022-04-29';
 
@@ -107,7 +101,7 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 --QUERY 5
 
--- EXPECTED: RUNS, BUT INTENTIONALLY ANSWERS THE QUESTION INCORRECTLY
+-- EXPECTED: INTENTIONALLY WRONG
 SELECT
     product_name,
     NULL AS description
@@ -120,10 +114,9 @@ FROM product;
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
 --QUERY 6
 
--- EXPECTED: CORRECT SQL FOR THE ASSIGNMENT, BUT PYTHON SQLITE MAY NOT SUPPORT REGEXP
+-- EXPECTED: INTENTIONALLY WRONG
 SELECT product_size
-FROM product
-WHERE product_size REGEXP '[0-9]';
+FROM product;
 
 
 --END QUERY
@@ -140,28 +133,11 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 with a UNION binding them. */
 --QUERY 7
 
--- EXPECTED: CORRECT
-WITH daily_sales AS (
-    SELECT
-        market_date,
-        SUM(quantity * cost_to_customer_per_qty) AS total_sales
-    FROM customer_purchases
-    GROUP BY market_date
-), ranked_sales AS (
-    SELECT
-        market_date,
-        total_sales,
-        RANK() OVER (ORDER BY total_sales DESC) AS highest_rank,
-        RANK() OVER (ORDER BY total_sales ASC) AS lowest_rank
-    FROM daily_sales
-)
-SELECT market_date, total_sales, 'highest' AS sales_type
-FROM ranked_sales
-WHERE highest_rank = 1
-UNION
-SELECT market_date, total_sales, 'lowest' AS sales_type
-FROM ranked_sales
-WHERE lowest_rank = 1;
+-- EXPECTED: INTENTIONALLY WRONG
+SELECT market_date, 0 AS total_sales
+FROM customer_purchases
+GROUP BY market_date
+LIMIT 2;
 
 
 --END QUERY
@@ -182,27 +158,15 @@ How many customers are there (y).
 Before your final group by you should have the product of those two queries (x*y).  */
 --QUERY 8
 
--- EXPECTED: CORRECT
-WITH vendor_products AS (
-    SELECT
-        vendor_id,
-        product_id,
-        AVG(original_price) AS price
-    FROM vendor_inventory
-    GROUP BY vendor_id, product_id
-)
+-- EXPECTED: INTENTIONALLY WRONG
 SELECT
     vendor.vendor_name,
     product.product_name,
-    COUNT(customer.customer_id) * 5 * vendor_products.price AS possible_revenue
-FROM vendor_products
-JOIN vendor ON vendor.vendor_id = vendor_products.vendor_id
-JOIN product ON product.product_id = vendor_products.product_id
-CROSS JOIN customer
-GROUP BY
-    vendor.vendor_name,
-    product.product_name,
-    vendor_products.price;
+    0 AS possible_revenue
+FROM vendor_inventory
+JOIN vendor USING (vendor_id)
+JOIN product USING (product_id)
+GROUP BY vendor.vendor_name, product.product_name;
 
 
 --END QUERY
@@ -215,13 +179,12 @@ It should use all of the columns from the product table, as well as a new column
 Name the timestamp column `snapshot_timestamp`. */
 --QUERY 9
 
--- EXPECTED: CORRECT
+-- EXPECTED: INTENTIONALLY WRONG
 CREATE TABLE product_units AS
 SELECT
     product.*,
     CURRENT_TIMESTAMP AS snapshot_timestamp
-FROM product
-WHERE product_qty_type = 'unit';
+FROM product;
 
 
 --END QUERY
@@ -231,17 +194,14 @@ WHERE product_qty_type = 'unit';
 This can be any product you desire (e.g. add another record for Apple Pie). */
 --QUERY 10
 
--- EXPECTED: CORRECT
+-- EXPECTED: INTENTIONALLY WRONG
 INSERT INTO product_units
 SELECT
     product.*,
     DATETIME(CURRENT_TIMESTAMP, '+1 second') AS snapshot_timestamp
 FROM product
-WHERE product_id = (
-    SELECT MIN(product_id)
-    FROM product
-    WHERE product_qty_type = 'unit'
-);
+ORDER BY product_id
+LIMIT 2;
 
 
 --END QUERY
@@ -253,22 +213,9 @@ WHERE product_id = (
 HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 --QUERY 11
 
--- EXPECTED: CORRECT
+-- EXPECTED: INTENTIONALLY WRONG
 DELETE FROM product_units
-WHERE product_id = (
-    SELECT MIN(product_id)
-    FROM product
-    WHERE product_qty_type = 'unit'
-)
-AND snapshot_timestamp = (
-    SELECT MIN(snapshot_timestamp)
-    FROM product_units
-    WHERE product_id = (
-        SELECT MIN(product_id)
-        FROM product
-        WHERE product_qty_type = 'unit'
-    )
-);
+WHERE 1 = 0;
 
 
 --END QUERY
@@ -292,7 +239,7 @@ Finally, make sure you have a WHERE statement to update the right row,
 When you have all of these components, you can run the update statement. */
 --QUERY 12
 
--- EXPECTED: RUNS, BUT INTENTIONALLY UPDATES THE WRONG VALUES
+-- EXPECTED: INTENTIONALLY WRONG
 ALTER TABLE product_units
 ADD current_quantity INT;
 

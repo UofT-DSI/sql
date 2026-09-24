@@ -1,12 +1,16 @@
 name: SQL Unit Tests
 
 on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
   workflow_dispatch:  # Manual trigger from GitHub UI
     inputs:
       branch:
-        description: 'Branch to use to run assignment for, i.e. assignment-one, assignment-2'
+        description: 'Assignment 2 branch to grade, usually assignment-two'
         required: true
-        default: assignment-one
+        default: assignment-two
         type: string
       pr_number:
         description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
@@ -19,8 +23,10 @@ permissions:
 
 jobs:
   run-assignment-queries:
-    # uncomment once a change to PR trigger will be implemented
-    # if: startsWith(github.head_ref, 'assignment-')
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      ((github.head_ref == 'assignment-two' || github.head_ref == 'assignment-2') &&
+      github.repository_owner != 'UofT-DSI')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,7 +36,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.branch }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.head_ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,16 +55,10 @@ jobs:
       
           echo "Changed files:"
           cat changed_files.txt
-          # The goal here to search for a file modified during PR that is match to a pattern
-          # and give priority in next order 2, 1 as it quite often happens when students submit
-          # PR without following assignments order and git flow. It will to run latest / greatest
           assignment_changed=""
-          
-          # Priority: assignment2 > assignment1
+
           if grep -qE '(^|/)assignment2\.sql$' changed_files.txt; then
             assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt | head -n1)
-          elif grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
-            assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt | head -n1)
           fi
           
           if [ -n "$assignment_changed" ]; then
@@ -67,11 +67,13 @@ jobs:
 
       - name: Run tests
         id: pytest
+        if: steps.changes.outputs.assignment_changed != ''
         run: |
           pytest tests/test_assignment.py --file_path="${{steps.changes.outputs.assignment_changed}}" --tb=short --disable-warnings \
                  --junitxml=pytest-report.xml || true
 
       - name: Post test results to PR
+        if: steps.changes.outputs.assignment_changed != ''
         uses: actions/github-script@v7
         with:
           script: |
@@ -139,6 +141,6 @@ jobs:
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ inputs.pr_number }},
+              issue_number: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number || github.event.pull_request.number }},
               body
             })
