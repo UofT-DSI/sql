@@ -292,19 +292,12 @@ Finally, make sure you have a WHERE statement to update the right row,
 When you have all of these components, you can run the update statement. */
 --QUERY 12
 
--- EXPECTED: CORRECT
+-- EXPECTED: RUNS, BUT INTENTIONALLY UPDATES THE WRONG VALUES
 ALTER TABLE product_units
 ADD current_quantity INT;
 
 UPDATE product_units
-SET current_quantity = COALESCE((
-    SELECT vendor_inventory.quantity
-    FROM vendor_inventory
-    WHERE vendor_inventory.product_id = product_units.product_id
-    ORDER BY vendor_inventory.market_date DESC
-    LIMIT 1
-), 0);
+SET current_quantity = -1;
 
 
 --END QUERY
-
