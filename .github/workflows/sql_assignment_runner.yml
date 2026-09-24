@@ -106,18 +106,27 @@ jobs:
             const file_read_result = fs.readFileSync('test-results.json', 'utf8')
             const results = JSON.parse(file_read_result)
 
-            let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
+            let body = `### 🧪 SQL Assignment Results\n\n`
             body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>\n\n`
 
             for (const result of results) {
               const isArrayResult = Array.isArray(result.result);
 
-              if (result.error) {
-                body += `❌ Query ${result.number}: \n\n *${result.query}*, \n\n **Error**:  \n${result.error}\n\n`
-              } else if (isArrayResult && result.result.length === 0) {
-                body += `⚪ Query ${result.number}: \n\n *${result.query}*, \n\n No rows returned \n\n`
-              } else if (isArrayResult && result.result.length > 0) {
-                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
+              if (result.error || result.status === 'error') {
+                body += `❌ **Query ${result.number}: SQL error**\n\n${result.feedback}\n\n`
+                body += `**Error:** ${result.error}\n\n`
+              } else if (result.status === 'incorrect') {
+                body += `❌ **Query ${result.number}: Incorrect**\n\n${result.feedback}\n\n`
+              } else if (result.status === 'correct') {
+                body += `✅ **Query ${result.number}: Correct**\n\n${result.feedback}\n\n`
+              } else {
+                body += `⚪ **Query ${result.number}: Executed, not graded**\n\n${result.feedback}\n\n`
+              }
+
+              body += `\`\`\`sql\n${result.query}\n\`\`\`\n\n`
+
+              if (isArrayResult && result.result.length > 0) {
+                body += `**Sample results (up to 3 rows):**\n\n`
                 const table = jsonToMarkdownTable(result.result)
                 body += `${table} \n\n`
               }

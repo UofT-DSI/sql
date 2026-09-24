@@ -255,9 +255,19 @@ HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 
 -- EXPECTED: CORRECT
 DELETE FROM product_units
-WHERE snapshot_timestamp = (
+WHERE product_id = (
+    SELECT MIN(product_id)
+    FROM product
+    WHERE product_qty_type = 'unit'
+)
+AND snapshot_timestamp = (
     SELECT MIN(snapshot_timestamp)
     FROM product_units
+    WHERE product_id = (
+        SELECT MIN(product_id)
+        FROM product
+        WHERE product_qty_type = 'unit'
+    )
 );
 
 
@@ -297,5 +307,4 @@ SET current_quantity = COALESCE((
 
 
 --END QUERY
-
 
