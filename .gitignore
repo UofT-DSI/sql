@@ -2,3 +2,5 @@
 .vscode/
 *.db-journal
 .venv
+__pycache__/
+*.pyc
