@@ -141,6 +141,14 @@ class GraderRegressionTests(unittest.TestCase):
         self.assertIsNone(G['technique_feedback'](7, self.valid[7]))
 
     @requires_private_solution
+    def test_description_alias_is_accepted(self):
+        """Accept correct Q5 descriptions when the student chooses a different column alias."""
+        sql, replacements = re.subn(r'\bAS\s+description\b', 'AS product_description',
+                                    self.valid[5], flags=re.I)
+        self.assertEqual(replacements, 1)
+        self.assertEqual(self.run_submission({5: sql})[5]['status'], 'correct')
+
+    @requires_private_solution
     def test_sales_alias_and_dates_only_are_accepted(self):
         """Accept a different sales column name or an answer showing just the requested dates."""
         alias = self.valid[7].replace('sales, sales_rank_desc AS sales_rank', 'sales AS gross_income, sales_rank_desc AS sales_rank')

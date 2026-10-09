@@ -286,7 +286,6 @@ def grade_question_4(rows, reference):
 
 def grade_question_5(rows, reference):
     """Grade the product-name description extraction answer."""
-    actual = extract_result_rows(rows, (("product_name",), ("description",)))
     expected = fetch(reference, """
         SELECT product_name,
                CASE WHEN INSTR(product_name, '-') > 0
@@ -294,8 +293,15 @@ def grade_question_5(rows, reference):
                     ELSE NULL END AS description
         FROM product
     """)
+    expected_rows = count_result_rows(expected, ("product_name", "description"))
+    # Students may name the description column differently; compare its values with each product.
+    matches = any(
+        extract_result_rows(rows, (("product_name",), (column,))) == expected_rows
+        for column in (rows[0] if rows else ())
+        if column.lower() != "product_name"
+    )
     return grading_outcome(
-        actual == count_result_rows(expected, ("product_name", "description")),
+        matches,
         "Product descriptions are extracted and trimmed correctly.",
         "The descriptions do not match the text after each product-name hyphen.",
     )
