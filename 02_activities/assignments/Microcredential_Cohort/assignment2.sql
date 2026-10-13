@@ -62,7 +62,7 @@ HINT: Do not use the previous visit dates filter. */
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. 
 
-You can make this a running count by including an ORDER BY within the PARTITION BY if desired.
+You can make this a running count by including an ORDER BY in the window function if desired.
 Filter the visits to dates before April 29, 2022. */
 --QUERY 4
 

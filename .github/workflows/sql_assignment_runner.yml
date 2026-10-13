@@ -1,12 +1,16 @@
 name: SQL Unit Tests
 
 on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
   workflow_dispatch:  # Manual trigger from GitHub UI
     inputs:
       branch:
-        description: 'Branch to use to run assignment for, i.e. assignment-one, assignment-2'
+        description: 'Assignment 2 branch to grade, usually assignment-two'
         required: true
-        default: assignment-one
+        default: assignment-two
         type: string
       pr_number:
         description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
@@ -19,8 +23,10 @@ permissions:
 
 jobs:
   run-assignment-queries:
-    # uncomment once a change to PR trigger will be implemented
-    # if: startsWith(github.head_ref, 'assignment-')
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      ((github.head_ref == 'assignment-two' || github.head_ref == 'assignment-2') &&
+      github.repository_owner != 'UofT-DSI')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,7 +36,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.branch }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -41,95 +48,92 @@ jobs:
         run: |
           pip install -r ./.github/scripts/requirements.txt
 
+      - name: Verify grader regressions
+        run: python -m pytest 03_instructional_team/tests/test_grader_regressions.py -q
+
       - name: Get changed files
-        id: changes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          git fetch
-          git diff --name-only origin/main > changed_files.txt
-      
-          echo "Changed files:"
-          cat changed_files.txt
-          # The goal here to search for a file modified during PR that is match to a pattern
-          # and give priority in next order 2, 1 as it quite often happens when students submit
-          # PR without following assignments order and git flow. It will to run latest / greatest
-          assignment_changed=""
-          
-          # Priority: assignment2 > assignment1
-          if grep -qE '(^|/)assignment2\.sql$' changed_files.txt; then
-            assignment_changed=$(grep -E '(^|/)assignment2\.sql$' changed_files.txt | head -n1)
-          elif grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
-            assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt | head -n1)
-          fi
-          
-          if [ -n "$assignment_changed" ]; then
-            echo "assignment_changed=$assignment_changed" >> "$GITHUB_OUTPUT"
-          fi
+          base_ref="${BASE_SHA:-origin/main}"
+          git diff --name-only -z "$base_ref"...HEAD > changed_files.txt
 
-      - name: Run tests
-        id: pytest
-        run: |
-          pytest tests/test_assignment.py --file_path="${{steps.changes.outputs.assignment_changed}}" --tb=short --disable-warnings \
-                 --junitxml=pytest-report.xml || true
+      - name: Grade changed assignments
+        id: grading
+        continue-on-error: true
+        run: python .github/scripts/grade_assignments.py changed_files.txt test-results.json
 
-      - name: Post test results to PR
+      - name: Post grading feedback to PR
+        if: always() && steps.grading.outcome != 'skipped'
         uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number || github.event.pull_request.number }}
         with:
           script: |
-            function jsonToMarkdownTable(data) {
-              if (!Array.isArray(data) || data.length === 0) {
-                return 'No data';
+            const fs = require('fs');
+            const labels = {
+              correct: '✅ Correct', incorrect: '❌ Incorrect', error: '❌ Error',
+              missing: '❌ Missing answer', blocked: '⚪ Cannot assess: prerequisite failed',
+              manual_review: '⚪ Instructor review needed'
+            };
+            function fenced(value, language = '') {
+              const text = String(value);
+              const runs = text.match(/`+/g) || [];
+              const fence = '`'.repeat(Math.max(3, ...runs.map(run => run.length + 1)));
+              return `${fence}${language}\n${text}\n${fence}\n`;
+            }
+            let reports;
+            try {
+              reports = JSON.parse(fs.readFileSync('test-results.json', 'utf8'));
+              if (!Array.isArray(reports)) throw new Error('Invalid report format');
+            } catch (error) {
+              reports = [{file: 'Grading runner', results: [], runner_error: error.message}];
+            }
+            if (!reports.length) return;
+            let body = '### SQL Assignment 2 feedback\n\n';
+            body += 'SQL checks only. ERDs, written responses, and rubric point totals require instructor marking.\n\n';
+            const truncationNotice = '\nFeedback truncated; inspect the workflow report for remaining results.';
+            const maxBodyLength = 60000;
+            let truncated = false;
+            function appendSection(section) {
+              if (body.length + section.length + truncationNotice.length > maxBodyLength) {
+                truncated = true;
+                return false;
               }
-              
-              const headers = Object.keys(data[0]);
-              
-              // Header row
-              const headerRow = `| ${headers.join(' | ')} |`;
-              
-              // Separator row
-              const separatorRow = `| ${headers.map(() => '---').join(' | ')} |`;
-              
-              // Data rows
-              const rows = data.map(row =>
-                `| ${headers.map(h => formatValue(row[h])).join(' | ')} |`
-              );
-              
-              return [headerRow, separatorRow, ...rows].join('\n');
+              body += section;
+              return true;
             }
-              
-            function formatValue(value) {
-              if (value === null || value === undefined) return '';
-              if (typeof value === 'object') return `\`${JSON.stringify(value)}\``;
-              return String(value);
-            }
-          
-            const fs = require('fs')
-            const file_read_result = fs.readFileSync('test-results.json', 'utf8')
-            const results = JSON.parse(file_read_result)
-
-            let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
-            body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>\n\n`
-
-            for (const result of results) {
-              const isArrayResult = Array.isArray(result.result);
-
-              if (result.error) {
-                body += `❌ Query ${result.number}: \n\n *${result.query}*, \n\n **Error**:  \n${result.error}\n\n`
-              } else if (isArrayResult && result.result.length === 0) {
-                body += `⚪ Query ${result.number}: \n\n *${result.query}*, \n\n No rows returned \n\n`
-              } else if (isArrayResult && result.result.length > 0) {
-                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
-                const table = jsonToMarkdownTable(result.result)
-                body += `${table} \n\n`
+            reportLoop:
+            for (const report of reports) {
+              let reportSection = fenced(report.file);
+              if (report.runner_error) reportSection += `Grading could not finish: ${report.runner_error}\n\n`;
+              if (!appendSection(reportSection)) break;
+              for (const result of report.results) {
+                let resultSection = `**Query ${result.number}: ${labels[result.status] || '⚪ Instructor review needed'}**\n\n`;
+                resultSection += `${result.feedback}\n\n`;
+                if (result.error) resultSection += fenced(result.error);
+                if (result.query) resultSection += fenced(result.query, 'sql');
+                if (result.result?.length) resultSection += fenced(JSON.stringify(result.result, null, 2), 'json');
+                resultSection += '\n';
+                if (!appendSection(resultSection)) break reportLoop;
               }
-
-              body += `-------------------------------------------------------- \n`;
             }
-
-            body += `</details>`
-            
+            if (truncated) body += truncationNotice;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ inputs.pr_number }},
+              issue_number: Number(process.env.PR_NUMBER),
               body
-            })
+            });
+
+      - name: Upload grading reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a2-grading-results
+          path: test-results.json
+          if-no-files-found: ignore
+
+      - name: Preserve runner failure status
+        if: always() && steps.grading.outcome == 'failure'
+        run: exit 1
