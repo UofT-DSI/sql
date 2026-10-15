@@ -258,10 +258,12 @@ def grade_question_3(rows, reference):
 
 def grade_question_4(rows, reference):
     """Grade the customer product-purchase count answer."""
-    columns = (
-        ("customer_id",), ("vendor_id",), ("product_id",),
-        ("market_date",), ("transaction_time",), ("product_purchase_count",),
-    )
+    # Purchase details are optional, but validate them when students include them.
+    returned_names = {key.lower() for key in rows[0]} if rows else set()
+    keys = ["customer_id", "product_id", "market_date"]
+    keys.extend(key for key in ("vendor_id", "transaction_time") if key in returned_names)
+    keys.append("product_purchase_count")
+    columns = tuple((key,) for key in keys)
     actual = extract_result_rows(rows, columns, True)
     fixed = fetch(reference, """
         SELECT customer_id, vendor_id, product_id, market_date, transaction_time,
@@ -275,12 +277,12 @@ def grade_question_4(rows, reference):
                               ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS product_purchase_count
         FROM customer_purchases WHERE market_date < '2022-04-29'
     """)
-    keys = tuple(item[0] for item in columns)
     accepted = [count_result_rows(result, keys) for result in (fixed, running)]
     return grading_outcome(
         actual in accepted,
         "The purchase count is correct for every customer and product.",
-        "The purchase counts or returned rows are incorrect.",
+        "Include customer_id, product_id, market_date, and a purchase count for every purchase row. "
+        "Check the counts and the filter to dates before April 29, 2022; vendor_id and transaction_time are optional.",
     )
 
 

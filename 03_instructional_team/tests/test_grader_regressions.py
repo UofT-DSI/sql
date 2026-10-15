@@ -132,6 +132,45 @@ class GraderRegressionTests(unittest.TestCase):
         finally:
             conn.close()
 
+    def test_purchase_counts_allow_optional_purchase_details(self):
+        """Accept reduced Q4 output without losing duplicate-row or count validation."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        try:
+            conn.execute("CREATE TABLE customer_purchases "
+                         "(customer_id, vendor_id, product_id, market_date, transaction_time)")
+            conn.executemany("INSERT INTO customer_purchases VALUES (?, ?, ?, ?, ?)", [
+                (1, 2, 3, '2022-04-01', '09:00'),
+                (1, 2, 3, '2022-04-01', '10:00'),
+            ])
+            rows = [dict(customer_id=1, product_id=3, market_date='2022-04-01', cnt=2)
+                    for _ in range(2)]
+            grade = G['grade_question_4']
+            self.assertEqual(grade(rows, conn)[0], 'correct')
+            count = "COUNT(*) OVER (PARTITION BY customer_id, product_id)"
+            projections = {
+                'reordered columns':
+                    f"{count} AS product_purchase_count, market_date, product_id, customer_id",
+                'optional purchase details':
+                    f"customer_id, product_id, market_date, vendor_id, transaction_time, {count} AS cnt",
+                'alternative count alias':
+                    f"customer_id, product_id, market_date, {count} AS total_purchases",
+            }
+            for case, projection in projections.items():
+                with self.subTest(case=case):
+                    selected = G['fetch'](
+                        conn, f"SELECT {projection} FROM customer_purchases "
+                        "WHERE market_date < '2022-04-29'"
+                    )
+                    self.assertEqual(grade(selected, conn)[0], 'correct')
+            self.assertEqual(grade(rows[:1], conn)[0], 'incorrect')
+            self.assertEqual(grade([dict(row, cnt=99) for row in rows], conn)[0], 'incorrect')
+            self.assertEqual(grade([dict(row, vendor_id=99) for row in rows], conn)[0], 'incorrect')
+            self.assertEqual(grade([dict(row, transaction_time='wrong') for row in rows], conn)[0],
+                             'incorrect')
+        finally:
+            conn.close()
+
     @requires_private_solution
     def test_techniques_cannot_be_satisfied_by_comments_or_literals(self):
         """Mentioning REGEXP or UNION in comments or text does not count as using it."""
