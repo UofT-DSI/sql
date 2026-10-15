@@ -111,10 +111,27 @@ class GraderRegressionTests(unittest.TestCase):
     def test_malformed_submissions_always_replace_stale_report(self):
         """Broken query markers must produce fresh errors rather than reuse an old report."""
         for text in ('--QUERY 1\nSELECT 1', '--QUERY 1\nSELECT 1\n--END QUERY\n--QUERY 1\nSELECT 1\n--END QUERY',
-                     '--QUERY 99\nSELECT 1\n--END QUERY', '--QUERY nope', '--END QUERY',
+                     '--QUERY 99\nSELECT 1\n--END QUERY', '--END QUERY',
                      '--QUERY 1\n--QUERY 2'):
             with self.subTest(text=text):
                 self.assertTrue(all(r['status'] == 'error' for r in self.run_submission(text=text).values()))
+
+    def test_query_comments_are_not_answer_markers(self):
+        """Only complete marker lines delimit answers; descriptive comments remain ordinary SQL."""
+        comments = ('-- query to count purchases', '-- QUERY results below',
+                    '-- query 1 explains this approach', '-- end query explanation', '--QUERY nope')
+        with tempfile.TemporaryDirectory() as folder:
+            submission = Path(folder) / 'assignment2.sql'
+            sql = '\n'.join((*comments, 'SELECT 1;', *comments))
+            submission.write_text('-- query overview\n--QUERY 1\n' + sql +
+                                  '\n--END QUERY\n-- query closing notes')
+            queries = G['load_queries'](submission)
+            self.assertEqual(queries[0], {'number': 1, 'query': sql})
+            self.assertTrue(all(not item['query'] for item in queries[1:]))
+            results = self.run_submission(text=submission.read_text())
+            self.assertEqual(results[1]['status'], 'incorrect')
+            self.assertTrue(all(item['status'] == 'missing'
+                                for number, item in results.items() if number != 1))
 
     @requires_private_solution
     def test_valid_window_alternatives(self):

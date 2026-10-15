@@ -34,8 +34,6 @@ def load_queries(sql_file):
                 raise ValueError("END QUERY has no matching QUERY marker.")
             queries[number] = "\n".join(buffer).strip()
             number = None
-        elif re.match(r"--\s*(QUERY|END\s+QUERY)\b", stripped, re.I):
-            raise ValueError(f"Invalid answer marker: {stripped}")
         elif number is not None:
             buffer.append(line)
     if number is not None:
