@@ -299,6 +299,26 @@ class GraderRegressionTests(unittest.TestCase):
         self.assertEqual(self.run_submission({9: sql})[9]['status'], 'correct')
 
     @requires_private_solution
+    def test_temporary_snapshot_supports_all_mutations(self):
+        """A valid temporary Q9 snapshot must remain usable through Q10-12."""
+        for creation in ('CREATE TEMP TABLE', 'CREATE TEMPORARY TABLE', 'CREATE TABLE temp.'):
+            replacement = creation if creation.endswith('.') else creation + ' '
+            sql, replacements = re.subn(r'\bCREATE\s+TABLE\s+', replacement,
+                                        self.valid[9], count=1, flags=re.I)
+            self.assertEqual(replacements, 1)
+            with self.subTest(creation=creation):
+                results = self.run_submission({9: sql})
+                self.assertEqual([results[n]['status'] for n in range(9, 13)], ['correct'] * 4)
+
+    @requires_private_solution
+    def test_invalid_temporary_snapshot_still_blocks_dependents(self):
+        """TEMP changes table lifetime, not the required snapshot contents."""
+        sql = 'CREATE TEMP TABLE product_units AS SELECT * FROM product'
+        results = self.run_submission({9: sql})
+        self.assertEqual(results[9]['status'], 'incorrect')
+        self.assertEqual([results[n]['status'] for n in range(10, 13)], ['blocked'] * 3)
+
+    @requires_private_solution
     def test_invalid_and_stale_timestamps_fail(self):
         """Reject timestamps that are meaningless text or dates far in the past."""
         for n, value in ((9, "'not a timestamp'"), (10, "'1900-01-01'")):

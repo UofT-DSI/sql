@@ -412,8 +412,11 @@ def grade_select(number, rows, reference):
 
 def product_units_state(conn):
     """Return the product_units table structure and data when the table exists."""
+    # Q9-12 share a connection, so a TEMP snapshot is valid throughout those answers.
     exists = conn.execute(
-        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='product_units'"
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='product_units' "
+        "UNION ALL "
+        "SELECT 1 FROM sqlite_temp_master WHERE type='table' AND name='product_units'"
     ).fetchone()
     if not exists:
         return None
