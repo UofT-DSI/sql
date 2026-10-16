@@ -367,11 +367,6 @@ def grade_question_7(rows, reference):
 
 def grade_question_8(rows, reference):
     """Grade the possible vendor revenue answer."""
-    actual = extract_result_rows(
-        rows,
-        (("vendor_name",), ("product_name",), ("possible_revenue", "sum(price)", "revenue")),
-        True,
-    )
     expected = fetch(reference, """
         SELECT vendor_name, product_name, SUM(price) AS possible_revenue
         FROM (
@@ -381,8 +376,15 @@ def grade_question_8(rows, reference):
         CROSS JOIN (SELECT DISTINCT customer_id FROM customer)
         GROUP BY vendor_name, product_name
     """)
+    expected_rows = count_result_rows(expected, ("vendor_name", "product_name", "possible_revenue"))
+    # Match revenue values per vendor/product, regardless of alias or column order.
+    matches = any(
+        extract_result_rows(rows, (("vendor_name",), ("product_name",), (column,))) == expected_rows
+        for column in (rows[0] if rows else ())
+        if column.lower() not in ("vendor_name", "product_name")
+    )
     return grading_outcome(
-        actual == count_result_rows(expected, ("vendor_name", "product_name", "possible_revenue")),
+        matches,
         "Possible revenue is correct for every vendor and product.",
         "The possible revenue does not match five items per customer.",
     )

@@ -271,6 +271,28 @@ class GraderRegressionTests(unittest.TestCase):
             self.assertEqual(self.run_submission({7: sql})[7]['status'], 'correct')
 
     @requires_private_solution
+    def test_revenue_alias_and_position_are_accepted(self):
+        """Accept Q8 revenue anywhere while checking its values and vendor/product pairing."""
+        inner = self.valid[8].strip().rstrip(';')
+        for projection in (
+            '"sum(price)" AS gross_income, product_name, vendor_name',
+            'vendor_name, "sum(price)" AS gross_income, product_name, 0 AS extra',
+        ):
+            with self.subTest(projection=projection):
+                sql = f'SELECT {projection} FROM ({inner})'
+                self.assertEqual(self.run_submission({8: sql})[8]['status'], 'correct')
+        for projection in (
+            'vendor_name, product_name, "sum(price)" + 1 AS gross_income, 0 AS extra',
+            "vendor_name, 'wrong product' AS product_name, \"sum(price)\" AS gross_income",
+            'vendor_name, product_name, 0 AS extra',
+        ):
+            with self.subTest(projection=projection):
+                sql = f'SELECT {projection} FROM ({inner})'
+                self.assertEqual(self.run_submission({8: sql})[8]['status'], 'incorrect')
+        sql = f'SELECT vendor_name, product_name, "sum(price)" AS gross_income FROM ({inner}) LIMIT 1'
+        self.assertEqual(self.run_submission({8: sql})[8]['status'], 'incorrect')
+
+    @requires_private_solution
     def test_reordered_snapshot_columns(self):
         """Putting the required product columns in a different order should still pass."""
         sql = self.valid[9].replace('p.*', 'product_name,product_id,product_size,product_category_id,product_qty_type')
