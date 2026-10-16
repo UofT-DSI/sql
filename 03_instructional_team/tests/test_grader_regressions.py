@@ -140,6 +140,27 @@ class GraderRegressionTests(unittest.TestCase):
             with self.subTest(question=number):
                 self.assertEqual(self.run_submission({number: self.blocks[index]})[number]['status'], 'correct')
 
+    @requires_private_solution
+    def test_latest_visits_without_displayed_rank(self):
+        """Accept an internal rank while still rejecting wrong dates or missing customers."""
+        for sql in (self.valid[3], self.blocks[5]):
+            inner = sql.strip().rstrip(';')
+            projected = f"SELECT market_date, customer_id FROM ({inner})"
+            with self.subTest(sql=sql):
+                self.assertEqual(self.run_submission({3: projected})[3]['status'], 'correct')
+                wrong_dates = ("SELECT customer_id, date(market_date, '-1 day') AS market_date "
+                               f"FROM ({inner})")
+                self.assertEqual(self.run_submission({3: wrong_dates})[3]['status'], 'incorrect')
+                self.assertEqual(self.run_submission({3: projected + ' LIMIT 1'})[3]['status'],
+                                 'incorrect')
+                wrong_rank = ("SELECT customer_id, market_date, 99 AS visit_number "
+                              f"FROM ({inner})")
+                self.assertEqual(self.run_submission({3: wrong_rank})[3]['status'], 'incorrect')
+        self.assertIsNotNone(G['technique_feedback'](
+            3, 'SELECT customer_id, MAX(market_date) AS market_date '
+               'FROM customer_purchases GROUP BY customer_id'
+        ))
+
     def test_running_purchase_counts_accept_date_peers(self):
         """Accept date-only running counts while rejecting wrong counts and missing purchases."""
         conn = sqlite3.connect(":memory:")

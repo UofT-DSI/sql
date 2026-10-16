@@ -232,9 +232,11 @@ def grade_question_2(rows, reference):
 
 def grade_question_3(rows, reference):
     """Grade the most-recent customer visit answer."""
-    actual = extract_result_rows(
-        rows, (("customer_id",), ("market_date",), ("visit_number",)), True
-    )
+    # The rank can be used to filter a subquery without appearing in its output.
+    keys = ("customer_id", "market_date")
+    if rows and len(rows[0]) > 2:
+        keys += ("visit_number",)
+    actual = extract_result_rows(rows, tuple((key,) for key in keys), True)
     full = fetch(reference, """
         SELECT customer_id, market_date, 1 AS visit_number
         FROM customer_purchases AS p
@@ -245,7 +247,6 @@ def grade_question_3(rows, reference):
         SELECT customer_id, MAX(market_date) AS market_date, 1 AS visit_number
         FROM customer_purchases GROUP BY customer_id
     """)
-    keys = ("customer_id", "market_date", "visit_number")
     accepted = [count_result_rows(result, keys) for result in (full, unique)]
     return grading_outcome(
         actual in accepted,
