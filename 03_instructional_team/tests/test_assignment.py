@@ -275,7 +275,17 @@ def grade_question_4(rows, reference):
                               ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS product_purchase_count
         FROM customer_purchases WHERE market_date < '2022-04-29'
     """)
-    accepted = [count_result_rows(result, keys) for result in (fixed, running)]
+    # SQLite's default RANGE frame counts tied ordering values together. Both
+    # date-only ordering and date/time ordering are valid running-count answers.
+    tied_running = []
+    for ordering in ("market_date", "market_date, transaction_time"):
+        tied_running.append(fetch(reference, f"""
+            SELECT customer_id, vendor_id, product_id, market_date, transaction_time,
+                   COUNT(*) OVER (PARTITION BY customer_id, product_id
+                                  ORDER BY {ordering}) AS product_purchase_count
+            FROM customer_purchases WHERE market_date < '2022-04-29'
+        """))
+    accepted = [count_result_rows(result, keys) for result in (fixed, running, *tied_running)]
     return grading_outcome(
         actual in accepted,
         "The purchase count is correct for every customer and product.",

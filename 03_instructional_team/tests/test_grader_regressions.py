@@ -140,6 +140,43 @@ class GraderRegressionTests(unittest.TestCase):
             with self.subTest(question=number):
                 self.assertEqual(self.run_submission({number: self.blocks[index]})[number]['status'], 'correct')
 
+    def test_running_purchase_counts_accept_date_peers(self):
+        """Accept date-only running counts while rejecting wrong counts and missing purchases."""
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        try:
+            conn.execute("CREATE TABLE customer_purchases "
+                         "(customer_id, vendor_id, product_id, market_date, transaction_time)")
+            conn.executemany("INSERT INTO customer_purchases VALUES (?, ?, ?, ?, ?)", [
+                (1, 2, 3, '2022-04-01', '09:00'),
+                (1, 2, 3, '2022-04-01', '09:00'),
+                (1, 2, 3, '2022-04-01', '10:00'),
+                (1, 2, 3, '2022-04-02', '09:00'),
+                (1, 2, 4, '2022-04-01', '09:00'),
+                (2, 2, 3, '2022-04-01', '09:00'),
+                (1, 2, 3, '2022-04-29', '09:00'),
+            ])
+            for ordering, expected in (
+                ('market_date', [3, 3, 3, 4, 1, 1]),
+                ('market_date, transaction_time', [2, 2, 3, 4, 1, 1]),
+            ):
+                for details in ('customer_id, product_id, market_date', '*'):
+                    with self.subTest(ordering=ordering, details=details):
+                        rows = G['fetch'](conn, f"""
+                            SELECT {details}, COUNT(*) OVER (
+                                PARTITION BY customer_id, product_id ORDER BY {ordering}
+                            ) AS product_purchase_count
+                            FROM customer_purchases WHERE market_date < '2022-04-29'
+                            ORDER BY rowid
+                        """)
+                        self.assertEqual([row['product_purchase_count'] for row in rows], expected)
+                        self.assertEqual(G['grade_question_4'](rows, conn)[0], 'correct')
+                        self.assertEqual(G['grade_question_4'](rows[:-1], conn)[0], 'incorrect')
+                        rows[0]['product_purchase_count'] = 99
+                        self.assertEqual(G['grade_question_4'](rows, conn)[0], 'incorrect')
+        finally:
+            conn.close()
+
     def test_semicolons_inside_literals_and_comments(self):
         """A semicolon in a product name or comment must not break a valid SQL command."""
         conn = G['clone_database'](self.source)
