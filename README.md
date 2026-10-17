@@ -72,14 +72,16 @@ There are two assignments.
 **Questions can be submitted to the #questions channel on Slack**
 
 * Technical Facilitator:   
-  * **Thomas Rosenthal** (he/him)  
-    [thomas.rosenthal@utoronto.ca](mailto:thomas.rosenthal@utoronto.ca)
+  * **Justin(Jiazhou) Bi** (he/him)  
+    [justin.bi@mail.utoronto.ca](mailto:justin.bi@mail.utoronto.ca)
 
 * Learning Support Staff:
   * **Niyaz Nazari** (she/her)  
   [niyaz.mnazari@gmail.com](mailto:niyaz.mnazari@gmail.com)
   * **Kasra Vakiloroayaei** (he/him)  
   [vakiloroayaei.kasra@gmail.com](mailto:vakiloroayaei.kasra@gmail.com)
+  * **Sergii Khomych** (he/him)  
+  [svkhomich1@gmail.com](mailto:svkhomich1@gmail.com)
 
 ## Delivery of the Learning Module
 
