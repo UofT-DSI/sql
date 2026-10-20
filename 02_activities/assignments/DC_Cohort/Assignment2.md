@@ -70,21 +70,10 @@ Steps to complete this part of the assignment:
 	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
 - Complete each question, by writing responses between the QUERY # and END QUERY blocks
+- Some questions build on your earlier queries or tables. Keep track of the column names you use so you can reference them correctly in later questions.
 
 
 ### Write SQL
-
-**Column names for automatic feedback (Sections 2 and 3):** Keep the original names of existing database columns in your results, such as `customer_id`, `market_date`, and `product_name`. Use `AS` to name calculated columns as follows:
-
-| SQL question | Calculated column name |
-|--------------|------------------------|
-| Q2 and Q3: visit numbering | `visit_number` |
-| Q4: purchase count | `product_purchase_count` |
-| Q5: extracted description | `description` |
-| Q7: total sales, if included | `sales` |
-| Q8: possible revenue | `possible_revenue` |
-
-For example, name a calculated count with `COUNT(*) OVER (...) AS product_purchase_count`. Q1's combined product description may have any column name. For Q9-12, use the table and column names specified in the questions.
 
 #### COALESCE
 1. Our favourite manager wants a detailed long list of products, but is afraid of tables! We tell them, no problem! We can produce a list with all of the appropriate details. 

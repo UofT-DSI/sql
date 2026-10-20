@@ -79,6 +79,49 @@ class GraderRegressionTests(unittest.TestCase):
         """Correct instructor answers should all pass, even when run immediately in sequence."""
         self.assertTrue(all(r["status"] == "correct" for r in self.run_submission().values()))
 
+    def test_column_matching_preserves_row_relationships(self):
+        """Aliases may vary, but values must match together with distinct columns and duplicate rows."""
+        match = G['result_rows_match']
+        expected = [{'customer': 1, 'product': 2}, {'customer': 2, 'product': 1}]
+        self.assertTrue(match([{'b': 1, 'a': 2}, {'b': 2, 'a': 1}],
+                              expected, ('customer', 'product')))
+        self.assertFalse(match([{'a': 1, 'b': 1}, {'a': 2, 'b': 2}],
+                               expected, ('customer', 'product')))
+        repeated = [{'customer': 1, 'product': 1}, {'customer': 2, 'product': 2}]
+        self.assertFalse(match([{'only': 1}, {'only': 2}], repeated, ('customer', 'product')))
+        self.assertTrue(match([{'a': 1, 'b': 1}, {'a': 2, 'b': 2}],
+                              repeated, ('customer', 'product')))
+        self.assertFalse(match([{'a': 1, 'b': 2}] * 2, expected, ('customer', 'product')))
+
+    def test_duplicate_output_names_preserve_values(self):
+        """Repeated AS aliases must not discard one of the student's selected values."""
+        conn = G['clone_database'](self.source)
+        try:
+            rows = G['run_query'](conn, 'SELECT 1 AS label, 2 AS label, 3 AS "label [2]"')
+            self.assertEqual(list(rows[0].values()), [1, 2, 3])
+            self.assertEqual(len(rows[0]), 3)
+        finally:
+            conn.close()
+
+    @requires_private_solution
+    def test_renamed_and_reordered_output_columns(self):
+        """Accept renamed original and calculated columns across all SELECT questions."""
+        for number in range(1, 9):
+            conn = G['clone_database'](self.source)
+            try:
+                rows = G['run_query'](conn, self.valid[number])
+            finally:
+                conn.close()
+            self.assertTrue(rows)
+            projection = ', '.join(
+                '"' + name.replace('"', '""') + f'" AS "student column {index}"'
+                for index, name in reversed(list(enumerate(rows[0])))
+            )
+            inner = self.valid[number].strip().strip(';')
+            sql = f'SELECT {projection} FROM ({inner})'
+            with self.subTest(question=number):
+                self.assertEqual(self.run_submission({number: sql})[number]['status'], 'correct')
+
     @requires_private_solution
     def test_wrong_answers_are_rejected_with_valid_prerequisites(self):
         """Give each question a wrong answer while keeping the other answers correct."""
