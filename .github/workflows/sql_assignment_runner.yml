@@ -112,8 +112,14 @@ jobs:
                 let resultSection = `**Query ${result.number}: ${labels[result.status] || '⚪ Instructor review needed'}**\n\n`;
                 resultSection += `${result.feedback}\n\n`;
                 if (result.error) resultSection += fenced(result.error);
-                if (result.query) resultSection += fenced(result.query, 'sql');
-                if (result.result?.length) resultSection += fenced(JSON.stringify(result.result, null, 2), 'json');
+                let details = '';
+                if (result.query) details += fenced(result.query, 'sql');
+                if (result.result?.length) details += fenced(JSON.stringify(result.result, null, 2), 'json');
+                if (details && result.status === 'correct') {
+                  resultSection += `<details>\n<summary>SQL and output</summary>\n\n${details}\n</details>\n\n`;
+                } else {
+                  resultSection += details;
+                }
                 resultSection += '\n';
                 if (!appendSection(resultSection)) break reportLoop;
               }

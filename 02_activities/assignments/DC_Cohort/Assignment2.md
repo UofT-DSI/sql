@@ -70,6 +70,7 @@ Steps to complete this part of the assignment:
 	- from [Github](./02_activities/assignments/assignment2.sql)
 	- or, from your local forked repository  
 - Complete each question, by writing responses between the QUERY # and END QUERY blocks
+- Some questions build on your earlier queries or tables. Keep track of the column names you use so you can reference them correctly in later questions.
 
 
 ### Write SQL
