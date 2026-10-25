@@ -114,10 +114,10 @@ LIMIT 24;
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 --QUERY 8
-
-
-
-
+SELECT
+COUNT(booth_number)
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 --END QUERY
 
 
@@ -127,10 +127,14 @@ of customers for them to give stickers to, sorted by last name, then first name.
 
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 --QUERY 9
-
-
-
-
+SELECT 
+customer.customer_id,
+SUM(customer_purchases.cost_per_quantity*customer_purchases.quantity) AS total
+FROM customer
+LEFT JOIN customer_purchases
+ON customer.customer_id = customer_purchases.customer_id
+GROUP BY customer.customer_id
+HAVING total > 2000;
 --END QUERY
 
 
