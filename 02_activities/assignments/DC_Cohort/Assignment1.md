@@ -109,7 +109,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 My attempt: 
 
-![logical_model.png](./logical_model.png)
+![logical_model.png](./images/logical_model.png)
 
 ***
 
