@@ -212,7 +212,14 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
+My reponse: 
 
-```
-Your thoughts...
-```
+*In her article "When Databases Get to Define Family," Rida Qadri shows that databases aren't just neutral tools for storing data—they are built around social expectations, state morality, and institutional shortcuts. When tech teams design a system, their unexamined coding choices can create major real-world barriers for anyone who doesn't fit the "default" user profile. This is something I see happening in day-to-day life all the time.*
+
+*For instance, the Canadian healthcare data infrastructure completely privileges citizens and permanent residents over international students. During school breaks, we cannot use the student wellness center. When I get sick during school break and try to book an appointment online at a clinic in Ontario, the system usually requires a standard OHIP card number. But as an international student, my insurance is UHIP, which has a completely different ID format. Because the online database is only optimized for OHIP, it rejects my UHIP number as an invalid input and blocks me from booking. This tiny technical constraint makes getting medical care unfair and exhausting. Since the automated system doesn't work for me, I have to call clinics directly. When you're actively sick, the last thing you want to do is wait on the phone for hours or call back ten times just to get a human receptionist to do a manual override. We could also try walking into a clinic without an appointment, but you might wait for hours or get turned away entirely if they run out of slots. Going to the ER is an option, but that involves an entirely different, massive price tag. By treating non-standard insurance IDs as digital noise, the database schema makes off-campus healthcare less accessible for internationals.*
+
+*While the Canadian system excludes people by failing to recognize unusual profiles, data systems in China have the opposite problem: they track individual profiles all too well, forcing people into inescapable webs of family association. This reflects the traditional concept of Lianzuo (连坐), where a whole family faces the consequences of one person's actions. In the digital age, this collective punishment is automated.*
+
+*If one applies for a public sector or civil service job in China, they'd have to go through a political background check (政审). The relational databases seamlessly link your profile to your family tree. If a parent has a criminal record, the system flags it during the automated screening, and the applicant is immediately disqualified, regardless of their personal or professional merit. Similarly, the Supreme Court’s public database for "Dishonest Persons" (失信) automates financial blocks. If a parent is blacklisted for unpaid debts, the system flags their identity and automatically blocks their children from enrolling in private or international schools. In these systems, the database doesn't view you as an independent individual, but as an inseparable node tied to your family's record.*
+
+*Ultimately, both the Canadian healthcare system and Chinese data tracking prove the article's point. Databases act as powerful societal gatekeepers. They don't just store information; they dictate who gets to navigate society smoothly and who gets pushed to the margins.*
