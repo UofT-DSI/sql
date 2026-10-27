@@ -95,10 +95,10 @@ vendor_id field they both have in common, and sorts the result by market_date, t
 Limit to 24 rows of output. */
 --QUERY 7
 
-SELECT *
+SELECT * 			-- best practice is to specify the cols, since there might be cols from diff tables w same names
 FROM vendor AS v
 INNER JOIN vendor_booth_assignments AS vb 		-- can omit "inner" b/c it's the default join method
-ON v.vendor_id = vb.vendor_id
+USING (vendor_id) -- ON v.vendor_id = vb.vendor_id -- keeps both vendor_id cols; USING deletes 1 ID col
 ORDER BY market_date, vendor_name
 LIMIT 24;
 
@@ -113,7 +113,11 @@ LIMIT 24;
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 --QUERY 8
 
+SELECT * FROM vendor_booth_assignments;
 
+SELECT vendor_id, COUNT(booth_number) AS times_rented_booth
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
 
 --END QUERY
 
@@ -125,7 +129,15 @@ of customers for them to give stickers to, sorted by last name, then first name.
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 --QUERY 9
 
-
+SELECT 
+		customer_id, 
+		customer_last_name,
+		customer_first_name,
+		SUM(quantity * cost_per_quantity) AS total_spent
+FROM customer_purchases LEFT JOIN customer USING(customer_id)
+GROUP BY customer_id
+HAVING total_spent > 2000
+ORDER BY customer_last_name, customer_first_name;
 
 --END QUERY
 
@@ -143,7 +155,19 @@ VALUES(col1,col2,col3,col4,col5)
 */
 --QUERY 10
 
+ -- if a table named new_vendor_inventory exists, delete it, otherwise do nothing
+DROP TABLE IF EXISTS temp.new_vendor;
 
+-- create temp table
+CREATE TABLE temp.new_vendor AS
+SELECT * FROM vendor;
+
+-- add new vendor
+INSERT INTO temp.new_vendor
+VALUES(10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
+
+-- check new temp table
+SELECT * FROM temp.new_vendor;
 
 --END QUERY
 
@@ -156,7 +180,13 @@ and year are!
 Limit to 25 rows of output. */
 --QUERY 11
 
-
+SELECT 
+		customer_id, 
+		market_date, 
+		strftime('%m', market_date) AS month, 
+		strftime('%Y', market_date) AS year
+FROM customer_purchases
+LIMIT 25;
 
 --END QUERY
 
@@ -169,6 +199,14 @@ but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! */
 --QUERY 12
 
-
+SELECT 
+		customer_id, 
+		market_date, 
+		strftime('%m', market_date) AS month, 
+		strftime('%Y', market_date) AS year,
+		SUM(quantity * cost_per_quantity) AS total_spent
+FROM customer_purchases 
+WHERE month = '04' AND year = '2022'
+GROUP BY customer_id;
 
 --END QUERY
