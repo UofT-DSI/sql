@@ -155,7 +155,7 @@ VALUES(col1,col2,col3,col4,col5)
 */
 --QUERY 10
 
- -- if a table named new_vendor_inventory exists, delete it, otherwise do nothing
+-- if a table named new_vendor_inventory exists, delete it, otherwise do nothing
 DROP TABLE IF EXISTS temp.new_vendor;
 
 -- create temp table
