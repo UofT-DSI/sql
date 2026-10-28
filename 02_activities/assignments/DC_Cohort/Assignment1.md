@@ -210,4 +210,14 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 ```
 Your thoughts...
+One of the value systems that I encounter in my daily life is related to my PhD research, which focuses on cancer treatment. 
+Patient databases typically include basic personal information such as name and date of birth, along with health-related info including diagnosis, symptoms, and treatment protocol. 
+Currently, the main hospitals in downtown Toronto do not have a central system where the patient data is shared, and requires manual updating at each hospital if the patient is transferred or receiving treatments at different locations. 
+While the standalone systems can help address security and privacy concerns, from a database perspective, this system can introduce a lot of inconsistencies. 
+For example, if pathology uses a drop-down list of different markers, this list may not be the same between the hospital databases along with different naming conventions (eg. CD4 vs. CD-4). 
+In certain instances, the patient info may be very different if they went to Hospital 1 for treatment of Disease A, and then separately to Hospital 2 for Disease 2, as there can be no communication between the two treatments and thus no manual updating of the database occurs. 
+It’s important to have the full picture for informing treatment protocols, and inconsistencies in information/databases may affect this decision, especially if the visits are not disclosed by the patient. 
+Additionally, from a data analysis or study perspective, it may be difficult to compare between patient cohorts if the data is not consistent. 
+At a broader scale, this means that hospitals may be excluded from the data analysis or studies if there is not a rigorous recordkeeping/database system, which is more common in less developed areas. 
+Ultimately, this can lead to underrepresentation of these populations when developing treatments. 
 ```
