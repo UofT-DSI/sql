@@ -209,5 +209,13 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Databases are often considered objective sources of information, but their design can influence how individuals are categorized and represented. Qadri's article illustrates this through Pakistan's national identification database, where assumptions about family structures and marriage can prevent individuals from accessing essential services. This shows how decisions about data collection and organization can reinforce existing inequalities.
+
+In my work in health services research, I use administrative healthcare databases to study healthcare utilization, costs and outcomes. These databases were primarily developed for administrative purposes rather than research. As a result, they capture hospitalizations, physician visits and healthcare costs, but often lack information about patients' experiences and unmet healthcare needs.
+
+For example, patients with fewer healthcare encounters may appear to have lower healthcare needs. However, lower utilization may actually result from financial, geographical or social barriers to accessing care. If we interpret utilization as a measure of need, we risk underestimating the needs of disadvantaged populations.
+
+Similarly, demographic characteristics such as sex, gender and socioeconomic status are often recorded using predefined categories that may not adequately capture differences within populations. This can affect how we identify and measure health inequities.
+
+I think these limitations are particularly important because research findings can inform healthcare policy and resource allocation. Qadri's article highlights that databases are not neutral. As researchers, we need to consider what information is captured, what is missing and how these decisions may influence our findings and potentially reinforce existing inequities.
 ```
