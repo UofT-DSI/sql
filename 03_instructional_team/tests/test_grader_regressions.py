@@ -19,7 +19,7 @@ from unittest.mock import patch
 # Find the repository root, regardless of where this test file is launched from.
 REPO = Path(__file__).resolve().parents[2]
 # Load the real grader functions so these tests exercise the code used for marking.
-G = runpy.run_path(str(Path(__file__).with_name("test_assignment.py")))
+G = runpy.run_path(str(Path(__file__).with_name("test_assignment_2.py")))
 SOLUTION_RUBRIC = os.environ.get("A2_SOLUTION_RUBRIC")
 requires_private_solution = unittest.skipUnless(
     SOLUTION_RUBRIC,

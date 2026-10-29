@@ -23,7 +23,7 @@ def grade_files(files, output):
         error = None
         try:
             result = subprocess.run(
-                [sys.executable, "-m", "pytest", "03_instructional_team/tests/test_assignment.py",
+                [sys.executable, "-m", "pytest", "03_instructional_team/tests/test_assignment_2.py",
                  f"--file_path={file_path}", f"--report_path={report}",
                  "--tb=short", "--disable-warnings"], timeout=120, check=False,
             )
