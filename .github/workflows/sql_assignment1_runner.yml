@@ -1,0 +1,143 @@
+name: SQL Assignment 1 Execution Feedback
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
+    paths:
+      - '**/assignment1.sql'
+  workflow_dispatch:  # Manual trigger from GitHub UI
+    inputs:
+      branch:
+        description: 'Assignment 1 branch to run, usually assignment-one'
+        required: true
+        default: assignment-one
+        type: string
+      pr_number:
+        description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
+        required: true
+        type: string
+        default: '1'
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  run-assignment-queries:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      ((github.head_ref == 'assignment-one' || github.head_ref == 'assignment-1' ||
+        github.head_ref == 'assignment-two' || github.head_ref == 'assignment-2') &&
+      github.repository_owner != 'UofT-DSI')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r ./.github/scripts/requirements.txt
+
+      - name: Verify grader regressions
+        run: python -m pytest 03_instructional_team/tests/test_assignment1_regressions.py -q
+
+      - name: Get changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          base_ref="${BASE_SHA:-origin/main}"
+          git diff --name-only -z "$base_ref"...HEAD > changed_files.txt
+
+      - name: Grade changed assignments
+        id: grading
+        continue-on-error: true
+        run: python .github/scripts/grade_assignment1.py changed_files.txt a1-test-results.json
+
+      - name: Post grading feedback to PR
+        if: always() && steps.grading.outcome != 'skipped'
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number || github.event.pull_request.number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const labels = {
+              executed: '⚪ SQL executed; instructor review needed', error: '❌ Error',
+              missing: '❌ Missing answer', blocked: '⚪ Cannot assess: prerequisite failed',
+              manual_review: '⚪ Instructor review needed'
+            };
+            function fenced(value, language = '') {
+              const text = String(value);
+              const runs = text.match(/`+/g) || [];
+              const fence = '`'.repeat(Math.max(3, ...runs.map(run => run.length + 1)));
+              return `${fence}${language}\n${text}\n${fence}\n`;
+            }
+            let reports;
+            try {
+              reports = JSON.parse(fs.readFileSync('a1-test-results.json', 'utf8'));
+              if (!Array.isArray(reports)) throw new Error('Invalid report format');
+            } catch (error) {
+              reports = [{file: 'Grading runner', results: [], runner_error: error.message}];
+            }
+            if (!reports.length) return;
+            let body = '### SQL Assignment 1 execution feedback\n\n';
+            body += 'Restored A1 execution checks: up to three result rows per query. Successful execution does not establish correctness or award marks; instructor review is required.\n\n';
+            const truncationNotice = '\nFeedback truncated; inspect the workflow report for remaining results.';
+            const maxBodyLength = 60000;
+            let truncated = false;
+            function appendSection(section) {
+              if (body.length + section.length + truncationNotice.length > maxBodyLength) {
+                truncated = true;
+                return false;
+              }
+              body += section;
+              return true;
+            }
+            reportLoop:
+            for (const report of reports) {
+              let reportSection = fenced(report.file);
+              if (report.runner_error) reportSection += `Grading could not finish: ${report.runner_error}\n\n`;
+              if (!appendSection(reportSection)) break;
+              for (const result of report.results) {
+                let resultSection = `**Query ${result.number}: ${labels[result.status] || '⚪ Instructor review needed'}**\n\n`;
+                resultSection += `${result.feedback}\n\n`;
+                if (result.error) resultSection += fenced(result.error);
+                if (result.query) resultSection += fenced(result.query, 'sql');
+                if (result.result?.length) resultSection += fenced(JSON.stringify(result.result, null, 2), 'json');
+                resultSection += '\n';
+                if (!appendSection(resultSection)) break reportLoop;
+              }
+            }
+            if (truncated) body += truncationNotice;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: Number(process.env.PR_NUMBER),
+              body
+            });
+
+      - name: Upload grading reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a1-grading-results
+          path: a1-test-results.json
+          if-no-files-found: ignore
+
+      - name: Preserve runner failure status
+        if: always() && steps.grading.outcome == 'failure'
+        run: exit 1
