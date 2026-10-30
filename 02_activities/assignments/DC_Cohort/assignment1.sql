@@ -18,7 +18,7 @@ sorted by customer_last_name, then customer_first_ name. */
 --QUERY 2
 
 SELECT * FROM customer
-ORDER BY cutomer_last_name, customer_first_name
+ORDER BY customer_last_name, customer_first_name
 LIMIT 10;
 
 
@@ -165,6 +165,7 @@ SELECT * FROM vendor;
 INSERT INTO temp.new_vendor
 VALUES (10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
 
+SELECT * FROM temp.new_vendor;
 
 
 
