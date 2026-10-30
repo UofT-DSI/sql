@@ -108,6 +108,8 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 ***
 
+- <img src="./images/section1D.png" width="600">
+
 ## Section 2:
 You can start this section following *session 2*.
 
@@ -209,5 +211,13 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+When I graduated from primary school and needed to get into middle school,  the scheme was based on a scoring system. This point system has various strict criteria. For example, it calculates whether your family has lived in the district and paid taxes for a long enough period, as well as whether you have the official city identity registration. The current school admission system is built around a specific type of family: the traditional, locally born family with only one child. The policy is unfair for the families who have moved to the city and worked hard here. This design shows how system design can isolate certain groups and take away their right to a good education.
+
+ 
+
+ 
+
+Another important factor in this system is if you have one birth in your family, then you get 50 more points. But the problem happens to families where they have twins in one birth. But the database only links to one child, not exactly one birth. Thus, a family with twins cannot get these very important 50 points in this important recruitment process. The design of the database and definition of the policy are not fair enough. Because twins are registered as two distinct children, the system automatically disqualifies them from the single-birth category. However, the rule was intended to award the family a single birth to control the fast-paced growth of the population. But the database system counts how many children are in a family instead of the number of births. It unfairly hurts families with twins like my family. Even though I have another score from other criteria to let me get into the school. I knew some family they really need this 50 score to help their child to get a good education chance. To fix this, the database system needs to be updated. It should record a single birth instead of the number of children.
+
+
 ```
