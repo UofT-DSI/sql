@@ -206,8 +206,20 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 **What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
 
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
-
-
 ```
 Your thoughts...
 ```
+China's national ID (身份证 shenfenzheng) and household registration (户口 hukou). Similar to what I have read about the database of Pakistan, I think these systems reflect certain heteronormative assumptions about gender and family structures.
+
+First, the official gender classification recorded on Chinese national IDs is binary — either male or female. This excludes people who identify as non-binary, as there is no option that accurately represents their gender identity.
+Consequently, non-binary individuals may feel marginalized or invisible within the legal system, since their identities cannot be adequately represented in official records. 
+What I find particularly interesting is that this binary classification is treated as a seemingly natural and objective way of categorizing people, even though it reflects particular social understandings of gender.
+
+Meanwhile, because same-sex marriage is not legally recognized in mainland China, same-sex couples cannot register as married partners. This can create significant difficulties when dealing with legal and administrative matters.
+For instance, if one partner experiences a medical emergency and cannot make decisions independently, the other partner is not automatically recognized as their legal spouse or next of kin.
+Same-sex couples do not automatically receive the same legal recognition as married heterosexual couples.
+
+Furthermore, even if same-sex partners raise children together, both partners may not be legally recognized as the children's parents in the household registration system.
+In particular, a non-biological parent may face difficulties establishing a legally recognized parental relationship, despite having actively participated in raising the child.
+This can create complications in matters involving guardianship, inheritance, and other parental responsibilities involved in schooling and children's education. 
+
