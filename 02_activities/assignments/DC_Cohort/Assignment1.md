@@ -145,6 +145,7 @@ Steps to complete this part of the assignment:
 1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `market_date` then `vendor_name`. Limit to 24 rows of output. 
 
 ***
+### Write SQL
 
 ## Section 3:
 You can start this section following *session 3*.
@@ -187,6 +188,7 @@ Limit to 25 rows of output.
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! 
 
+
 *** 
 
 ## Section 4:
@@ -209,5 +211,11 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+Academic research relies on structured databases such as citation indexes, bibliographic databases, and editorial management systems that may initially appear neutral. However, their underlying structures maintain values that can determine which results are shared.
+
+At the structural level, relational tables can define "valuable research" through variables like `Author`, `Paper`, and `Citation` links. This almost equates intellectual value with metrics like the h-index and journal Impact Factors. In doing so, this favors authorship over communal knowledge frameworks that cannot be resolved into a single primary key. For instance, collaborative community insights or multi-generational knowledge lack a 'natural' slot within an individualistic author table. Because the current structure requires individual authors to credit, the communal context of the findings are erased before it reaches the peer review stage.
+
+Furthermore, expected vocabularies and standardized metadata tables tend to maintain an English default. Based on this, non-English and regional studies might be filtered out, unindexed, or difficult to find with current search algorithms, or may potentially result in lower publication impact/reach. This setup seems to signal that local knowledge only matters if it can be translated into the expected terminology. Consequently, scholars outside well-funded institutions must spend additional effort molding their findings to match popular classifications.
+
+This impacts our society directly; such data systems can restrict our understanding and knowledge to whatever neatly fits inside the current relational structures.
 ```
