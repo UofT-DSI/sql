@@ -123,6 +123,16 @@ Steps to complete this part of the assignment:
 1. Write a query that returns everything in the customer table.
 2. Write a query that displays all of the columns and 10 rows from the customer table, sorted by customer_last_name, then customer_first_ name.
 
+My code:
+Q1
+SELECT *
+FROM customer;
+Q2
+SELECT *
+FROM customer
+ORDER BY customer_last_name, customer_first_name
+LIMIT 10;
+
 <div align="center">-</div>
 
 #### WHERE
@@ -132,6 +142,23 @@ Steps to complete this part of the assignment:
 	2.  one condition using BETWEEN <br>
    Limit to 25 rows of output.
 
+Q1
+SELECT *
+FROM customer_purchases
+WHERE product_id=4 OR product_id=9
+LIMIT 25;
+
+Q2
+SELECT *, quantity *cost_per_quantity AS price
+FROM customer_purchases
+WHERE product_id BETWEEN 8 AND 10
+LIMIT 25;
+second option:
+SELECT *, quantity *cost_per_quantity AS price
+FROM customer_purchases
+WHERE product_id <=10 AND product_id>=8
+LIMIT 25;
+
 <div align="center">-</div>
 
 #### CASE
@@ -139,11 +166,28 @@ Steps to complete this part of the assignment:
 
 2. We want to flag all of the different types of pepper products that are sold at the market. Add a column to the previous query called `pepper_flag` that outputs a 1 if the product_name contains the word “pepper” (regardless of capitalization), and otherwise outputs 0.
 
+Q1
+SELECT product_id, product_name,
+CASE 
+WHEN product_qty_type='unit' THEN 'unit'
+ELSE 'bulk'
+END AS product_qty_type_condensed FROM product;
+
+Q2
+SELECT product_id, product_name, 
+CASE WHEN product_qty_type='unit' THEN 'unit' ELSE 'bulk' END AS product_qty_type_condensed,
+CASE WHEN product_name LIKE '%pepper%' THEN 1 ELSE 0 END AS pepper_flag
+FROM product;
+
 <div align="center">-</div>
 
 #### JOIN
 1. Write a query that `INNER JOIN`s the `vendor` table to the `vendor_booth_assignments` table on the `vendor_id` field they both have in common, and sorts the result by `market_date` then `vendor_name`. Limit to 24 rows of output. 
 
+SELECT vba.market_date, v.vendor_name FROM vendor_booth_assignments AS vba
+INNER JOIN vendor AS v ON vba.vendor_id=v.vendor_id
+ORDER BY vba.market_date, v.vendor_name
+LIMIT 24;
 ***
 
 ## Section 3:
@@ -163,6 +207,23 @@ Steps to complete this part of the assignment:
    
 **HINT**: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword.
 
+Q1
+SELECT vendor_id, COUNT(booth_number)
+FROM vendor_booth_assignments
+GROUP BY vendor_id;
+
+Q2
+--customer table has list of customer names with customer_id as the identifier; customer purchases table has the list of purchases with customer_id as an identifier as well
+--join customer to customer_purchases table on customer_id 
+--create a new column total_spending which is quantity*cost_per_quantity from customer_purchases
+--insert HAVING function to limit to total_spending >2000
+--order by customer_last_name, customer_first_name from customer
+SELECT c.customer_id, c.customer_last_name, c.customer_first_name, cp.quantity*cp.cost_per_quantity AS total_spending FROM customer as c
+INNER JOIN customer_purchases AS cp ON c.customer_id = cp.customer_id
+GROUP BY c.customer_id HAVING total_spending >2000
+ORDER BY customer_last_name, customer_first_name;
+
+
 <div align="center">-</div>
 
 #### Temp Table
@@ -173,6 +234,13 @@ Steps to complete this part of the assignment:
 To insert the new row use VALUES, specifying the value you want for each column:  
 `VALUES(col1,col2,col3,col4,col5)`
 
+-- create a temp new table temp.new_vendor from vendor and add new entry using VALUES
+CREATE TEMP TABLE  temp.new_vendor AS SELECT * FROM vendor;
+INSERT INTO temp.new_vendor (vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+VALUES(10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
+SELECT * FROM temp.new_vendor;
+
+
 <div align="center">-</div>
 
 #### Date
@@ -182,10 +250,19 @@ To insert the new row use VALUES, specifying the value you want for each column:
 
 Limit to 25 rows of output. 
 
+SELECT customer_id, STRFTIME('%m', market_date) AS purchase_month, STRFTIME('%Y', market_date) AS purchase_year
+FROM customer_purchases
+LIMIT 25;
+
 2. Using the previous query as a base, determine how much money each customer spent in April 2022. Remember that money spent is `quantity*cost_per_quantity`.
    
 **HINTS**: you will need to AGGREGATE, GROUP BY, and filter...but remember, STRFTIME returns a STRING for your WHERE statement...
 AND be sure you remove the LIMIT from the previous query before aggregating!! 
+
+SELECT customer_id, STRFTIME('%m', market_date) AS purchase_month, STRFTIME('%Y', market_date) AS purchase_year, quantity*cost_per_quantity AS customer_spending
+FROM customer_purchases
+WHERE purchase_month='04' AND purchase_year='2022'
+GROUP BY customer_id LIMIT 25;
 
 *** 
 
@@ -210,4 +287,10 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 ```
 Your thoughts...
+Many of the forms I fill out in Canada quietly encode values about who matters and how. Salutation fields, for instance, embed a social hierarchy: being listed as “Dr.” can bring privileges rooted in assumptions about one’s status, education, and credibility. Even the most routine identifiers, full name and date of birth, reflect a particular worldview about what makes a person legible to the state.
+
+My mother’s story made this clear to me. She was born in a small village in Ethiopia in the 1960s, where names and birth dates were not formally recorded at birth. When she enrolled in elementary school in the capital city, she had to supply her own name and estimate her birthday. Hearing this, I realized how deeply these two data points are woven into the social structures of Western countries, and how developing nations have adopted them even where they do not align with traditional customs. Like the Pakistani family database Qadri describes, these systems do not simply record identity; they define it, and people whose lives do not fit the template must reshape themselves to be counted.
+
+These identifiers are also imperfect on their own terms. Someone can use another person’s name, date of birth, and SIN to misrepresent themselves, which raises questions about whether they deserve the weight we give them. I am curious what alternative identification information a national database could use. An evolving biometric database is one intriguing possibility, though it would carry its own embedded values about bodies, consent, and surveillance that would need careful scrutiny.
+
 ```
