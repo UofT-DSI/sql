@@ -207,7 +207,13 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
+Databases appear neutral because they organize information through fields, categories, and rules. However, deciding which information matters and which entries are acceptable involves values. In “When Databases Get to Define Family”, Pakistan’s identification system embeds assumptions about marriage and biological family relationships. People whose circumstances do not fit those assumptions can struggle to access essential services. This example makes me consider how everyday systems also turn social expectations into requirements that shape people’s opportunities.
 
-```
-Your thoughts...
-```
+
+School databases offer an example. Recording grades, attendance, and submission times reflects values of achievement, accountability, and punctuality. These values can support learning, but the records provide an incomplete picture of a student’s circumstances. A late assignment could reflect poor planning, unreliable internet, paid work, disability, or caregiving responsibilities. If a system treats every late submission as equivalent, equal treatment can produce unequal consequences. Fairness requires room for context and a meaningful way to question decisions based on those records.
+
+Shopping and social media systems also reveal competing priorities. When browsing histories and interactions become inputs for recommendations, a person is represented through measurable behavior. The values embedded in such systems depend partly on what their designers choose to reward. Optimizing for purchases or continued attention can make commercial goals more influential than privacy, autonomy, or the user’s longer-term interests. I would question whether a recommendation helps someone make a choice or mainly encourages behavior that benefits the platform.
+
+These concerns can overlap. Someone dealing with unstable housing, limited income, and a disability may encounter several barriers at once. Requiring an address, constant connectivity, and rapid responses could seem reasonable when each requirement is considered separately. Together, those requirements can systematically disadvantage the same person. This is why evaluating individual fields is insufficient: the whole process matters.
+
+For me, ethical database design means questioning what a system requires people to prove and what happens when they cannot. Designers should collect only necessary information, accommodate different circumstances, and provide accessible correction and appeal processes. They should also involve people likely to be excluded. Efficiency matters, but it should be evaluated alongside dignity and access. A successful system must be able to serve people whose lives differ from the assumptions built into its categories.
