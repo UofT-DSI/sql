@@ -34,8 +34,6 @@ def load_queries(sql_file):
                 raise ValueError("END QUERY has no matching QUERY marker.")
             queries[number] = "\n".join(buffer).strip()
             number = None
-        elif re.match(r"--\s*(QUERY|END\s+QUERY)\b", stripped, re.I):
-            raise ValueError(f"Invalid answer marker: {stripped}")
         elif number is not None:
             buffer.append(line)
     if number is not None:
@@ -110,6 +108,29 @@ def clone_database(source, clock=None):
     return clone
 
 
+def unique_column_names(names):
+    """Give repeated output names distinct labels so no column values are lost.
+
+    For example, ['value', 'value'] becomes ['value', 'value [2]'].
+    Existing names are kept: ['value', 'value', 'value [2]'] becomes
+    ['value', 'value [3]', 'value [2]'] to avoid another duplicate.
+    These labels are only used in the results; the SQL itself is not changed.
+    """
+    used = set(names)
+    keys = []
+    for index, name in enumerate(names):
+        key = name
+        if key in keys:
+            suffix = index + 1
+            key = f"{name} [{suffix}]"
+            while key in used:
+                suffix += 1
+                key = f"{name} [{suffix}]"
+        used.add(key)
+        keys.append(key)
+    return keys
+
+
 def run_query(conn, query):
     """Execute SQL statements without splitting quoted semicolons or comments."""
     deadline = time.monotonic() + 10
@@ -125,7 +146,10 @@ def run_query(conn, query):
                 buffer = ""
         if any(token != ";" for token in sql_tokens(buffer)):
             cursor.execute(buffer)
-        return [dict(row) for row in cursor.fetchall()]
+        # SQLite supplies final names, including AS aliases.
+        names = [column[0] for column in (cursor.description or ())]
+        keys = unique_column_names(names)
+        return [dict(zip(keys, row)) for row in cursor.fetchall()]
     finally:
         conn.set_progress_handler(None, 0)
 
@@ -145,20 +169,47 @@ def count_result_rows(rows, keys):
     return Counter(tuple(normalize_value(row[key]) for key in keys) for row in rows)
 
 
-def extract_result_rows(rows, columns, last_fallback=False):
-    """Extract comparable columns from student results using accepted column names."""
+def result_rows_match(rows, expected, keys):
+    """Match distinct output columns by values, preserving whole rows and duplicates."""
+    if len(rows) != len(expected):
+        return False
     if not rows:
-        return Counter()
-    actual_keys = []
-    lower_keys = {key.lower(): key for key in rows[0]}
-    for index, choices in enumerate(columns):
-        key = next((lower_keys[name.lower()] for name in choices if name.lower() in lower_keys), None)
-        if key is None and last_fallback and index == len(columns) - 1:
-            key = list(rows[0])[-1]
-        if key is None:
-            return None
-        actual_keys.append(key)
-    return Counter(tuple(normalize_value(row[key]) for key in actual_keys) for row in rows)
+        return True
+    if len(rows[0]) < len(keys):
+        return False
+    candidates = []
+    actual_counts = {column: count_result_rows(rows, (column,)) for column in rows[0]}
+    for key in keys:
+        counts = count_result_rows(expected, (key,))
+        candidates.append([column for column, actual in actual_counts.items() if actual == counts])
+    if any(not choices for choices in candidates):
+        return False
+
+    def match_columns(selected):
+        """Add one column at a time, checking the chosen columns together.
+
+        Recursively try the next column; if a combination fails, try another choice.
+        Return True when all required columns match, or False if no combination works.
+        """
+        index = len(selected)
+        if index == len(keys):
+            return True
+        expected_prefix = count_result_rows(expected, keys[:index + 1])
+        # Identical column vectors are interchangeable; avoid redundant branches.
+        tried = set()
+        for column in candidates[index]:
+            if column in selected:
+                continue
+            vector = tuple(normalize_value(row[column]) for row in rows)
+            if vector in tried:
+                continue
+            tried.add(vector)
+            projected = (*selected, column)
+            if count_result_rows(rows, projected) == expected_prefix and match_columns(projected):
+                return True
+        return False
+
+    return match_columns(())
 
 
 def grading_outcome(passed, success, failure):
@@ -209,9 +260,6 @@ def grade_question_1(rows, reference):
 
 def grade_question_2(rows, reference):
     """Grade the ascending customer visit-number answer."""
-    actual = extract_result_rows(
-        rows, (("customer_id",), ("market_date",), ("visit_number",)), True
-    )
     full = fetch(reference, """
         SELECT customer_id, market_date,
                DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY market_date) AS visit_number
@@ -224,9 +272,8 @@ def grade_question_2(rows, reference):
               WHERE market_date < '2022-04-29')
     """)
     keys = ("customer_id", "market_date", "visit_number")
-    accepted = [count_result_rows(result, keys) for result in (full, unique)]
     return grading_outcome(
-        actual in accepted,
+        any(result_rows_match(rows, result, keys) for result in (full, unique)),
         "Visit dates are numbered correctly for each customer.",
         "The visit numbers or returned dates are incorrect.",
     )
@@ -234,9 +281,10 @@ def grade_question_2(rows, reference):
 
 def grade_question_3(rows, reference):
     """Grade the most-recent customer visit answer."""
-    actual = extract_result_rows(
-        rows, (("customer_id",), ("market_date",), ("visit_number",)), True
-    )
+    # The rank can be used to filter a subquery without appearing in its output.
+    keys = ("customer_id", "market_date")
+    if rows and len(rows[0]) > 2:
+        keys += ("visit_number",)
     full = fetch(reference, """
         SELECT customer_id, market_date, 1 AS visit_number
         FROM customer_purchases AS p
@@ -247,10 +295,8 @@ def grade_question_3(rows, reference):
         SELECT customer_id, MAX(market_date) AS market_date, 1 AS visit_number
         FROM customer_purchases GROUP BY customer_id
     """)
-    keys = ("customer_id", "market_date", "visit_number")
-    accepted = [count_result_rows(result, keys) for result in (full, unique)]
     return grading_outcome(
-        actual in accepted,
+        any(result_rows_match(rows, result, keys) for result in (full, unique)),
         "Only each customer's most recent visit is returned.",
         "The result does not contain only each customer's most recent visit.",
     )
@@ -258,11 +304,11 @@ def grade_question_3(rows, reference):
 
 def grade_question_4(rows, reference):
     """Grade the customer product-purchase count answer."""
-    columns = (
-        ("customer_id",), ("vendor_id",), ("product_id",),
-        ("market_date",), ("transaction_time",), ("product_purchase_count",),
-    )
-    actual = extract_result_rows(rows, columns, True)
+    # Purchase details are optional, but validate them when students include them.
+    returned_names = {key.lower() for key in rows[0]} if rows else set()
+    keys = ["customer_id", "product_id", "market_date"]
+    keys.extend(key for key in ("vendor_id", "transaction_time") if key in returned_names)
+    keys.append("product_purchase_count")
     fixed = fetch(reference, """
         SELECT customer_id, vendor_id, product_id, market_date, transaction_time,
                COUNT(*) OVER (PARTITION BY customer_id, product_id) AS product_purchase_count
@@ -275,12 +321,21 @@ def grade_question_4(rows, reference):
                               ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS product_purchase_count
         FROM customer_purchases WHERE market_date < '2022-04-29'
     """)
-    keys = tuple(item[0] for item in columns)
-    accepted = [count_result_rows(result, keys) for result in (fixed, running)]
+    # SQLite's default RANGE frame counts tied ordering values together. Both
+    # date-only ordering and date/time ordering are valid running-count answers.
+    tied_running = []
+    for ordering in ("market_date", "market_date, transaction_time"):
+        tied_running.append(fetch(reference, f"""
+            SELECT customer_id, vendor_id, product_id, market_date, transaction_time,
+                   COUNT(*) OVER (PARTITION BY customer_id, product_id
+                                  ORDER BY {ordering}) AS product_purchase_count
+            FROM customer_purchases WHERE market_date < '2022-04-29'
+        """))
     return grading_outcome(
-        actual in accepted,
+        any(result_rows_match(rows, result, keys) for result in (fixed, running, *tied_running)),
         "The purchase count is correct for every customer and product.",
-        "The purchase counts or returned rows are incorrect.",
+        "Include the customer ID, product ID, market date, and a purchase count for every purchase row. "
+        "Check the counts and the filter to dates before April 29, 2022; vendor_id and transaction_time are optional.",
     )
 
 
@@ -293,15 +348,8 @@ def grade_question_5(rows, reference):
                     ELSE NULL END AS description
         FROM product
     """)
-    expected_rows = count_result_rows(expected, ("product_name", "description"))
-    # Students may name the description column differently; compare its values with each product.
-    matches = any(
-        extract_result_rows(rows, (("product_name",), (column,))) == expected_rows
-        for column in (rows[0] if rows else ())
-        if column.lower() != "product_name"
-    )
     return grading_outcome(
-        matches,
+        result_rows_match(rows, expected, ("product_name", "description")),
         "Product descriptions are extracted and trimmed correctly.",
         "The descriptions do not match the text after each product-name hyphen.",
     )
@@ -309,14 +357,11 @@ def grade_question_5(rows, reference):
 
 def grade_question_6(rows, reference):
     """Grade the numeric product-size REGEXP answer."""
-    actual = extract_result_rows(rows, (("product_size",),))
-    if actual is None and rows and all(len(row) == 1 for row in rows):
-        actual = Counter((normalize_value(next(iter(row.values()))),) for row in rows)
     expected = fetch(
         reference, "SELECT product_size FROM product WHERE product_size REGEXP '[0-9]'"
     )
     return grading_outcome(
-        actual == count_result_rows(expected, ("product_size",)),
+        result_rows_match(rows, expected, ("product_size",)),
         "Only product sizes containing a number are returned.",
         "The result does not match all product sizes containing a number.",
     )
@@ -324,7 +369,6 @@ def grade_question_6(rows, reference):
 
 def grade_question_7(rows, reference):
     """Grade the highest and lowest market-sales answer."""
-    actual = extract_result_rows(rows, (("market_date",), ("sales", "total_sales", "revenue")), True)
     expected = fetch(reference, """
         WITH daily AS (
             SELECT market_date, ROUND(SUM(quantity * cost_per_quantity), 2) AS sales
@@ -335,20 +379,11 @@ def grade_question_7(rows, reference):
            OR sales = (SELECT MAX(sales) FROM daily)
     """)
     if rows and all(len(row) == 1 for row in rows):
-        actual_dates = Counter(next(iter(row.values())) for row in rows)
-        return grading_outcome(actual_dates == Counter(row["market_date"] for row in expected),
+        return grading_outcome(result_rows_match(rows, expected, ("market_date",)),
                                "The highest and lowest sales dates are correct.",
                                "The highest and lowest sales dates are incorrect.")
-    if actual != count_result_rows(expected, ("market_date", "sales")) and rows:
-        for column in rows[0]:
-            if column == "market_date":
-                continue
-            candidate = extract_result_rows(rows, (("market_date",), (column,)))
-            if candidate == count_result_rows(expected, ("market_date", "sales")):
-                actual = candidate
-                break
     return grading_outcome(
-        actual == count_result_rows(expected, ("market_date", "sales")),
+        result_rows_match(rows, expected, ("market_date", "sales")),
         "The highest and lowest sales dates and totals are correct.",
         "The result does not match the highest and lowest sales dates.",
     )
@@ -356,11 +391,6 @@ def grade_question_7(rows, reference):
 
 def grade_question_8(rows, reference):
     """Grade the possible vendor revenue answer."""
-    actual = extract_result_rows(
-        rows,
-        (("vendor_name",), ("product_name",), ("possible_revenue", "sum(price)", "revenue")),
-        True,
-    )
     expected = fetch(reference, """
         SELECT vendor_name, product_name, SUM(price) AS possible_revenue
         FROM (
@@ -371,7 +401,7 @@ def grade_question_8(rows, reference):
         GROUP BY vendor_name, product_name
     """)
     return grading_outcome(
-        actual == count_result_rows(expected, ("vendor_name", "product_name", "possible_revenue")),
+        result_rows_match(rows, expected, ("vendor_name", "product_name", "possible_revenue")),
         "Possible revenue is correct for every vendor and product.",
         "The possible revenue does not match five items per customer.",
     )
@@ -399,8 +429,11 @@ def grade_select(number, rows, reference):
 
 def product_units_state(conn):
     """Return the product_units table structure and data when the table exists."""
+    # Q9-12 share a connection, so a TEMP snapshot is valid throughout those answers.
     exists = conn.execute(
-        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='product_units'"
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='product_units' "
+        "UNION ALL "
+        "SELECT 1 FROM sqlite_temp_master WHERE type='table' AND name='product_units'"
     ).fetchone()
     if not exists:
         return None

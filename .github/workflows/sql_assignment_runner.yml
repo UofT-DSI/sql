@@ -8,9 +8,8 @@ on:
   workflow_dispatch:  # Manual trigger from GitHub UI
     inputs:
       branch:
-        description: 'Assignment 2 branch to grade, usually assignment-two'
+        description: 'Assignment branch, e.g. assignment-one or assignment-two'
         required: true
-        default: assignment-two
         type: string
       pr_number:
         description: 'Pull request number. Extract a number from the end of pull request url, i.e. https://github.com/khsergvl/sql/pull/17'
@@ -22,10 +21,10 @@ permissions:
   pull-requests: write
 
 jobs:
-  run-assignment-queries:
+  run-assignment-one:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      ((github.head_ref == 'assignment-two' || github.head_ref == 'assignment-2') &&
+      (github.event_name == 'workflow_dispatch' && (inputs.branch == 'assignment-one' || inputs.branch == 'assignment-1')) ||
+      ((github.head_ref == 'assignment-one' || github.head_ref == 'assignment-1') &&
       github.repository_owner != 'UofT-DSI')
     runs-on: ubuntu-latest
     permissions:
@@ -47,6 +46,137 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r ./.github/scripts/requirements.txt
+
+      - name: Get changed files
+        id: changes
+        run: |
+          git fetch
+          git diff --name-only origin/main > changed_files.txt
+
+          echo "Changed files:"
+          cat changed_files.txt
+          assignment_changed=""
+
+          if grep -qE '(^|/)assignment1\.sql$' changed_files.txt; then
+            assignment_changed=$(grep -E '(^|/)assignment1\.sql$' changed_files.txt | head -n1)
+          fi
+
+          if [ -n "$assignment_changed" ]; then
+            echo "assignment_changed=$assignment_changed" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Assignment 1 queries
+        id: assignment1
+        if: steps.changes.outputs.assignment_changed != ''
+        continue-on-error: true
+        env:
+          FILE_PATH: ${{ steps.changes.outputs.assignment_changed }}
+        run: |
+          pytest 03_instructional_team/tests/test_assignment_1.py --file_path="$FILE_PATH" --tb=short --disable-warnings \
+                 --junitxml=pytest-report.xml
+
+      - name: Post Assignment 1 query results to PR
+        if: always() && steps.assignment1.outcome == 'success'
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number || github.event.pull_request.number }}
+        with:
+          script: |
+            function jsonToMarkdownTable(data) {
+              if (!Array.isArray(data) || data.length === 0) {
+                return 'No data';
+              }
+
+              const headers = Object.keys(data[0]);
+
+              // Header row
+              const headerRow = `| ${headers.join(' | ')} |`;
+
+              // Separator row
+              const separatorRow = `| ${headers.map(() => '---').join(' | ')} |`;
+
+              // Data rows
+              const rows = data.map(row =>
+                `| ${headers.map(h => formatValue(row[h])).join(' | ')} |`
+              );
+
+              return [headerRow, separatorRow, ...rows].join('\n');
+            }
+
+            function formatValue(value) {
+              if (value === null || value === undefined) return '';
+              if (typeof value === 'object') return `\`${JSON.stringify(value)}\``;
+              return String(value);
+            }
+
+            const fs = require('fs')
+            const file_read_result = fs.readFileSync('test-results.json', 'utf8')
+            const results = JSON.parse(file_read_result)
+
+            let body = `### 🧪 SQL Queries Run Results (up to 3 rows)\n\n`
+            body += `<details> <summary>Click to expand/collapse assignment queries execution results</summary>\n\n`
+
+            for (const result of results) {
+              const isArrayResult = Array.isArray(result.result);
+
+              if (result.error) {
+                body += `❌ Query ${result.number}: \n\n *${result.query}*, \n\n **Error**:  \n${result.error}\n\n`
+              } else if (isArrayResult && result.result.length === 0) {
+                body += `⚪ Query ${result.number}: \n\n *${result.query}*, \n\n No rows returned \n\n`
+              } else if (isArrayResult && result.result.length > 0) {
+                body += `✅ Query ${result.number}: \n\n *${result.query}*, \n\n **Results**:  \n`
+                const table = jsonToMarkdownTable(result.result)
+                body += `${table} \n\n`
+              }
+
+              body += `-------------------------------------------------------- \n`;
+            }
+
+            body += `</details>`
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: Number(process.env.PR_NUMBER),
+              body
+            })
+
+      - name: Upload query results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a1-query-results
+          path: test-results.json
+          if-no-files-found: ignore
+
+      - name: Preserve runner failure status
+        if: always() && steps.assignment1.outcome == 'failure'
+        run: exit 1
+
+  run-assignment-two:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && (inputs.branch == 'assignment-two' || inputs.branch == 'assignment-2')) ||
+      ((github.head_ref == 'assignment-two' || github.head_ref == 'assignment-2') &&
+      github.repository_owner != 'UofT-DSI')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r ./.github/scripts/requirements.txt
 
       - name: Verify grader regressions
         run: python -m pytest 03_instructional_team/tests/test_grader_regressions.py -q
@@ -112,8 +242,14 @@ jobs:
                 let resultSection = `**Query ${result.number}: ${labels[result.status] || '⚪ Instructor review needed'}**\n\n`;
                 resultSection += `${result.feedback}\n\n`;
                 if (result.error) resultSection += fenced(result.error);
-                if (result.query) resultSection += fenced(result.query, 'sql');
-                if (result.result?.length) resultSection += fenced(JSON.stringify(result.result, null, 2), 'json');
+                let details = '';
+                if (result.query) details += fenced(result.query, 'sql');
+                if (result.result?.length) details += fenced(JSON.stringify(result.result, null, 2), 'json');
+                if (details && result.status === 'correct') {
+                  resultSection += `<details>\n<summary>SQL and output</summary>\n\n${details}\n</details>\n\n`;
+                } else {
+                  resultSection += details;
+                }
                 resultSection += '\n';
                 if (!appendSection(resultSection)) break reportLoop;
               }
