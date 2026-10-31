@@ -217,5 +217,10 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+One example of how value systems are embedded in databases can be represented through healthcare and clinical research data which I encounter daily. In clinical research, databases are often designed around predefined categories such as sex, gender, race, ethnicity, and psychiatric diagnoses. Although these categories are important for standardizing data collection and facilitating analysis, they also reflect assumptions about how individuals should be classified. For example, restricting gender to binary categories can exclude individuals who do not identify within those categories.
+
+Another important consideration is whose data is represented in the first place. Clinical research often involves eligibility criteria and recruitment procedures that may unintentionally exclude certain populations, such as individuals who face language barriers, have limited access to transportation, or cannot accommodate research visits during regular working hours. As a result, the data collected may not adequately represent the broader population, potentially limiting the generalizability of research findings. Standardization in data collection and database design does not necessarily equate fairness. For example, requiring every research participant to complete the same English-language questionnaires may appear standardized and fair. However, it can systematically underrepresent people in the population of interest who are not fluent in English.
+
+Similar to the examples discussed in the article, these issues demonstrate that databases are not entirely neutral. Decisions about which information to collect, how to categorize individuals, and whose data to include reflect institutional priorities and social assumptions. Even when these decisions are made for practical or scientific reasons, they can reinforce existing inequalities if their broader implications are not taken into consideration.
+
 ```
