@@ -108,6 +108,11 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 ***
 
+## Response to section 1: The Logical data model for customer and customer_purchases
+
+<img src="./images/Farmersmarket conceptual model.png"
+
+
 ## Section 2:
 You can start this section following *session 2*.
 
@@ -208,6 +213,13 @@ Link if you encounter a paywall: https://archive.is/srKHV or https://web.archive
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
+## Response to Section 4.
 ```
-Your thoughts...
+Given my research on HIV transmission dynamic modeling involving large datasets reporting the lived experience of sex workers from various clinics and community organizations in Kenya. Some of these data are routinely collected from clinics or organizations offering HIV prevention intervention programs specifically to sex workers. Some of the people collecting data through surveys are designed in collaboration with public health researchers and community workers to generate reports and inform policymakers about program strategies that could serve this community. Most of these data only describe individuals who are registered in the program; thus, unregistered individuals are often omitted, leading to misinterpretation in reports and in the program's reach to such people. However, these data are relevant to questioning the hypothesis of program-approach priority. Most programs are meant for individuals who have self-identified as sex workers, and this often misses individuals who are faced with various structural factors, such as policing, stigmatization, etc., from reaching or accessing these programs. Thus, these challenges may affect ensuring that the data used could also enhance equity in program access by considering potential locations (reports from these locations, either physical spaces or virtual spaces) where people meet or solicit for sex.
+
+For instance, when measuring program success by the number of people reached, we also have to consider the extent of indirect benefits achieved through the programs delivered. In other words, the population-level impact is of utmost priority, since we would achieve both direct and indirect benefits given limited resources – this raises the challenge of identifying individuals with unmet needs as well as those who should be prioritized. Not just who, but also when, given that age is a barrier to accessing programs. In addition, places where individual visits for the formation of their sexual partnership also matter. Therefore, bringing all these together in modeling the impact of programs would make decisions more efficient and inclusive.
+
+Going back to the traditional medium of program implementation and data collection, young women in sex work who are less than 18, and those who do not yet identify as sex workers but do engage in sexual activities with multiple partners, would often be overlooked. In terms of places, there could be an overlap, resulting in double counting and misinterpretation of individuals’ primary place of registration. These could broadly be due to some circumstances like age, income stigma, and mobility, and if not addressed in the data, could impact decisions around HIV prevention resource allocation.
+
+Connecting my experience with the article, one thing I could identify is the issue of classification decisions, which in turn shapes recognition and visibility. The article describes direct barriers to essential services, whereas my experience and work focus on fairness in representation and informing decisions. Generally, there is a need to address trade-offs, not necessarily by providing more detailed data with improved representation, as privacy risk and reporting burden may increase; rather, better involvement of sex workers in defining categories and interpreting findings could be a potential solution. With sex workers being involved in data reporting and interpretation, we may find responses to what value is being prioritized, including whose experience is less visible, and what consequence could follow.
 ```
