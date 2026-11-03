@@ -24,7 +24,9 @@ All the other rows will remain the same. */
 --QUERY 1
 
 
-
+SELECT
+product_name || ', ' || COALESCE(product_size, '') || ' (' || COALESCE(product_qty_type, 'unit') || ')' AS product_list
+FROM product;
 
 --END QUERY
 
@@ -41,7 +43,11 @@ HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK().
 Filter the visits to dates before April 29, 2022. */
 --QUERY 2
 
-
+SELECT customer_id, market_date, product_id, vendor_id, quantity, transaction_time,
+  DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY market_date) AS visit_number
+FROM customer_purchases
+WHERE market_date < '2022-04-29'
+ORDER BY customer_id, market_date;
 
 
 --END QUERY
@@ -52,7 +58,13 @@ then write another query that uses this one as a subquery (or temp table) and fi
 only the customer’s most recent visit.
 HINT: Do not use the previous visit dates filter. */
 --QUERY 3
-
+SELECT *
+FROM (
+  SELECT customer_id, market_date, product_id, vendor_id, quantity, transaction_time,
+    DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY market_date DESC) AS visit_number
+  FROM customer_purchases
+) AS x
+WHERE x.visit_number = 1;
 
 
 
@@ -65,7 +77,11 @@ customer_purchases table that indicates how many different times that customer h
 You can make this a running count by including an ORDER BY within the PARTITION BY if desired.
 Filter the visits to dates before April 29, 2022. */
 --QUERY 4
-
+SELECT customer_id, product_id, market_date, vendor_id, quantity, transaction_time,
+  COUNT(*) OVER (PARTITION BY customer_id, product_id) AS times_purchased
+FROM customer_purchases
+WHERE market_date < '2022-04-29'
+ORDER BY customer_id, product_id, market_date;
 
 
 
@@ -85,7 +101,12 @@ Remove any trailing or leading whitespaces. Don't just use a case statement for 
 Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR will help split the column. */
 --QUERY 5
 
-
+SELECT product_name,
+  CASE WHEN INSTR(product_name, '-') > 0
+       THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') + 1))
+       ELSE NULL
+  END AS description
+FROM product;
 
 
 --END QUERY
@@ -93,7 +114,13 @@ Hint: you might need to use INSTR(product_name,'-') to find the hyphens. INSTR w
 
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
 --QUERY 6
-
+SELECT product_name, product_size,
+  CASE WHEN INSTR(product_name, '-') > 0
+       THEN TRIM(SUBSTR(product_name, INSTR(product_name, '-') + 1))
+       ELSE NULL
+  END AS description
+FROM product
+WHERE product_size REGEXP '[0-9]';
 
 
 
@@ -111,7 +138,22 @@ HINT: There are a possibly a few ways to do this query, but if you're struggling
 with a UNION binding them. */
 --QUERY 7
 
-
+WITH daily_sales AS (
+  SELECT market_date, SUM(quantity * cost_per_quantity) AS total_sales
+  FROM customer_purchases
+  GROUP BY market_date
+),
+ranked_sales AS (
+  SELECT market_date, total_sales,
+    RANK() OVER (ORDER BY total_sales DESC) AS best_rank,
+    RANK() OVER (ORDER BY total_sales ASC)  AS worst_rank
+  FROM daily_sales
+)
+SELECT market_date, total_sales, 'best day' AS day_type
+FROM ranked_sales WHERE best_rank = 1
+UNION
+SELECT market_date, total_sales, 'worst day' AS day_type
+FROM ranked_sales WHERE worst_rank = 1;
 
 
 --END QUERY

@@ -48,8 +48,12 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+![image](images/ass2-pic1.png)
+
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+![image](images/ass2-pic2.png)
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -57,7 +61,31 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Overwrite is Type 1 SCD:
+CUSTOMER_ADDRESS (address_id PK, 
+customer_id FK UNIQUE, 
+street_address, city,
+province, 
+postal_code, 
+country, 
+last_updated)
+
+
+
+Retain chainges is Type 2 SCD :
+CUSTOMER_ADDRESS (address_id PK, 
+customer_id FK, 
+street_address, 
+city, 
+province,
+postal_code, 
+country, 
+effective_start_date,
+effective_end_date, 
+is_current)
+
+
+The overwrite design is Type 1; the design that retains changes is Type 2.
 ```
 
 ***
@@ -193,5 +221,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+This article reminds me of a recent news story I saw several days ago. There are many companies that hired huge numbers of people to make industrial components. And they wear camera glasses on their heads. This machine has two functions. First, it records the workers' behaviors to train the robots later. Second, they use the camera as an invigilator. This makes sure the workers don't take any rest in their work.
+
+Here are the problems it raises. First, after the data is collected, the company that collected the data earns money from this data. Other companies that use this data to train models may improve their robots and later earn money by selling the trained robots to factories. But the workers who provide data don't get any pay in any part of the pipeline of this data usage. But it doesn't mean they are lesser contributors in the whole business process. Does the business give the workers enough credit? Just like the Mechanical Turk workers in the article, these workers do not get enough credit for their work, and they need something like copyright so that they can earn revenue whenever their data is used. Also, in the article the ImageNet workers only get coins, but the team who uses the data gets the most credit and wins the prize. Is it a fair thing to the data labeling job compared to the modeling job? 
+
+Besides, the camera is used to make sure they do not take a rest. It's like their privacy is stolen and you cannot complain because of the burden to survive and earn a salary.
 ```
