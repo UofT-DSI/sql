@@ -57,7 +57,10 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+In both cases, the customer address table would need to link customer_id to the customer.
+Type 1 is the overwrite option, which would include utilizing the UPDATE function in SQL. The original address would be replaced with a new address, leaving a 1:1 relationship between customer and customer_address.
+Type 2 retains original address information by using the INSERT function in SQL to add another row. In a case where a customer moved, two (or more) addresses would be linked to the same customer ID, creating a 1:M relationship. Possible additions would include start_date and end_date.
+
 ```
 
 ***
