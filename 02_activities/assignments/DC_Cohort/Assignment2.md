@@ -193,4 +193,10 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 ```
 Your thoughts...
+I think the key takeaway from this article is that AI and machine learning is driven by humans, and that will inevitably lead to a human bias. For some tasks such as training AI to fold a towel, the human labour involved won't produce issues for practice, but for something like the person subtree of ImageNet then it can pose a huge challenge. Sorting out bad actors in image identification databases reminds me of Wikipedia and how it is an open website that anybody can update information or misinformation with. Although it does take a lot of human labour to train the database, the product can still be used effectively if human bias can be accounted for. Wikipedia is for the most part a good resource. But it should still be used with context, triangulation, and nuance.
+
+Adding onto human bias, I think that many people understand intuitively but not explicitly that AI or machine learning can seem neutral, but because humans train them and set their parameters they are not. For example if AI is used to summarize news based on articles with the most 'organic views' or other parameters, it may end up pushing narratives that are from a majority political viewpoint and exclude minority ones. To further problematize the issue, once an algorithm, is known certain actors may try to cheat the algorithm by optimizing certain parameters in a way that is beneficial towards them.
+
+That being said I think there is a lot of room for AI to solve problems that are human-adjacent with low stakes, and that high stakes decisions should be very critically scrutinized. For example there are court cases of arrests made on individuals with facial recognition software. Like in the article I would be happy if a robot could fold all my laundry and clothes, but I definitely would not want arrests to be made based on software that is potentially flawed or error prone, at least without multiple humans checking the software's output.
+
 ```
