@@ -56,10 +56,35 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
-```
-Your answer...
-```
+The store wants to keep customer addresses. I propose two architectures for the CUSTOMER_ADDRESS table.
 
+Architecture A: overwrite the old address (Type 1)
+
+CUSTOMER_ADDRESS
+- customer_id (PK, FK to CUSTOMER)
+- street
+- city
+- province
+- postal_code
+
+There is one row per customer. When a customer moves, the existing row is updated with the new address, so the old address is lost. This is a Type 1 slowly changing dimension. It is simple, keeps the table small, and always shows the current address, but it keeps no history.
+
+Architecture B: retain changes (Type 2)
+
+CUSTOMER_ADDRESS
+- address_id (PK)
+- customer_id (FK to CUSTOMER)
+- street
+- city
+- province
+- postal_code
+- effective_start_date
+- effective_end_date
+- is_current
+
+A customer can have many rows. When a customer moves, the old row is closed (its effective_end_date is set and is_current becomes false) and a new row is inserted with the new address. This is a Type 2 slowly changing dimension. It keeps the full address history, so the store can see where a customer lived when an order was placed, but the table grows and queries need to filter on is_current to get the current address.
+
+So the design that overwrites is Type 1, and the design that retains changes is Type 2.
 ***
 
 ## Section 2:
@@ -191,7 +216,16 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
+### Ethics
 
-```
-Your thoughts...
-```
+Boykis’s article challenges the idea that artificial intelligence operates independently of people. Her discussion of ImageNet and its underlying language classifications shows that machine learning depends on human labour and human decisions. The ethical issue is therefore broader than whether an algorithm produces accurate results: it also concerns whose work makes the system possible, whose assumptions it reproduces, and who bears the consequences when it fails.
+
+One important issue is the visibility and treatment of workers. Boykis describes people completing image-labelling tasks for very small payments, while prominent researchers receive recognition for the resulting datasets. This raises questions about how the benefits of technological development should be shared. In my view, treating annotation as simple clicking undervalues the judgement involved. Ethical development should include fair compensation, clear working expectations, opportunities to challenge rejected work, and recognition of workers’ contributions. A system should not count as a success solely because its development costs are low if those savings depend on workers having little bargaining power.
+
+Bias is another central concern. The article traces image classifications through older systems of organising language and discusses offensive or inappropriate categories applied to people. These examples show that categories themselves require scrutiny. Even perfectly consistent labelling cannot make an unjustified category ethically acceptable. For example, we should question whether a person’s character or social identity can reasonably be inferred from a photograph at all. Developers should ask who created a category, what assumptions it contains, and whether people affected by it have a meaningful say in its use.
+
+Content moderation presents a related ethical dilemma. Extending the article’s argument, asking people to identify harmful material may help protect users, but protecting one group should not require treating another group’s wellbeing as expendable. A responsible moderation process should provide appropriate support, reasonable workloads, and ways for workers to raise concerns. It should also make room for disagreement: deciding whether something is harmful can require cultural context and interpretation, rather than a supposedly universal label.
+
+The proliferation of large language models raises a further question about reuse. Although Boykis’s article focuses on image recognition, its argument invites us to consider what happens when human judgements become foundations for many other systems. Reusing a dataset or model should carry an obligation to examine its origins and limitations. Otherwise, expansion risks multiplying assumptions that users cannot see or contest. Organisations should be prepared to explain their choices, correct harmful outcomes, and reconsider deployments whose social costs outweigh their benefits.
+
+Ultimately, I read the article as a call for accountability throughout technological development. Calling a decision automated should never remove responsibility from the people and organisations that designed, funded, and deployed the system. Ethical AI requires fair treatment of workers, scrutiny of classifications, and meaningful ways for affected people to challenge decisions. Technical performance matters, but it should be evaluated alongside dignity, fairness, and the distribution of power.
