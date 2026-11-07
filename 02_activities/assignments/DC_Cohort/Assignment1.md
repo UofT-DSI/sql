@@ -110,7 +110,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 
 ## Response to section 1: The Logical data model for customer and customer_purchases
 
-<img src="./images/Farmersmarket conceptual model.png"
+<img src="./images/Farmersmarket_conceptual_model.png"
 
 
 ## Section 2:

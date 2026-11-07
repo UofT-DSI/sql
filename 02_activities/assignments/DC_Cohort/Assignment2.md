@@ -56,9 +56,22 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
+
+## Prompt 1
+ <img src="./images/small_bookstore_logical_model.drawio.png" width="500">
+
+## Prompt 2
+<img src="./images/bookstore_logical_model_employee_shifts.drawio.png" width="500">
+
+## Prompt 3
 ```
-Your answer...
+The bookstore could manage customer addresses in two ways, depending on whether it needs to keep previous addresses. These two ways include Type 1, which overwrites the previous address, and Type 2, which keeps a history of address changes. Both designs assume that each customer has one current address.
+
+For Type 1: overwrite the previous address. We will design the customer address table to include the customer id, address, city, province, postal code, country, and updated_at columns. The updated_at field will be populated when a customer changes their address. This update can only be done or replaced in the store, since each customer has one row linked to the customer table through customer id. For example, if a customer moves from 12 King Street to 45 Queen Street, the new address replaces the old one. The previous address would no longer be available in this table. Type 1 slowly changes dimension by overwriting previous values.
+
+Type 2: keep a history of address changes will have a table with the same customer and address columns, plus columns to show every version of the address and its validity, including the current address. Such columns would be address version, valid from, valid to, and is current. With these, we would be able to identify each address version, when it applies, and indicate whether it is the current address. This approach means that when a customer relocates, the store would keep the previous address row, record its end date, and mark it as no longer current. It would then add a new row containing the new address and its start date. The new row would be marked as current, with no end date until the address changes again. Thereby, allowing a customer to have several address records, but only one would be current. Therefore, Type 2 preserves previous addresses while recording new ones.
 ```
+
 
 ***
 
@@ -192,5 +205,17 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Boykis's description of hidden work behind ImageNet has raised questions about whether we recognize the human effort or input in programming artificial intelligence (AI). Most people tend to celebrate AI's work, especially when they look at AI-generated images or viral AI videos for entertainment and to make some money, without appreciating the human labor that made it possible. For instance, consider how much effort goes into looking at the computer, from every graphic to every decision made about the image outputs. These human decisions on AI outputs may seem small, but together they help build a system that later receives praise for its intelligence. 
+
+Considering fairness in the workplace as an ethical concern, researchers and AI implementers, including data modelers, deserve recognition for their workforce and meaningful contributions to the design of useful systems. Recognition from their organizations could take the form of time-reflective remuneration and, most importantly, the freedom to question unclear instructions and irregularities at work without being wrongly judged. Typically, this shows that fairness is more than just remuneration, especially when human effort is essential to decision-making. For example, in image classification, one person labels each image, whereas another decides which category it should be assigned to.
+
+In the article by Boykis, there were highlights on how human decisions are traced through ImageNet and earlier computer language resources. Thus, there is a sort of dependence on human decision and/or judgment as stated by Boykis: “every single piece of decision-making in a high-tech neural network initially rests on a human being”
+
+Consequently, deciding whether one appears trustworthy in a photograph does not establish honesty; this is the essence: accurate labeling is not always the right goal. This is because some decisions may be based on stereotypes rather than reliable evidence. Therefore, it is ethical to question both the appropriateness of the label and its availability where necessary. 
+
+Furthermore, once these decisions are embedded in a system, human effort tends to diminish. And these are also what we face in the modern job sectors, where systems are automated to judge or assess job applicants. And tracing wrong judgments would be impossible except if those who created the training data, technology guides, and automated the system are also collectively involved in the selection process, rather than basing the outcome on an individual effort. This shows that most decisions made by a computer system are objective at times.
+
+Expanding the use of AI should prompt questions about the conditions under which human judgments are collected and whose perspectives those judgments represent, especially when it involves LLMs and content generation, to ensure the usefulness of content and the extent of harmful content generated or accessed. And ethically, the workers' rights should also be considered in the issues mentioned above.
+
+Generally, it is important to note that Boykis's article supports a thorough assessment and implementation of technologies rather than relying on finished technology. Thus, this encourages meaningful opportunities to challenge harmful decisions. Therefore, developers should also consider the affected communities when making decisions about capturing their lived experiences or needs that might otherwise be overlooked, because some stories cannot be told without the story's owner. However, consultation and better data cannot justify every application. We must also ask whether a particular judgment should be automated at all. A system can be technically impressive while still treating workers or the people it classifies unfairly.
 ```
