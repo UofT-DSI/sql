@@ -57,7 +57,24 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1: When the customer address changes, change the address, and do not keep the old one.
+
+It would be enough to store:
+customer_id
+and adress(street, city, province, postal_code, country)
+
+
+Type 2: Each time the customer changes the address, add another row. This keeps the previous addresses.
+
+We would need to store:
+
+address_id
+customer_id
+adress(street, city, province, postal_code, country)
+effective_date
+end_date(when the address changes)
+is_current (yes or no)
+
 ```
 
 ***
@@ -193,5 +210,9 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+-Huge profits are made out of the labour of workers. Yet, this is not transparently acknowledged, though this is not unexpected in the capitalism. Although this is an important issue, this is not distinctly different than how -in any area- the labour is treated in capitalism. 
+-Because the categorizations are created by humans, the biases that humans have are reflected on the datasets. 
+-AI is not seperate from the human values. 
+
+
 ```
