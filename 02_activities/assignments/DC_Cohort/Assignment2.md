@@ -57,7 +57,11 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1:
+CUSTOMER_ADDRESS has customer_id, street_address, address_city, address_country, and address_postal_code columns. This architecture overwrites the address columns when a customer updates their address.
+
+Type 2:
+CUSTOMER_ADDRESS has a unique_key, start_date, end_date, and is_current coolumns plus all the columns from the type 1 architecture. This retains old records and identifies the customer's current address.
 ```
 
 ***
@@ -193,5 +197,19 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+One tentent of this article is that machine learning models have innate bias due to the nature of human intervention
+in creating training datasets. Specifically, the way in which entities are labeled is based on a human's understanding
+of that entity. Our understanding of the world is infulenced by our experiences, beliefs, and environments. As such,
+our understanding of the world varies between individuals. When a subset of individuals are tasked with creating a
+training set, their biases are disproportionately represented in the data. As we integrate the products of machine
+learning into our lives, and to help make decisions, those biases can be carried through to influence the world we
+share.
+
+Another concept discussed in the article is different forms of labour execution. First, the article discussed the use of machines to perform tasks carried out by humans. This raises concerns about labour, and how much we should utilize 
+technology to perform labour. How do we support those whose jobs might be replaced by technology? Which tasks should we 
+allow technology to execute without human oversight? Does replacing human labour with technology have a net benefit or
+not? Second, the article discusses the use of Mechanical Turk, which is a crowdsourcing marketplace. Some argue that
+the use of such marketplaces is a way to get around labour laws about fair wages. Are crowdsourced marketplaces that pay
+small monetary amounts a form of exploitation, or does it provide widespread economic oportunities that distributes
+labour globally? Perhaps, as with many complex topics, the answer is a third version that acknowledges both of the former.
 ```
