@@ -209,5 +209,11 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+The article demonstrates through a true story that databases do more than information storage; they also reflect decisions about which relationships and identities a system recognizes. In Riz’s case, the database could not verify his parents’ marriage because his mother’s marital status had never been updated. So, he was unable to renew his identification card until the records were corrected. This experience illustrates how a rule or a constraint that seems like a typical validation check can have a significant impact on the person affected.
+
+I have encountered a different version of this issue when trying to join an online waiting list for a family doctor or specialist in Ontario. I have coverage through the University Health Insurance Plan (UHIP), rather than an Ontario Health Insurance Plan (OHIP) card. Some online registration forms only provide a field for an OHIP card. Others include a generic field for an out-of-province health card, but that field may reject my UHIP plan number because its format is different from those government-issued cards.
+
+These forms and databases appear to assume that people seeking care will have an Ontario health card or a health card from another province. That assumption makes the data collection and verification simpler, but it overlooks people whose coverage falls into another category. A field can therefore be available in theory while remaining unusable in practice. This difficulty places an extra burden on people who have to find another way to register.
+
+A design including an explicit UHIP field and validation rules suited to its plan numbers would be better and fairer. It could also provide clear instructions and a way to contact a person when someone’s coverage does not match the available fields in the database. Considering those cases during database design can help make access more equitable without abandoning the need for accurate information.
 ```
