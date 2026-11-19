@@ -57,7 +57,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 overwrites the table and type 2 retains the changes
 ```
 
 ***
@@ -193,5 +193,5 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Some concerns that are raised by this article is the fact that there is alot of human labour that goes into AI models. Human workers are used to label millions of images daily yet they are not well compensated for doing these repetitive tasks. Moreover the CEOs of these companies go on to earn millions while the workers behind it are not being paid well. The fact that humans are being used for the labelling also means that there is human bias in AI. If lets say data from white patients are used to identify a cancerous mole, this may not translate well to other races as a cancerous mole may look different. Given the automation in AI, we have to be careful when using it since it has human bias embedded in it.
 ```
