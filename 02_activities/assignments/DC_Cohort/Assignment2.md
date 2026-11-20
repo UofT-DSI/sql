@@ -57,7 +57,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 — overwrite the address: A CUSTOMER_ADDRESS table could contain customer_id, street, city, province, and postal_code. When the customer moves to a new address, the existing row is updated with the new address. The table always keeps the current address while previous addresses are deleted.
+
+Type 2 — retain address history: The CUSTOMER_ADDRESS table could contain address_version_id (e.g. 0, 1, 2,...etc) as its primary key, customer_id as a foreign key, the address fields, and valid_from and valid_to dates. When the customer's address changes, the existing row is closed by filling in valid_to column, and a new row is added with the new address along with valid_from column filled in.
 ```
 
 ***
@@ -193,5 +195,13 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+The article made me think about the people whose work makes machine learning possible, particularly those who prepare and label training data. The article describes how ImageNet relied on people working through Amazon Mechanical Turk to identify images. Although these workers contributed to a dataset that became the foundation of AI training, their individual contributions are much less recognized than the resulting technology.
+
+One ethical concern is whether workers are compensated fairly. Labeling a single image may seem like a small task, but building a large dataset requires hundreds of thousands of decisions. Pay should reflect not only the time spent clicking and choosing labels, but also the time needed to understand instructions, resolve uncertainty, and check work. If workers are paid only for completed tasks, their effective hourly earnings may be lower than they first appear.
+
+Working conditions matter as well. Repetitive tasks need sustained attention, and some datasets may expose workers to disturbing content. Organizations should consider reasonable workloads, clear instructions, opportunities for breaks, and appropriate support when sensitive content is involved.
+
+Another issue is the unequal distribution of recognition and benefits. Researchers and tech companies receive professional rewards or make huge profits from a successful system, while the people who helped build its training databases remain anonymous. Publicly describing their contribution and the conditions under which the work was done would make this dependence more visible.
+
+For me, the article challenges the idea that AI is simply the product of complex algorithms. It also depends on people performing detailed and repetitive tasks. Treating that labor as essential means considering fair pay, safe conditions, and meaningful recognition as part of responsible AI development.
 ```
