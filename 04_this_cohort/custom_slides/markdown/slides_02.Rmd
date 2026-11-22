@@ -162,7 +162,7 @@ class: top, left, inverse
 --
 
 - And we can use `SELECT` to specify constant values
-  - `SELECT 2026 AS this_year, 'July' AS this_month`
+  - `SELECT 2026 AS this_year, 'November' AS this_month`
 
 <br>
 --
@@ -189,12 +189,6 @@ class: top, left, inverse
   - in more complicated RDBMs, you will often have multiple databases on the same server and multiple schema within those databases
       - a fully qualified location of a table would thus be `database.schema.table`
 - `SELECT * FROM table_name` indicates _everything_ in the table
-
-<br>
---
-
-- Best practice suggests that we should explicitly call each column, even if we want all of them
- - **Why do we think this is the case?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
  
 ---
 
@@ -203,10 +197,6 @@ class: top, left, inverse
 
 (`SELECT` & `FROM` live coding)
 
-<br>
-<br>
-<br>
-
 .center[ 
 <img src="imgs/02_CAPS.png"
      height="300px";>
@@ -214,11 +204,17 @@ class: top, left, inverse
 <sup><sup><sup><sup> Image: Unknown meme creator </sup></sup></sup></sup>
 ]
 
+--
+
+- Best practice suggests that we should explicitly call each column, even if we want all of them
+ - **Why do we think this is the case?** `r structure("\U1F4AD", class = "emoji")``r structure("\U1F4AC", class = "emoji")`**Think, Pair, Share**
+
 
 ---
 
 class: middle, center, inverse
 **Quick Mentimeter**
+
 ---
 
 class: middle, center, inverse

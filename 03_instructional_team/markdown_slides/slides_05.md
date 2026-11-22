@@ -460,11 +460,12 @@ No complex query is complete without at least one `CROSS JOIN`
 
 ```
     SELECT
+    emp_id,
     e.name as employee_name,
     m.name as manager_name
     
     FROM people e
-    LEFT JOIN people m ON e.manager_id = m.id
+    LEFT JOIN people m ON e.manager_id = emp.id
 ```    
 
 ---
@@ -482,8 +483,8 @@ No complex query is complete without at least one `CROSS JOIN`
 
 # Self Joins
 
-| emp_id | name     | manager_name        |
-|--------|----------|---------------------|
+| emp_id | employee_name  | manager_name  |
+|--------|----------------|---------------|
 | 1      | Peter Gibbons | Bill Lumbergh  |
 | 2      | Michael Bolton | Peter Gibbons |
 | 3      | Bill Lumbergh  | null          | 

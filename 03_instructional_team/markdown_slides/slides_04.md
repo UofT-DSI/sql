@@ -58,7 +58,7 @@ Handling NULLs effectively:
 
 # NULLIF
 - `NULLIF` is a useful, although perhaps uncommon, means of evaluating if two arguments are equal to one another: 
-  - `NULLIF(5,5) AS [same], NULLIF(5,7) AS [different]`
+  - For example, if we compare: `NULLIF(5,5)`, this will result in `NULL`, where as `NULLIF(5,7)` will result in `5` (and therefore is `NOT NULL`)
   - It can be generally viewed as equivalent to: 
       - `CASE WHEN parameter_1 = parameter_2 THEN NULL ELSE expr1 END`
 - `NULLIF` is particularly useful when embedded within aggregations
