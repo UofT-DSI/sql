@@ -387,14 +387,14 @@ Image: Joseph Ferrer, KDnuggets
 - `STRFTIME` also allows you to extract specific "dateparts"
   - e.g. `SELECT STRFTIME('%Y','NOW')`
 - The first argument of `STRFTIME` is flexible — you can specify more than one datepart at a time _and_ any formatting
-  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2026-07
+  - e.g. `SELECT STRFTIME('%Y-%m','NOW')` would return 2026-11 (or 2026-12 if we're behind!)
   
 ---
 
 # STRFTIME
 
 - `STRFTIME` also allows modification to date dynamically
-  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2026-07-30', 'start of month')`
+  - e.g. `SELECT STRFTIME('%Y-%m-%d', '2026-11-26', 'start of month')`
   - **How do we go about subtracting dates rather than adding them?**
 - Modifiers include:
   - +/- N years/months/days/hours/minutes/seconds
@@ -415,9 +415,9 @@ Image: Joseph Ferrer, KDnuggets
 - SQLite supports two means of adding increments of time to a date:
   - `STRFTIME` as mentioned previously
   - Using `DATE` 
-      - e.g. `SELECT DATE('2026-07-30', 'start of month')`
+      - e.g. `SELECT DATE('2026-11-26', 'start of month')`
 - Both of these methods allow you to chain modifiers
-  - e.g. `SELECT DATE('2026-07-30', 'start of month', '-1 day')`
+  - e.g. `SELECT DATE('2026-11-26', 'start of month', '-1 day')`
 
 **What do we see as the difference between these?**
 
@@ -432,7 +432,7 @@ Image: Joseph Ferrer, KDnuggets
   - e.g. `SELECT (STRFTIME("%s", Date1) - Date2) / {increment, e.g. 3600.0 for hours, 60.0 for minutes, etc}`
       - Be sure to include _.0_ for float precision: `ROUND` or `CAST` to integer if desired
   - `STRFTIME` works well for calculating months and years
-      - e.g., months until next total solar eclipse 🌑☀️ `SELECT STRFTIME('%m','2026-08-12') - STRFTIME('%m','NOW')`
+      - e.g., months until next total solar eclipse 🌑☀️ `SELECT STRFTIME('%m','2027-08-02') - STRFTIME('%m','NOW')`
 
 ---
 
