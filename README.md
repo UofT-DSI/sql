@@ -64,8 +64,8 @@ There are two assignments.
 2. [Assignment 2](./02_activities/assignments/DC_Cohort/Assignment2.md)
 
 ### Microcredential
-1. [Assignment 1](./02_activities/assignments/Microcredentials_Cohort/Assignment1.md)
-2. [Assignment 2](./02_activities/assignments/Microcredentials_Cohort/Assignment2.md)
+1. [Assignment 1](./02_activities/assignments/Microcredential_Cohort/Assignment1.md)
+2. [Assignment 2](./02_activities/assignments/Microcredential_Cohort/Assignment2.md)
 
 ## Contacts
 
