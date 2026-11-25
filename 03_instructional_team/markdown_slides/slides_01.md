@@ -40,12 +40,12 @@ $ echo "Data Sciences Institute"
 
 # About Us (Niyaz)
 
-- Holds a Bachelor’s in Electrical Engineering from the University of Mumbai, India
-- IT professional with 13 years of experience in software development, analysis, and design using a variety of programming languages and platforms for diverse clients
-- DSI Cohort 3 and LS for subsequent cohorts
-- Experienced in Agile environments, mentoring, and fostering collaborative, solution-driven work cultures.
-- Works as an Emergency Early Childhood Educator and Education Assistant, supporting students in Elementary (K–5) public school, Peel District School Board
-- Passionate about art, crocheting, and gardening; and actively volunteers with Ecosource’s Community Cultivator Program, growing food for local food banks
+- Master's in Artificial Intelligence with a deep understanding of machine learning algorithms, data science, and advanced computational techniques
+- 15 years of experience in software development, database design, and query optimization
+- DSI cohort 2
+- Co-founder of a company offering web design, SEO, and Google Ads services in Canada
+- Experienced mentor and facilitator in product development, focusing on code reviews and Agile practices to ensure quality and continuous improvement
+- I always enjoy helping others learn while continuously learning myself
 
 ![bg right:30% w:350](./images/01_niyaz.png)
 
