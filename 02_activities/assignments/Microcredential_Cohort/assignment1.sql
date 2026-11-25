@@ -1,4 +1,4 @@
- /* ASSIGNMENT 1 */
+ /* ASSIGNMENT 1 */ - Lu Zhang
 --Please write responses between the QUERY # and END QUERY blocks
 /* SECTION 2 */
 
