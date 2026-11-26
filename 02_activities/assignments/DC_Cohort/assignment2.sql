@@ -23,7 +23,7 @@ Edit the appropriate columns -- you're making two edits -- and the NULL rows wil
 All the other rows will remain the same. */
 --QUERY 1
 
-
+select * from product;
 
 
 --END QUERY
